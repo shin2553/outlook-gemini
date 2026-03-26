@@ -1,0 +1,22 @@
+# 개인 설정 (API 키, 경로 포함 — 절대 커밋 금지)
+config.ini
+profiles.json
+
+# 빌드 결과물
+dist/
+build/
+*.spec.bak
+
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Claude Code 설정
+.claude/
+
+# 기타
+*.log
+.DS_Store
+Thumbs.db
