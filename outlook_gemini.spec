@@ -6,7 +6,9 @@ a = Analysis(
     ['ui.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[
+        ('MANUAL.md', '.'),
+    ],
     hiddenimports=[
         # pywin32 / Outlook COM
         'win32com',

@@ -28,8 +28,9 @@ if errorlevel 1 (
 )
 
 echo.
-echo Copying config and profiles...
+echo Copying config, profiles and manual...
 copy /Y config_template.ini "dist\OutlookGemini\config.ini"
+copy /Y MANUAL.md "dist\OutlookGemini\MANUAL.md"
 echo [] > "dist\OutlookGemini\profiles.json"
 
 echo.

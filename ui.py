@@ -107,8 +107,21 @@ class SettingsDialog(tk.Toplevel):
             command=lambda: self._ent_key.config(show="" if self._show_var.get() else "*"),
         ).grid(row=1, column=1, sticky="w", padx=(8, 0))
 
+        # API 키 발급 링크
+        link_frame = tk.Frame(tab_api)
+        link_frame.grid(row=2, column=0, columnspan=2, sticky="w", pady=(10, 0))
+        tk.Label(link_frame, text="API 키가 없으신가요?  ", font=("맑은 고딕", 8), fg="#555").pack(side=tk.LEFT)
+        _link = tk.Label(
+            link_frame,
+            text="Google AI Studio에서 발급하기 →",
+            font=("맑은 고딕", 8, "underline"),
+            fg="#1a73e8", cursor="hand2",
+        )
+        _link.pack(side=tk.LEFT)
+        _link.bind("<Button-1>", lambda e: __import__("webbrowser").open("https://aistudio.google.com/apikey"))
+
         api_btn = tk.Frame(tab_api)
-        api_btn.grid(row=2, column=0, columnspan=2, sticky="e", pady=(16, 0))
+        api_btn.grid(row=3, column=0, columnspan=2, sticky="e", pady=(16, 0))
         ttk.Button(api_btn, text="연결 테스트", command=self._test).pack(side=tk.LEFT, padx=(0, 8))
         ttk.Button(api_btn, text="저장", command=self._save_api, width=8).pack(side=tk.LEFT)
         tab_api.columnconfigure(1, weight=1)
