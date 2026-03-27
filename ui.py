@@ -598,6 +598,7 @@ class App(tk.Tk):
 
         self._build_ui()
         self._reload_profiles()
+        self.after(200, self._check_admin)
 
     # ── UI 구성 ────────────────────────────────────────────────
 
@@ -855,6 +856,23 @@ class App(tk.Tk):
 
     # ── 프로필 ─────────────────────────────────────────────────
 
+    def _check_admin(self):
+        """관리자 권한으로 실행 중이면 경고 표시."""
+        try:
+            import ctypes
+            if ctypes.windll.shell32.IsUserAnAdmin():
+                messagebox.showwarning(
+                    "관리자 권한 경고",
+                    "이 프로그램이 관리자 권한으로 실행되고 있습니다.\n\n"
+                    "Outlook이 일반 권한으로 실행 중이면 메일 불러오기가 실패합니다.\n\n"
+                    "해결 방법 (둘 중 하나):\n"
+                    "① 이 프로그램을 관리자 권한 없이 일반 실행\n"
+                    "② Outlook을 종료 후 관리자 권한으로 재시작",
+                    parent=self,
+                )
+        except Exception:
+            pass
+
     def _reload_profiles(self):
         profiles = load_profiles()
         labels = [f"{p['name']}  /  {p['title']}" for p in profiles]
@@ -904,7 +922,7 @@ class App(tk.Tk):
                 self._manual_context = build_manual_context(query)
 
                 self.after(0, lambda: self._on_mail_loaded(mail, matched))
-            except RuntimeError as e:
+            except Exception as e:
                 self.after(0, lambda: self._on_mail_error(str(e)))
             finally:
                 pythoncom.CoUninitialize()
@@ -942,7 +960,16 @@ class App(tk.Tk):
     def _on_mail_error(self, msg):
         self._set_status("메일 로드 실패")
         self._btn_reload.config(state=tk.NORMAL)
-        messagebox.showwarning("메일 없음", msg)
+        # COM 권한 오류 감지
+        if "서버 실행" in msg or "80080005" in msg or "CoCreate" in msg or "com_error" in msg:
+            msg = (
+                "Outlook COM 연결에 실패했습니다.\n\n"
+                "원인: 프로그램과 Outlook의 실행 권한이 다릅니다.\n\n"
+                "해결 방법 (둘 중 하나):\n"
+                "① 이 프로그램을 관리자 권한 없이 일반 실행\n"
+                "② Outlook을 종료 후 관리자 권한으로 재시작"
+            )
+        messagebox.showwarning("메일 로드 실패", msg)
 
     # ── 초안 생성 ──────────────────────────────────────────────
 
