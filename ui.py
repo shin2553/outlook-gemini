@@ -699,8 +699,11 @@ class App(tk.Tk):
                                     font=("맑은 고딕", 9), fg="#555")
         self._lbl_attach.grid(row=2, column=1, sticky="ew", padx=4, pady=2)
 
-        tk.Label(mail_frame, text="본문\n(미리보기):", font=("맑은 고딕", 9, "bold"), justify="left").grid(
-            row=3, column=0, sticky="nw", padx=4, pady=2)
+        body_hdr = tk.Frame(mail_frame)
+        body_hdr.grid(row=3, column=0, sticky="nw", padx=4, pady=2)
+        tk.Label(body_hdr, text="본문\n(미리보기):", font=("맑은 고딕", 9, "bold"), justify="left").pack(anchor="w")
+        ttk.Button(body_hdr, text="팝업", width=4, command=self._open_body_popup).pack(anchor="w", pady=(3, 0))
+
         self._txt_body = tk.Text(
             mail_frame, height=4, state=tk.DISABLED,
             font=("맑은 고딕", 8), bg="#fafafa", relief=tk.FLAT,
@@ -1090,6 +1093,33 @@ class App(tk.Tk):
                 command=lambda f=filename, p=page_num: self._preview_page(f, p),
             ).pack(side=tk.LEFT, padx=(0, 4), pady=2)
             self._page_ref_vars.append((filename, page_num, var))
+
+    def _open_body_popup(self):
+        """본문 전체를 별도 팝업 창에서 표시."""
+        if self._mail is None:
+            return
+        win = tk.Toplevel(self)
+        win.title("메일 본문 전체보기")
+        win.geometry("720x540")
+        win.transient(self)
+
+        toolbar = tk.Frame(win, bg="#f0f0f0", pady=4)
+        toolbar.pack(fill=tk.X)
+        tk.Label(toolbar, text=f"제목: {self._mail.subject}", font=("맑은 고딕", 9, "bold"),
+                 bg="#f0f0f0", anchor="w").pack(side=tk.LEFT, padx=8)
+
+        frame = tk.Frame(win)
+        frame.pack(fill=tk.BOTH, expand=True, padx=6, pady=(0, 6))
+        txt = tk.Text(frame, font=("맑은 고딕", 9), wrap=tk.WORD, padx=8, pady=8,
+                      bg="#fafafa", relief=tk.FLAT)
+        sb = ttk.Scrollbar(frame, command=txt.yview)
+        txt.config(yscrollcommand=sb.set)
+        sb.pack(side=tk.RIGHT, fill=tk.Y)
+        txt.pack(fill=tk.BOTH, expand=True)
+        txt.insert("1.0", self._mail.body)
+        txt.config(state=tk.DISABLED)
+
+        ttk.Button(win, text="닫기", command=win.destroy).pack(pady=(0, 6))
 
     def _preview_page(self, filename: str, page_num: int):
         """PDF 페이지를 새 창에서 미리보기."""

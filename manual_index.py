@@ -10,8 +10,8 @@ EXPORT_DIR = Path(__file__).parent / "Manuals_txt"
 # 키워드 → 검색할 txt 파일 목록
 INDEX = {
     # ── 소프트웨어 ──────────────────────────────────────────────
-    "laserdesk": ["laserDESK_manual.txt"],
-    "laser desk": ["laserDESK_manual.txt"],
+    "laserdesk": ["laserDESK_manual_.txt"],
+    "laser desk": ["laserDESK_manual_.txt"],
     "remote control": ["laserDESK_RemoteControl.en.txt"],
     "samlight": ["sc_SAMLight_en.txt"],
     "sam light": ["sc_SAMLight_en.txt"],
@@ -156,42 +156,42 @@ INDEX = {
     # ── 기술문서 ─────────────────────────────────────────────────
     "3axis": ["AppNote_Calibrating_3-Axis_Laser_Scan_System_Doc.1.5.0_en.txt"],
     "3d": ["AppNote_Calibrating_3-Axis_Laser_Scan_System_Doc.1.5.0_en.txt",
-           "laserDESK_manual.txt"],
+           "laserDESK_manual_.txt"],
     "calibrat": ["AppNote_Calibrating_3-Axis_Laser_Scan_System_Doc.1.5.0_en.txt"],
     "mof": ["Introduction_to_MoF_with_excelliSCAN_FOR_KOREA_(by_MSL_2022_Rev._01).txt"],
     "marking on the fly": ["Introduction_to_MoF_with_excelliSCAN_FOR_KOREA_(by_MSL_2022_Rev._01).txt"],
 
     # ── 공통 기능 키워드 ─────────────────────────────────────────
-    "logging": ["laserDESK_manual.txt"],
-    "protocol": ["laserDESK_manual.txt"],
+    "logging": ["laserDESK_manual_.txt"],
+    "protocol": ["laserDESK_manual_.txt"],
     "actual position": [
-        "laserDESK_manual.txt",
+        "laserDESK_manual_.txt",
         "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt",
     ],
     "galvo": [
-        "laserDESK_manual.txt",
+        "laserDESK_manual_.txt",
         "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt",
     ],
     "scan head": [
-        "laserDESK_manual.txt",
+        "laserDESK_manual_.txt",
         "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt",
     ],
-    "laser parameter": ["laserDESK_manual.txt"],
-    "marking": ["laserDESK_manual.txt"],
-    "job": ["laserDESK_manual.txt"],
-    "variant": ["laserDESK_manual.txt"],
-    "barcode": ["laserDESK_manual.txt"],
-    "serial number": ["laserDESK_manual.txt"],
-    "wobble": ["laserDESK_manual.txt"],
-    "skywriting": ["laserDESK_manual.txt"],
-    "fill": ["laserDESK_manual.txt"],
-    "hatch": ["laserDESK_manual.txt"],
-    "speed": ["laserDESK_manual.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
-    "delay": ["laserDESK_manual.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
-    "power": ["laserDESK_manual.txt"],
-    "frequency": ["laserDESK_manual.txt"],
-    "trigger": ["laserDESK_manual.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
-    "encoder": ["laserDESK_manual.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
+    "laser parameter": ["laserDESK_manual_.txt"],
+    "marking": ["laserDESK_manual_.txt"],
+    "job": ["laserDESK_manual_.txt"],
+    "variant": ["laserDESK_manual_.txt"],
+    "barcode": ["laserDESK_manual_.txt"],
+    "serial number": ["laserDESK_manual_.txt"],
+    "wobble": ["laserDESK_manual_.txt"],
+    "skywriting": ["laserDESK_manual_.txt"],
+    "fill": ["laserDESK_manual_.txt"],
+    "hatch": ["laserDESK_manual_.txt"],
+    "speed": ["laserDESK_manual_.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
+    "delay": ["laserDESK_manual_.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
+    "power": ["laserDESK_manual_.txt"],
+    "frequency": ["laserDESK_manual_.txt"],
+    "trigger": ["laserDESK_manual_.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
+    "encoder": ["laserDESK_manual_.txt", "Manual_RTC6_SW-V1.22.0_Doc.1.1.3_en.txt"],
     "remote": ["laserDESK_RemoteControl.en.txt"],
 }
 
@@ -229,7 +229,7 @@ def search_manuals(query: str) -> list[Path]:
 
     # 3. 아무것도 매칭 안 되면 laserDESK 기본 매뉴얼 반환
     if not matched:
-        default = EXPORT_DIR / "laserDESK_manual.txt"
+        default = EXPORT_DIR / "laserDESK_manual_.txt"
         if default.exists():
             matched.append(default)
 
