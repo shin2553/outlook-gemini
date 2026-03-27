@@ -1,0 +1,2930 @@
+# Manual_155060_intelliSCAN_20_Doc.2.6_en
+
+[p.1]
+Installation and 
+Operation
+intelliSCAN 20 (ID# 155060)
+digital SL2-100, 515 + 532 nm, with Air- and Water-Cooling
+April 23, 2025
+Rev. 2.6 e
+innovators for industry
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2025
+(Doc. Rev. 2.6 e - June 29, 2009)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB.
+intelliSCAN is a registered trademark of SCANLAB GmbH.
+Other mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+Table of Contents
+3
+innovators for industry
+Table of Contents
+1
+Introduction.........................................................................................................................................5
+1.1
+Product Overview.............................................................................................................................. 5
+1.2
+Unpacking Instructions and Typical Package Contents ...................................................................... 5
+1.3
+I.D. Plate ........................................................................................................................................... 5
+2
+The intelliSCAN 20 – Principle of Operation ........................................................................................6
+2.1
+Dynamic Positioning Laser Beams ..................................................................................................... 6
+Customized Optical Configuration......................................................................................... 6
+2.2
+Scan Head Control ............................................................................................................................ 7
+Data Transmission between the Controller and the Scan Head .............................................. 7
+Position Signals, Image Field and X-Y Reference System......................................................... 7
+Returned Signals .................................................................................................................... 9
+Configuring the Servo and Start Behavior............................................................................ 12
+2.3
+Internal Protective Functions........................................................................................................... 13
+Assuring Reliable Power Supply ........................................................................................... 13
+Monitoring Scan Range and Proper Scan Operation  .......................................................... 13
+Assuring Safe Operating Temperatures ................................................................................ 14
+3
+Safety During Installation and Operation .........................................................................................15
+3.1
+Operational Guidelines and Standards............................................................................................ 15
+3.2
+Laser Safety..................................................................................................................................... 16
+3.3
+Electrical Safety............................................................................................................................... 18
+4
+Installation .........................................................................................................................................19
+4.1
+Checking the Specifications ............................................................................................................ 19
+4.2
+Mounting the Objective .................................................................................................................. 19
+Objective Holder .................................................................................................................. 19
+Objective.............................................................................................................................. 20
+4.3
+Layout and Dimensions................................................................................................................... 21
+4.4
+Mounting the Scan Head ................................................................................................................ 25
+4.5
+Connections for Cooling ................................................................................................................. 26
+4.6
+Attachment Provisions .................................................................................................................... 27
+4.7
+Electrical Connections ..................................................................................................................... 28
+Power Supply ....................................................................................................................... 28
+Data Cable Guidelines.......................................................................................................... 29
+4.8
+Operating and Storage Conditions.................................................................................................. 30
+5
+Start-up and Operation......................................................................................................................31
+5.1
+Checking the Installation................................................................................................................. 31
+5.2
+Checking the Laser Parameters........................................................................................................ 32
+5.3
+Adjustment and Alignment............................................................................................................. 33
+5.4
+Checking the Parameters of Application Software .......................................................................... 33
+5.5
+Safe Start-up and Shutdown Sequences ......................................................................................... 34
+6
+Optimizing the Application ...............................................................................................................35
+6.1
+Dynamics Configuration (Tuning).................................................................................................... 35
+Vector Tuning....................................................................................................................... 35
+Step Tuning.......................................................................................................................... 36
+Process Optimization via Process Simulation........................................................................ 36
+6.2
+Optimum Environmental Conditions............................................................................................... 37
+6.3
+Process Monitoring ......................................................................................................................... 38
+
+[p.4]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+Table of Contents
+4
+innovators for industry
+Software Monitoring............................................................................................................ 38
+Optical Process Monitoring.................................................................................................. 38
+6.4
+Configuring the Effective Calibration .............................................................................................. 39
+6.5
+Configuring the Start Behavior........................................................................................................ 39
+7
+Routine Maintenance and Customer Service.....................................................................................40
+7.1
+Routine Maintenance of the Optical Surfaces ................................................................................. 40
+Routine Maintenance of the Mirrors .................................................................................... 40
+Routine Maintenance of the Objective’s Optical Surface...................................................... 40
+7.2
+Customer Service ............................................................................................................................ 41
+8
+Troubleshooting.................................................................................................................................43
+8.1
+Fault Diagnosis and Functional Test................................................................................................. 44
+9
+intelliSCAN 20 Technical Specifications .............................................................................................45
+9.1
+Electromagnetic Compatibility ........................................................................................................ 46
+
+[p.5]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+1 Introduction
+5
+innovators for industry
+1
+Introduction
+This operating manual describes the intelliSCAN 20 
+scan head with ID number 155060.
+The manual is a part of the product. Please read these 
+instructions carefully before you proceed with 
+installing and operating the scan head. In particular 
+observe all safety guidelines in this manual. If there 
+are any questions regarding the contents of this 
+manual, please contact SCANLAB (see page 42).
+Keep the manual available for servicing, repairs and 
+product disposal. This manual should accompany the 
+product if ownership changes hands.
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification.
+1.1
+Product Overview
+The intelliSCAN 20 scan head with ID number 155060 
+is designed for positioning laser beams with a 
+wavelength of 515 + 532 nm and is equipped with a 
+20 mm aperture. 
+The scan head is designed for digital signal transfer 
+via the integrated digital servo electronics with 
+SL2-100 interface.
+The technical specifications of the product are 
+summarized on page 45.
+1.2
+Unpacking Instructions and 
+Typical Package Contents
+Carefully remove the scan head from the 
+package.
+Protect the scan head from dust and other 
+contaminants.
+Keep the packaging, so that in case of repair the 
+scan head can be properly repackaged and 
+returned to SCANLAB.
+Also remove all other articles from the package. 
+Check that all parts have been delivered. Please 
+refer to the corresponding packaging list.
+A scan head package typically includes a product 
+test protocol with test data. For mounting an 
+objective an objective mounting set may be 
+included in the package or already mounted to 
+the scan head. For controlling the scan head, an 
+RTC control board may be included in the 
+package.
+1.3
+I.D. Plate
+The scan head’s I.D. plate (see figure 1) with the scan 
+head’s serial number is found on the housing.
+The scan head is equipped for cooling of the mirrors 
+with compressed air and for water cooling of the 
+entrance aperture and electronics. Appropriate 
+connections for water and compressed air are 
+provided on the housing.
+1
+I.D. plate with serial number (SN)
+	
+	
+	
+
+
+
+intelliSCAN 20
+515 + 532 nm
+
+[p.6]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+6
+innovators for industry
+2
+The intelliSCAN 20 – Principle of Operation
+2.1
+Dynamic Positioning Laser 
+Beams
+The primary tasks of an X-Y scan head are to deflect 
+a laser beam in the X-Y directions and to focus the 
+beam onto the working plane.
+The beam deflection task is realized with the help of 
+two tiltable deflection mirrors (see figure 2). The 
+beam enters the scan head through the input aper-
+ture and is first deflected in the Y direction by 
+mirror 1 attached to galvanometer scanner 1. The 
+beam then goes on to be deflected in the X direction 
+by mirror 2 attached to galvanometer scanner 2. The 
+resulting deflection angles can be precisely and high-
+dynamically adjusted by controlling the positions of 
+the galvanometer scanners.
+Focusing the beam onto the working plane can be 
+achieved with the help of a scan lens fitted to the 
+scan head’s beam exit hole. If an F-Theta objective is 
+used, the position of the focal point on the image 
+field will be directly proportional to the angle of inci-
+dence of the beam.
+Alternatively, focusing of the beam can be realized 
+with the help of a dynamic focusing system (for 
+instance, SCANLAB’s varioSCAN 20) positioned in 
+front of the scan head’s entrance aperture.
+Customized Optical Configuration
+To obtain optimum optical performance for a partic-
+ular laser application, the scan head’s optical config-
+uration must meet the requirements of the 
+application and the used laser system. To achieve 
+optimum reflectivity at the mirrors, SCANLAB there-
+fore selects mirror coatings appropriate for the wave-
+length and power of the user’s laser. The size of the 
+mirrors or the scan head’s aperture is selected in 
+accordance with the desired spot size and scan 
+speed.
+The user, on the other hand, has to ensure that the 
+parameters of the entering laser beam (wavelength, 
+power density and diameter) match the specifica-
+tions of the scan head. 
+First the coatings of the deflection mirrors are 
+designed for a defined wavelength or wavelength 
+range. If the wavelength of the employed laser devi-
+ates from the specified value, the mirrors will not 
+work properly and can be destroyed.
+Second for the mirror coatings also the allowed laser 
+rating is defined. If the specified values are exceeded, 
+destruction of the coatings might result (also see 
+section "Checking the Laser Parameters" on page 32).
+In addition the deflection mirrors are intended for a 
+specific beam diameter and a maximum allowed scan 
+angle. If the beam diameter or the scan angle exceeds 
+the specified maximum values, vignetting of the 
+beam can occur. The beam is then no longer fully 
+deflected by the mirrors. A portion of the beam is 
+then absorbed by the scan head, resulting in a loss of 
+power. Furthermore, the interior of the scan head 
+might be damaged due to the absorption of laser 
+radiation.
+The amount of possible power loss depends, among 
+other things, on the beam profile of the employed 
+laser. For a Gaussian beam profile, beam vignetting is 
+insignificant when the scan angle of each mirror does 
+not exceed the maximum allowed scan angle defined 
+on page 45 and when the diameter of the beam 
+doesn’t exceed the specified aperture.
+2
+Basis of Operation: beam deflection via two galvanometer scanners
+	
+
+
+		
+	
+	
+		
+	
+
+
+	
+
+[p.7]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+7
+innovators for industry
+2.2
+Scan Head Control
+Data Transmission between the 
+Controller and the Scan Head
+The controller and the scan head are interconnected 
+via a serial interface for digital data transfer. Data 
+transmission follows the SL2-100 protocol. In the 
+process, essentially the following signals are trans-
+ferred:
+Position Signals, Image Field and X-Y 
+Reference System
+Position signals are digitally transferred from the 
+controller to the scan head.
+Figure 3 shows the definition of the X-Y reference 
+system which is used for the position signals trans-
+mitted to the scan head. The orientation of the axes 
+corresponds to the orientation used by the RTC 
+boards from SCANLAB: The Y axis points in the oppo-
+site direction of the entry beam (and the Z axis in the 
+opposite direction of the exit beam). Consequently: 
+Scanner 1 deflects the beam in the Y direction, 
+Scanner 2 in the X direction.
+The scan head is calibrated in such a way that for a 
+scan angle of 0.408 rad optically with excursion in 
+the negative axis direction the bit-value "–503316" 
+has to be transmitted, for the neutral position (null 
+point) the bit-value "0, and for a scan angle of 
+0.408 rad optically with excursion in the positive axis 
+direction the bit-value "+503316".
+Caution!
+• Make sure the aperture and the coatings of the 
+deflection mirrors meet the requirements of 
+your application (see "Technical Specifications" 
+on page 45). For information on tolerances and 
+deviations, please contact SCANLAB.
+• Check if the wavelength of the input beam and 
+the maximum ratings for beam diameter and 
+laser power match the specifications of the scan 
+head (see page 45).
+• When using scan angles larger than the 
+maximum allowed scan angle indicated on 
+page 45, some vignetting inside the scan head 
+can occur and damage to the interior of the scan 
+head might result. If your application requires 
+larger scan angles, then please contact 
+SCANLAB.
+• The maximum allowed scan angle is derived 
+from the geometric and optical data of the 
+employed components (see the section 
+"Customized Optical Configuration" on page 6). 
+In some cases, particularly with sufficiently small 
+calibration angles, the maximum allowed scan 
+angle can be larger than the maximum adjust-
+able angle. In such cases, the specified 
+maximum allowed scan angle has no practical 
+relevance.
+• The controller delivers position values, i.e. (20-bit) 
+set values for the X and Y axes.
+• The scan head generates data signals to be 
+returned to the controller.
+The scan head can be operated via a SCANLAB RTC5 
+control board (RTC5 PC interface board or 
+RTC5 PC/104-Plus board) but not via an older RTC 
+board as an RTC3, RTC4 or RTC SCANalone. The 
+SL2-100 protocol supports the full functionality of 
+the intelliSCAN’s digital servo architecture. This 
+allows, for instance, separate, simultaneous evalua-
+tion of the X and Y returned data signals.
+
+[p.8]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+8
+innovators for industry
+The maximum adjustable scan angle is (1 / 0.96) 
+larger than the calibration angle. The input signal 
+values for the maximum adjustable image field points 
+(see figure 3) are listed in the following table. 
+Vignetting can occur at a particular scan angle 
+dependent on the specific scan head and objective. 
+The laser beam is then partially blocked within the 
+scan head or objective, which results in transmission 
+losses. The higher the power loss, the greater is the 
+risk of damage to the scan system. In view of this, the 
+technical specifications page 45 include not only the 
+calibration angle, but also the maximum allowed 
+scan angle. This is not the same as the maximum 
+adjustable scan angle. To avoid scan system damage, 
+make sure the maximum allowed scan angle is never 
+exceeded.
+The maximum allowed scan angle is derived from the 
+geometric and optical data of the employed compo-
+nents (see the section "Customized Optical Configu-
+ration" on page 6). In some cases, particularly with 
+sufficiently small calibration angles, the maximum 
+allowed scan angle can be larger than the maximum 
+adjustable angle. In such cases, the specified 
+maximum allowed scan angle has no practical rele-
+vance.
+Figure 3 also depicts the pillow-barrel-shaped distor-
+tion of the square image field and shows the orienta-
+tion of this distortion with reference to the axes. The 
+field distortion is caused by the beam path within the 
+scan head and by the characteristics of the objective. 
+It must be compensated by the controller. 
+If you use a SCANLAB RTC control board for 
+controlling the scan head, the field distortion is 
+compensated automatically. Before data values are 
+transferred to the scan head, the values are trans-
+formed by the RTC boards with the help of a correc-
+tion table. A correction table specific for your system 
+is included in the RTC software package or can be 
+ordered from SCANLAB (also refer to the RTC 
+manual). You can use positive and negative coordi-
+nate bit-values ( – 524288 to +524287) of an ideal 
+image field, based on the reference system shown in 
+figure 3, with the origin (zero point) in the center of 
+the image field. The RTC board calculates the corre-
+sponding input values and transfers them to the scan 
+head.
+Position
+X Bit-Value
+Y Bit-Value
+0
+0
+0
+1
+524287
+0
+2
+524287
+524287
+3
+0
+524287
+4
+–524288
+524287
+5
+–524288
+0
+6
+–524288
+–524288
+7
+0
+–524288
+8
+524287
+–524288
+3
+Positions in the image field
+
+
+
+
+
+
+
+
+
+ 
+!
+
+[p.9]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+9
+innovators for industry
+The image field size, as well as the working distance A 
+between the input laser beam and the nominal 
+working plane, depend on various factors – among 
+them the focal length of the objective and the aper-
+ture of the scan head. The divergence of the input 
+beam also has an influence on the working 
+distance A.
+Returned Signals
+XY2-100 Status Word
+• PWROK (i.e. "Power OK")
+PWROK = 0 signifies a problem in the power 
+supply. In normal operation, the PWROK signal is 
+1. If the signal switches from 1 to 0 during oper-
+ation, then the laser must be turned off imme-
+diately. Under some circumstances the system 
+could deflect the laser beam in an unintended 
+The intelliSCAN’s digital servo architecture allows a 
+wide variety of data signals to be returned to the 
+control board. Via the return channel (DATA OUT±), 
+data are transmitted to the controller board every 
+10 µs simultaneously for both axes (in compliance 
+with the SL2-100 protocol). This opens up possibili-
+ties such as monitoring the galvanometer scanners’ 
+actual values during execution of an application or 
+carrying out comprehensive troubleshooting in case 
+of operational malfunction.
+The scan head returns the following signals to the 
+control board every 10 µs:
+• a 20-bit status word:
+When the scan head is operated via an RTC5 
+control board, the command control_command 
+can be used for selecting which data the scan 
+head should return to the control board via the 
+20-bit status word. The selected data sources will 
+be transmitted until another source is selected. By 
+default, after every reboot or reset, the XY2-100 
+status word (see below) is returned via the 20-bit 
+status word.
+• 6 additional status bits:
+Via these status bits, the scan head returns to the 
+control board (independently on the selection via 
+control_command) the PWROK, TempOK and 
+PosAck status informations of the XY2-100 status 
+word (see below).
+Data received by the RTC5 board can be synchro-
+nously or asynchronously read at any time via 
+get_head_status, get_value or additional 
+commands (see the RTC5 manual).
+By default, starting from five seconds after every 
+reboot or reset, the XY2-100 status word is returned 
+via the 20-bit status word. The status word contains 
+three status values, which are also returned 
+(continuously and independently on the selection via 
+control_command) via the six additional status bits:
+
+[p.10]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+10
+innovators for industry
+direction, which may cause health hazards and 
+severe equipment damage. The system should be 
+checked immediately to determine the cause (also 
+see section "Power Supply" on page 28).
+• TempOK (i.e. "Temperature OK")
+• PosAck (i.e. "Position Acknowledge") 
+PosAck = 1 signifies that the difference between 
+the set value and the real position is less than 
+0.28% of the maximum adjustable image field 
+size (see page 8). The PosAck signal normally 
+switches to 1 within a few seconds after power-
+up. The PosAck signals of the X and Y axis are logi-
+cally AND-connected and returned as common 
+signal. The command control_command allows 
+to set the PosAck threshold value (see 
+chapter 6.3, "Process Monitoring", on page 38).
+Additional Data Types
+The following is a description of the data types that 
+may be selected. The data can and must be separately 
+evaluated for each axis.
+XY2-100 Status word
+See the previous section.
+Actual Position
+Actual angular position of the corresponding axis
+Set Position
+Set angular position of the corresponding axis
+Position Error
+Set angular position - Actual angular position
+(difference between the current actual angular posi-
+tion and the current set angular position of the corre-
+sponding axis)
+Actual Current
+Actual galvo output stage current of the corre-
+sponding axis
+Actual Velocity
+Actual angular velocity of the corresponding axis
+The TEMPOK signal always switches from 0 to 1 
+when the operating temperature has been 
+reached (which might take a few minutes). If, 
+during operation, the galvo temperature drops 
+below its minimum operating temperature or 
+exceeds a maximum allowable temperature, the 
+TEMPOK signal will switch to 0. In this case, 
+system operation does not need to be stopped 
+immediately, but large drift or other side-effects 
+may occur.
+If system operation is not stopped and the 
+scanner temperatures then reach a still higher 
+critical value, then the built-in temperature 
+control mechanism will switch off the galvanom-
+eter scanner drive stages to avoid heat-induced 
+damage to the scanners or the head (see 
+page 14). If the scanner temperature drops again 
+below the power-down threshold, the scanner 
+drive stages are automatically restarted.
+When the intelliSCAN is operated via an RTC5 board, 
+the command control_command (see the RTC5 
+manual) can be used for selecting which data the 
+scan head should return to the control board. Unless 
+the configuration is changed after reset, the XY2-100 
+status word will be transferred (see the previous 
+section). The selected data is transmitted at 10 µs 
+intervals until a different data type is requested.
+Relative Galvo Control
+Galvo control voltage (in per mille of the maximum 
+value)
+
+[p.11]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+11
+innovators for industry
+Operational Status
+If the first block is selected to be returned to the 
+control board, then the scan head provides the 
+following information about the current operating 
+state:
+• Status of galvo output stage (on/off)
+• Status of internal voltages (all voltages o.k. or at 
+least one internal voltage not o.k.)
+• Status of external voltage (o.k. or power supply 
+interruption)
+• Status of AD converter (successfully initialized or 
+not initialized)
+• Status of booting process (complete or not yet 
+completed)
+• Status of control parameters (valid or invalid).
+• Boot signal: The control is activated, as soon as all 
+necessary flags are set
+• Status of positioning (positioning error within the 
+allowed range (< 0.28%) or not in the allowed 
+range)
+• Status of positioning (positioning within the 
+allowed range or critical position reached)
+• Error Status (no critical error or system presently 
+in critical error state). Critical errors are for 
+instance:
+– improper internal voltages
+– external power supply interruption
+– reaching a critical edge position
+If a critical error occurs, the scan head automati-
+cally enters a permanent error state, in which the 
+output stages of the affected axis remain deacti-
+vated – even if the critical error was only tempo-
+rarily present. Normal operation is not resumed.
+Note:
+During both temporary and permanent error states, the 
+scan head will continue to transmit data to the control 
+board. Even in these states, switching or selection of data 
+signals for diagnostic purposes is still possible.
+The second information block can be selected to be 
+returned to the control board if more detailed infor-
+mation about the current operation state is desired. 
+This block separately indicates potential error states 
+of the various internal voltages and of the galvanom-
+eter scanner and servo board temperature.
+Alternatively, two further information blocks can be 
+selected to be returned to the control board: They 
+indicate the operation states listed above at the 
+moment of the most recently occurred operation 
+interruption. After every successful restart – and, as 
+long as no error has occurred – all status informations 
+of these two blocks are irrelevant. Only, as soon as an 
+error causes a switch into a temporary or permanent 
+error state, the current status values will be saved into 
+these blocks. Simultaneously, also an event code is 
+set, indicating which particular event caused the 
+error state. This event code can be read out sepa-
+rately.
+Temperature
+Internal Voltages
+For each axis, the following internal voltages can be 
+returned to the control board:
+• AGC (automatic gain control) voltage:
+supply voltage of the corresponding position 
+detector
+• DSP core supply voltage (1.8 V)
+• DSP IO voltage (3.3 V)
+• Analog section voltage (9 V)
+• AD converter supply voltage (5 V)
+Exact values for the internal voltages can vary for 
+different scan head versions.
+The intelliSCAN provides various blocks of extended 
+status informations.
+• Status of galvo heater output stage (on/off)
+• Temperature Status (operating temperatures of 
+galvanometer scanner and servo board reached 
+or not yet reached)
+• Temperature Status (temperature of galvano-
+meter scanner and servo board below a critical 
+value or at least one of the two temperatures 
+above the critical value): If one of the two 
+temperatures exceeds the critical value, then the 
+intelliSCAN automatically enters a temporary 
+temperature error state: the output stages of the 
+affected axis are (temporarily) deactivated. The 
+scan head resumes normal operation, as soon as 
+the temperature drops below the maximum 
+allowed value.
+For each axis, the following temperatures can be 
+returned to the control board:
+• Temperature of the corresponding galvanometer 
+scanner
+• Temperature of the corresponding servo board
+
+[p.12]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+12
+innovators for industry
+Internal Current
+For each axis, the AGC current (automatic gain 
+control) of the corresponding position detector can 
+be returned to the control board.
+General Scan Head Information
+Alternatively, the following data types may be 
+selected at both axes:
+• Serial number
+• Article number
+• Firmware version number
+• Calibration
+• Aperture
+• Wavelength
+• Running time
+Configuring the Servo and Start 
+Behavior
+The user can
+• select the data type to be transmitted from scan 
+head to the controller (see section "Returned 
+Signals" on page 9),
+• select an appropriate dynamic configuration (see 
+chapter 6.1, "Dynamics Configuration (Tuning)", 
+on page 35 and chapter 9, "intelliSCAN 20 Tech-
+nical Specifications", on page 45),
+• set a desired PosAcknowledge threshold value 
+(see chapter 6.3, "Process Monitoring", on 
+page 38),
+• change the scan head’s effective calibration (see 
+chapter 6.4, "Configuring the Effective Calibra-
+tion", on page 39),
+• configure the scan head’s start behavior (see 
+chapter 6.5, "Configuring the Start Behavior", on 
+page 39) and
+• perform a fault diagnosis or verify intact data 
+transfer capability (see chapter 8.1, "Fault Diag-
+nosis and Functional Test", on page 44).
+Heating Output of the Galvo Heaters
+Relative heating output (0 to 1000 per mille) of the 
+corresponding galvanometer scanner’s heater.
+The intelliSCAN allows to configure a number of 
+settings. If used together with an RTC5 board the 
+configuration can be realized via the command cont-
+rol_command (see the RTC5 manual).
+
+[p.13]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+13
+innovators for industry
+2.3
+Internal Protective Functions
+Assuring Reliable Power Supply
+Monitoring Scan Range and Proper 
+Scan Operation  
+For safe scan head operation, a reliable supply of 
+power is absolutely essential. If the supply voltages 
+deviate excessively from their specified values or if the 
+mechanism for switching on power does not result in 
+symmetrical turn-on of the supply voltages, then 
+unintended scanner movements may occur. This in 
+turn can damage the scanners and deflection mirrors 
+and can lead, if the laser is on, to beam deflection in 
+unintended directions.
+The intelliSCAN’s supply voltages are monitored by 
+the intelliSCAN’s digital servo electronics. If, during 
+operation, the supply voltage falls below a minimum 
+of approx. 25 V (e.g. due to excessively long or thin 
+cables, a weak power supply or high loads), then the 
+electronics disconnects the scan head from the 
+power supply. In order to restart scan head operation, 
+the supply voltage problem must then be resolved 
+and the scan head switched off and then restarted.
+The intelliSCAN has a built-in monitoring function to 
+prevent damage to its galvanometer scanners or elec-
+tronics when a problem occurs.
+If a galvanometer scanner’s scan angle exceeds the 
+allowed range due to an operational disturbance or 
+if the galvanometer scanner is not moved to its set 
+position within a certain time, its output stage will be 
+shut down. In such situations, the galvanometer 
+scanner can no longer be controlled.
+Danger!
+If an output stage is shut down due to a scan 
+range overrun or any other problem, laser 
+power must be switched off immediately. 
+Otherwise, health hazards and severe 
+equipment damage can occur due to uncon-
+trolled laser radiation.
+!
+
+[p.14]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+2 The intelliSCAN 20 – Principle of Operation
+14
+innovators for industry
+Assuring Safe Operating Tempera-
+tures 
+If the scanners are driven for long periods of time at 
+high positioning speeds or if the application includes 
+a high rate of vector changes, the correspondingly 
+high current consumption of the galvanometer scan-
+ners can lead to excessive temperatures – especially in 
+the case of insufficient cooling, for instance due to a 
+weak thermal link to the machine.
+To prevent damage to the scanners, the 
+intelliSCAN 20 provides a two-stage temperature 
+control mechanism.
+Caution!
+The user must ensure that the application 
+program evaluates the temperature control 
+signals correctly, as described below.
+Stage 1: Temperature Status Warning
+The temperature status signal TempOK indicates that 
+the scanner is operating at a safe temperature level. 
+During normal operation, the signal is 1. 
+If the scanner temperature rises above a certain value 
+or drops below a minimum value, then the TempOK 
+signal switches to 0. If the TEMPOK signal switches to 
+0 during operation, system operation should be 
+stopped and the system should be checked to deter-
+mine the cause. If system operation is not stopped, 
+large drift or other side-effects may occur.
+Stage 2: Critical Temperature Shutdown
+In addition to the temperature status warning, the 
+following scanner protective function is imple-
+mented:
+If a scanner’s temperature rises above the critical 
+value for temperature status warning and reaches a 
+second, still higher critical value, then the scanner’s 
+output stage is turned off to prevent damage to the 
+scanner. In this situation, the scanner’s position is 
+stationary and no longer under programmatic 
+control.
+If the scanner’s temperature drops again below the 
+power-down threshold, the scanner’s drive stage is 
+automatically restarted and the scan head will 
+resume normal operation.
+
+[p.15]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+15
+innovators for industry
+3
+Safety During Installation and Operation
+To reduce the risk of injury, please observe the 
+following guidelines.
+The safety and warning notices in this manual are 
+indicated by a symbol set against a gray 
+background:
+3.1
+Operational Guidelines and 
+Standards
+When operating the scan head, the following guide-
+lines and standards should be followed:
+• EC Guideline 73/23/EEC
+Low Voltage Directive
+(including amendment 93/68/EEC)
+• EC Guideline 89/336/EEC
+Electromagnetic Compatibility 
+(including amendments 91/263/EEC, 92/31/EEC, 
+93/68/EEC and 2004/108/EU)
+• EC Guideline 98/37/EU
+Machinery Directive
+• EN 60204-1 (November 1998)
+Safety of Machinery – Electrical Equipments of 
+Machines, Part1: General Requirements
+(also see similar general machinery safety stan-
+dards such as VDE 0113-1, IEC60204-1 or ANSI 
+B11.19 Machine Tools – Safeguarding When 
+Referenced by Other B11 Machine Tool Safety 
+Standards-Performance Criteria for the Design, 
+Construction, Care and Operation)
+• EN 60825-1 (October 2003)
+Safety of Laser Products, Part 1: Equipment Clas-
+sification, Requirements and User’s Guide
+(also see similar general laser safety standards 
+such as VDE 0837-1, IEC 60825-1, Safety of Laser 
+Products - Part 1: Equipment Classification, 
+Requirements, and User's Guide, 21 CFR 1040, 
+Laser Product Performance Standard or ANSI 
+Z136.1 Standard for the Safe Use of Lasers)
+• EN 12626
+Safety of Machinery - Laser Processing Machines - 
+Safety Requirements
+(also see similar laser materials processing system 
+safety standards such as ISO 11553, Safety of 
+Machinery - Laser Processing Machines - Safety 
+Requirements, IEC 60825-4, Safety of Laser Prod-
+ucts - Part 4: Safety of Laser Products or ANSI 
+B11.21-1997, Machine Tools Using Lasers for 
+Processing Materials - Safety Requirements for 
+Design, Construction, Care, and Use)
+Additional application-dependent guidelines and 
+standards may apply.
+Complying with the Relevant Standards for 
+the CE Label
+The intelliSCAN 20 is delivered as an OEM component 
+conceived of for integration into a laser scan system.
+The system manufacturer bears the responsibility for 
+complying with the standards and guidelines 
+required for equipment usage and for the CE label.
+Scan Head Conformity to EC Guidelines for 
+Electromagnetic Compatibility (EMC)
+The scan head is in conformance with EC guidelines 
+89/336/EEC (electromagnetic compatibility).
+Electromagnetic fields that exceed these standards 
+can affect the operation and operating safety of the 
+scan head and therefore require special shielding.
+For more information, see the section "Electromag-
+netic Compatibility" on page 46.
+Instructions that may affect a per-
+son’s health are marked with a 
+warning triangle next to the word 
+"Danger".
+Instructions that recommend appro-
+priate use of this device or warn of 
+damage that may occur to it are iden-
+tified by a circle with an "X" in it, next 
+to the word "Caution".
+!
+
+[p.16]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+16
+innovators for industry
+3.2
+Laser Safety
+This scan head is designed to be operated in conjunc-
+tion with a laser. Therefore, all applicable rules and 
+regulations for safe operation of lasers must be 
+known and applied when installing the scan head 
+and operating the system in which it is used. Since 
+SCANLAB has no influence over the employed laser or 
+the overall system, the customer is solely responsible 
+for the laser safety of the entire system.
+Shutter
+The scan head has no shutter and there is no device 
+to decrease the laser output power. It is the responsi-
+bility of the customer to include such a device in the 
+system in a way as to comply with all regulations. The 
+observance of laser safety must be ensured for the 
+entire system.
+Maintenance
+During maintenance of the laser equipment, the class 
+of the laser can increase. Therefore, the customer 
+must take suitable protective measures.
+Warning Symbols
+The area where the emerging beam is harmful must 
+be marked with a warning symbol indicating the class 
+of the employed laser – in accordance with IEC 
+60825-1 laser safety requirements. In addition, a 
+warning symbol must be placed at the emitting aper-
+ture of the laser system. The table on page 17 shows 
+the appropriate warning symbols for the various laser 
+classes specified by IEC 60825-1 (or EN 60825-1 / VDE 
+0837 T1).
+Danger!
+• Safety regulations may differ from country to 
+country. The customer bears sole responsibility 
+for compliance with all applicable safety regula-
+tions of their respective regulatory jurisdiction.
+!
+Danger!
+• During assembly or operation of the scan head, 
+never stare directly into the laser beam or its 
+deflected radiation. Keep all parts of the body 
+away from the laser beam and its path. Routine 
+maintenance should be performed as described 
+in "Routine Maintenance of the Optical Surfaces" 
+on page 40 and all safety instructions should be 
+observed!
+• Adjust the output beam path of the scan head 
+by means of a Class 2 laser. If this is not possible, 
+the laser should be operated at the lowest 
+power. Avoid dangerous deflected radiation!
+• The risk of hazardous deflected radiation can 
+increase when optical instruments are used in 
+combination with the scan head.
+• Before checking the scan head, make absolutely 
+certain that the laser and scan head are turned 
+off! 
+• Cover the path of the laser beam via an appro-
+priate protecting case to block laser radiation!
+• Do not obstruct the movement of the scan 
+head’s mirrors in any way. When the scan head 
+is turned on, the mirrors must not be touched at 
+all!
+• Closely follow all IEC 60825-1 laser safety 
+requirements and other applicable accident 
+prevention regulations of your respective regu-
+latory jurisdiction.
+• Wear appropriate eye protection at all times.
+• Always turn on the PC controller and the scan 
+head’s power supply first before turning on the 
+laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+!
+
+[p.17]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+17
+innovators for industry
+Laser Classes Specified by IEC 60825-1 (or EN 60825-1 / VDE 0837 T1) 
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER CLASS 1
+LASER CLASS 1
+Class 1:
+This laser radiation is not harmful; is 
+eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 1 M
+INVISIBLE LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 1 M
+Class 1 M:
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+this laser radiation is not harmful; is 
+eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM
+LASER CLASS 2
+Class 2:
+This laser radiation is in the visible 
+spectrum of 400 to 700 nm. 
+Exposure to this radiation for less 
+than 0.25 s is not harmful to the 
+eyes. It is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 2 M
+Class 2 M:
+This laser radiation is in the visible 
+spectrum of 400 to 700 nm. 
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+exposure to this radiation for less 
+than 0.25 s is not harmful to the eyes 
+and is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+AVOID EXPOSURE OF THE EYES
+LASER CLASS 3 R
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 R
+Class 3 R: 
+This laser radiation is harmful to the 
+eyes. Eye exposure exceeds the 
+maximum allowable value.
+
+[p.18]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+18
+innovators for industry
+ 
+3.3
+Electrical Safety
+Power is furnished to the scan head by a user-
+supplied low voltage power supply. The power supply 
+must meet the following mains insulation require-
+ments:
+• If the connectors are covered and cannot be 
+reached without tools from the outside, single 
+insulation between the mains and the low voltage 
+circuit is sufficient. The mains insulation must be 
+able to withstand a test voltage of 2 kV AC 
+applied between the mains and the low voltage 
+circuit.
+• If the connectors can be reached from the 
+outside, double or reinforced insulation between 
+the mains and the low voltage circuit is necessary. 
+The mains insulation must be able to withstand a 
+test voltage of 4 kV AC applied between the 
+mains and the low voltage circuit.
+Additional application-dependent guidelines and 
+standards may apply.
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+Class 3 B: 
+This laser radiation is harmful to the
+eyes and in some cases to the skin.
+LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+INVISIBLE LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+Class 4: 
+This laser radiation is very harmful to 
+the eyes and skin. Stray radiation can 
+also be dangerous. This radiation can 
+cause fire or explosion and the 
+generation of toxic gases or vapors.
+
+[p.19]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+19
+innovators for industry
+4
+Installation
+Follow each step for preparation, mounting and elec-
+trical connection in the correct order as described in 
+this chapter.
+4.1
+Checking the Specifications
+Make sure the specifications of the scan head meet 
+the requirements of your application (see "Technical 
+Specifications" on page 45). If your application 
+requires other specifications, then please contact 
+SCANLAB.
+4.2
+Mounting the Objective
+If the scan head is to be operated with an objective 
+which is not factory-installed (or if an already-
+mounted objective is to be exchanged), then proceed 
+as described in the following sections.
+Objectives are mounted either directly or via an objec-
+tive holder onto the housing’s beam exit side. Many 
+objectives require a mounting set, which (in addition 
+to an objective holder) can include components for 
+securing the objective and objective holder, as well as 
+seal rings and space rings to ensure a safe distance 
+between the objective and the deflection mirrors. 
+Different objectives might require different mounting 
+sets. Appropriate objective mounting sets are 
+attached on the scan head, included with the objec-
+tive, or obtainable from SCANLAB.
+Objective Holder
+If the objective mounting set includes an objective 
+holder, install it as follows.
+Danger!
+• Make sure all components of the system (laser, 
+controller, power supply, computer) are 
+switched off before installation.
+• During installation of the scan head, never stare 
+directly into the laser beam or at any of its 
+deflected radiation.
+• Never place parts of the body into the direct 
+path of the laser or its deflected radiation.
+• After the scan head has been mounted, there is 
+a cone-shaped hazardous laser output area. Do 
+not stare into the laser or its deflected radiation. 
+Keep all parts of the body away from the laser 
+beam.
+• Always turn on the PC controller and the scan 
+head’s power supply first before turning on the 
+laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+Caution!
+• Carefully take the scan head out of the pack-
+aging.
+• Protect the scan head from dust and other 
+contaminants.
+• Never touch the optical surfaces of the 
+deflection mirrors. Always use gloves and/or 
+special lens cleaning tissues when handling the 
+optical components. 
+• Follow the procedures in chapter 7.1 for period-
+ically checking and cleaning the optics.
+!
+Carefully remove (e.g. with a small screw driver) 
+any protective covers from the scan head’s 
+objective opening.
+Some setups require installation of one or more 
+seal rings between the housing and the objective 
+holder. Check for corresponding accessories in 
+the objective mounting set.
+Place the objective holder (with its form-fitting 
+bottom side) in the beam exit opening. Ensure 
+that the objective holder is correctly positioned. A 
+tilted objective holder can produce unintended 
+beam paths.
+Secure the objective holder onto the beam exit 
+side via four screws.
+
+[p.20]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+20
+innovators for industry
+Objective
+Before mounting, inspect the objective for scratches, 
+lens defects and dirt. If necessary, clean as described 
+in "Routine Maintenance of the Optical Surfaces" on 
+page 40.
+Mount the objective as follows:
+Carefully remove (e.g. with a small screw driver) 
+any protective covers from the objective holder or 
+the scan head’s objective opening.
+Remove the protective cover from the objective’s 
+beam entrance side.
+Some setups require installation of one or more 
+seal rings between the objective holder and the 
+objective. Seal rings should be lightly lubricated 
+(with vacuum grease). Otherwise, threading of 
+the objective might be very difficult. Additionally, 
+some setups require installation of one or more 
+space rings between the objective holder and the 
+objective to ensure a safe distance between the 
+objective and the deflection mirrors. Check for 
+corresponding accessories in the objective 
+mounting set.
+Some objectives are secured to their holders via 
+screws (and washers). However, most objectives 
+are directly screwed into the objective holder. 
+Before screwing in the objective, lightly lubricate 
+its threads (e.g. with vacuum grease) to prevent 
+cold welding between the objective and its 
+holder.
+Caution!
+• Before installing the objective, verify its compat-
+ibility with the mounted objective holder or 
+beam exit threads. Otherwise, damage to the 
+objective and scan head mirrors may result. In 
+the event of questions, contact SCANLAB.
+Caution!
+• When installing the objective, ensure that all 
+components of the corresponding objective 
+mounting set are used. Failure to install included 
+seal or space rings can lead to a mirror crash 
+(resulting from inadequate distance between 
+the deflection mirrors and the objective). 
+Furthermore, the beam exit might not be opti-
+mally sealed.
+
+[p.21]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+21
+innovators for industry
+4.3
+Layout and Dimensions
+Figure 4 shows the layout of the scan head with the 
+electrical connectors and the connections for air and 
+water cooling.
+Figure 5 on page 22 shows the scan head with its 
+outer dimensions and the parts which are important 
+for mounting. The scan head installation is described 
+in chapter  "Mounting the Scan Head", on page 25.
+Figure 6 on page 23 and figure 7 on page 24 show 
+the dimensions necessary for mounting the scan 
+head and adjusting the scan head with respect to the 
+working area. Figure 6 depicts the scan head’s 
+mounting surface with its mounting bore holes and 
+a bottom view of the scan head (beam exit side) 
+which shows the displacement of the entry beam axis 
+from the beam exit axis (The deflecting mirrors are in 
+their neutral positions).
+Figure 7 shows the following distances:
+the working distance A
+the distance B between the axis of the input beam 
+and the lower edge of the housing
+the distance C between the axis of the input 
+beam and the lowest edge of the objective or its 
+enclosure.
+the diameter D which is the larger of the 
+diameters of the objective and its enclosure.
+the distance E between the front edge of the 
+beam entrance side and the axis of the beam 
+exiting the scan head.
+  
+4
+Scan head overview with connector position
+
+
+
+
+
+
+
+Legend
+1
+Entering beam
+2
+Beam entrance
+3
+Objective
+4
+Emerging beam
+5
+Electrical connections
+6
+Connection for compressed air
+7
+Connections for cooling water
+
+[p.22]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+22
+innovators for industry
+5
+ Scan head with mounting assembly (all dimensions in mm)
+
+"
+
+
+
+
+
+
+
+
+Legend
+1
+Mounting screws *
+2
+Laser system flange *
+3
+Alignment pins *
+4
+Beam entrance side with mounting bore holes
+5
+Possible positions of electrical connectors
+(the actual connector type and position of this 
+scan head are shown in figure 4)
+(* not included)
+
+[p.23]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+23
+innovators for industry
+6
+ 
+Beam entrance side with mounting, alignment and attachment provisions
+119.93
+57.15
+25
+38.1
+25
+15
+30
+34.93
+13 13
+(4x) M4x8
+(5x) M6x10
+(2x) 6H7x8
+(2x) 4H7x8
+Ø37.7
+39H7
+13 deep
+(2x) M4x9
+12.5
+17
+143
+46
+M4x6.5
+Bottom view and beam displacement 
+
+
+
+
+
+
+
+
+
+
+
+
+
+#$#
+#%#
+&
+Beam entrance side and bottom view (all dimensions in mm)
+
+[p.24]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+24
+innovators for industry
+7
+Working Distance A, distances B-E (see chapter 4.4) and dimensions (intelliSCAN 20)
+ 
+ØD
+C
+A
+B
+E
+3
+4
+2
+5
+1
+Legend
+1
+Beam entrance
+2
+Scan head
+3
+Objective (not shown true-to-
+scale)
+4
+Emerging beam
+5
+Image field
+Note: drawing not true-to-scale
+Dimensions
+B
+=
+30 mm
+E
+=
+57.15 mm
+
+[p.25]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+25
+innovators for industry
+4.4
+Mounting the Scan Head
+The illustrations for this section are found in the 
+previous section, starting on page 21.
+Mount the scan head in the following manner:
+ 
+For mounting the scan head, the beam entrance side 
+provides bore holes designed for attachment to a 
+standardized flange on the laser system – see figure 5 
+on page 22. The laser system flange, alignment pins 
+and mounting screws are not included in the 
+package.
+The dimensions of the beam entrance side and its 
+bore holes are shown in figure 6 on page 23. The 
+beam entry position is defined by two 6H7 alignment 
+holes on the mounting bracket. The laser beam axis 
+must be identical with the laser input axis of the scan 
+head. To ensure this alignment, the laser system 
+flange must have appropriate holes to accommodate 
+two 6h6 alignment pins and three M6-threaded 
+mounting screws.
+On designing the attachment flange, also consider 
+the position of the scan head’s electrical connections 
+(see figure 4 on page 21).
+Carefully remove the protective covering of the 
+laser input hole (e.g. with a small screwdriver).
+Place two 6h6 alignment pins in the corre-
+sponding 6H7 alignment holes on the flange or 
+beam entrance side.
+Place the scan head on the flange so that the 
+alignment pins line up with the alignment holes 
+on the flange and the beam entrance side. This 
+way the scan head is aligned with respect to the 
+laser.
+Fasten the scan head to the flange by installing 
+three mounting screws with M6 threads into the 
+corresponding threaded mounting holes.
+On mounting the scan head consider a correct 
+alignment in respect to the entering laser beam 
+(also see chapter  "Adjustment and Alignment", 
+on page 33) and in respect to the working field 
+(also see figure 7 on page 24).
+Caution!
+• To align and fasten the scan head, only use the 
+alignment and mounting holes depicted in 
+figure 5 on page 22. Other holes cannot be used 
+for aligning and fastening the scan head or for 
+any other purposes.
+
+[p.26]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+26
+innovators for industry
+4.5
+Connections for Cooling
+The intelliSCAN 20  is equipped with connections for 
+water and air. Both water and air cooling are neces-
+sary for safe operation. Insufficient cooling can result 
+in serious damage to the scan head.
+The user must install appropriate air and water inputs 
+and outputs to ensure adequate supply and circula-
+tion of cooling air and water.
+Water Cooling
+To connect the water supply, suitable adapters and 
+water hoses should be used. SCANLAB recommends 
+3.2 mm Delrin CPC connectors with automatic stop 
+valves. The CPC connectors can be attached to the 
+housing via the G1/8x10 threads of the cooling water 
+connections. The water hoses should be flexible. They 
+should have an inner diameter of 4 mm and an outer 
+diameter of 6 mm.
+Connect the water hoses to the appropriate 
+connectors at the scan head – see figure 4.
+Connect the water hoses to the water supply. 
+Make sure that the water flow rate can be 
+suitably adjusted.
+The temperatures of the water-cooled parts must not 
+exceed 30 °C. The water flow rate has to be adjusted 
+to approximately 5 l/min. The required differential 
+cooling water pressure is p < 0.1 bar at a maximum 
+pressure of pmax = 4 bar.
+Water with anticorrosive agent can be used as 
+cooling liquid. The cooling liquid should be free of 
+copper ions and other heavy metal ions. Otherwise 
+enhanced corrosion of the cooling channels can 
+occur. Also demineralized water mustn't be used.
+During operation, the scan head dissipates consider-
+able power. Therefore the beam entry side of the scan 
+head’s housing is equipped with water conduits for 
+cooling the entrance aperture and amplifier boards. 
+Additionally, an air cooling connection is provided for 
+transferring the heat absorbed by the mirrors.
+Caution!
+• Operate the scan head only with 
+appropriate air and water cooling.
+• A water flow rate of approximately 5 l/min. is 
+required at a differential water pressure of 
+p < 0.1 bar and a maximum pressure of 
+pmax =  4 bar. The water supply should be 
+adjustable.
+• An air flow rate of approximately 20 l/min. is 
+required at a differential air pressure of 
+p < 2 bar.
+• The cooling air must be dry and totally free of 
+dirt, dust and oil to avoid damaging the optical 
+components. Use appropriate filters.
+• To ensure sufficient cooling, both air and water 
+flow should be monitored continuously during 
+operation.
+• For storage, make sure to remove all water 
+from the device’s water-cooled parts.
+
+[p.27]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+27
+innovators for industry
+Air Cooling
+The air supply must be attached to the scan head’s 
+compressed cooling air connection (see figure 4). 
+From there the air is guided to the two deflection 
+mirrors. The cooling air inlet has a G1/8x10 thread 
+with a screw connector.
+To ensure sufficient cooling, an air flow rate of 
+approximately 20 l/min at a differential pressure of 
+p < 2 bar is required. The pressure of the air source 
+should be adjustable.
+The cooling air must be dry and totally free of dirt, 
+dust and oil to avoid damage to the optical compo-
+nents. SCANLAB recommends a (normally multistage) 
+dust filter system that provides cooling air in compli-
+ance with ISO 8573.1:2001 class 1.6.1. This applies if 
+the supplied air has a temperature of at least 20°C. 
+For lower cooling air temperatures, the dew point 
+should be at least 10 Kelvin lower than the cooling air 
+temperature.
+A flexible air hose with an inside diameter of 4 mm 
+and an outside diameter of 6 mm should be used.
+4.6
+Attachment Provisions
+The housing’s water-cooled beam entrance side 
+provides a beam entrance with an aperture of 35 mm 
+and a fine-pitched M39x1 thread. Scan heads from 
+SCANLAB are generally delivered with an aperture 
+attached to this fine-pitched thread (see figure 5). 
+The aperture limits the diameter of the input laser 
+beam to a value of 20 mm. The fine-pitched thread 
+can also be used for attaching other apertures or 
+optical components such as focusing lenses. Compo-
+nents attached here should not penetrate further into 
+the beam entrance than the value specified below 
+(the value is correspondingly lower if a penetrating 
+component is also installed at the beam exit).
+Four M4-threaded holes and two 4H7 alignment holes 
+are available for scan head mounting as well as for 
+attaching fiber optic outputs.
+The housing’s beam exit side provides a beam exit 
+with an aperture of 87 mm along with six M6-
+threaded holes and four 6H6 alignment holes for 
+alignment and attachment of components such as 
+cross jets, illumination, distance sensors, thermal 
+shields, etc. Components attached here should not 
+penetrate further into the beam exit than the value 
+specified below (the value is correspondingly lower if 
+a penetrating component is also installed at the 
+beam entrance).
+Caution!
+• If the beam entrance alone contains an installed 
+component, that component must not pene-
+trate further than 30 mm into the beam 
+entrance.
+• If the beam exit alone contains an installed 
+component, that component must not pene-
+trate further than 12 mm into the beam exit.
+• If penetrating components are installed at both 
+the beam entrance and beam exit, the maximum 
+allowable penetration depths are correspond-
+ingly lower than specified above.
+
+[p.28]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+28
+innovators for industry
+4.7
+Electrical Connections
+Figure 4 on page 21 shows the location of the elec-
+trical connectors on the scan head.
+ 
+Power Supply
+The scan head provides a 9-pin SL2-100 female D-SUB 
+connector for digital data transfer and a 3-pin 
+POWER IN male D-SUB connector (with high power 
+contacts) for power supply. Figure 8 shows the pin 
+assignments of the connectors.
+  
+8
+Pin out of electrical connectors
+(* see "Data Cable Guidelines", page 29)
+(6)
+DATA IN –
+(7)
+GND
+(8)
+GND
+(9)
+DATA OUT –
+SL2-100
+DATA IN+ (1)
+DO NOT CONNECT
+(2)
+DO NOT CONNECT
+(3)
++3.3 V (DO NOT CONNECT)*(4)
+DATA OUT+
+(5)
+(1)
+GND
+(2)
+NOT CONNECTED
+(3)
++30 V
+POWER IN
+Requirements
+The scan head requires a power supply of
+30 V (29 - 33 V) or alternatively a balanced source of 
+±(15+1.5) V DC and a maximum current of 6 A. The 
+residual ripple of the power source should not exceed 
+100 mVpp.
+The intelliSCAN provides reverse-polarity protection 
+and start-up current limiting. The power supply and 
+the SL2-100 data interface are galvanically isolated 
+from each other.
+The supply voltages are monitored by the 
+intelliSCAN’s electronics (see section "Assuring Reli-
+able Power Supply" on page 13).
+The scan head can be powered via one 30 V power 
+supply or via two ±15 V power supplies (see 
+figure 9). In general, power supplies are not included 
+in the package, but suitable power supplies are avail-
+able from SCANLAB. SCANLAB recommends to 
+connect the scan head’s GND connection (or the 
+corresponding connection of the power supply’s 
+output side) to the mains's grounding wire (PE).
+ !
+"
+#
+	$
+%&'
+ (
+)**+
+&' ,%&'
+	-	
+,%&'
+#.
+/0'
+ (
+)**+
+10' &'
+/0'
+ (
+)**+
+&' ,0'
+	-	
+#. ,%&'
+9
+Connect the scan head’s GND connection (or the corresponding 
+connection of the power supply’s output side) to the mains’s 
+grounding wire (PE).
+
+[p.29]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+29
+innovators for industry
+Connections
+Make sure each power connection has the correct 
+polarity.
+Connect each pole of the power source via an 
+appropriate cable to all pins of the scan head’s 
+connector. The cable connecting the power 
+supply and the scan head must be shielded and 
+should have a cross-sectional area of at least 
+1.5 mm2 per pole and a length not exceeding 5 
+meters. RFI must be minimized by connecting the 
+cable’s shielding at one end (utilizing a large 
+surface area) to the power supply’s metal 
+shielding and at the scanhead-end to the 
+housing’s D-SUB connector.
+Data Cable Guidelines
+The data cable must have coaxial copper braided 
+shielding.
+The D-SUB connectors must have fully shielded 
+metal housings.
+The electrical connection of the cable’s braided 
+shielding to the D-SUB housing should not be 
+implemented as a wire. Instead, the cable’s 
+braided shielding should be coaxially connected 
+to the D-SUB housing via shielded clamps.
+The power signals should be assigned to the corre-
+sponding pins of the scan head’s male high-current 
+POWER IN connector (+30 V / GND, see figure 8).
+– connect the power source GND to the GND pin 
+of the POWER IN connector
+– connect the +30 V power source to the +30 V 
+pin of the POWER IN connector
+or alternatively
+– connect the – 15 V power source to the GND 
+pin of the POWER IN connector
+– connect the +15 V power source to the +30 V 
+pin of the POWER IN connector
+Caution!
+• Before proceeding with wiring the scan head, 
+make sure none of the wires carry any voltages. 
+The control electronics and the computer must 
+be turned off.
+• Turn off the power supply before disconnecting 
+the power or the data cable.
+• Follow all power supply electrical specifications 
+exactly.
+Signal transfer between scan head and controller is 
+realized via a data cable. This data cable is connected 
+to the female SL2-100 connector.
+The differential DATA IN input channel receives the 
+the control values from the controller. The differential 
+DATA OUT output channel returns the status signals 
+to the controller. The 3.3 V voltage is supplied for 
+SCANLAB’s POF converter for optical data transmis-
+sion (POF = Polymer Optical Fiber) – also see below. 
+This voltage should not be used for other purposes.
+Appropriate data cables, for either electrical trans-
+mission or optical fiber transmission, are obtainable 
+from SCANLAB. The optical fiber, too, is attached via 
+a 9-pin D-SUB connector. Optical conversion (POF 
+conversion) for optical data transmission takes place 
+in the D-SUB connector. The operating voltage for 
+POF conversion is supplied at the SL2-100 connector 
+and the RTC5 board’s scan head connectors.
+Data cables are generally not included in the 
+package. SCANLAB recommends the following 
+design (for electrical data transmission):
+The cable should be fitted with 9-pin male D-SUB 
+connectors at both ends. The two channels 
+DATA IN± and DATA OUT± (4 wires) must consist 
+of twisted cable pairs and be cross-connected at 
+both D-SUB connectors (e.g. so that the RTC5 
+board’s DATA OUT signal flows to the scan 
+system’s DATA IN input). The cable length should 
+not exceed 25 m. SCANLAB recommends a cable 
+impedance of 110 , independent from the cable 
+length.
+
+[p.30]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+4 Installation
+30
+innovators for industry
+Figure 10 shows the data cable layout and pin assign-
+ments.
+Connect the scan head via the data cable to the 
+customer-specific controller.
+If an RTC board is used as the controller, then 
+follow the installation instructions in the RTC 
+manual.
+4.8
+Operating and Storage Condi-
+tions
+For storage, operation and servicing, make sure the 
+following environmental conditions are met:
+• The storage temperature for the scan head should 
+be between – 35 °C and +60 °C. For storage, 
+make sure to remove all water from the device’s 
+water-cooled parts.
+• The operating temperature is 25 °C ± 10 °C.
+• Protect the scan head from humidity, dust and 
+corrosive vapors to avoid damage to the mirrors, 
+optics and electronics.
+• Avoid strong electromagnetic fields and static 
+electricity. These can damage the electronics of 
+the interface and amplifier boards.
+ 
+10
+Data cable layout and pin assignments
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+'()
+*+,&
+"'
+*+,&
+"'
+(
+-.	.'
+Caution!
+> Do not operate the scan head without appro-
+priate air and water cooling.
+
+[p.31]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+5 Start-up and Operation
+31
+innovators for industry
+5
+Start-up and Operation
+5.1
+Checking the Installation
+Before operating the scan head, carefully check the 
+following:
+Were the mechanical installation and electrical 
+wiring fully and correctly carried out as described 
+in "Installation" on page 19?
+Are all optical components clean and free of 
+dust? If necessary, clean the optical components 
+as described in "Routine Maintenance of the 
+Optical Surfaces" on page 40.
+Are air and water cooling facilities properly 
+connected to the scan head?
+Entrance Aperture
+The intelliSCAN 20’s beam entrance usually provides 
+a water-cooled 202530 mm bronze aperture. For 
+parallel incident laser light, this prevents damage to 
+the scan system due to vignetting at the optical 
+components. For parallel incident laser light and 
+without a focusing optic in front of the 
+intelliSCAN 20’s beam entrance this water-cooled 
+20 mm bronze aperture from SCANLAB must be 
+mounted. In this case the values for the maximum 
+allowed laser power and laser power density, speci-
+fied in chapter  "intelliSCAN 20 Technical Specifica-
+tions", on page 45 must be considered. If the scan 
+head is delivered without bronze aperture, the aper-
+ture is available at SCANLAB and can be screwed into 
+the intelliSCAN 20’s beam entrance or alternatively 
+fixed via two M4 screws and two 4 mm shims with 
+9.5 mm outside diameter.
+However, if the intelliSCAN 20 is used in combination 
+with a varioSCAN 40FLEX, the 20 mm bronze aperture 
+from SCANLAB must not be mounted. On the one 
+hand, the optics of the varioSCAN 40FLEX expand the 
+laser beam before the beam enters the 
+intelliSCAN 20. Therefore a larger entrance aperture 
+is necessary. On the other hand the optics of the 
+varioSCAN 40FLEX also focuses the laser beam. The 
+laser beam is formed in such a way that vignetting 
+inside the intelliSCAN 20 does not occur. If a focusing 
+optic – such as the varioSCAN 40FLEX or another optic 
+designed by SCANLAB – is put in front of the 
+intelliSCAN 20’s beam entrance, the maximum 
+allowed laser power and laser power density are 
+determined by this focusing optic and are specified in 
+the corresponding manual.
+
+[p.32]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+5 Start-up and Operation
+32
+innovators for industry
+5.2
+Checking the Laser Param-
+eters
+The scan head’s deflection mirrors are designed for a 
+laser beam with defined parameters.
+Compare the technical specifications on page 45 
+with the requirements of your application. For 
+information on tolerances and deviations, please 
+contact SCANLAB.
+Verify that the input beam wavelength, the input 
+beam diameter and the maximum laser power are 
+compatible with the specifications of the scan 
+head.  
+The values specified for the maximum laser power 
+rating and the laser damage threshold only apply to 
+the scan mirrors. They do not apply to the scan objec-
+tive or other components. Typically, however, the 
+damage thresholds of scan objectives are similar to 
+that of scan mirrors.
+Also be aware that additional optical components in 
+the optical beam path can focus a part of the laser 
+beam onto the mirror and thereby dramatically lower 
+the effective damage threshold. For instance, the 
+lenses or protective window of a scan objective – 
+though coated with an antireflex coating – always 
+reflect a certain fraction of the laser light. If the lenses 
+are shaped such that the reflected laser light is 
+focused onto the scan mirrors, the power density 
+within this focus may be more than 1000 times larger 
+than in the original beam and the effective damage 
+threshold will be correspondingly reduced. In partic-
+ular, the mirrors can be damaged by lasers with high 
+pulse energies, short pulse lengths and good beam 
+quality. Contamination on or damage to the optical 
+surfaces of the objective or protective window can 
+further increase residual reflectivity, which further 
+increases the danger of mirror damage from back 
+reflections.
+Furthermore, the specified values only apply to clean 
+and new mirrors. Mirror contamination (dust, finger-
+prints, cleaning residue, deposits from laser 
+processing etc.) as well as mechanical damage 
+(scratches, fractures, burn-in, damage by an 
+improper cleaning procedure) can considerably 
+reduce the damage threshold.
+The specified damage threshold for pulsed operation 
+is the maximum energy density for which no mirror-
+surface damage is expected for the specified wave-
+length and for two hundred pulses with a specified 
+pulse length onto the same mirror spot (see note 
+below).
+In general, the damage threshold considerably 
+decreases with an increasing number of laser pulses. 
+In continuous operation, SCANLAB therefore recom-
+mends only applying suitably reduced energy densi-
+ties (depending on the repetition rate and the laser 
+parameters, typically five times smaller than the spec-
+ified pulse damage threshold, if necessary even 
+smaller).
+The damage threshold for pulsed operation also 
+decreases with decreasing pulse length. In particular, 
+this effect must be considered for pico- or femto-
+second lasers.
+Note: The specified damage threshold energy density corre-
+sponds to 0% damage probability (see ISO 11254). Here, 
+damage means a permanent, laser induced surface modifi-
+cation. Test parameters: angle of incidence: 45°; pulse 
+length (FWHM): see specifications on page 46; beam 
+profile: TEM00; 200 pulses per test site; inspection method: 
+Nomarski dark field microscope (150x).
+Caution!
+• The mirror coatings are designed for a laser 
+wavelength of 515 + 532 nm.
+• The maximum allowed average laser power is 
+150 W (300 W *). 
+The laser power density applied to the mirrors 
+must not exceed the value of 400 W/cm2 
+(800 W/cm2 *) continuous wave.
+(* with specified cooling)
+• The damage threshold value for pulsed opera-
+tion is 2.5 J/cm2 (for a pulse length of 10 ns and 
+200 pulses).
+• To cope with the heat resulting from high laser 
+power, the scan head is air and water cooled. 
+But if the scan head is used without cooling, 
+damage can result.
+• The beam diameter at the entrance of the scan 
+head must not exceed 20 mm.
+
+[p.33]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+5 Start-up and Operation
+33
+innovators for industry
+5.3
+Adjustment and Alignment 
+To ensure optimum performance of the scanning 
+system, it is crucial that the laser beam and the scan 
+head are precisely aligned with respect to each other. 
+Incorrect alignment might lead to the following 
+effects:
+• vignetting of the laser beam
+• a large, irregular spot
+• arbitrary translation of the image field
+In most cases, vignetting will be the predominant 
+effect. Vignetting occurs if the laser beam is not able 
+to fully pass through or be reflected by the optical 
+components. Part of the beam’s diameter will be cut 
+off, resulting in power loss and possible system 
+damage due to excessive absorption of laser power.
+To avoid significant vignetting, the system must be 
+aligned as precisely as possible, particularly in terms 
+of the beam position relative to the scan head’s 
+optical axis. If the laser beam profile is Gaussian, the 
+maximum tolerances appropriate for most applica-
+tions are:
+If you use a laser with "flat top" beam profile, it can 
+be necessary to align the system with even higher 
+precision. Avoid vignetting especially for a high 
+power laser. Align carefully and – if necessary – 
+reduce the beam diameter to an appropriate value.
+ 
+In order to achieve optimal processing quality, it may 
+be necessary to fine-tune the working distance A. The 
+working distance A is defined as the distance 
+between the axis of the laser beam entering the scan 
+head and the nominal working plane – see figure 7.
+The working distance A can be directly adjusted in 
+small steps. Alternatively, the working distance A can 
+also be adjusted indirectly via the beam divergence – 
+this can be achieved with the help of a beam 
+expander or a variable focusing system (for example, 
+SCANLAB’s varioSCAN 20) placed in front of the scan 
+head’s entrance aperture.
+5.4
+Checking the Parameters of 
+Application Software
+Before you start a laser application, you must care-
+fully check your application software with regard to 
+the maximum allowed scan angle and working area.
+If scan angles larger than the maximum allowed scan 
+angle indicated on page 45 are used, some 
+vignetting inside the scan head can occur and 
+damage to the interior of the scan head might result. 
+If your application requires larger scan angles and a 
+larger image field, then contact SCANLAB for guid-
+ance. 
+• tilt of the laser beam:
+< 5 mrad
+• displacement:
+< 0.3 mm
+Danger!
+• Do not stare directly into the laser beam or at 
+any of its deflected radiation. Keep all parts of 
+the body away from direct contact with the laser 
+beam or any of its deflected radiation.
+• Adjust the output beam path of the scan head 
+by means of a laser with a laser class not higher 
+than 2. If this is not possible, the laser should be 
+operated at the lowest power. Avoid dangerous 
+deflected radiation!
+!
+Caution!
+• Remove the protective covers from the scan 
+head’s beam entrance and beam exit or objec-
+tive prior to first-time operation.
+
+[p.34]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+5 Start-up and Operation
+34
+innovators for industry
+5.5
+Safe Start-up and Shutdown 
+Sequences
+To assure safety during start-up, proceed exactly as 
+follows:
+(1) Start up the air and water cooling facilities and 
+monitor the flow to assure reliable cooling.
+(2) Turn on the controller containing the RTC 
+control board and start up the control soft-
+ware.
+(3) Turn on the power supply for the scan head.
+(4) Turn on the laser.
+When shutting down the system, turn off the compo-
+nents exactly in reverse order.
+Caution!
+• Before first-time operation, check the polari-
+ties of the power supply connections for the 
+scan head.
+• Operate the scan head only with appropriate 
+air and water cooling.
+• Always turn on the scan head control 
+(controller with RTC control board and control 
+software) and the power supply for the scan 
+head prior to turning on the laser. Otherwise 
+there is the risk that the laser beam might be 
+deflected in an arbitrary direction.
+• Power for the scan head must be applied only 
+when scan head control is active.
+
+[p.35]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+6 Optimizing the Application
+35
+innovators for industry
+6
+Optimizing the Application
+6.1
+Dynamics Configuration 
+(Tuning)
+SCANLAB’s galvanometer scanners and digital 
+control boards allow precise dynamic control of the 
+two deflection mirrors. This enables exact positioning 
+of the laser beam with high speed.
+To reflect differing positioning requirements for 
+various applications, the dynamics configuration (i.e. 
+tuning) of SCANLAB’s scan heads can be appropri-
+ately optimized. Two widely used types, vector tuning 
+and step tuning, are described in the following 
+sections. SCANLAB can develop special tunings on 
+request.
+The scan head’s factory-supplied tunings, their 
+related dynamics specifications and the corre-
+sponding numbers for selection via the 
+control_command are listed in "Technical Specifica-
+tions" on page 45.
+Vector Tuning
+Many laser applications require the laser focus to 
+trace contours within the working plane at a constant 
+processing speed. To achieve this, the control subdi-
+vides the contours into microsteps. Microstep length 
+is determined by the output period and desired 
+speed. Vector tunings are optimized for this kind of 
+vector control.
+For optimal scan head operation with vector tuning, 
+observe the following points:
+Positioning Speed
+For scan heads with vector tuning, it is advisable to 
+also use vectors when positioning with the laser 
+switched off. Compared to hard jumps, a defined 
+positioning speed will prevent excessive oscillation 
+and usually produce shorter positioning times. Posi-
+tioning speeds can generally be significantly higher 
+than processing speeds.
+For the supplied vector tunings, a typical and a 
+maximum positioning speed (in [rad/s]) each is listed 
+in "Technical Specifications" on page 45. There, the 
+typical positioning speed is also specified (for a 
+selected F-Theta objective) as positioning speed 
+within the image field (in [m/s]).
+The specified figures are reference values for large 
+vector lengths (typically over 1 mm with a 160 mm 
+F-Theta objective). Select a somewhat lower posi-
+tioning speed for shorter lengths to avoid possibilities 
+of comparatively high overshoot.
+With the SCANLAB RTC control board, the positioning 
+speed (jump speed) can be set via the set_jump_-
+speed software command. The RTC jump speed (in 
+[bit/s]) is derived by multiplying the positioning speed 
+(in [mm/s]) by the correction file’s calibration factor 
+(in [bit/mm]). With vector tuning, the jumps them-
+selves should be executed via the commands 
+jump_abs or jump_rel.
+Processing Speed
+The processing speed must be adjusted according to 
+the particular application. As an example, a typical 
+marking speed for marking small characters (marking 
+speed in the image field in [m/s] for a selected F-Theta 
+objective) is specified in "Technical Specifications" on 
+page 45. For other applications or optical configura-
+tions, the appropriate processing speed can differ 
+considerably from the specified value.
+An appropriate initial value for optimizing the posi-
+tioning speed is the marking speed listed in "Technical 
+Specifications" on page 45. The process speed (RTC 
+mark speed) that can be set via an RTC board is spec-
+ified by multiplying by the correction file’s calibration 
+factor (in [bit/mm]).
+Optionally, the intelliSCAN can be equipped with 
+multiple tunings (and therefore with multiple servo 
+algorithms), thus enabling users to select tunings 
+tailored for their diverse applications. With 
+SCANLAB’s RTC5 board as controller, tuning selection 
+is achieved by issuing a control_command. Upon 
+power-up, the scan head selects its first tuning 
+(number 0) by default.
+
+[p.36]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+6 Optimizing the Application
+36
+innovators for industry
+Tracking Error (Time Lag)
+Galvanometer scanner movements do not occur 
+instantaneously with respect to vector control, but 
+rather after a certain time lag, the tracking error. The 
+tracking error characterizes the reaction properties of 
+the galvanometer scanners and is specified as 
+another key dynamic parameter (see "Technical Spec-
+ifications" on page 45). The vector control output 
+period must be significantly shorter than the tracking 
+error. Otherwise, instead of moving the galvos with 
+constant speed, the servos would attempt to follow 
+the individual microsteps. This, in turn, would 
+increase power consumption and thermally stress the 
+galvos. SCANLAB therefore recommends as short an 
+output period as possible, no more than 20% of the 
+tracking error. SCANLAB’s RTC boards consistently 
+achieve very good results with an output period of 
+10 µs.
+Oscillation behavior and tracking error must be taken 
+into account by the application software, which 
+synchronizes the scan head and the laser control. If 
+the scan head is controlled via a SCANLAB RTC control 
+board, then synchronization is easily realized by 
+appropriately setting the scanner and laser delay 
+parameters. SCANLAB recommends the following as 
+initial values for delays:
+• Laser-On Delay: 60% of the tracking error
+• Laser-Off Delay: 120% of the tracking error
+• Jump Delay: 200% of the tracking error
+• Mark Delay: 100% of the tracking error
+• Polygon Delay: 50% of the tracking error
+The RTC user manual describes how delays can be 
+optimized for an application’s quality requirements.
+Step Tuning
+Some other application types (like boring holes at 
+defined distance intervals) present dynamics require-
+ments that differ substantially from those of vector 
+control. Here, the emphasis is not on constant 
+process speeds, but rather on high jump speeds, 
+because the laser processing is more point-oriented 
+than line or curve dominated. Step tunings are there-
+fore optimized for minimal duration of executed 
+jumps.
+To exploit the advantages of this dynamics configura-
+tion, the scanners should be controlled to make hard 
+jumps and thus instantaneously move to the target 
+position without microvectorization.
+To optimize scan head operation for step tuning, it 
+should also be considered that each jump requires a 
+certain amount of time until the scanners reach the 
+intended positions. This delay time is listed in "Tech-
+nical Specifications" on page 45 as the step response 
+time for selected jump lengths. The step response 
+time typically scales proportionally with the square 
+root of the jump length. The user can precisely deter-
+mine the step response behavior by making the scan 
+head perform jumps of varying length, reading the 
+resulting position values via the status channels and 
+subsequently analyzing the data.
+With an RTC board as controller, the jumps should be 
+executed via timed (time-measured) commands 
+(timed_jump_abs or timed_jump_rel) instead of 
+vector jump commands (jump_abs or jump_rel). By 
+setting the jump duration to 10 µs, hard jumps at 
+maximum speeds are achieved.
+The step response is then considered by interrupting 
+the jump execution for the duration of the corre-
+sponding step response time via the long_delay 
+command. The jump delay should be set to 0. For 
+point-oriented laser processing, other scanner delays 
+need not be considered and the laser delays can 
+generally be set to 0. The jump rate is then derived 
+from the set delay times and the laser processing 
+time.
+For applications requiring high precision, the delay 
+times should not be shorter than the step response 
+time. To minimize total process time, the delay times 
+should be optimized for the corresponding jump 
+lengths.
+Process Optimization via Process 
+Simulation
+During the testing phase of an application program 
+simulations of the scanning process can be helpful. 
+The scanning process is thereby executed with the 
+laser switched-off and the actual scanned positions 
+are read during execution and compared to the 
+programmed set positions. Many process parameters 
+(as settings for speeds, delays, etc.) can be simply 
+optimized by evaluating such process simulations. In 
+this way simulations can largely replace time-
+consuming inspection of processed material.
+
+[p.37]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+6 Optimizing the Application
+37
+innovators for industry
+6.2
+Optimum Environmental 
+Conditions
+Long-term repeatability is very important in many 
+scan head applications, e.g. for rapid prototyping in 
+which the processing operation can span several 
+hours. For such laser applications, the long-term drift 
+and temperature drift of the scan head’s galvano-
+meter scanners, which manifest as a shift (offset drift) 
+and increase or decrease in the size (gain drift) of the 
+working image field, can exceed the allowable 
+tolerances.
+In such applications, it’s helpful to start up the appli-
+cation only after the scanners have reached their 
+operating temperature. In addition, the magnitudes 
+of environmental fluctuations (e.g. operating 
+temperature changes to which the scan head is 
+exposed) should be kept as small as possible and the 
+scan head preferably operated with a constant load.
+
+[p.38]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+6 Optimizing the Application
+38
+innovators for industry
+6.3
+Process Monitoring
+The scan head provides internal protective mecha-
+nisms for monitoring
+• the power supply
+• the scan range and proper scan operation
+• the operating temperature
+(also see chapter 2.3, "Internal Protective Functions", 
+on page 13).
+In addition, the user has various possibilities for 
+monitoring the scan process as described in the 
+following.
+Software Monitoring
+When the intelliSCAN is operated via an RTC5 board, 
+then a number of various data signals can be evalu-
+ated for monitoring or test purposes.
+For applications with critical scan precision require-
+ments, the actual galvo scanner value can be moni-
+tored during the entire runtime of an application.
+Alternatively, other data signals (e.g. scanner 
+temperature) can be analyzed during normal opera-
+tion or even when testing user applications.
+Malfunctions can be quickly detected if you regularly 
+query (and store) the intelliSCAN’s operational states 
+before, after or during operations. Furthermore, 
+determination of a malfunction’s cause is simplified 
+considerably (also see chapter 8.1, "Fault Diagnosis 
+and Functional Test", on page 44).
+If scan precision is monitored via the PosAck signal of 
+the XY2-100 status word, the intelliSCAN also 
+enables changing the PosAck threshold value via the 
+command control_command. The default start 
+behavior is for the scan head to set the threshold 
+value to 0.28% of the full position range (i.e. 0.28% 
+of 216 counts) after every power-up or reset. If other 
+threshold values are desired, they must be separately 
+set for each axis.
+Optical Process Monitoring
+For camera-based observation of the scan head’s 
+working field SCANLAB offers a camera adapter. The 
+camera adapter can be mounted between the scan 
+head’s beam entrance and the laser flange. Then the 
+camera adapter’s dichroitic beam splitter decouples 
+light reflected from the illuminated workpiece and 
+arriving the scan head’s beam entrance via the scan 
+objective and the scan mirrors. The light is decoupled 
+from the beam path and then directed to the camera. 
+Please contact SCANLAB for further information (see 
+page 42).
+
+[p.39]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+6 Optimizing the Application
+39
+innovators for industry
+6.4
+Configuring the Effective 
+Calibration
+6.5
+Configuring the Start 
+Behavior
+• the scan head transmits a status word compliant 
+with the XY2-100 protocol on all receive channels 
+(also see section "Returned Signals" on page 9),
+• the first tuning (number 0) is selected (also see 
+chapter 6.1, "Dynamics Configuration (Tuning)", 
+on page 35),
+• a PosAcknowledge threshold value of 0.28% of 
+the full position range (i.e. 0.28% of 216 counts) 
+is set (also see chapter 6.3, "Process Monitoring", 
+on page 38),
+• a scale factor of 1 is set (also see chapter 6.4, 
+"Configuring the Effective Calibration", on 
+page 39).
+The settings can be changed via the control_com-
+mand. The changed settings are only temporary, 
+however they can be additionally saved as starting 
+settings for subsequent power-ups or resets (power 
+supply switched off and switched on) via the cont-
+rol_command.
+As long as the start behavior is not changed as 
+described, the scan head starts with the starting 
+settings pre-configured by SCANLAB on every power-
+up or reset.
+The servo electronic of the intelliSCAN can be config-
+ured to scale the position values received from an 
+RTC5 board by a specific factor (1, 1/2, 1/4 or 1/8). The 
+position signals (optionally) returned by the scan 
+systems to the RTC5 remain unaffected, as do the 
+pre-configured calibrations of SCANLAB’s scan 
+systems. However, the effective calibration can be 
+thereby reduced to confine the scan area to a smaller 
+angular range – with a higher angular resolution.
+The default start behavior is for the scan system to 
+start with a scale factor of 1 (i.e. with SCANLAB’s pre-
+configured calibration) upon power-up or after a 
+reset. The pre-configured calibration value is speci-
+fied in the technical specifications on page 45.
+In its default configuration the intelliSCAN is pre-
+configured by SCANLAB so that
+
+[p.40]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+7 Routine Maintenance and Customer Service
+40
+innovators for industry
+7
+Routine Maintenance and Customer Service
+7.1
+Routine Maintenance of the 
+Optical Surfaces
+Dirty objectives and mirrors increase the absorption 
+of laser power by their respective optical surfaces. 
+Dirt, dust and other contaminants can distort the 
+laser beam, burn into the surface and damage the 
+optical elements. The warranty does not cover any 
+damage due to improper use, cleaning or handling.
+Routine Maintenance of the Mirrors
+The deflection mirrors are especially sensitive compo-
+nents and should not be touched or removed from 
+the scan head. Nevertheless, you must regularly 
+inspect the mirrors for dirt, dust and other contami-
+nants. The mirrors must also be inspected after a long 
+storage time.
+If inspection reveals dust particles, then remove them 
+by blowing air on the mirror’s surface with the help 
+of a rubber squeeze bulb or a source of compressed 
+clean air.
+If the dust cannot be removed in this manner, or if 
+inspection reveals more serious contamination, then 
+contact SCANLAB for guidance. In extreme cases, the 
+complete scan head must be returned to SCANLAB 
+for inspection and cleaning of the mirrors. However, 
+in some situations SCANLAB might be able to recom-
+mend a user-performed special cleaning procedure. 
+Routine Maintenance of the Objec-
+tive’s Optical Surface
+The outermost optical surface of the scan head’s 
+objective is cleanable by the user. Regularly check the 
+scan head’s objective.
+If dirt, dust or other contaminants are found, clean 
+the objective’s optical surface as follows: Using a 
+rubber squeeze bulb or compressed clean air, blow air 
+on the objective’s surface to remove dust and dirt 
+particles. If the objective is still not clean, then use 
+solvent and lens cleaning tissues as described below:
+(1) Create a lens-tissue brush by folding a clean lens 
+tissue so that the fold is about half as wide as the 
+objective’s lens surface.
+ Danger!
+• Never stare at the laser beam or its deflected 
+radiation when performing routine mainte-
+nance of the scan head. Keep all parts of the 
+body away from direct laser beams or 
+deflected radiation. When the laser beam is 
+not required, turn it off or reliably block it via 
+a shutter to prevent its entry into the scan 
+head.
+!
+Caution!
+• Improper cleaning procedures – for instance 
+cleaning cleaning metal-coated mirrors with 
+acetone – can cause irreparable damages to 
+the mirror coatings. Therefore, if the above-
+mentioned cleaning procedure (with air) is 
+insufficient, always contact SCANLAB for guid-
+ance before you start to perform any further 
+cleaning procedures yourself.
+
+[p.41]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+7 Routine Maintenance and Customer Service
+41
+innovators for industry
+(2) Dampen the lens-tissue brush with solvent. Don’t 
+use too much solvent, because otherwise drying 
+marks might appear.
+(3) Carefully grip one end of the dampened lens-
+tissue brush without touching any part of the 
+tissue that will touch the lens surface.
+(4) Place the dampened lens-tissue brush in the 
+center of the objective’s lens surface. Then use a 
+circular motion to wipe slowly but steadily from 
+the center of the optic around to the outer edges.
+Repeat the above procedure until the objective’s 
+optical surface is completely clean. For each cleaning 
+swipe, create a new lens-tissue brush.
+7.2
+Customer Service
+Servicing and Repairs
+Except for routine maintenance of the optical 
+surfaces, the scan head does not contain user-service-
+able internal parts. All servicing and repairs should be 
+performed only at SCANLAB. Only SCANLAB has the 
+proper test facilities and procedures to service, repair 
+and calibrate the system optimally.
+Product Warranty
+SCANLAB guarantees this product to be free of 
+defects in manufacturing and material. The warranty 
+is valid for 12 months after delivery. Repairs covered 
+under the warranty will be performed at SCANLAB.
+The scope of the warranty is limited to repair or 
+replacement of the SCANLAB product.
+SCANLAB is responsible for the return delivery of 
+products repaired under warranty; the customer is 
+responsible for delivery to SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged through 
+misuse or improper operation
+• for damage due to improper laser power (e.g. 
+focused beam on optical surfaces) or improper 
+adjustment
+• for damage to optical components (mirrors, 
+objective, etc.) caused by improper handling or 
+cleaning 
+• for consequential damages
+• if the scan head has been altered
+• if the warranty seal on the scan head’s housing 
+has been broken
+If a returned scan head must first be brought into a 
+serviceable state by SCANLAB (e.g. by removing align-
+ment pins and other customer-added parts or 
+cleaning the scan head) before servicing can begin, 
+then the customer must bear the additional cost.
+Cleaning Notes
+• Avoid skin contact with the optic.
+• Use only clean lint-free tissues specially manu-
+factured for cleaning optics (e.g. "Kodak lens 
+cleaning paper"). Always use lens tissues with 
+a solvent, because dry tissue can scratch 
+optical surfaces.
+• Use a solvent such as acetone or isopropanol 
+of high purity (evaporation residue < 0.001%). 
+Read and follow the safety advice and warn-
+ings for the solvents you will be using.
+• Use clean gloves or finger cots that are imper-
+meable to the organic cleaning solvents you 
+will be using.
+• Always wipe slowly but steadily, using a 
+circular motion from the center of the optic 
+around to the outer edges. Do not rub back 
+and forth!
+• Only wipe with slight pressure!
+
+[p.42]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+7 Routine Maintenance and Customer Service
+42
+innovators for industry
+Contacting SCANLAB
+For service, repairs, advice or information, simply 
+contact SCANLAB using one of the contact possibili-
+ties listed below:
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+Product Disposal
+The intelliSCAN 20 can be returned to SCANLAB for a 
+fee to be properly disposed of in compliance with 
+environmental regulations.
+
+[p.43]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+8 Troubleshooting
+43
+innovators for industry
+8
+Troubleshooting
+If problems occur while operating this device, verify 
+that all operating instructions have been adhered to 
+and then carry out the following troubleshooting 
+procedures:
+If the problems persist, please send the scan head to 
+customer service.
+Problem
+Possible Cause
+Remedy
+Low laser power
+Dirty objective
+Clean as described in "Routine 
+Maintenance of the Optical 
+Surfaces" on page 40
+Altered controller software 
+parameters
+Check input parameters
+Dirty or damaged mirror
+Check mirrors. If they are 
+contaminated, call SCANLAB for 
+guidance. Return damaged scan 
+head mirrors for repair.
+Changed laser spot
+Dirty or damaged objective
+Clean as described in "Routine 
+Maintenance of the Optical 
+Surfaces" on page 40
+Dirty or damaged mirror
+Check mirrors. If they are 
+contaminated, call SCANLAB for 
+guidance. Return damaged scan 
+head mirrors for repair.
+Laser out of adjustment
+Adjust laser
+No laser beam
+Problem with the laser
+Check laser and electrical 
+connections
+Problem with the laser controller
+If the RTC board is used, check all 
+electrical connections and the 
+power supply
+Laser beam path blocked or shutter 
+closed
+Check laser beam path
+Scan head does not steer laser 
+beam in one or both directions
+Problem with the scan head 
+controller
+Check power and data cables. 
+Check software commands. Switch 
+off scan head, and then restart.
+Scan head stopped responding
+The scan head’s electronics have 
+disconnected the scan head from 
+the power supply due to 
+impermissible supply voltages (see 
+page 13)
+Ensure correct supply voltages, 
+switch off scan head, and then 
+restart
+
+[p.44]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+8 Troubleshooting
+44
+innovators for industry
+8.1
+Fault Diagnosis and 
+Functional Test
+• the current operating state
+• the operating state at the moment of the most 
+recently occurred operation interruption and
+• an event code, indicating which particular event 
+caused the scan head to enter a temporary or 
+permanent error state.
+Also see section "Returned Signals" on page 9.
+In general, all status informations can even be read 
+after the scan head has entered a temporary or 
+permanent error state due to an internal protective 
+mechanism (provided that the scan head is still suffi-
+ciently powered).
+These 16-bit values will be returned until the cont-
+rol_command is used to select another return data 
+type.
+To facilitate – after a data transfer verification – resto-
+ration of the status return behavior in effect prior to 
+the data transfer verification, the control_command 
+allows the prior data type to be temporarily stored for 
+later retrieval.
+If a problem occurs, the intelliSCAN’s versatile status 
+return functions can be used for scan head diagnosis, 
+too. These functions allow to read for instance
+To verify that data transfer capability between the 
+RTC5 and the scan head is intact, an 8-bit value – 
+separately for each axis – can transmitted to the scan 
+head via the command control_command. Subse-
+quently, a 16-bit value will be returned on the corre-
+sponding status channel: If data transfer is error-free, 
+then the upper 8 bits of the returned 16-bit value will 
+be identical with the originally sent 8-bit value, and 
+the lower 8 bits will be identical with the complement 
+of the sent 8-bit value.
+
+[p.45]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+9 intelliSCAN 20 Technical Specifications
+45
+innovators for industry
+9
+intelliSCAN 20 Technical Specifications
+(all angle specifications optical)
+   
+SCANLAB ID number
+of scan head
+155060
+Aperture
+maximum diameter of the laser 
+beam inside the scan head
+20 mm
+Control
+Input and Output Signals
+SL2-100
+Maximum range for control 
+values (1)
+–524288 to
++524287
+Calibration
+±0.408 rad with 
+±503316 bit
+Maximum allowed scan angle
+(vignetting insignificant) (2)
+- without objective
+±0.41 rad
+Power supply
+Requirements
+30 V DC (29 - 33 V), 
+max. 6 A or
+±(15+1.5) V DC, 
+max. 6 A each pole
+Optical Performance
+Gain error
+< 5 mrad
+Zero offset
+< 5 mrad
+Nonlinearity
+< 3.5 mrad
+Repeatability
+< 2 µrad
+Long-term drift over 8 hours
+(after warm-up)
+< 0.6 mrad
+(1)
+This maximum range for input values should be regarded as a 
+theoretical range. Due to the danger of vignetting by the 
+mirrors (also see page 6), the specified maximum scan angle 
+must never be exceeded.
+(2)
+Theoretical value (see page 6 and page 7)
+(3)
+See page 35.
+Tuning Specifications (Dynamic Performance) (3)
+Specifications for tuning 113719
+Tracking error
+< 0.32 ms
+Dither (RMS)
+< 5 µrad
+Typical positioning speed
+70 rad/s
+Typical positioning speed in the 
+image field
+11.2 m/s
+Maximum positioning speed
+100 rad/s
+Typical marking speed (for 
+marking small characters)
+1 m/s
+Step response for 1% of full 
+scale
+< 0.7 ms
+Step response for 10% of full 
+scale
+< 1.9 ms
+Specifications in m/s: with 160 mm objective
+Step response: settling to 1/1000 full scale
+Cooling Specifications
+rate of air flow
+20 l/min (p<2 bar)
+rate of water flow
+5 l/min (p<0.1 bar, 
+p<4 bar)
+
+[p.46]
+intelliSCAN 20, SL2-100, 515 + 532 nm
+Rev. 2.6 e
+9 intelliSCAN 20 Technical Specifications
+46
+innovators for industry
+9.1
+Electromagnetic Compati-
+bility
+Compliance with EC Guidelines for 
+Electromagnetic Compatibility (EMC)
+Mirror
+Coating
+dielectrical high 
+performance coating
+Working wavelength
+515 + 532 nm
+Reflectivity
+– at 515 nm
+more than 99.5% per 
+mirror, over the full 
+range of angles
+– at 532 nm
+more than 99% per 
+mirror
+– at 630 nm to 670 nm
+more than 70% per 
+mirror
+Maximum allowed average 
+laser power
+(* with specified cooling)
+150 W
+(300 W *)
+Maximum allowed laser power 
+density continuous wave
+(* with specified cooling)
+400 W/cm2
+(800 W/cm2 *)
+Damage threshold for pulsed 
+operation (with specified 
+working wavelength, pulse 
+length 10 ns, 200 on 1, also see 
+page 32)
+2.5 J/cm2
+Weight
+without objective
+5.8 kg
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+For storage, make sure to remove all water from the 
+device’s water-cooled parts.
+Environmental conditions
+non-condensing, 
+non-corrosive
+The intelliSCAN and intelliDRILL series of scan heads 
+has been determined to be in compliance with 
+EC-Guidelines 89/336/EEC (electromagnetic compat-
+ibility).
+For that purpose, a scan head from the above-
+mentioned series was tested in the following config-
+uration:
+– intelliSCAN 10, digital
+– RTC4 PC interface board
+Test Specifications
+Evidence of fulfillment of the protection goals of 
+the July 1993 version of EC 
+Guidelines 89/336/EEC (CE Conformity for EMC) 
+based on
+– EN 61000-6-2: 2005
+– EN 61000-6-4: 2007
+Result
+The device under test fulfills the specifications.

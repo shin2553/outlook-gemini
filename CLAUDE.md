@@ -26,9 +26,16 @@ Gemini API가 매뉴얼 기반으로 답변 초안을 자동 생성하여 Outloo
 | `outlook_injector.py` | Outlook 답장창에 초안 + 이미지 삽입 |
 | `pdf_converter.py` | PDF → txt 변환 |
 | `pdf_image_extractor.py` | PDF 페이지 → PNG 렌더링 (pymupdf) |
-| `config.py` | config.ini 값 로드 |
-| `config.ini` | API 키, 경로, 설정값 |
+| `config.py` | config.ini 값 로드, 상대경로 해석 |
+| `config.ini` | API 키, 경로, 설정값 (상대경로 지원) |
+| `config_template.ini` | 배포용 빈 설정 템플릿 |
 | `profiles.json` | 답변 주체 프로필 목록 |
+| `manual_index.py` | 키워드→매뉴얼 매핑 인덱스, search_manuals() 제공 |
+| `hook_win32com.py` | PyInstaller 런타임 훅 — win32com gencache 경로 수정 |
+| `build.bat` | PyInstaller 빌드 스크립트 (CRLF, 매뉴얼 복사 포함) |
+| `outlook_gemini.spec` | PyInstaller 빌드 설정 |
+| `Manuals_txt/` | 텍스트 변환된 매뉴얼 (.txt) |
+| `Manuals/` | PDF 원본 매뉴얼 |
 
 ---
 
@@ -44,11 +51,11 @@ Gemini API가 매뉴얼 기반으로 답변 초안을 자동 생성하여 Outloo
 ---
 
 ## 기술 스택
-- **VBA**: Outlook 리본 버튼 → Python 스크립트 트리거
 - **Python**: 메일 추출 (win32com/pythoncom), Gemini API 호출, 초안 Outlook 주입
 - **Gemini API**: 텍스트 + 이미지 + PDF 멀티모달, thinking 모드
-- **매뉴얼 시스템**: manual_index.py + NotebookLM_exports/ txt 파일 재활용
+- **매뉴얼 시스템**: manual_index.py + Manuals_txt/ txt 파일
 - **pymupdf(fitz)**: PDF 페이지 → PNG 렌더링, PDF 서브셋 추출
+- **PyInstaller**: 단일 폴더 실행 파일 빌드 (onedir)
 
 ---
 
@@ -60,6 +67,7 @@ Gemini API가 매뉴얼 기반으로 답변 초안을 자동 생성하여 Outloo
 | `pdf_only` | 처음부터 PDF 원본 직접 분석 (정확, 느림) |
 
 - PDF가 900페이지 초과 시 `_make_pdf_subset()`으로 관련 페이지(최대 200p)만 추출하여 전달
+- PDF 서브셋 임시 파일은 API 호출 완료 후 자동 삭제
 
 ---
 
@@ -113,6 +121,7 @@ Gemini API가 매뉴얼 기반으로 답변 초안을 자동 생성하여 Outloo
 - 미변환 PDF 자동 탐지: `pdf_dir` 스캔 후 txt 없는 파일 목록 표시
 - 설정 > 매뉴얼 관리에서 일괄 자동 변환 또는 직접 선택 변환 가능
 - 중복 탐지: `glob("*.pdf") + glob("*.PDF")` 후 `seen` set으로 stem 기준 중복 제거
+- 페이지별 텍스트 추출 실패는 무시하고 계속 진행 (스캔 혼합 PDF 대응)
 
 ---
 
@@ -134,6 +143,7 @@ Gemini API가 매뉴얼 기반으로 답변 초안을 자동 생성하여 Outloo
 ```
 - 3단 컬럼 비율: `columnconfigure(uniform="mid")` weight=2:1:1 강제
 - 본문 미리보기: `rowconfigure(3, weight=1)` + `sticky="nsew"` 로 세로 확장
+- 프로필 관리 다이얼로그: `420x400`
 
 ---
 
@@ -143,8 +153,9 @@ Gemini API가 매뉴얼 기반으로 답변 초안을 자동 생성하여 Outloo
 api_key = ...
 
 [paths]
-manual_dir = .../NotebookLM_exports
-pdf_dir = .../Manuals
+manual_index = manual_index.py      ← 상대경로 또는 절대경로 모두 지원
+manual_dir = Manuals_txt
+pdf_dir = Manuals
 
 [settings]
 max_manual_context = 80000
@@ -153,19 +164,59 @@ language = ko
 [company]
 role = 여러 제조사 제품의 국내 공식 대리점
 ```
+- 상대경로는 `config.py`의 `_resolve()`가 `get_app_dir()` 기준 절대경로로 변환
 - `manual_index.py` 자동 탐색: `MANUAL_INDEX_PATH` → `manual_dir` 상위 → `manual_dir` 내부 순
 
 ---
 
-## 매뉴얼 경로
-- 매뉴얼 인덱스: `c:/Users/82108/Downloads/scanlab_support/manual_index.py`
-- 텍스트 매뉴얼: `c:/Users/82108/Downloads/scanlab_support/NotebookLM_exports/`
-- PDF 원본: `C:/Users/82108/Downloads/scanlab_support/Manuals/`
+## 매뉴얼 경로 (프로젝트 내 관리)
+- 매뉴얼 인덱스: `outlook_gemini/manual_index.py`
+- 텍스트 매뉴얼: `outlook_gemini/Manuals_txt/`
+- PDF 원본: `outlook_gemini/Manuals/`
+- 빌드 시 `build.bat`이 자동으로 `dist/OutlookGemini/` 하위에 복사
+
+---
+
+## manual_index.py 구조
+- `EXPORT_DIR`: 매뉴얼 txt 폴더 경로 (manual_searcher.py가 config.MANUAL_DIR로 덮어씀)
+- `INDEX`: 키워드 → txt 파일명 목록 딕셔너리
+- `search_manuals(query)`: 1) INDEX 키워드 매칭 → 2) 미등록 파일 파일명 기반 자동 탐지
+- 새 제품 매뉴얼 추가: txt 파일을 Manuals_txt/에 넣고 INDEX에 키워드 등록
+
+---
+
+## manual_searcher.py 로딩 방식
+- `importlib.util.spec_from_file_location()`으로 외부 .py 파일 직접 로드
+  → PyInstaller 실행 파일 환경에서 `sys.path` 방식이 동작하지 않는 문제 우회
+- 로드 후 `mod.EXPORT_DIR = Path(config.MANUAL_DIR)` 주입 → 폴더명 변경에 유연하게 대응
+
+---
+
+## gemini_client.py 클라이언트 관리
+- `_client: list = []` — lazy initialization (모듈 로드 시 API 키 불필요)
+- `_get_client()`: API 키 없으면 명확한 ValueError 발생
+- `reset_client()`: API 키 변경 시 호출하여 클라이언트 재초기화
+- `ui.py`의 `_save_api()`에서 저장 후 `reset_client()` 호출
+
+---
+
+## PyInstaller 빌드
+- `build.bat` 실행 (CRLF 인코딩 필수 — LF이면 CMD 오파싱 발생)
+- `hook_win32com.py`: win32com gencache를 `%TEMP%/outlook_gemini_gen_py`로 리다이렉트
+- `outlook_gemini.spec` hidden imports: `win32com.client.dynamic`, `win32com.client.gencache` 등
+- `build.bat` 빌드 후 복사 항목:
+  - `config_template.ini` → `dist/config.ini` (API 키·경로 빈칸)
+  - `manual_index.py`, `Manuals_txt/`, `Manuals/` → dist 하위
+  - `profiles.json` (기존 파일 있으면 덮어쓰지 않음)
+- 빌드 전 `OutlookGemini.exe` 자동 종료 (`taskkill`)
 
 ---
 
 ## 주의사항
 - Gemini API 키는 config.ini로 관리 (코드에 하드코딩 금지)
+- config_template.ini는 배포용 — API 키와 경로 모두 빈칸 유지
 - 답변은 항상 검토 후 발송 (완전 자동발송 아님)
 - win32com 사용 스레드에서 반드시 `pythoncom.CoInitialize()` 호출
 - Gemini PDF 업로드 한도: 1000페이지 → 초과 시 자동 서브셋 추출로 처리
+- 메일 재로드 시 이전 `MailData.cleanup()` 자동 호출 (임시 파일 정리)
+- 앱 종료 후 백그라운드 스레드 콜백은 `winfo_exists()` 체크로 방지

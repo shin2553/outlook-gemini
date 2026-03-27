@@ -1,0 +1,1244 @@
+# Manual_127502_Cameraadapter_Doc.1.6_en
+
+[p.1]
+March 10, 2022
+Camera Adapter
+Rev. 1.6
+innovators for industry
+Installation and Operation 
+Camera Adapter (ID# 127502)
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2022
+(Doc. Rev. 1.6 - March 9, 2022)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB GmbH.
+All mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+Camera Adapter
+Rev. 1.6
+3
+innovators for industry
+Table of Contents
+1
+Introduction.........................................................................................................................................4
+1.1
+Product Overview.............................................................................................................................. 4
+1.2
+Unpacking Instructions and Typical Package Contents ...................................................................... 4
+1.3
+Labeling ............................................................................................................................................ 4
+2
+Principle of Operation..........................................................................................................................5
+2.1
+Intended Usage................................................................................................................................. 5
+2.2
+Mechanical Design............................................................................................................................ 5
+2.3
+Observation Field Size ....................................................................................................................... 6
+2.4
+Observation Field Position................................................................................................................. 6
+2.5
+Imaging Quality ................................................................................................................................ 6
+3
+Installation ...........................................................................................................................................7
+3.1
+Checking the Specifications .............................................................................................................. 7
+3.2
+Dimensions ....................................................................................................................................... 8
+3.3
+Mounting the Camera Adapter ....................................................................................................... 10
+3.4
+Adjusting the Objective Unit’s Orientation...................................................................................... 11
+3.5
+Mounting a Camera........................................................................................................................ 13
+3.6
+Providing Illumination..................................................................................................................... 13
+3.7
+Mounting a Color Filter................................................................................................................... 14
+3.8
+Beam Dump when Using Higher Laser Powers................................................................................ 15
+3.9
+Operating and Storage Conditions.................................................................................................. 15
+4
+Start-up and Operation......................................................................................................................16
+4.1
+Checking the Installation................................................................................................................. 16
+4.2
+Checking the Laser Parameters........................................................................................................ 16
+4.3
+Adjustment of the Laser Beam ........................................................................................................ 16
+4.4
+Optimizing Image Quality ............................................................................................................... 17
+5
+Routine Maintenance and Customer Service.....................................................................................18
+5.1
+Routine Maintenance of the Optical Surfaces ................................................................................. 18
+Routine Maintenance of the Beam Splitter........................................................................... 18
+Routine Maintenance of the Camera Objective .................................................................... 18
+5.2
+Customer Service ............................................................................................................................ 19
+6
+Camera Adapter Specifications .........................................................................................................20
+
+[p.4]
+Camera Adapter
+Rev. 1.6
+1
+Introduction
+4
+innovators for industry
+1
+Introduction
+This operating manual describes the SCANLAB 
+camera adapter 
+• # 127502
+(objective unit, beam splitter housing incl. beam 
+splitter and two adapter plates).
+This manual is a part of the product. Please read these 
+instructions carefully before you proceed with 
+installing and operating the camera adapter. In 
+particular observe all safety guidelines in this manual. 
+If there are any questions regarding the contents of 
+this manual, please contact SCANLAB (see page 19).
+Keep the manual available for servicing, repairs and 
+product disposal. This manual should accompany the 
+product if ownership changes hands. 
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification.
+1.1
+Product Overview
+SCANLAB camera adapters are designed for camera-
+based observation of the working field of a scan 
+head.
+The camera adapter in the above listed product confi-
+guration can be attached to the beam entrance of a 
+SCANcube or an excelliSCAN-scan head from 
+SCANLAB.  
+The objective unit includes a camera objective with a 
+focal length of f = 105 mm (for a wavelength of 
+450 nm - 950 nm), an adjustable iris diaphragm, 
+provisions for installing a C-mount-compatible 
+camera (or if necessary for installing C-mount 
+adapters) and provisions for installing color filters.
+The technical specifications of the product are 
+summarized on page 20.
+1.2
+Unpacking Instructions and 
+Typical Package Contents
+Carefully remove the camera adapter from the 
+package.
+Protect the camera adapter from dust and other 
+contaminants.
+Keep the packaging and protective caps so that in 
+case of repair the camera adapter can be properly 
+repackaged and returned to SCANLAB.
+Check that all parts have been delivered. Please 
+refer to the corresponding packaging list.
+The package typically includes:
+– the camera adapter with beam splitter housing 
+(incl. beam splitter), two adapter plates and an 
+objective unit
+– a mounting kit for mounting the camera 
+adapter to the scan head
+– optionally one or several C-mount extensions
+– this operating manual
+The delivered package does not include a camera, 
+color filter, color filter retaining ring, color filter 
+mount nor lighting for the working field. 
+Customers can select those components 
+according to their requirements.
+1.3
+Labeling
+The camera adapter’s I.D. plate with the camera 
+adapter’s serial number is found on the housing.
+The beam splitter is designed for a laser wavelength 
+of 1030 nm - 1110 nm and an observation wave-
+length of 450 nm - 900 nm.
+
+[p.5]
+Camera Adapter
+Rev. 1.6
+2
+Principle of Operation
+5
+innovators for industry
+2
+Principle of Operation
+2.1
+Intended Usage
+The camera adapter can be attached to the beam 
+entrance of a SCANLAB scan head for camera-based 
+observation of the working field (if the scan head is 
+equipped with a scan objective). For observation, the 
+camera adapter optic decouples the light arriving 
+from the illuminated working field and subsequently 
+passing through the scan head’s scan objective and 
+scan mirrors to the beam entrance. The portion of the 
+working field capturable by the camera depends on 
+the scan mirrors’ positions.
+2.2
+Mechanical Design
+The camera adapter essentially consists of four 
+components: 2 adapter plates, a beam-splitter 
+housing and an objective unit (also see figure 1).
+The two adapter plates serve as interfaces for 
+mounting the camera adapter between scan head 
+and laser flange.
+The holes of the adapter plate for attaching the scan 
+head to the camera adapter’s beam-exit side are 
+compatible with mounting holes of the SCANcube or 
+excelliSCAN scan heads from SCANLAB.
+To facilitate observation, the beam splitter housing 
+contains a dichroic beam splitter that couples light 
+exiting the illuminated working field. The laser wave-
+length is allowed to travel unhindered, but illumina-
+tion wavelengths reflected from the working plane 
+are decoupled to the camera.
+The objective unit attached to the beam splitter 
+housing’s upper side contains a camera objective, an 
+adjustable iris diaphragm and a translation stage. A 
+camera can be attached to the flange with C-mount 
+thread on the objective unit’s upper side. The objec-
+tive unit’s underside contains a threaded notch for 
+attaching a color filter.
+The light decoupled by the beam splitter is directed 
+through the camera objective and onto the active 
+imaging surface of the camera (e.g. CCD chip). 
+Camera image focusing is achieved manually by 
+rotating the translation stage’s focus ring. The adjust-
+able iris diaphragm and provision for a color filter are 
+intended for optimizing image quality. Performed 
+translation-stage and iris-diaphragm adjustments 
+can be fixed via the corresponding group of three set 
+screws. 
+Additionally, the orientation of the camera (position-
+able around the objective’s optical axis) can be fixed 
+via three set screws.
+The orientation of the beam splitter and its housing 
+(relative to the two adapter plates) can also be 
+adjusted so that the housing’s opening points down 
+or sideways instead of up.
+1
+Schematic overview of the camera adapter
+
+	
+
+
+				
+	
+	
+
+	
+
+				
+
+			
+
+			
+				
+	
+	
+
+
+
+	
+
+
+	 
+!		
+"
+
+	
+	
+
+	
+
+#		
+$
+		
+
+
+
+	 
+%		
+
+$
+
+	
+&		
+
+
+!		
+
+
+#		
+ 
+
+	
+
+[p.6]
+Camera Adapter
+Rev. 1.6
+2
+Principle of Operation
+6
+innovators for industry
+2.3
+Observation Field Size
+The size dv of the observation field, i.e. the size of the 
+portion of the working field visible to the camera, can 
+be calculated via the camera chip’s size dc, the scan 
+objective’s focal length fso and the camera objectives 
+focal length fco at the used observation wavelength, 
+in accordance with the following formula: 
+dv = dc · fso / fco
+For example, a camera objective with fco = 105 mm, 
+a scan objective with fso = 160 mm and a 1/2’’ chip 
+(6.4 mm x 4.8 mm(1)) produce a 9.7 mm x 7.3 mm 
+observation field.
+Diverse apertures in the system (e.g. beam entrance, 
+mirror, iris diaphragm, objective apertures) can 
+substantially reduce observation field edge bright-
+ness, particularly in conjunction with large imaging 
+chips and camera objectives of short focal length.
+2.4
+Observation Field Position
+The position of the observation field is adjusted by 
+moving the scan head’s deflection mirrors. Ideally, 
+the observation field is centered with respect to the 
+laser's point of arrival. However, mechanical toler-
+ances and laser beam adjustment errors can result in 
+an offset (that is constant across the entire observa-
+tion field). Moreover, the scan objective's chromatic 
+aberration can produce an additional offset which 
+increases with increasing difference between the 
+laser's wavelength and the illumination wavelength. 
+This additional offset is null at the working field's 
+centerpoint and increases radially toward the edge of 
+the working field.
+2.5
+Imaging Quality
+Working-field illumination light reaching the scan 
+head’s scan objective will exit more or less parallel, 
+and (with the exception of laser-wavelength light) be 
+deflected by the dichroic beam splitter to the camera 
+objective. The decoupling efficiency is somewhat 
+reduced for the wavelength range used by pointer 
+lasers: although the beam splitter decouples a large 
+part of the laser power and passes it to the camera, 
+a small part is transmitted. Therefore, the pointer is 
+visible in the working field, although attenuated.
+After reflection at the beam splitter, the light is 
+directed through the camera objective onto the 
+camera’s active imaging surface (e.g. a CCD chip). 
+Camera image focusing is achieved manually by 
+rotating the focus ring to adjust the distance 
+between the camera objective and the camera. 
+Imaging quality can be further optimized by 
+adjusting the iris diaphragm’s opening.
+Camera image quality is also heavily influenced by the 
+scan objective’s properties and working field illumi-
+nation. Unlike camera objectives, scan objectives are 
+generally not color-corrected and produce relatively 
+large color errors. Therefore, illumination should be 
+restricted to as narrow a wavelength range as 
+possible (e.g. LEDs at 880 nm); otherwise an indis-
+tinct image will be produced. The light’s bandwidth 
+should be further narrowed by placing a color or 
+interference filter between the beam splitter and the 
+camera, though this attenuates camera image bright-
+ness. Additionally, the illumination wavelength 
+should not differ too widely from the laser wave-
+length. On selecting the scan system, also take care, 
+that the scan mirrors’ reflectivity for the illumination 
+wavelength is high enough. With dielectric mirrors 
+the pointer laser range (630 nm - 670 nm) often can 
+be used for illumination. Please refer to the specifica-
+tions of your scan system’s scan mirrors.
+Resolution is affected not only by the optics, but also 
+the camera chip pixel size.
+(1)
+For historical reasons, the chip name (in inch) does not agree 
+with the real chip size. Typical chip sizes are:
+1/3’’ chip: 4.8 mm x 3.6 mm
+1/2’’ chip: 6.4 mm x 4.8 mm
+2/3’’ chip: 8.8 mm x 6.6 mm
+
+[p.7]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+7
+innovators for industry
+3
+Installation
+Follow each step for preparation, mounting and elec-
+trical connection in the correct order as described in 
+this chapter.
+3.1
+Checking the Specifications
+Make sure the specifications of the camera adapter 
+meet the requirements of your application (see “Tech-
+nical Specifications“ on page 20). If your application 
+requires other specifications, then please contact 
+SCANLAB.
+Danger!
+• Make sure all components of the system (laser, 
+scan system, controller, power supply, 
+computer) are switched off before installation.
+• After the camera adapter and the scan head has 
+been mounted, there is a cone-shaped 
+hazardous laser output area. Do not stare into 
+the laser or its deflected radiation. Keep all parts 
+of the body away from the laser beam.
+Caution!
+• Carefully take the camera adapter out of the 
+packaging.
+• Protect the camera adapter from dust and other 
+contaminants.
+• Never touch the beam splitter’s optical surfaces.
+• Follow the procedures in chapter 5.1 for period-
+ically checking and cleaning the optics.
+!
+
+[p.8]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+8
+innovators for industry
+3.2
+Dimensions
+2
+Camera adapter with mounting components
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+Legend
+1
+Beam in
+2
+Laser flange *
+3
+Mounting screws * and alignment pins * for moun-
+ting at the laser flange
+4
+Adapter plate (beam-entrance side)
+5
+Beam splitter housing
+6
+Objective unit
+7
+Camera *
+8
+Adapter plate (beam-exit side)
+9
+Mounting screws and alignment pins for mounting 
+the beam-exit side adapter plate to the scan head
+10 Mounting screws and alignment pins for mounting 
+the beam-exit side adapter plate to the beam 
+splitter housing
+11 Scan head* (in this example a SCAN cube)
+12 Emerging beam
+(* not included)
+
+[p.9]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+9
+innovators for industry
+ 
+3
+Dimensions of the camera adapter (with beam displacement 1.56 mm, all dimensions in mm)
+2
+1
+1
+1
+2
+2
+1
+2
+42.8
+57.15
+38.1
+40.79
+128.39
+4
+34.92
+34.93
+99.5
+43.69
+Ø65
+42.35
+126.8
+Ø36
+3x M6
+2x 6H7 - 7 deep
+1.56
+C-mount
+extension
+15
+7
+32
+22
+4x Ø5.5 
+Ø18
+2x 4 H7 - 8 deep
+4x M4 - 6 deep
+2x 4H7 - 6 deep
+45
+45
+5.7
+Legend
+1
+Adapter plate at beam-entrance side
+(laser flange side)
+2
+Adapter plate at beam-exit side
+(scan head side)
+
+[p.10]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+10
+innovators for industry
+3.3
+Mounting the Camera 
+Adapter
+The illustrations for this section are found in the 
+previous section, starting on page 8. Figure 2 shows 
+the camera adapter with its mounting assembly and 
+dimensions. The laser system flange, alignment pins 
+and mounting screws are not included in the 
+package.
+The two adapter plates facilitate attachment of the 
+camera adapter to the scan head and mounting of 
+the camera adapter together with the scan head onto 
+the laser flange.
+The adapter plate for attaching the scan head to the 
+camera adapter’s beam-exit side is equipped with 
+bore holes compatible with the mounting holes of 
+the SCANcube or excelliSCAN scan heads from 
+SCANLAB.
+Note: SCANLAB also offers a beam-exit side adapter plate 
+equipped with bore holes compatible with the mounting 
+holes of the hurrySCAN, hurrySCAN II, intelliSCAN or 
+SCAN gine scan heads.
+The two adapter plates and the beam entrance and 
+exit are oriented relative to another so as to compen-
+sate the beam displacement produced by the beam 
+splitter (see figure 3 on page 9). That means a laser 
+beam that enters centered (perpendicular to the 
+beam entrance plane) will also exit centered at the 
+beam exit side. Of course, the beam displacement is 
+also compensated for camera monitoring.
+1. Mounting to the Scan Head
+The camera adapter should first be mounted onto the 
+scan head. Therefore, first attach the camera 
+adapter’s beam-exit side adapter plate to the scan 
+head, and afterward the beam splitter housing to this 
+adapter plate.
+To facilitate mounting at the scan head, the beam-
+exit side adapter plate contains two 4H7 alignment 
+holes and four 5.5 mm mounting holes. To facilitate 
+mounting the beam splitter housing, the adapter 
+plate contains four 4H7 alignment holes and four 
+6.6 mm mounting holes. Mount the camera adapter 
+in the following manner:
+Carefully remove the protective cap at the beam 
+exit side (e.g. with a small screwdriver).
+If the beam-exit side adapter plate is mounted on 
+the beam splitter housing, then dismount it. The 
+adapter plate is attached to the beam splitter 
+housing via four M6 screws and two 4h6 
+alignment pins.
+Place two 4h6 alignment pins in the corre-
+sponding 4H7 alignment holes on the scan head 
+or on the adapter plate.
+Place the adapter plate on the scan head so that 
+the alignment pins line up with the alignment 
+holes on the scan head and the adapter plate. The 
+adapter plate’s beam exit must be centered over 
+the scan head’s beam entrance (see figure 4).
+Fasten the adapter plate to the scan head by 
+installing two mounting screws with M5 threads 
+into the corresponding threaded mounting holes 
+of the scan head.
+4
+Beam-exit side adapter plate of the camera adapter, in this example 
+at the SCAN cube 10’s beam entrance side
+4x Ø6.6 
+4x 4H7 - 8 deep
+2x 4H7 - 8 deep
+4x Ø5.5
+
+[p.11]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+11
+innovators for industry
+Afterward, fasten the adapter plate to the beam 
+splitter housing by installing two 4h6 alignment 
+pins and four mounting screws with M6 threads 
+into the corresponding threaded mounting holes 
+of the beam splitter housing.
+2. Mounting to the Laser Flange
+Next, the camera adapter with the scan head must be 
+mounted to a laser system flange.
+The beam entry position is defined by two 6H7 align-
+ment holes. The laser beam axis must be identical 
+with the laser input axis of the camera adapter. To 
+ensure this alignment, the laser system flange must 
+have appropriate holes to accommodate two 6h6 
+alignment pins and two M6-threaded mounting 
+screws.
+In positioning the scan head and camera adapter 
+relative to the image field, the displacement of the 
+emerging-beam axis relative to the entry-beam axis 
+must be taken into account (see figure 3 on page 9).
+Mount as follows:
+Carefully remove the protective cap at the camera 
+adapter’s beam entrance side (e.g. with a small 
+screwdriver)
+Place two 6h6 alignment pins in the corre-
+sponding 6H7 alignment holes on the flange or on 
+the adapter plate.
+Place the camera adapter together with the scan 
+head on the flange so that the alignment pins line 
+up with the alignment holes on the flange and 
+the adapter plate. This way the camera adapter is 
+aligned with respect to the laser.
+Fasten the camera adapter to the flange by 
+installing two mounting screws with M6 threads 
+into the corresponding threaded mounting holes 
+of the adapter plate.
+3.4
+Adjusting the Objective Unit’s 
+Orientation
+Typically, the beam splitter housing’s opening and the 
+objective unit of the delivered camera adapter point 
+upward. If cable-layout conflicts or other reasons 
+necessitate another direction, then the beam splitter 
+and its housing can be adjusted to point sideways or 
+down instead of up.
+Thereby, independent of the objective unit’s selected 
+orientation, the relative orientation of the two 
+adapter plates (i.e. the relative orientation of beam 
+entrance and exit) remains so that the beam displace-
+ment produced by the beam splitter will be compen-
+sated. This even applies if the two adapter plates are 
+additionally rotated relative to another.
+Caution!
+• To align and fasten the camera adapter, only use 
+the alignment and mounting holes depicted in 
+figure 3 on page 9. Other holes cannot be used 
+for aligning and fastening the camera adapter 
+or for any other purposes.
+Caution!
+• Perform the described adjustment only in a 
+clean, dust-free environment.
+• Never touch the beam splitter’s optical surface. 
+When disassembling/assembling, exercise parti-
+cular care not to damage the beam splitter.
+• Dirt on the beam splitter can increase the 
+absorption of laser power by its optical surfaces. 
+Burned-in dirt can lead to destruction of the 
+beam splitter and further consequences.
+
+[p.12]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+12
+innovators for industry
+Proceed as follows (also see figure 5 on page 12):
+• If the camera adapter is already mounted on the 
+scan head or flange, then dismount it.
+• Unscrew both of the beam splitter housing’s 
+adapter plates (each is attached to the housing 
+via four M6 screws and two 4h6 alignment pins. 
+The beam-splitter block (which contains the 
+dichroic beam splitter) is attached to the 
+“inward“ side of the beam-entry-side adapter 
+plate. When detaching the adapter plates, 
+carefully remove the beam-splitter block from the 
+beam-splitter housing.
+• Unscrew the beam-splitter block from the beam-
+entry-side adapter plate. The beam-splitter block 
+is attached to the adapter plate via four M4 
+screws and two 3h6 alignment pins.
+• Next, the beam-splitter and its housing can be 
+placed into the desired orientation relative to the 
+two adapter plates. Here, it is important to 
+maintain the original relative orientation and thus 
+avoid difficulties when remounting to the scan 
+head or laser flange. The beam-splitter block and 
+housing must retain their relative orientation, 
+too, so that the beam splitter’s surface points 
+toward the camera.
+• The four components must then be mounted in 
+the desired orientation. First attach the beam-
+splitter block to the beam-entry-side adapter 
+plate via the two 3h6 alignment pins and four M4 
+screws. Next insert the 4h6 alignment pins into 
+the beam-splitter housing’s alignment holes. 
+Then attach the beam-entry-side adapter plate to 
+the beam-splitter block and the beam-exit-side 
+adapter plate to the beam-splitter housing (each 
+via four M6 screws).
+5
+Adjusting the objective unit’s orientation
+	
+
+
+
+Legend
+1
+Adapter plate at beam-entrance side
+2
+Beam-splitter block
+3
+Beam-splitter housing
+4
+Adapter plate at beam-exit side
+
+[p.13]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+13
+innovators for industry
+3.5
+Mounting a Camera
+A camera is not included in the delivered package. It 
+can be selected according to customer requirements.
+The camera should be sensitive to the illumination 
+wavelength. Be especially sure the camera doesn't 
+contain an internal filter that unintentionally attenu-
+ates light at the illumination wavelength. Some 
+cameras, for instance, are equipped with internal 
+filters that restrict the usable wavelength range to 
+that of visible light. Here, observation at wavelengths 
+such as 880 nm would be nearly impossible.
+To facilitate mounting a camera, the objective unit’s 
+upper side contains a flange with a C-mount adapter. 
+For adjusting the distance between the camera and 
+camera objective, one or more C-mount extensions 
+are generally included in the delivered package. The 
+camera and optional C-mount extensions can be 
+simply threaded onto the objective unit’s top side. 
+Supplied C-mount extensions are already mounted.
+Adjustment of the camera is described in chapter 4.4, 
+page 17.
+3.6
+Providing Illumination
+Illumination of the working field is not part of the 
+delivered package and can be chosen in accordance 
+with customer requirements.
+Illumination should be restricted to as narrow a 
+wavelength range as possible (e.g. LEDs at 880 nm); 
+otherwise the produced image could be indistinct, 
+particularly at the edges (see chapter 2.5, page 6). 
+The light’s bandwidth should be further narrowed by 
+placing a color or interference filter between the 
+beam splitter and the camera, though this attenuates 
+camera image brightness. Additionally, the illumi-
+nation wavelength should not differ too widely from 
+the laser wavelength. On selecting the scan system, 
+also take care, that the scan mirrors’ reflectivity for 
+the illumination wavelength is high enough.
+The lighting should be arranged to illuminate the 
+observed field as homogenously as possible.
+If there are any questions regarding the illumination, 
+please contact SCANLAB (see page 19).
+
+[p.14]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+14
+innovators for industry
+3.7
+Mounting a Color Filter
+Color filters are not included in the delivered package 
+(this also applies to color filter retention rings and 
+color filter mounts). 
+Color filter retention rings, e.g. for 1-inch and 2-inch 
+color filters, as well as color filter mounts are option-
+ally available from SCANLAB, find the relevant article 
+numbers in the text below. 
+Color filters are supplied by the customer suiting the 
+illumination and meeting the requirements. Color 
+filters should be selected that have as narrow a trans-
+mission band as possible. The aperture of the color 
+filter should be large enough to avoid vignetting.
+Mounting a color filter requires unscrewing the 
+complete objective unit from the beam-splitter 
+housing. At the bottom of the objective unit the 
+holding ring is screwed in. 
+For example, a 2-inch color filter (max. outer diameter 
+50.8 mm; thickness up to 4 mm) is inserted into its 
+notch (height 6.5 mm). For fixation, a fitting color 
+filter retention ring (SCANLAB article number 
+100092) has to be screwed into the M52 thread (see 
+figure 6). 
+No part of color filter, color filter retaining ring and if 
+applicable, color filter mount must protude from the 
+range indicated by 13.5 in figure 6. Otherwise the 
+optical elements are damaged.
+1-inch color filters (max. outer diameter 25.4 mm; 
+thickness 5.5 mm to 8 mm) are mounted by placing 
+them into a color filter mount (SCANLAB article 
+number 112910) first and then fixing it by a color 
+filter retention ring (SCANLAB article number 
+107283) . Subsequently, this assembly is screwed into 
+the M52 thread located at the bottom end of the 
+objective unit. Make sure not to damage the optical 
+elements.
+6
+Bottom end of the objective unit. For example, an assembly of a 
+1-inch color filter, color filter retaining ring and color filter mount is 
+screwed into the M52 thread.
+M52 x 0.75
+6.5
+13.5
+To objective front lens
+To beam splitter housing
+
+[p.15]
+Camera Adapter
+Rev. 1.6
+3
+Installation
+15
+innovators for industry
+3.8
+Beam Dump when Using 
+Higher Laser Powers
+If the camera adapter is operated at a laser power of 
+several 100 Watt or more, residual reflection at the 
+beam splitter may lead to enhanced overheating or 
+even to damages of the camera adapter housing (see 
+also chapter 6, “Camera Adapter Specifications”). 
+As a countermeasure, install a beam dump at the 
+bottom side of the camera adapter to absorb the 
+reflected part of the laser beam. Therefore, unscrew 
+the scattering cover plate from the camera adapter’s 
+bottom side and install a beam dump at the threaded 
+opening (see figure 7). 
+3.9
+Operating and Storage Condi-
+tions
+For storage, operation and servicing, make sure the 
+following environmental conditions are met:
+• The storage temperature for the camera adapter 
+should be between – 35 °C and +60 °C.
+• The operating temperature is 25 °C ± 10 °C.
+• Protect the camera adapter from humidity, dust 
+and corrosive vapors to avoid damage to the 
+optical components.
+7
+Bottom side of the camera adapter with threaded opening for a 
+beam dump (delivery condition: closed by a scattering cover plate , 
+see figure 3 on page 9).
+M36 x 1 - 3.5 deep
+Ø34.5
+
+[p.16]
+Camera Adapter
+Rev. 1.6
+4
+Start-up and Operation
+16
+innovators for industry
+4
+Start-up and Operation
+4.1
+Checking the Installation
+Before operating the camera adapter, carefully check 
+the following:
+Were the mechanical installation and electrical 
+wiring fully and correctly carried out as described 
+in "Installation" on page 7?
+Is the camera adapter equipped with a suitable 
+beam splitter and camera objective? Compare the 
+technical specifications in chapter 6 with your 
+application’s requirements.
+Are all optical components clean and free of 
+dust? If necessary, clean the optical components 
+as described in "Routine Maintenance of the 
+Optical Surfaces" on page 18
+4.2
+Checking the Laser Param-
+eters
+The camera adapter’s beam splitter is designed for a 
+laser beam with defined parameters.
+Compare the technical specifications on page 20 
+with the requirements of your application. For 
+information on tolerances and deviations, please 
+contact SCANLAB.
+Verify that the input beam wavelength, the input 
+beam diameter and the maximum laser power are 
+compatible with the specifications of the camera 
+adapter and the scan head.
+4.3
+Adjustment of the Laser 
+Beam
+To ensure optimum performance of the scan system, 
+it is crucial that the laser beam and the camera 
+adapter together with the scan head are precisely 
+aligned with respect to each other. Incorrect align-
+ment might lead to the following effects:
+• vignetting of the laser beam
+• a large, irregular spot
+• arbitrary translation of the image field
+In most cases, vignetting will be the predominant 
+effect. Vignetting occurs if the laser beam is not able 
+to fully pass through or be reflected by the optical 
+components. Part of the beam’s diameter will be cut 
+off, resulting in power loss and possible system 
+damage due to excessive absorption of laser power.
+To avoid significant vignetting, the system must be 
+aligned as precisely as possible, particularly in terms 
+of the beam position relative to the scan head’s 
+optical axis. If the laser beam profile is Gaussian, the 
+maximum tolerances appropriate for most applica-
+tions are:
+If you use a laser with “flat top“ beam profile, it can 
+be necessary to align the system with even higher 
+precision. Avoid vignetting especially for a high 
+power laser. Align carefully and – if necessary – 
+reduce the beam diameter to an appropriate value.
+• tilt of the laser beam:
+< 5 mrad
+• displacement:
+< 0.3 mm
+Danger!
+• Do not stare directly into the laser beam or at 
+any of its deflected radiation. Keep all parts of 
+the body away from direct contact with the laser 
+beam or any of its deflected radiation.
+• Adjust the beam path by means of a laser with 
+a laser class not higher than 2. If this is not 
+possible, the laser should be operated at the 
+lowest power. Avoid dangerous deflected radia-
+tion!
+!
+
+[p.17]
+Camera Adapter
+Rev. 1.6
+4
+Start-up and Operation
+17
+innovators for industry
+4.4
+Optimizing Image Quality
+Camera Orientation
+The image is rotated relative to the working field as a 
+consequence of beam deflection at the scan mirrors 
+and beam splitter. To compensate this rotation, at 
+least in the scan mirrors’ neutral position, the 
+mounted camera can be rotated around the camera 
+objective’s axis. The desired camera orientation can 
+then be fixed via three set screws (see chapter 2.2, 
+page 5).
+Distance between Camera and Camera Objective
+Camera image focusing is achieved manually by 
+rotating the focus ring to adjust the distance 
+between the camera objective and the camera (via 
+the translation stage). The distance can be thereby 
+varied about ±6 mm. Performed focusing adjust-
+ments can be fixed via three set screws  (see 
+chapter 2.2, page 5).
+Unlike camera objectives, scan objectives are 
+generally not color-corrected and produce relatively 
+large color errors. Therefore, the scan objective’s 
+focal length and the subsequent distance between 
+the camera and camera objective are strongly influ-
+enced by the illumination wavelength. Generally, the 
+scan objective’s focal length increases with higher 
+wavelengths. Longer wavelengths therefore gene-
+rally require a larger distance between the camera 
+objective and camera. When required, the distance 
+can also be varied via various C-mount extensions 
+(see chapter 3.5, page 13). Note, that supplied
+C-mount extensions are already mounted and may 
+need to be removed.
+As a starting point for distance adjustment, the 
+C-mount extensions included in the delivered 
+package should be combined such that the sum of 
+the extensions is as close as possible to the recom-
+mended C-mount extension value (see technical 
+specifications on page 20). If rotation of the focus 
+ring doesn’t result in a sharp image, then it might be 
+necessary to use a different combination of the 
+included C-mount extensions or possibly other 
+C-mount extensions. If required, the following 
+C-mount extensions are available from SCANLAB: 
+5 mm, 11 mm and 22.1 mm.
+Iris Diaphragm
+Further optimization of image quality can be 
+achieved by adjusting the built-in iris diaphragm’s 
+opening. Performed iris diaphragm adjustments can 
+be fixed by three set screws (see chapter 2.2, page 5).
+Note that a narrower iris-diaphragm opening results 
+in a sharper but darker image with vignetting at the 
+edges.
+Illumination
+The illumination, too, strongly influences image 
+quality (see chapter 2.5, page 6 and chapter 3.6, 
+page 13).
+
+[p.18]
+Camera Adapter
+Rev. 1.6
+5
+Routine Maintenance and Customer Service
+18
+innovators for industry
+5
+Routine Maintenance and Customer Service
+5.1
+Routine Maintenance of the 
+Optical Surfaces
+A dirty camera objective or beam splitter diminishes 
+camera image quality. 
+In addition, dirt on the beam splitter can increase the 
+absorption of laser power by its optical surfaces. 
+Burned-in dirt can lead to destruction of the beam 
+splitter and further consequences. The warranty does 
+not cover any damage due to improper use, cleaning 
+or handling.
+Routine Maintenance of the Beam 
+Splitter
+The beam splitter is an especially sensitive compo-
+nent and should not be touched or removed from the 
+beam splitter block. Nevertheless, you must regularly 
+inspect the beam splitter for dirt, dust and other 
+contaminants.
+For this purpose, the objective unit must be 
+unscrewed from the beam-splitter housing and, 
+under some circumstances, the camera adapter must 
+be detached from the laser flange.
+If inspection reveals dust particles on the beam 
+splitter’s surface, then remove them via an air jet with 
+clean, oil-free air.
+If the dust cannot be removed in this manner, or if 
+inspection reveals more serious contamination, then 
+contact SCANLAB for guidance. In extreme cases, the 
+complete camera adapter must be returned to 
+SCANLAB for inspection and cleaning of the beam 
+splitter. However, in some situations SCANLAB might 
+be able to recommend a user-performed special 
+cleaning procedure.
+Routine Maintenance of the Camera 
+Objective
+The outermost optical surfaces of the camera objec-
+tive must be regularly inspected for dirt, dust and 
+other contaminants.
+For this purpose, the objective unit must be 
+unscrewed from the beam-splitter housing and the 
+iris diaphragm opened.
+If inspection reveals dust particles on the beam 
+splitter’s surface, then remove them via an air jet with 
+clean, oil-free air.
+If the dust cannot be removed in this manner, or if 
+inspection reveals more serious contamination, then 
+contact SCANLAB for guidance. In extreme cases, the 
+complete camera adapter must be returned to 
+SCANLAB for inspection and cleaning of the camera 
+objective. However, in some situations SCANLAB 
+might be able to recommend a user-performed 
+special cleaning procedure.
+Caution!
+• Never touch the optical surfaces of the beam 
+splitter and camera objective.
+• Conduct checking and perform cleaning only in 
+a clean, dirt-free environment.
+
+[p.19]
+Camera Adapter
+Rev. 1.6
+5
+Routine Maintenance and Customer Service
+19
+innovators for industry
+5.2
+Customer Service
+Servicing and Repairs
+Except for routine maintenance of the optical 
+surfaces, the camera adapter does not contain user-
+serviceable internal parts. All servicing and repairs 
+should be performed only at SCANLAB. Only 
+SCANLAB has the proper facilities and procedures to 
+service and repair the camera adapter optimally.
+Product Warranty
+SCANLAB guarantees this product to be free of 
+defects in manufacturing and material. The warranty 
+is valid for 12 months after delivery. Repairs covered 
+under the warranty will be performed at SCANLAB.
+The scope of the warranty is limited to repair or 
+replacement of the SCANLAB product.
+SCANLAB is responsible for the return delivery of 
+products repaired under warranty; the customer is 
+responsible for delivery to SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged through 
+misuse or improper operation
+• for damage due to improper laser power (e.g. 
+focused beam on optical surfaces) or improper 
+adjustment
+• for damage to optical components (beam splitter, 
+camera objective, etc.) caused by improper 
+handling or cleaning 
+• for consequential damages
+• if the camera adapter has been altered
+If a returned camera adapter must first be brought 
+into a serviceable state by SCANLAB (e.g. by removing 
+alignment pins and other customer-added parts or 
+cleaning the camera adapter) before servicing can 
+begin, then the customer must bear the additional 
+cost.
+Contacting SCANLAB
+For service, repairs, advice or information, simply 
+contact SCANLAB using one of the contact possibili-
+ties listed below:
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+Product Disposal
+The camera adapter can be returned to SCANLAB for 
+a fee to be properly disposed of in compliance with 
+environmental regulations.
+
+[p.20]
+Camera Adapter
+Rev. 1.6
+6
+Camera Adapter Specifications
+20
+innovators for industry
+6
+Camera Adapter Specifications
+ 
+Article number
+(objective unit, beam 
+splitter housing incl. beam 
+splitter and two adapter 
+plates)
+127502
+Beam splitter
+Laser wavelength
+1030 nm - 1110 nm (1)
+Range for observation 
+wavelength
+450 nm - 900 nm (1)
+Laser data
+Wavelength
+1030 nm - 1110 nm
+Beam diameter
+see scan head manual,
+max. 30 mm
+Max. allowed average laser 
+power without beam 
+dump.
+See also chapter 3.8, 
+page 15 and scan head 
+manual.
+400 W
+Max. allowed average laser 
+power with beam dump.
+See also chapter 3.8, 
+page 15 and scan head 
+manual.
+5000 W
+Max. allowed laser power 
+density continuous wave.
+See scan head manual.
+4000 W/cm²
+Damage threshold for 
+pulsed operation (with 
+specified laser wavelength, 
+pulse length 10 ns).
+See scan head manual.
+1 J/cm²
+Camera objective
+Wavelength
+450 nm - 950 nm
+Focal length
+105 mm
+Camera
+Connection type
+C-Mount
+Maximum chip size
+2/3“ (2)
+C-mount adapter
+Typical extension (3)
+at 880 nm
+11 mm
+Included with delivery
+11 mm
+Weight
+Without camera
+1.6 kg
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive
+(1)
+The scan system’s mirrors must sufficiently reflect both the laser 
+wavelength and the observation wavelength. Please note the 
+corresponding technical specifications in the manual of your 
+scan system.
+(2)
+The observation field size cannot be considerably enlarged by 
+using a larger camera chip as vignetting would occur at the 
+border of such large image fields.
+(3)
+Valid at the specified wavelength. At other wavelengths or 
+objectives, this value can change, see chapter 4.4, "Optimizing 
+Image Quality" on page 17.

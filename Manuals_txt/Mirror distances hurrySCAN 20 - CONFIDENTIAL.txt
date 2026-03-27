@@ -1,0 +1,39 @@
+# Mirror distances hurrySCAN 20 - CONFIDENTIAL
+
+[p.1]
+104
+O
+85
+M
+x1
+75
+O
+Optical distances from
+Mirror 1: 44,2 mm
+Mirror 2: 18,6 mm
+Optical Scan Angles:
+Mirror 1: +/- 22°
+Mirror 2: +/- 22°
+No part of the lens
+behind this line!
+hurrySCAN 20
+Scan Lens Interface
+(with lens mount-141)
+innovators for industry
+SCANLAB
+confidential!
+8,2
+19,2
+12,2
+NOTE:
+Other objective mounts
+with different sizes are
+available. Please ask for
+more information, if
+necessary.
+© SCANLAB AG 2010
+4,8
+15,4
+lens mount-141
+110
+O

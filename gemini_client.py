@@ -15,8 +15,19 @@ from google.genai import types
 
 import config
 
-_client = genai.Client(api_key=config.GEMINI_API_KEY)
+_client: list = []  # [genai.Client] — lazy init, reset_client()로 초기화
 MODEL = "gemini-2.5-flash"
+
+
+def _get_client():
+    if not _client:
+        if not config.GEMINI_API_KEY:
+            raise ValueError(
+                "Gemini API 키가 설정되지 않았습니다.\n"
+                "설정 > Gemini API 키에서 입력해 주세요."
+            )
+        _client.append(genai.Client(api_key=config.GEMINI_API_KEY))
+    return _client[0]
 
 _VISUAL_NEEDED_MARKER = "VISUAL_NEEDED"
 _ANALYSIS_SEP = "===분석==="
@@ -105,7 +116,7 @@ def _make_part(path: Path) -> types.Part:
 
 
 def _call(contents: list, system_prompt: str) -> str:
-    response = _client.models.generate_content(
+    response = _get_client().models.generate_content(
         model=MODEL,
         contents=contents,
         config=types.GenerateContentConfig(
@@ -142,6 +153,11 @@ def _parse(raw: str, used_pdf: bool = False) -> ReplyResult:
         draft = remainder
 
     return ReplyResult(analysis=analysis, draft=draft, page_refs=parse_page_refs(refs_text), used_pdf=used_pdf)
+
+
+def reset_client():
+    """API 키 변경 시 클라이언트 재초기화."""
+    _client.clear()
 
 
 def parse_page_refs(text: str) -> list[tuple[str, int]]:
@@ -308,9 +324,12 @@ def _call_with_pdf(
         + "## 위 형식에 맞춰 분석과 이메일 초안을 작성해주세요:"
     )
     contents: list = [text]
+    tmp_files: list[Path] = []
     for pdf in manual_pdfs:
         try:
             subset = _make_pdf_subset(pdf, hints)
+            if subset != pdf:
+                tmp_files.append(subset)
             contents.append(_make_part(subset))
         except Exception as e:
             contents.append(f"[PDF 로드 실패: {pdf.name} - {e}]")
@@ -320,7 +339,14 @@ def _call_with_pdf(
                 contents.append(_make_part(att))
             except Exception:
                 pass
-    return _call(contents, system_prompt)
+    try:
+        return _call(contents, system_prompt)
+    finally:
+        for tmp in tmp_files:
+            try:
+                tmp.unlink(missing_ok=True)
+            except Exception:
+                pass
 
 
 if __name__ == "__main__":

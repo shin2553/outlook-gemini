@@ -1,0 +1,380 @@
+# Introduction_to_MoF_with_excelliSCAN_FOR_KOREA_(by_MSL_2022_Rev._01)
+
+[p.1]
+1
+© SCANLAB GmbH 2022
+Introduction to MoF / PoF mode of RTC6
+with excelliSCAN ( +  emulated enc. signal )
+MSL, Aug. 2022
+
+[p.2]
+Large-area laser processing
+with scanner + stage
+2
+© SCANLAB GmbH 2022
+Scanner´s motion range always limited
+by Field of View (FoV) of f-theta objective
+(determined by its focal length)
+Enlargement of processing area
+by additional stage motion
+
+[p.3]
+Large-area laser processing
+with scanner + stage
+3
+© SCANLAB GmbH 2022
+Question to be answered before
+machine concept development:
+Exactly how shall the scanner axes and
+the stage axes operated?
+(e.g. whether with synchonized control
+or without, which motions in which
+sequential order)
+
+[p.4]
+4
+© SCANLAB GmbH 2022
+Various appoaches:
+a) Tiling & Stitching
+b) MoF (Marking on the Fly) 
+a.k.a PoF (Processing on the Fly)
+c) Fully Synchronized Control 
+by syncAXIS SW in XL SCAN
+Large-area laser processing
+with scanner + stage
+
+[p.5]
+5
+© SCANLAB GmbH 2022
+Various appoaches:
+a) Tiling & Stitching
+- Processing partitioned into
+smaller tile units (coverable by FoV)
+- Step-by-Step motion by stage
+from one tile unit to the next
+=> centering FoV to each tile unit
+- Stage remaining stationary
+while scanner being operated for
+laser processing in each tile unit
+Large-area laser processing
+with scanner + stage
+①
+②
+③
+④
+⑧
+⑦
+⑥
+⑤
+⑨
+⑩
+⑪
+⑫
+⑯
+⑮
+⑭
+⑬
+Example of tiling-and-stitching approach
+
+[p.6]
+Large-area laser processing
+with scanner + stage
+6
+© SCANLAB GmbH 2022
+RTC 5/6
+stage axes´
+encoder
+signals
+(x & y)
+FLY-compensated
+scanner motion
+control signals
+Various appoaches:
+b) MoF / PoF
+- Stage’s motion trajectory pre-determined
+and controlled by user
+- Stage axes’ encoder signals fed into the
+RTC board
+=> providing the data corresponding to
+the stage’s position coordinates
+- Scanner motion automatically
+corrected by the RTC’s calculation
+based on the fed-in encoder signals
+=> scanner passively reacting to the 
+stage motion
+
+[p.7]
+Various appoaches:
+c) Fully Synchronized Control
+by syncAXIS SW in XL SCAN
+- User input only for laser spot’s
+motion path, speed parameters,
+and dynamic constraints
+- The syncAXIS SW takes care 
+of trajectory planning for both
+scanner & stage as well as the
+decomposition of spot motion
+into scanner’s and stage’s portion
+Large-area laser processing
+with scanner + stage
+7
+© SCANLAB GmbH 2022
+scanner motion
+control signals
+RTC 5/6
+*SLEC
+syncAXIS on PC
+stage motion
+control signals
+pre-calculated motion
+trajectories of both
+scanner & stage
+* : SLEC = SL2-100 to EtherCAT Converter
+
+[p.8]
+8
+© SCANLAB GmbH 2022
+Various appoaches:
+a) Tiling & Stitching
+b) MoF (Marking on the Fly) 
+a.k.a PoF (Processing on the Fly)
+c) Fully Synchronized Control 
+by syncAXIS SW in XL SCAN
+Large-area laser processing
+with scanner + stage
+
+[p.9]
+9
+© SCANLAB GmbH 2022
+Various appoaches:
+a) Tiling & Stitching
+b) MoF (Marking on the Fly) 
+a.k.a PoF (Processing on the Fly)
+c) Fully Synchronized Control 
+by syncAXIS SW in XL SCAN
+Large-area laser processing
+with scanner + stage
+Focus of today´s presentation
+
+[p.10]
+Original purpose: 1D FLY with const. speed
+MoF (Marking on the Fly) / PoF (Processing on the Fly)
+10
+© SCANLAB GmbH 2022
+-
+RS422 (HIGH ≥ 2.0 V; LOW ≤ 0.8 V)
+-
+Max. allowed encoder frequency: 4 MHz for RTC5/6 
+(i.e. max. 160 encoder pulses within 10 μs)
+-
+Two encoder signals phase-shifted by 90° for each 
+stage axis (X1 & X2 and Y1 & Y2)
+Encoder signal interface of RTC5/6
+
+[p.11]
+Original purpose: 1D FLY with const. speed
+MoF (Marking on the Fly) / PoF (Processing on the Fly)
+11
+© SCANLAB GmbH 2022
+-
+Each rising or falling edge => 1 encoder pulse count 
+-
+Accumulated encoder pulse counts represent the 
+stage’s position coordinates.
+-
+Motion direction indicated by phase shift between 
+Enc. 1 & Enc. 2 => pos. or neg. pulse counts
+Encoder signal interface of RTC5/6
+
+[p.12]
+Original purpose: 1D FLY with const. speed
+MoF (Marking on the Fly) / PoF (Processing on the Fly)
+12
+© SCANLAB GmbH 2022
+-
+The frequency of encoder pulses represent the velocity 
+of each stage motor axis.
+-
+However, no present value of instantaneous velocity 
+available, only the values lying in the past
+-
+Stage acc. / dec. => lagging scanner motion => pos. err.
+Encoder signal interface of RTC5/6
+
+[p.13]
+Difficulty in motion sync. for accelerated / decelerated stage motion
+MoF (Marking on the Fly) / PoF (Processing on the Fly)
+13
+© SCANLAB GmbH 2022
+Case 1.: scanner with conventional control (SCANcube, hurrySCAN, inteillSCAN etc.)
+ts = tracking error
+ta = acceleration time
+①= set trajectory determined by RTC’s control values
+②= actual trajectory of scanner motion
+②
+Due to tracking error (typ. 0.1 – 0.6 µsec.
+depending on scanner type and tuning), the
+attempt of scanner to follow accelerated or
+decelerated stage motion based on encoder
+counts leads to the scanner motion lagging
+behind the stage motion causing increased
+position error.
+
+[p.14]
+Difficulty in motion sync. for accelerated / decelerated stage motion
+MoF (Marking on the Fly) / PoF (Processing on the Fly)
+14
+© SCANLAB GmbH 2022
+Case 2.: scanner with SCANahead control (i.e. excelliSCAN)
+tp = preview time required for calculation in SCANahead control
+ta = acceleration time
+①= set trajectory determined by RTC’s control values
+②= pre-calculated set trajectory from SCANahead control
+③= actual trajectory from SCANahead control
+②
+Due to preview time of 1.2 msec., the FLY
+correction for scanner motion is based on
+predicted encoder pulse counts calculated
+by the extrapolation from the encoder
+pulse frequency / stage speed over the
+past 1.2 msec.
+Any acceleration or deceleration in stage
+motion will lead to the deviation from
+these predicted values and, therefore, to
+increased position error.
+③
+
+[p.15]
+Difficulty in motion sync. for accelerated / decelerated stage motion
+MoF (Marking on the Fly) / PoF (Processing on the Fly)
+15
+© SCANLAB GmbH 2022
+Case 2.: scanner with SCANahead control (i.e. excelliSCAN)
+1.2 msec. preview time
+what for?
+
+[p.16]
+Solution by emulated / virtual encoder signals
+16
+© SCANLAB GmbH 2022
+Criteria for solution:
+-
+The encoder signals shall arrive at the RTC6 board *1.25 msec. before the stage 
+motion to the corresponding target positions.
+-
+The encoder signals shall represent the stage’s target positions with minimized 
+errors.
+ACS product named ‘LCI’ (‘Laser Control Interface’ in short) generates emulated 
+(a.k.a ‘virtual’) encoder signals fulfilling these criteria, if the stage motion is also 
+controlled by ACS motion controller and drives.
+For more detailed information, please refer to
+https://acsmotioncontrol.com/products/laser-control/lci/
+* : 1.25 msec. = 1.2 msec. + 0.05 msec., where 1.2 msec. is
+the preview time of SCANahead control and 0.05 msec. 
+is the time required for signal transfer between RTC6 and 
+the servo-driver electronics inside the excelliSCAN.
+
+[p.17]
+Solution by emulated / virtual encoder signals
+17
+© SCANLAB GmbH 2022
+Wiring between LCI and RTC6:
+Encoder signal interface of RTC5/6
+#1
+#9
+#19
+#26
+J3 Auxiliary IO of LCI
+
+[p.18]
+Solution by emulated / virtual encoder signals
+18
+© SCANLAB GmbH 2022
+Encoder signal interface of RTC5/6
+#1
+#9
+#19
+#26
+J3 Auxiliary IO of LCI
+Wiring between LCI and RTC6:
+
+[p.19]
+Solution by emulated / virtual encoder signals
+19
+© SCANLAB GmbH 2022
+Encoder signal interface of RTC5/6
+#1
+#9
+#19
+#26
+J3 Auxiliary IO of LCI
+Wiring between LCI and RTC6:
+
+[p.20]
+Solution by emulated / virtual encoder signals
+20
+© SCANLAB GmbH 2022
+RTC6 Programming:
+What changes for the user, if LCI’s emulated encoder signals shall be used for 
+the FLY mode of RTC6 with excelliSCAN?
+-
+Before FLY initialization, please apply fly_prediction( PredictionX = 0, 
+PredictionY = 0 ) in order to deactivate the extrapolation for the prediction 
+of encoder pulse counts.
+-
+Applying activate_fly_2d_encoder() or activate_fly_xy_encoder() instead 
+of set_fly_*() is recommended for FLY initialization. By doing so, the 
+encoder counter values will not be reset to zero.
+-
+Other than this, nothing changes for the users, so they can program their 
+FLY applications just as usual.
+
+[p.21]
+Solution by emulated encoder signals
+21
+© SCANLAB GmbH 2022
+Merit offered by FLY with ACS motion controller + LCI and excelliSCAN + RTC6 
+•
+ACS motion controller and drives (with optimized tuning and configuration setting) 
+allows for the minimization of difference between the set trajectory and the actual 
+trajectory of stage.
+=> Emulated enc. signals from LCI correspond to the set trajectory of stage.
+•
+The emulated encoder signals also takes the stage’s error mapping data into account.
+=> No need to perform error mapping twice (once for stage motion control itself 
+and another time for encoder signals fed into the RTC6 for the use of RTC6 command 
+load_fly_2d_table)
+•
+The emulated encoder signals can be shifted along the time axis (no matter, whether 
+in positive or in negative direction)
+=> The preview time of excelliSCAN’s SCANahead control does not pose any obstacle 
+anymore.
+=> The tracking-error-free scanner motion fully exploiting the dynamic potential
+of galvanometers can, now, be applied 2D FLY even for acc. / dec. stage motion.
+=> High accuracy and high dynamics / productivity achievable both at the same time
+
+[p.22]
+Solution by emulated encoder signals
+22
+© SCANLAB GmbH 2022
+Drawback in comparison to XL SCAN / syncAXIS
+•
+In case of MoF / PoF, the sync of the starting point in scanner motion and stage motion 
+requires either External List Start or invoking the RTC command wait_for_encoder.
+=> 10 µsec. jitter is always present (for example, at stage speed of 1 m/s, this can cause 
+position errors up to max. 10 µm)
+=> But no such jitter present in XL SCAN / syncAXIS
+•
+In case of excelliSCAN controlled by RTC6.dll scanner motion is only acceleration-limited and 
+pre-calculation of scanner’s motion trajectory is performed only piecewise along the time 
+axis (i.e., within 1.2 msec. time window running over the input motion path).
+=> Positioning accuracy and motion stability not as good as those achieved by XL SCAN
+/ syncAXIS which works with complete traj. pre-planning and jerk-limited control
+•
+Spot Distance Control (SDC) of RTC6.dll in FLY not as accurate as SDC of syncAXIS.dll
+=> error contributions from the points stated above and from stage-encoder-based 
+calculations in RTC6 for FLY correction of scanner motion
+•
+Reduction of excelliSCAN’s acceleration limit possible only globally (i.e. for an entire job) in 
+RTC6.dll, whereas syncAXIS.dll allows for locally varying setting.
+=> concern for users aiming at extremely high accuracy and dynamics both at the same time

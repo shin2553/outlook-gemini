@@ -1,0 +1,254 @@
+# Manual_115648_DSIB_Interface_Board_2019-03-20_en
+
+[p.1]
+DSC Digital Servo Control
+20. März 2019
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Deutschland
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+©  SCANLAB GmbH 2019
+(Doc. Rev. 1.0 d - 17. Juni 2009)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB.
+
+[p.3]
+3
+DSC Digital Servo Control
+ 
+1
+Overview
+The DSC electronics enables together with an RTC PC 
+interface board (RTC4 or higher) a full digital control 
+of scan systems. 
+The DSC electronics consists of:
+• two DSCB boards with a digital controller each for 
+one galvanometer scanner/scan axis
+• a DSIB digital interface board which serves as 
+interface for digital data transfer between a RTC 
+board and the both DSCB boards
+The arrangement and cabling of the boards is shown 
+in figure 1.
+The DSCB digital control board forms a closed servo 
+loop in conjunction with the galvanometer scanner. 
+Each DSCB board is individually tuned by SCANLAB 
+for its assigned scanner-mirror configuration. Do not 
+interchange the control boards. Optimum scan qual-
+ity cannot be guaranteed if control boards are inter-
+changed. Therefore, make sure the various electronic 
+components are properly combined. To help achieve 
+this, the connectors and each DSCB board is marked 
+with “Galvo 1” or “Galvo 2”. Additionally, the serial 
+number is marked on the angle plate of each DSCB 
+board.
+ 
+1
+Arrangement and cabling of the electronics boards
+
+[p.4]
+4
+DSC Digital Servo Control
+ 
+2
+Installation
+2.1
+DSCB Digital Control Board
+Figure 2 shows the dimensions of the DSCB digital 
+control board with its connectors. The board is 
+mounted on an angle plate. For fastening the control 
+board, the angle plate’s side surface provides four 
+bore holes. Two of the four holes are M3-threaded. 
+All holes require M3-threaded screws. Ensure that no 
+electrical contact exists between the screws and the 
+board’s electronic components.
+To prevent damage or destruction of the board from 
+excessive heat, it is important to attach the board’s 
+angle plate to a heat sink or an appropriate-sized 
+part of a housing. The material and dimension of the 
+heat sink must be chosen such that the temperature 
+of the angle plate does not exceed 50 °C. 
+Caution!
+• Store the electronics boards always in an elec-
+trostatically neutral environment in the deliv-
+ered antistatic bag.
+• To avoid damage to the electronics boards by 
+static charges, observe all applicable ESD 
+guidelines.
+• Don’t touch the contacts of the electronics 
+boards.
+• The electronics boards must be securely 
+fastened and protected from moisture, dust, 
+corrosive vapors and external influences.
+2
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+Legend
+1
+Angle plate
+2
+POWER IN connector for power supply
+3
+DIGITAL & POWER IN connector for power supply and data transfer
+4+5Scanner connectors
+Dimensions of the DSCB board
+
+[p.5]
+5
+DSC Digital Servo Control
+ 
+2.2
+DSIB Interface Board
+Figure 3 shows the dimensions of the DSIB board 
+with its connectors. The board is mounted on an 
+angle plate.
+For fastening the board, the angle plate’s side sur-
+face provides four bore holes. Two of the four holes 
+are M3-threaded. All holes require M3- threaded 
+screws. Ensure that no electrical contact exists 
+between the screws and the board’s electronic com-
+ponents.
+The DSIB board must be mounted so that the 
+included flat ribbon cables can be connected to the 
+DSIB board and the DSCB board. 
+3
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Legend
+1 Angle plate
+2 POWER IN connector for power supply
+3 DIGITAL IN connector for connecting to a PC 
+controller
+4 POWER OUT connector for axis 2
+5 DIGITAL & POWER OUT connector for axis 2
+6 POWER OUT connector for axis 1
+7 DIGITAL & POWER OUT connector for axis 1
+8 Optional: POWER_OUT connector for a z axis
+9 Optional: DIGITAL & POWER OUT connector for 
+a z axis
+Dimensions of the DSIB interface board
+
+[p.6]
+6
+DSC Digital Servo Control
+ 
+3
+Connections
+3.1
+Power Supply
+Power input to the scan module is via the 2-pin 
+POWER IN connector on the DSIB board. Figure 4 
+shows the pinout of this connector.
+ 
+The board requires a power supply of +30 V DC 
+(±1 V). The maximum current depends on the con-
+nected galvo and is at least 1.5 A.
+For mating plugs, connector housings of type JST 
+VHR-2N and crimp contacts of type JST SVH-41T-P1.1 
+(cable diameter AWG20-16) are suitable.
+3.2
+Data Transfer
+For connecting the DSC electronics to the RTC board, 
+the DIGITAL IN connector of the DSIB board is used. 
+Figure 5 shows the pinout of this connector. 
+The control and the scan kit are connected with a 
+serial interface. The data transmission between the 
+signal input and signal output follows the XY2-100 
+protocol. Three signals are transmitted:
+• The control delivers the set value of the X axis 
+(scanner 2) and Y axis (scanner 1).
+• The scan kit generates a status signal.
+• Two other channels transmit the synchronization 
+for data transport and a clock signal.
+SCANLAB recommends to use a data cable length of 
+max. 10 m.
+ 
+3.3
+Cabling
+The cabling of the galvanometer scanners, boards 
+and the PC controller is shown in figure 1. Proceed as 
+follows:
+• Connect each galvanometer scanner via the two 
+mounted cables to the associated DSCB board.
+• Connect the DIGITAL & POWER IN and POWER IN 
+connectors of the DSCB boards via four suitable 
+cables to the associated DIGITAL & POWER OUT 
+and POWER OUT connectors of the DSIB board.
+• Connect the PC controller with RTC interface 
+board via a suitable cable to the DIGITAL IN 
+connector of the DSIB board.
+• Connect the power supply to the POWER IN 
+connector of the DSIB board.
+4
++30V
+(2)
+PWRGND
+(1)
+Pinout of the DSIB-SL board’s POWER IN connector
+5
+CLOCK –
+(1)
+SYNC–
+(3)
+CHAN1 –
+(5)
+CHAN2 –
+(7)
+CHAN3 –
+(9)
+STATUS2 – (11)
+STATUS3 – (13)
+STATUS1 – (15)
+(2)
+CLOCK+
+(4)
+SYNC+
+(6)
+CHAN1+
+(8)
+CHAN2+
+(10) CHAN3+
+(12) STATUS2+
+(14) STATUS3+
+(16) STATUS1+
+Pinout of the DSIB board’s DIGITAL IN connector

@@ -1,0 +1,76 @@
+# Datasheet_0125377_XY2-100_Converter_II_2025-04-29_en
+
+[p.1]
+© SCANLAB GmbH 2025
+innovators for industry
+ 
+(14)  CLOCK +
+(15)  SYNC +
+(16)  CHAN1 +
+(17)  CHAN2 +
+(18)  NOT CONNECTED
+(19)  STATUS + *
+(20)  NOT CONNECTED
+(21)  STATUS1 + *
+(22)  NOT CONNECTED
+(23)  NOT CONNECTED **
+(24)  NOT CONNECTED **
+(25)  NOT CONNECTED
+CLOCK -   (1)
+ SYNC -   (2)
+CHAN1 -   (3)
+CHAN2 -   (4)
+NOT CONNECTED   (5)
+* STATUS -   (6)
+NOT CONNECTED   (7)
+* STATUS1 -   (8)
+NOT CONNECTED   (9)
+NOT CONNECTED (10)
+** NOT CONNECTED (11)
+NOT CONNECTED (12)
+NOT CONNECTED (13)
+(1)  DATA OUT +
+(2)  3.3 V
+(3)  NOT CONNECTED
+(4)  3.3 V
+(5)  DATA IN +
+DATA OUT -  (6)
+GND  (7)
+GND  (8)
+DATA IN -  (9)
+connection 
+to the
+scan head 
+via cable
+direct connection to the
+RTC5 board's primary
+scan head connector
+or
+connection via a short-as-
+possible 1:1 cable to the
+corresponding pins of the
+RTC5 board’s secondary
+scan head connector
+56.5
+34.5
+52
+62
+Thickness 12.5
+(all dimensions in mm)
+*  For iDRIVE scan systems (intelliSCAN, 
+intelliSCANde, intelliDRILL, intellicube, 
+intelliWELD, varioSCANde), the STATUS± 
+channel is the status channel of axis 2 
+(X axis; this channel is then also called 
+STATUS2±) and the STATUS1± channel is 
+the status channel of axis 1 (Y axis).
+For other scan systems, the STATUS1± 
+channel can not be used: 
+“NOT CONNECTED”.
+**  Pins 11, 23 and 24 are interconnected. 
+9-pin male D-Sub 
+25-pin female D-Sub 
+9-pin male D-Sub
+25-pin female D-Sub
+XY2-100 Converter (SL2-100 => XY2-100) #0125377
+Dimensions and Pinout

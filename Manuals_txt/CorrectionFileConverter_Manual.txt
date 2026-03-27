@@ -1,0 +1,411 @@
+# CorrectionFileConverter_Manual
+
+[p.1]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 1 - 
+ 
+CorrectionFileConverter 1.20 
+CorrectionFileConverter.exe converts RTC4 correction files into RTC5 correction files 
+and vice versa. 
+ 
+The program can be launched from any directory. The correction files that will be 
+converted or edited can exist in any directory. 
+ 
+The program can be started in GUI mode (dialog mode) or silent mode. The command-
+line-based “silent mode” requires a non-empty argument list. 
+ 
+Program call: CorrectionFileConverter.exe [PathNameInput [OutPath]] 
+Revision History 
+ 
+Program versions prior to 1.10 (obsolete) needed the file RTC5Base.dll as well as the MS 
+Visual Studio files MFC71.dll, MSVCR71.dll, MSVCP71.dll and MSVCRT.dll to reside in 
+the same directory as CorrectionFileConverter.exe. 
+ 
+Program version 1.10: RTC5Base.dll as well as the Visual Studio DLLs are now statically 
+linked and no more necessary as separate files. 
+ 
+Program version 1.20: Dialog now have Windows-XP style applied. 
+Silent Mode 
+ 
+PathNameInput and OutPath are separated from another by a <Space> character and 
+cannot contain <Space> characters themselves (even if the character string is enclosed by 
+<"">). 
+ 
+PathNameInput is mandatory, OutPath is optional. PathNameInput specifies the to-be-
+converted file’s name and (optional) path. If not absolute (DRIVE:\Path\Name), then the 
+path must be specified relative to the current working directory. If OutPath is specified, 
+then OutPath\Name will be used for output. Otherwise, the input directory will be used. 
+ 
+Name must contain either “.ctb” or “.ct5” as a file extension; the output name will be 
+automatically assigned. The conditions for the dialog mode (described below) also apply to 
+the silent mode. Silent mode, however, relies on error codes (program exit codes) instead 
+of message boxes. Some error codes may occur cumulative.
+
+[p.2]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 2 - 
+ 
+Error codes: 
+ 
+0 
+No error 
+1 
+Invalid extension (not ctb or ct5) 
+2 
+((Input) file not found (file and path must exist) 
+4 
+(Output) file not opened (output path must exist) 
+8 
+Inverting error 
+16 
+Format for 3D correction not supported 
+32 
+ABC value out of range 
+ 
+Notes: 
+Only a single file (but no file lists) can be converted in one run. Existing output files 
+will be overwritten without warning. 
+ 
+Note that not all ct5 header data can be automatically set (see section “Showing 
+Headers” and the examples therein). 
+ 
+Error code 8 can result if the center point of a (user-altered) ctb file is not  
+(0, 0). The inverting routine may then terminate with an error. However the RTC5 
+software up to DLL version 514 doesn’t use these inverse tables. Since DLL version 
+515 the inverted tables are used only for the back transformation functionality. The 
+correction table itself should remain fully functional. A remark will be output in an 
+additional log file. 
+ 
+In case of error 16 no ct5 file will be output, but a log file containing a corresponding 
+remark. 
+ 
+In case of error 32 no ctb file will be output, but a log file containing a corresponding 
+remark.
+
+[p.3]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 3 - 
+ 
+Dialog Mode 
+ 
+To end the program at any time, just click the close symbol (x) or press the ESC key. 
+ 
+ 
+File Selection 
+ 
+“Select Files to Convert” opens a standard  File Open dialog. 
+ 
+Under File type you can select which kinds of files to process: only RTC4 files (∗.ctb), or 
+only RTC5 files (∗.ct5), or both types simultaneously. From the displayed list of files, 
+select one or more. You can also edit the input field, but the file must already exist. 
+Wildcards are permissible for restricting selection. Confirm your selection by clicking 
+Open. Cancel aborts the selection and indicates this by displaying “Ready”. 
+ 
+Afterward, a standard File Save dialog appears that allows the converted files to be stored 
+in a different user-selectable destination directory, which likewise must already exist. All 
+inputs for a filename will be ignored – but you shouldn’t fully delete the default input string 
+“*.*”. Confirm your selection by clicking Save. Cancel leaves the source and destination 
+directories unchanged. 
+Conversion 
+ 
+All selected files will now be (sequentially) converted. Files with extension “ctb” will be 
+automatically converted from the RTC4 to the RTC5 format, while those with extension 
+“ct5” will be converted from the RTC5 to the RTC4 format. Extensions are case-
+insensitive. Files with other extensions will be ignored. During the conversion process, 
+clicking the “Select Files to Convert” or “Show File Header” buttons (see below) has no 
+effect. Here, the only way to immediately end the program (and thus the current 
+conversion) is to click the close symbol (x).
+
+[p.4]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 4 - 
+ 
+Below the “Select Files to Convert” button, the program displays the status text 
+“Processing <Filename>”: 
+ 
+ 
+ 
+The extension “ctb” will change to “ct5” or vice versa. The filename itself (D2_nnn or 
+D3_nnn) remains unchanged. Before conversion, existence of a similarly-named file in the 
+destination directory will be checked. If found, a MessageBox will appear, asking you to 
+confirm (Yes) or abort (No) overwriting of the existing file. 
+ 
+ 
+ 
+If you click “No”, conversion of that file will be skipped and the next source file will then be 
+processed. If you click “Yes”, the file will be converted and the existing file in the 
+destination directory will be overwritten. 
+ 
+After the final selected file has been processed, the “Ready” status text will be displayed. 
+Both buttons will again resume their normal functionality. 
+ 
+ 
+ 
+Note: A MessageBox of the following kind should rarely or never appear: “<Filename>: 
+Error in Inverting: <Error>” (currently only with <Error> = 1). On the one hand, that
+
+[p.5]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 5 - 
+ 
+indicates the ctb file is corrupt or not a valid RTC4 correction file (e.g. a completely 
+different kind of file that merely has the extension “ctb”). On the other hand, when 
+converting user-created correction files (e.g. via correXion5, correXion or CFMP) 
+featuring a zero point offset under some circumstances an "Error in Inverting: 1" may also 
+be created. Such a converted table is nevertheless completely functional besides back 
+transformation. Further “errors” when inverting are currently (in program version 1.20) 
+neither detected nor handled. 
+ 
+Some older 3D correction files created for the RTC2/RTC3/RTC4 contain height tables 
+for Z-axis control. The RTC5 doesn’t support such table formats – instead, it uses so-
+called ABC values for parabolic correction. 
+ 
+This situation is indicated by the following kind of MessageBox: 
+ 
+ 
+ 
+The RTC5 correction file uses a default value of 0 for ABC, so that no 3D operations can 
+be executed without explicitly providing realistic values. 
+ 
+Note: You can edit ABC values (as long as they are 0.0 each) by clicking the “Show File 
+Header” button (see Showing Headers) or (at any time) via subsequent transfer to the 
+RTC5 board using the load_z_table command. The RTC5 manual’s 3D section 
+describes how to determine appropriate ABC values. You can also ask SCANLAB for 
+appropriate new RTC5 correction tables. 
+Showing Headers 
+ 
+The “Show File Header” button opens a special dialog box to display the 16 header 
+parameters of the RTC5 file format. A standard File Open dialog allows you to select a 
+file with the extension “ct5”. If Open is clicked to confirm a selection with a different 
+extension, then the following MessageBox appears:
+
+[p.6]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 6 - 
+ 
+ 
+ 
+Otherwise, the RTC
+
+5 Header Info dialog appears. Its title bar displays the version 
+number (not necessarily identical to the converter’s program version number) as well as 
+the name of the currently-read file (without the path or extension). 
+ 
+The dialog can be closed via the ESC key, the close symbol (x) or the Cancel button, 
+without changing any data in the header. It is not possible to change correction data which 
+were calculated by SCANLAB ab initio, but header data of ct5 files converted from RTC4 
+ctb files can be partially changed. 
+ 
+Use the tab or enter keys to sequentially navigate across editable fields. Entries will be 
+automatically rounded and/or clipped when necessary. 
+ 
+After significant changes to editable fields, a Save button will be activated, leading to a 
+dialog for permanently storing the changed data. Prior to overwriting, a precautionary 
+MessageBox appears for user confirmation: 
+ 
+ 
+Description of Parameters 
+ 
+If the correction file was loaded onto the RTC5, then the Header Info parameters can also 
+be queried via the RTC5 commands get_table_para or get_head_para. 
+ 
+However, the return code of these commands is always a floating point number that must 
+be “interpreted” (see the RTC5 manual). The dialog here provides automatic 
+interpretation. The information (from top to bottom) in the left column corresponds to 
+indices 0 – 7; and the right column to indices 8 – 15. 
+ 
+The header data of an original RTC5 correction file is not editable.
+
+[p.7]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 7 - 
+ 
+In the following table, “No.” is the parameter’s number used with the commands 
+get_table_para or get_head_para (for enquiring the corresponding parameter value). Type 
+indicates the entries accepted for the editable fields. 
+ 
+No. 
+Name 
+Type 
+Remarks 
+0 
+2D/3D 
+ 
+0: 2D, 1: 3D 
+1 
+Field Calibration 
+integer 
+(unsigned)  
+[Bit/mm], should be a multiple of 
+16 
+2 
+Focus Length or 
+Working Distance 
+floating point 
+[mm],  
+up to 3 decimal places 
+3 
+Stretch X 
+ 
+Image field change with z 
+4 
+Stretch Y 
+ 
+Image field change with z 
+5 
+Z Correction: A 
+floating point 
+Offset Part [± 26 Bit] 
+6 
+Z Correction: B 
+floating point 
+Linear Part [± 11 Bit] 
+7 
+Z Correction: C 
+floating point 
+Square Part [± 4 Bit] 
+8 
+File No 
+ 
+for ab initio calculations: 
+generated by SCANLAB (data 
+set number); for file conversion: 
+derived from the file name of the 
+converted file (digit sequence 
+directly after the first underscore) 
+9 
+Lens 
+ 
+ 
+Correction Type 
+integer 
+(unsigned) 
+Objective is 
+(0) 1: (not) present 
+ 
+Distortion: 
+0: no distortion 
+1: f progression 
+2: height table 
+10 
+Origin 
+ 
+ 
+ 
+ 
+Program Version 
+ 
+Source of table: 
+n ≥ 10000: calculated ab initio 
+n ≥ 20000: converted from ctb  
+n ≥ 30000: reconstructed from txt 
+ 
+Program version 
+11 
+Inverted Table 
+ 
+ 
+numerical 
+ 
+Inverse table is 
+(0) 1: (not) present 
+ 
+0: calculated ab initio 
+1: numerically inverted 
+12 
+Calibration Angle 
+floating point 
+[Grad], ± mech. deflection at 96% 
+max.
+
+[p.8]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 8 - 
+ 
+13 
+Scan Head Type 
+ 
+rotation field 
+integer 
+Description 
+Number 
+(returned via get_table_para) 
+14 
+Protection Glass 
+Thickness 
+ 
+Refraction Index 
+ 
+floating point 
+ 
+floating point 
+Protective glass: 
+Thickness [mm] (2 decimal 
+places)  
+Refraction index (3 decimal 
+places) 
+15 
+Field Limit 
+ 
+(0) 2: (no) field limit 
+ 
+Note: In general, for the RTC5 the numerical values of the Field Calibration (index 1) are 
+16 times larger than for the RTC4. On the other hand, identical Z-Correction A, B, C 
+values (index 5, 6, 7) can be used for the RTC4 and RTC5. 
+ 
+Example 1: 1-to-1 correction table calculated ab initio
+
+[p.9]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 9 - 
+ 
+Example 2: D2 correction file D2_458.ct5, converted from D2_458.ctb 
+When converting from a 2D RTC4 correction file, not all information is available for a 
+complete ct5 header. Missing are values for field calibration (Bit/mm), focal length or 
+working distance (mm), mech. scan axes calibration (±degree) and the basic scan head 
+geometry (scan head type). 
+ 
+Those fields will therefore be available for editing. The corresponding data can be obtained 
+from the ReadMe.txt file that accompanies the originally supplied RTC4 correction file. 
+ 
+Entries in white fields can be finalized via “enter” or “return” – the dialog will remain open. 
+The input focus then automatically moves to the next editable field (likewise via the tab 
+key). All changes are checked and, if necessary, rounded and/or clipped. 
+ 
+The scan head type can also be changed via the corresponding spin button (arrows). 
+ 
+Caution: These entries are only for informational purposes and not used by the DLL or the 
+RTC 5 board. Users are solely responsible for filling these fields with data appropriate for 
+their applications.
+
+[p.10]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 10 - 
+ 
+If at least one editable field has received data that differs from the originally-read values, 
+then the Save button will be activated. This allows changes to the current header to be 
+permanently stored. The dialog will then close. Prior to overwriting, a confirmation 
+MessageBox will be displayed: 
+ 
+ 
+ 
+Example 3: D3 correction file D3_001.ct5, converted from D3_001ctb 
+Older 3D correction files for the RTC2/RTC3/RTC4 use so-called height tables for Z-
+axis correction. This is not supported by the RTC5 (see the Conversion chapter), which 
+instead only uses so-called ABC coefficients (likewise with recent RTC4 correction files) 
+for a parabolic correction equation (see the RTC5 manual). In this case only, the ABC 
+fields will be editable after a conversion, as long as they show 0.0 each.
+
+[p.11]
+© SCANLAB AG, CorrectionFileConverter 1.20 
+ - 11 - 
+ 
+ 
+ 
+Note: At any time, ABC values can be subsequently transferred to the RTC5 via the 
+load_z_table command. The RTC5 manual describes how to determine appropriate ABC 
+values. You can also ask SCANLAB for appropriate new RTC5 correction tables. 
+ 
+The numerical values for ABC are compatible between the RTC4 and RTC5 – the only 
+difference is that the allowable range of values and the number of evaluated decimal 
+places is larger for the RTC5.

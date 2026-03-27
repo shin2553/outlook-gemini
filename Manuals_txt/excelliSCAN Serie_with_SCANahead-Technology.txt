@@ -1,0 +1,128 @@
+# excelliSCAN Serie_with_SCANahead-Technology
+
+[p.1]
+Process Accelerators for Additive Manufacturing
+excelliSCAN Series with SCANahead Technology
+
+[p.2]
+LASER ON
+ 
+High-End Systems for Additive Manufacturing 
+Powder-based 3D printing offers maximum component-design 
+flexibility. Additive manufacturing enables fabrication of modern, 
+lightweight structures, such as used in the automotive and aero-
+space industries.
+Industrial laser processing systems for 3D printing have long re-
+lied on SCANLAB scan systems to guide the focused laser beam 
+precisely and with high dynamics across a powder bed, thereby 
+melting defined areas. 
+SCANahead Control Boosts Productivity
+Faster 3D printing throughput is conventionally achieved by uti-
+lizing multi-head systems or higher laser power. But additional 
+potential is offered by modern technologies such as SCANLAB’s 
+SCANahead servos, which can significantly cut process time via 
+much shorter LASER-OFF periods. This effect is particularly pro-
+nounced for filigree component structures.
+Grid structures are typically fabricated by guiding the laser focus 
+in bidirectional scan vectors over the numerous small areas to be 
+processed. The large number of short scan vectors requires a high 
+proportion of acceleration and braking periods (LASER-OFF).  
+SCANahead control enables much higher dynamic performance 
+than conventional servos. The result is shorter paths during  
+LASER-OFF times (see figure lower left). 
+SCANahead control shortens acceleration and deceleration paths
+SCANahead – Innovative Scanner Control
+with SCANahead 
+LASER-OFF 
+conventional  
+LASER-OFF
+
+[p.3]
+1
+2
+Conventional control
+SCANahead control
+v
+v
+t
+t
+Time saved
+Process time per hatchline
+Process time per hatchline
+LASER-OFF
+LASER-ON
+High Throughput Thanks to High Acceleration
+SCANahead control allows scan systems to deliver full acceleration 
+independent of the scan speeds (i.e. with minimum acceleration 
+duration t a ). The galvos‘ dynamic performance potential is opti-
+mally utilized.
+The rapid accelerations sharply shorten acceleration periods and 
+braking periods. This significantly reduces the time during which 
+the laser remains switched off at each hatch line (see diagram 1). 
+This cuts process time and also boosts productivity, without 
+requiring changes to process parameters (process speed, laser 
+power etc.).
+Compared to conventionally controlled scan systems, SCANahead 
+servo control can reduce LASER-OFF time (= acceleration time t a ) 
+by approx. 80% at a scan speed of vscan = 1m/s (see diagram 2).
+SCANahead Control’s Advantages in 3D Printing
+•  Boosts productivity via significantly shortened acceleration times 
+•  Reduces process time with no need to change process 
+parameters
+•  An universal tuning assures maximum user friendliness – no delay 
+adjustments necessary!
+•  Highest accuracy (contour fidelity) and long-term stability thanks 
+to the latest digital encoder technology – even for challenging 
+scan jobs
+Reduced acceleration time with SCANahead control* 
+With unchanged LASER-ON times, SCANahead control significantly shortens 
+LASER-OFF times (acceleration and braking).
+Conventional
+control 
+SCANahead
+control 
+Time saved 
+ta [µs]
+250
+50
+*Simulation results are based on system with 14 mm aperture and f=500 mm.
+
+[p.4]
+SCANLAB America, Inc. · 100 Illinois St · St. Charles, IL 60174 · USA 
+Tel. +1 (630) 797-2044 · Fax +1 (630) 797-2001  
+info@scanlab-america.com · www.scanlab-america.com
+SCANLAB GmbH · Siemensstr. 2a · 82178 Puchheim · Germany 
+Tel. +49 (89) 800 746-0 · Fax +49 (89) 800 746-199 
+info@scanlab.de · www.scanlab.de
+11 / 2019 Information is subject to change without notice. 
+Product photos are non-binding and may show customized features. 
+RTC6 – Control Board for SCANahead 
+Systems
+SCANLAB‘s powerful RTC6 control board supports all 
+excelliSCAN scan system features, and offers the fol-
+lowing additional advantages:
+•  Ethernet variant
+•  SCANalone functionality (available Q1/2020)
+•  Improved processing-on-the-fly functionality for 
+ultra-precise processing of moving workpieces
+•  New Spot Distance Control (SDC) function allows 
+precise laser processing even during acceleration 
+and braking phases when used with pulse-on-
+demand lasers
+excelliSCAN 20 – Highlights
+•  New mechanical design with strict spatial separation of 
+optics and electronics
+•  Air-cooled mirrors allow usage even at high laser powers
+•  Optional integrated sensors provide mirror and system 
+temperature monitoring for enhanced process safety
+Additional excelliSCAN family advantages
+•  Digital galvanometer scanners with 20-bit technology for 
+maximum positioning accuracy and long-term stability
+•  Digital output stages deliver ultimate performance and 
+efficiency
+•  Optimized mechanics and cooling for improved long-
+term stability
+•  Convenient and simple commissioning (setup and 
+parameter determination) thanks to universal tuning and 
+automatically defined scanner and laser delay settings
+New!

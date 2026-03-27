@@ -6,7 +6,11 @@ echo ======================================
 echo  OutlookGemini .exe Build Start
 echo ======================================
 
-:: Python Scripts ê²½ë¡œ ìžë™ íƒìƒ‰
+:: ½ÇÇà ÁßÀÎ EXE Á¾·á ÈÄ ºôµå
+taskkill /f /im OutlookGemini.exe > /dev/null 2>&1
+timeout /t 1 > nul
+
+:: Python Scripts °æ·Î ÀÚµ¿ Å½»ö
 for /f "delims=" %%i in ('python -c "import sys, os; print(os.path.join(sys.prefix, 'Scripts'))"') do set SCRIPTS=%%i
 set PYINSTALLER=%SCRIPTS%\pyinstaller.exe
 
@@ -31,11 +35,25 @@ echo.
 echo Copying config, profiles and manual...
 copy /Y config_template.ini "dist\OutlookGemini\config.ini"
 copy /Y MANUAL.md "dist\OutlookGemini\MANUAL.md"
-echo [] > "dist\OutlookGemini\profiles.json"
+if not exist "dist\OutlookGemini\profiles.json" (
+    echo [] > "dist\OutlookGemini\profiles.json"
+)
+
+echo.
+echo Copying manual_index.py...
+copy /Y "manual_index.py" "dist\OutlookGemini\manual_index.py"
+
+echo.
+echo Copying Manuals_txt...
+xcopy /E /I /Y "Manuals_txt" "dist\OutlookGemini\Manuals_txt"
+
+echo.
+echo Copying Manuals (PDF originals)...
+xcopy /E /I /Y "Manuals" "dist\OutlookGemini\Manuals"
 
 echo.
 echo ======================================
 echo  Build complete!
-echo  Output: dist\OutlookGemini\
+echo  Output: dist\OutlookGemini\r
 echo ======================================
 pause

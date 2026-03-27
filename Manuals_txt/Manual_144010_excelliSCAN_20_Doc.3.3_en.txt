@@ -1,0 +1,3942 @@
+# Manual_144010_excelliSCAN_20_Doc.3.3_en
+
+[p.1]
+Installation and 
+Operation
+excelliSCAN 20 (ID# 144010)
+digital SL2-100, 355 nm, with mirror air cooling and water cooling
+August 25, 2025
+Rev. 3.3
+innovators for industry
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2025
+(Doc. Rev. 3.3 - August 22, 2025)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB GmbH.
+excelliSCAN is a registered trademark of SCANLAB GmbH.
+Other mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+Table of Contents
+3
+innovators for industry
+Table of Contents
+1
+Introduction.........................................................................................................................................5
+1.1
+Product Overview.............................................................................................................................. 5
+1.2
+Unpacking Instructions and Typical Package Contents...................................................................... 5
+1.3
+I.D. Plate ........................................................................................................................................... 5
+2
+excelliSCAN 20 – Principle of Operation..............................................................................................6
+2.1
+Dynamic Positioning Laser Beams ..................................................................................................... 6
+2.1.1
+Customized Optical Configuration......................................................................................... 6
+2.2
+Scan Head Control ............................................................................................................................ 7
+2.2.1
+Data Transmission between the Controller and the Scan Head.............................................. 7
+2.2.2
+Position Signals, Image Field and X-Y Reference System ........................................................ 7
+2.2.3
+Returned Signals .................................................................................................................... 9
+2.2.4
+TrAck Signal (Trajectory Acknowledge) ................................................................................ 11
+2.3
+Internal Protective Functions........................................................................................................... 13
+2.3.1
+Assuring Reliable Power Supply ........................................................................................... 13
+2.3.2
+Monitoring Scan Range and Proper Scan Operation ............................................................ 13
+2.4
+Monitoring of the Scan System with Integrated Sensors................................................................. 15
+2.4.1
+Error Status.......................................................................................................................... 15
+2.4.2
+Warning Signal .................................................................................................................... 15
+2.4.3
+Sensors ................................................................................................................................ 16
+2.4.4
+Control commands – Interface to the User........................................................................... 20
+2.4.5
+Programming Example: Monitoring Supply Voltage ............................................................ 26
+2.5
+Interlock.......................................................................................................................................... 28
+3
+Safety During Installation and Operation .........................................................................................29
+3.1
+Working Safely with Laser Radiation............................................................................................... 29
+3.2
+Save Handling of the Scan Head ..................................................................................................... 30
+3.3
+Electrical Installation Safety ............................................................................................................ 30
+3.4
+Coolant ........................................................................................................................................... 30
+3.5
+Concept for Safe Operation ............................................................................................................ 31
+4
+Installation .........................................................................................................................................32
+4.1
+Checking the Specifications ............................................................................................................ 32
+4.2
+Mounting the Objective .................................................................................................................. 32
+4.2.1
+Objective Holder .................................................................................................................. 32
+4.2.2
+Objective.............................................................................................................................. 33
+4.3
+Layout and Dimensions................................................................................................................... 34
+4.4
+Modification of the Connector Bracket ........................................................................................... 38
+4.5
+Mounting the Scan Head ................................................................................................................ 39
+4.6
+Water Cooling................................................................................................................................. 40
+4.6.1
+Selecting an Appropriate Cooling System ............................................................................ 40
+4.6.2
+Coolants............................................................................................................................... 41
+4.6.3
+Connecting the Cooling System ........................................................................................... 41
+4.7
+Mirror Air Cooling........................................................................................................................... 42
+4.8
+Attachment Provisions .................................................................................................................... 42
+4.9
+Electrical Connections ..................................................................................................................... 44
+4.9.1
+Power Supply ....................................................................................................................... 45
+4.9.2
+Data Cable Guidelines.......................................................................................................... 46
+4.10 Operating and Storage Conditions.................................................................................................. 47
+5
+Start-up and Operation......................................................................................................................48
+5.1
+Checking the Installation................................................................................................................. 48
+
+[p.4]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+Table of Contents
+4
+innovators for industry
+5.2
+Checking the Laser Parameters ....................................................................................................... 48
+5.3
+Putting the cooling circuit into operation ....................................................................................... 49
+5.4
+Safe Start-up and Shutdown Sequences ......................................................................................... 50
+5.4.1
+Start-up duration ................................................................................................................. 51
+5.4.2
+Warm-up Time ..................................................................................................................... 51
+5.4.3
+Minimum power-off duration.............................................................................................. 51
+5.5
+Adjustment and Alignment............................................................................................................. 51
+5.6
+Checking the Parameters of Application Software .......................................................................... 52
+6
+Optimizing the Application ...............................................................................................................53
+6.1
+Process Optimization via Process Simulation................................................................................... 53
+6.2
+Process Monitoring ......................................................................................................................... 53
+6.2.1
+Software Monitoring............................................................................................................ 53
+6.2.2
+Optical Process Monitoring.................................................................................................. 53
+6.2.3
+Monitoring with Sensors...................................................................................................... 53
+6.3
+Configuring the Start Behavior........................................................................................................ 54
+7
+Routine Maintenance and Customer Service.....................................................................................55
+7.1
+Routine Maintenance of the Optical Surfaces ................................................................................. 55
+7.1.1
+Routine Maintenance of the Mirrors .................................................................................... 55
+7.1.2
+Routine Maintenance of the Objective’s Optical Surface...................................................... 55
+7.2
+Routine Maintenance of the coolant............................................................................................... 56
+7.2.1
+Checking the coolant ........................................................................................................... 56
+7.2.2
+Analyzing the coolant .......................................................................................................... 56
+7.2.3
+Replacing the coolant .......................................................................................................... 56
+7.3
+Customer Service ............................................................................................................................ 57
+8
+Troubleshooting.................................................................................................................................58
+8.1
+Fault Diagnosis and Functional Test................................................................................................ 59
+9
+excelliSCAN 20 Technical Specifications ...........................................................................................60
+
+[p.5]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+1 Introduction
+5
+innovators for industry
+1
+Introduction
+This operating manual describes the excelliSCAN 20 
+scan head with ID number 144010.
+The manual is a part of the product. Please read these 
+instructions carefully before you proceed with 
+installing and operating the scan head. In particular 
+observe all safety guidelines in this manual. If there 
+are any questions regarding the contents of this 
+manual, please contact SCANLAB (see page 57).
+Keep the manual available for servicing, repairs and 
+product disposal. This manual should accompany the 
+product if ownership changes hands.
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification.
+1.1
+Product Overview
+The excelliSCAN scan head with ID number 144010 is 
+designed for positioning laser beams with a 
+wavelength of 355 nm and is equipped with a 
+20 mm aperture. 
+The scan head is designed for digital signal transfer 
+via the integrated digital servo electronics with 
+SL2-100 interface.
+The scan head is equipped for cooling of the mirrors 
+with compressed air. Appropriate connections for 
+compressed air are provided on the housing.
+To minimize the temperature influence on the static 
+and dynamic performance, the scan head is equipped 
+for water cooling of the electronics and the galva-
+nometer scanners. Appropriate connections for 
+water are provided on the housing.
+The technical specifications of the product are 
+summarized on page 60.
+The excelliSCANscan head uses SCANahead servo 
+control. Therefore it exhibits a different dynamic 
+behaviour than scan heads with conventional 
+control. In particular, you’ll need to consider timing 
+differences when synchronously operating your scan 
+head, laser and peripheral equipment. The RTC6 
+board’s command set provides appropriate 
+commands for controlling the excelliSCAN. For 
+details see the separate document "excelliSCAN Scan 
+Heads – Functional Principle of SCANahead Servo 
+Control and Operation by RTC6 Boards".
+1.2
+Unpacking Instructions and 
+Typical Package Contents
+Carefully remove the scan head from the 
+package.
+Protect the scan head from dust and other 
+contaminants.
+Keep the packaging, so that in case of repair the 
+scan head can be properly repackaged and 
+returned to SCANLAB.
+Also remove all other articles from the package. 
+Check that all parts have been delivered. Please 
+refer to the corresponding packaging list.
+A scan head package typically includes a product 
+test protocol with test data. For mounting an 
+objective an objective mounting set may be 
+included in the package or already mounted to 
+the scan head. For controlling the scan head, an 
+RTC control board may be included in the 
+package.
+1.3
+I.D. Plate
+The scan head’s I.D. plate (see figure 1) with the scan 
+head’s serial number is found on the housing.
+1
+I.D. plate with serial number (SN)
+	
+	
+	
+
+
+
+excelliSCAN 20
+355 nm
+
+[p.6]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+6
+innovators for industry
+2
+excelliSCAN 20 – Principle of Operation
+2.1
+Dynamic Positioning Laser 
+Beams
+The primary tasks of an X-Y scan head are to deflect 
+a laser beam in the X-Y directions and to focus the 
+beam onto the working plane.
+The beam deflection task is realized with the help of 
+two tiltable deflection mirrors (see figure 2). The 
+beam enters the scan head through the input aper-
+ture and is first deflected in the Y direction by 
+mirror 1 attached to galvanometer scanner 1. The 
+beam then goes on to be deflected in the X direction 
+by mirror 2 attached to galvanometer scanner 2. The 
+resulting deflection angles can be precisely and high-
+dynamically adjusted by controlling the positions of 
+the galvanometer scanners.
+Focusing the beam onto the working plane can be 
+achieved with the help of a scan lens fitted to the 
+scan head’s beam exit hole. If an F-Theta objective is 
+used, the position of the focal point on the image 
+field will be directly proportional to the angle of inci-
+dence of the beam.
+Alternatively, focusing of the beam can be realized 
+with the help of a dynamic focusing system (for 
+instance, SCANLAB’s varioSCAN 40i) positioned in 
+front of the scan head’s entrance aperture.
+2.1.1
+Customized Optical 
+Configuration
+To obtain optimum optical performance for a partic-
+ular laser application, the scan head’s optical config-
+uration must meet the requirements of the 
+application and the used laser system. To achieve 
+optimum reflectivity at the mirrors, SCANLAB there-
+fore selects mirror coatings appropriate for the wave-
+length and power of the user’s laser. The size of the 
+mirrors or the scan head’s aperture is selected in 
+accordance with the desired spot size and scan 
+speed.
+The user, on the other hand, has to ensure that the 
+parameters of the entering laser beam (wavelength, 
+power density and diameter) match the specifica-
+tions of the scan head. 
+First the coatings of the deflection mirrors are 
+designed for a defined wavelength or wavelength 
+range. If the wavelength of the employed laser devi-
+ates from the specified value, the mirrors will not 
+work properly and can be destroyed.
+Second for the mirror coatings also the allowed laser 
+rating is defined. If the specified values are exceeded, 
+destruction of the coatings might result (also see 
+section "Checking the Laser Parameters" on page 48).
+In addition the deflection mirrors are intended for a 
+specific beam diameter and a maximum allowed scan 
+angle. If the beam diameter or the scan angle exceeds 
+the specified maximum values, vignetting of the 
+beam can occur. The beam is then no longer fully 
+deflected by the mirrors. A portion of the beam is 
+then absorbed by the scan head, resulting in a loss of 
+power. Furthermore, the interior of the scan head 
+might be damaged due to the absorption of laser 
+radiation.
+2
+Basis of Operation: beam deflection via two galvanometer scanners
+	
+
+
+		
+	
+	
+		
+	
+
+
+	
+
+[p.7]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+7
+innovators for industry
+The amount of possible power loss depends, among 
+other things, on the beam profile of the employed 
+laser. For a Gaussian beam profile, beam vignetting is 
+insignificant when the scan angle of each mirror does 
+not exceed the maximum allowed scan angle defined 
+on page 60 and when the diameter of the beam 
+doesn’t exceed the specified aperture.
+2.2
+Scan Head Control
+2.2.1
+Data Transmission 
+between the Controller and 
+the Scan Head
+The controller and the scan head are interconnected 
+via a serial interface for digital data transfer. Data 
+transmission follows the SL2-100 protocol. In the 
+process, essentially the following signals are trans-
+ferred:
+• The controller delivers position values, i.e. (20-bit) 
+set values for the X and Y axes.
+• The scan head generates data signals to be 
+returned to the controller.
+The scan head can be operated via a SCANLAB RTC6 
+control board but not via an older RTC board as an 
+RTC4 or RTC5. The SL2-100 protocol supports the full 
+functionality of the excelliSCAN’s digital servo archi-
+tecture. This allows, for instance, separate, simulta-
+neous evaluation of the X and Y returned data 
+signals.
+For details about controlling the excelliSCAN via an 
+RTC6 board see the separate document "excelliSCAN 
+Scan Heads – Functional Principle of SCANahead 
+Servo Control and Operation by RTC6 Boards".
+2.2.2
+Position Signals, Image 
+Field and X-Y Reference System
+Position signals are digitally transferred from the 
+controller to the scan head.
+Figure 3 shows the definition of the X-Y reference 
+system which is used for the position signals trans-
+mitted to the scan head. The orientation of the axes 
+corresponds to the orientation used by the RTC 
+boards from SCANLAB: The Y axis points in the oppo-
+site direction of the entry beam (and the Z axis in the 
+opposite direction of the exit beam). Consequently: 
+Scanner 1 deflects the beam in the Y direction, 
+Scanner 2 in the X direction.
+The scan head is calibrated in such a way that for a 
+scan angle of 0.408 rad optically with excursion in 
+the negative axis direction the bit-value "–503316" 
+has to be transmitted, for the neutral position (null 
+point) the bit-value "0, and for a scan angle of 
+0.408 rad optically with excursion in the positive axis 
+direction the bit-value "+503316".
+Caution!
+• Make sure the aperture and the coatings of the 
+deflection mirrors meet the requirements of 
+your application (see "Technical Specifications" 
+on page 60). For information on tolerances and 
+deviations, please contact SCANLAB.
+• Check if the wavelength of the input beam and 
+the maximum ratings for beam diameter and 
+laser power match the specifications of the scan 
+head (see page 60).
+• When using scan angles larger than the 
+maximum allowed scan angle indicated on 
+page 60, some vignetting inside the scan head 
+can occur and damage to the interior of the scan 
+head might result. If your application requires 
+larger scan angles, then please contact 
+SCANLAB.
+• The maximum allowed scan angle is derived 
+from the geometric and optical data of the 
+employed components (see the section 
+"Customized Optical Configuration" on page 6). 
+In some cases, particularly with sufficiently small 
+calibration angles, the maximum allowed scan 
+angle can be larger than the maximum adjust-
+able angle. In such cases, the specified 
+maximum allowed scan angle has no practical 
+relevance.
+
+[p.8]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+8
+innovators for industry
+The maximum adjustable scan angle is (1 / 0.96) 
+larger than the calibration angle. The input signal 
+values for the maximum adjustable image field points 
+(see figure 3) are listed in the following table. 
+Vignetting can occur at a particular scan angle 
+dependent on the specific scan head and objective. 
+The laser beam is then partially blocked within the 
+scan head or objective, which results in transmission 
+losses. The higher the power loss, the greater is the 
+risk of damage to the scan system. In view of this, the 
+technical specifications page 60 include not only the 
+calibration angle, but also the maximum allowed 
+scan angle. This is not the same as the maximum 
+adjustable scan angle. To avoid scan system damage, 
+make sure the maximum allowed scan angle is never 
+exceeded.
+The maximum allowed scan angle is derived from the 
+geometric and optical data of the employed compo-
+nents (see the section "Customized Optical Configu-
+ration" on page 6). In some cases, particularly with 
+sufficiently small calibration angles, the maximum 
+allowed scan angle can be larger than the maximum 
+adjustable angle. In such cases, the specified 
+maximum allowed scan angle has no practical rele-
+vance.
+ 
+Figure 3 also depicts the pillow-barrel-shaped distor-
+tion of the square image field and shows the orienta-
+tion of this distortion with reference to the axes. The 
+field distortion is caused by the beam path within the 
+scan head and by the characteristics of the objective. 
+It must be compensated by the controller. 
+If you use a SCANLAB RTC control board for 
+controlling the scan head, the field distortion is 
+compensated automatically. Before data values are 
+transferred to the scan head, the values are trans-
+formed by the RTC boards with the help of a correc-
+tion table. A correction table specific for your system 
+is included in the RTC software package or can be 
+ordered from SCANLAB (also refer to the RTC 
+manual). You can use positive and negative coordi-
+nate bit-values ( – 524288 to +524287) of an ideal 
+image field, based on the reference system shown in 
+figure 3, with the origin (zero point) in the center of 
+the image field. 
+Position
+X Bit-Value
+Y Bit-Value
+0
+0
+0
+1
+524287
+0
+2
+524287
+524287
+3
+0
+524287
+4
+–524288
+524287
+5
+–524288
+0
+6
+–524288
+–524288
+7
+0
+–524288
+8
+524287
+–524288
+3
+Positions in the image field
+1
+8
+7
+6
+5
+4
+3
+2
+0
+X
+Y
+
+[p.9]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+9
+innovators for industry
+The RTC board calculates the corresponding input 
+values and transfers them to the scan head.
+The image field size, as well as the working distance A 
+between the input laser beam and the nominal 
+working plane, depend on various factors – among 
+them the focal length of the objective and the aper-
+ture of the scan head. The divergence of the input 
+beam also has an influence on the working 
+distance A.
+2.2.3
+Returned Signals
+XY2-100 Status Word
+• PowerOK = 0 signifies a problem in the power 
+supply. In normal operation, the PowerOK signal 
+is 1. If the output stages of the galvos switch off, 
+the signal switches from 1 to 0 during operation. 
+The laser must be turned off immediately and 
+the system must be checked for the cause (also 
+see chapter  "Internal Protective Functions", on 
+page 13). Under some circumstances the system 
+The excelliSCAN’s digital servo architecture allows a 
+wide variety of data signals to be returned to the 
+control board. Via the return channel (DATA OUT±), 
+data are transmitted to the controller board every 
+10 µs simultaneously for both axes (in compliance 
+with the SL2-100 protocol). This opens up possibili-
+ties such as monitoring the galvanometer scanners’ 
+actual values during execution of an application or 
+carrying out comprehensive troubleshooting in case 
+of operational malfunction.
+The scan head returns the following signals to the 
+control board every 10 µs:
+• a 20-bit status word:
+When the scan head is operated via an RTC6 
+control board, the command control_command 
+can be used for selecting which data the scan 
+head should return to the control board via the 
+20-bit status word. The selected data sources will 
+be transmitted until another source is selected. By 
+default, after every reboot or reset, the XY2-100 
+status word (see below) is returned via the 20-bit 
+status word.
+• 6 additional status bits:
+Via these status bits, the scan head returns to the 
+control board (independently on the selection via 
+control_command) the PowerOK, TempOK and 
+TrAck status informations of the XY2-100 status 
+word (see below).
+Data received by the RTC6 board can be synchro-
+nously or asynchronously read at any time via 
+get_head_status, get_value or additional 
+commands (see the RTC6 manual).
+By default, starting from five seconds after every 
+reboot or reset, the XY2-100 status word is returned 
+via the 20-bit status word. The status word contains 
+three status values, which are also returned 
+(continuously and independently on the selection via 
+control_command) via the six additional status bits:
+
+[p.10]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+10
+innovators for industry
+could deflect the laser beam in an unintended 
+direction, which may cause health hazards and 
+severe equipment damage. The system should be 
+checked immediately to determine the cause (also 
+see section "Power Supply" on page 45). The 
+PowerOK signal is also 0 if one of the sensors of 
+the scan system reports an error, see chapter 2.4 
+"Monitoring of the Scan System with Integrated 
+Sensors" on page 15. The monitoring of the 
+sensor must be configured accordingly for this, 
+see chapter 2.4 "Monitoring of the Scan System 
+with Integrated Sensors" on page 15.
+• TempOK (i.e. "Temperature OK")
+The TEMPOK signal always switches from 0 to 1 
+when the operating temperature has been 
+reached (which might take a few minutes). If, 
+during operation, the galvo temperature drops 
+below its minimum operating temperature or 
+exceeds a maximum allowable temperature, the 
+TEMPOK signal will switch to 0. In this case, 
+system operation does not need to be stopped 
+immediately, but large drift or other side-effects 
+may occur.
+If system operation is not stopped and the 
+scanner temperatures then reach a still higher 
+critical value, then the built-in temperature 
+control mechanism will switch off the galvanom-
+eter scanner drive stages to avoid heat-induced 
+damage to the scanners or the head (see 
+page 14). If the scanner temperature drops again 
+below the power-down threshold, the scanner 
+drive stages are automatically restarted. The 
+TempOK signal is also 0 if one of the sensors of the 
+scan system reports an error, see chapter 2.4 
+"Monitoring of the Scan System with Integrated 
+Sensors" on page 15. The monitoring of the 
+sensor must be configured accordingly for this, 
+see chapter 2.4 "Monitoring of the Scan System 
+with Integrated Sensors" on page 15.
+• TrAck ("TrajectoryAcknowledge") 
+For a detailed description of the signal, see 
+chapter chapter 2.2.4 "TrAck Signal (Trajectory 
+Acknowledge)" on page 11.
+Additional Data Types
+When the excelliSCAN is operated via an RTC6 board, 
+the command control_command (see the RTC6 
+manual and excelliSCAN Scan Heads – Functional 
+Principle of SCANahead Servo Control and Operation 
+by RTC6 Boards manual) can be used for selecting 
+which data the scan head should return to the control 
+board. Unless the configuration is changed after 
+reset, the XY2-100 status word will be transferred 
+(see the previous section). The selected data is trans-
+mitted at 10 µs intervals until a different data type is 
+requested.
+The following is a description of the data types that 
+may be selected. The data can and must be separately 
+evaluated for each axis.
+XY2-100 Status word
+See the previous section.
+Actual Position
+Actual angular position of the corresponding axis
+Set Position
+Set angular position of the corresponding axis
+Position Error
+Set angular position - Actual angular position
+(difference between the current actual angular posi-
+tion and the current set angular position of the corre-
+sponding axis)
+Actual Current
+Actual galvo output stage current of the corre-
+sponding axis
+Relative Galvo Control
+Galvo control voltage (in per mille of the maximum 
+value)
+Notes
+• The status word read back from the X and Y 
+axis is identical, i.e. it is sufficient to read back 
+the status word from the X axis only.
+• The status word is returned by the firmware by 
+default, i.e. sending control command 0x0500 
+is only needed, if a different signal has been 
+selected before.
+
+[p.11]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+11
+innovators for industry
+Actual Velocity
+Actual angular velocity of the corresponding axis
+Temperature
+The following temperatures can be returned to the 
+control board:
+• Temperature of galvo 1
+• Temperature of galvo 2
+• Temperature of the servo board
+• Temperature of the extension board for evalu-
+ating the encoder signals (does not find attention 
+for the TempOK signal)
+General Scan Head Information
+Alternatively, the following data types may be 
+selected at both axes:
+• Serial number
+• Article number
+• Firmware version number
+• Calibration
+• Aperture
+• Wavelength
+• Running time
+Note
+• The scan head has no galvo heaters.
+2.2.4
+TrAck Signal (Trajectory 
+Acknowledge)
+The TrAck signal is used to monitor the control accu-
+racy of the scanner motors during job execution. For 
+a definition of the signal see figure 4.
+As long as the deviation between the ideal position 
+and the actual position (trajectory error(1)) doesn’t 
+exceed a certain threshold, TrAck is 1. If the trajectory 
+error exceeds the threshold signal, TrAck is triggered 
+(set to 0). Additionally, TrAck is not being reset back 
+to 1 automatically if the trajectory error falls below 
+the threshold again, see figure 4. This lets the user 
+determine a threshold violation even if the error 
+event is already over. 
+In addition to the violation of before mentioned 
+threshold value, TrAck is also being triggered, when 
+internal quantities of the control system, such as 
+motor voltage or motor current, reach saturation.
+Note that there is an individual TrAck signal for each 
+axis. Also the threshold value can be configured for 
+each axis individually. See section "Configuring the 
+TrAck Threshold" on page 12 for modifying the 
+threshold values.
+Figure 4 shows the relationship between the speci-
+fied target position (angular position), the current 
+actual trajectory of the galvanometer scanner and the 
+target trajectory. This clarifies the definition of the 
+TrAck signals.
+For additional configuration options for monitoring 
+the control quality or the control error see 
+chapter 2.4 "Monitoring of the Scan System with 
+Integrated Sensors" on page 15.
+(1) Trajectory error is synonymous to position error, as 
+used in manual “excelliSCAN Scan Heads – Functional 
+Principle of SCANahead Servo Control and Operation 
+by RTC6 Boards”.
+
+[p.12]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+12
+innovators for industry
+Accessing the TrAck Signal
+To access the TrAck signals for both axes, the XY2-100 
+status word can be read back. This is done by sending 
+control command 0x0500 to the X axis of the scan 
+system and extracting following bits:
+• Bit #3 = Bit #11: TrAck signal of X axis
+• Bit #4 = Bit #12: TrAck signal of Y axis
+Resetting the TrAck Signal
+To reset the TrAck signals (set to 1), sent ResetTrAck 
+to the respective axis of the system, see manual 
+“excelliSCAN Scan Heads – Functional Principle of 
+SCANahead Servo Control and Operation by RTC6 
+Boards”.
+Configuring the TrAck Threshold
+The threshold value for the TrAck signal can be modi-
+fied by the user by sending control command 
+0x15XX, where XX is the desired threshold value. The 
+threshold can be set for each axis individually by 
+sending the before mentioned control command to 
+the respective axis, see SetPosAcknowledgelevel in 
+the RTC6 manual.
+The default start behavior is for the scan system to set 
+the threshold value to 0.28% of the full position 
+range (LSB16 or 1/65536, CodeL = 183dec = B7H) 
+after every power-up or reset. If other threshold 
+values are desired, they must be separately set for 
+each axis.
+t
+t
+t
+0
+1
+TrAck
+black: RTC control values
+blue: Set trajectory
+red: Actual trajectory
+red: Tracking error
+light red: TrAck = 1
+After sending of 
+ResetTrAck
+(0x403A)
+4
+Definition of the TrAck signals
+
+[p.13]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+13
+innovators for industry
+2.3
+Internal Protective Functions
+2.3.1
+Assuring Reliable Power 
+Supply
+For safe scan head operation, a reliable supply of 
+power is absolutely essential. If the supply voltages 
+deviate excessively from their specified values or if the 
+mechanism for switching on power does not result in 
+symmetrical turn-on of the supply voltages, then 
+unintended scanner movements may occur. This in 
+turn can damage the scanners and deflection mirrors 
+and can lead, if the laser is on, to beam deflection in 
+unintended directions.
+The excelliSCAN’s supply voltages are monitored by 
+the excelliSCAN’s digital servo electronics. If, during 
+operation, the supply voltage falls below a minimum 
+of approx. 43.2 V (e.g. due to excessively long or thin 
+cables, a weak power supply or high loads), then the 
+electronics disconnects the scan head from the 
+power supply. In order to restart scan head operation, 
+the supply voltage problem must then be resolved 
+and the scan head switched off and then restarted. 
+For more information, see chapter 4.9.1 "Power 
+Supply" on page 45.
+2.3.2
+Monitoring Scan Range 
+and Proper Scan Operation
+The excelliSCAN has a built-in monitoring function to 
+prevent damage to its galvanometer scanners or elec-
+tronics when a problem occurs.
+In the following cases, the output stage of the galva-
+nometer scanner is switched off and the galvanome-
+terscanner can no longer be controlled:
+• The galvanometer scanner’s scan angle exceeds 
+the allowed range due to an operational distur-
+bance.
+• The galvanometer scanner is not moved to its set 
+position within a certain time.
+• The galvanometer scanner is deviating from its 
+expected behaviour, due to a defect of the mirror 
+or the bearing.
+Assuring Safe Operating Temperatures 
+If the scanners are driven for long periods of time at 
+high positioning speeds or if the application includes 
+a high rate of vector changes, the correspondingly 
+high current consumption of the galvanometer scan-
+ners can lead to excessive temperatures – especially in 
+the case of insufficient cooling, for instance due to a 
+weak thermal link to the machine.
+To prevent damage to the scanners, the excelliSCAN 
+provides a two-stage temperature control mecha-
+nism.
+Caution!
+The user must ensure that the application 
+program evaluates the temperature control 
+signals correctly, as described below.
+
+[p.14]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+14
+innovators for industry
+Stage 1: Temperature Status Warning
+The temperature status signal TempOK indicates that 
+the scanner is operating at a safe temperature level. 
+During normal operation, the signal is 1. 
+If the scanner temperature rises above a certain value 
+or drops below a minimum value, then the TempOK 
+signal switches to 0. If the TEMPOK signal switches to 
+0 during operation, system operation should be 
+stopped and the system should be checked to deter-
+mine the cause. If system operation is not stopped, 
+large drift or other side-effects may occur, see 
+chapter 2.2.3 "Returned Signals" on page 9 and 
+Kapitel 2.4 "Monitoring of the Scan System with 
+Integrated Sensors" auf Seite 15.
+Stage 2: Critical Temperature Shutdown
+In addition to the temperature status warning, the 
+following scanner protective function is imple-
+mented:
+If a scanner’s temperature rises above the critical 
+value for temperature status warning and reaches a 
+second, still higher critical value, then the scanner’s 
+output stage is turned off to prevent damage to the 
+scanner. In this situation, the scanner’s position is 
+stationary and no longer under programmatic 
+control, see chapter 2.2.3 "Returned Signals" on page 
+9.
+If the scanner’s temperature drops again below the 
+power-down threshold, the scanner’s drive stage is 
+automatically restarted and the scan head will 
+resume normal operation.
+Danger!
+If an output stage is shut down due to a scan 
+range overrun or any other problem, laser 
+power must be switched off immediately. 
+Otherwise, health hazards and severe 
+equipment damage can occur due to uncon-
+trolled laser radiation.
+!
+
+[p.15]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+15
+innovators for industry
+2.4
+Monitoring of the Scan 
+System with Integrated 
+Sensors
+This scan system offers advanced monitoring capabil-
+ities based on the evaluation of sensor signals.
+You can configure whether violations of error and 
+warning thresholds are to be monitored for each 
+available sensor signal. If you configure monitoring, 
+the scan system returns an error status and/or a 
+warning message.
+You can configure the monitoring of a sensor signal 
+with control commands. Configuration options and 
+details of the function are described separately for 
+error status and warning signal in chapter 2.4.4 
+"Control commands – Interface to the User" on page 
+20. 
+2.4.1
+Error Status
+The error status is linked to the PowerOK bit (the 
+additional SL2-100 status bits for x-axis and y-axis) 
+and controls the Interlock relais. In this way, two 
+shutdown paths can be realized: If the error status is 
+"not ok",
+(1) the Interlock relais of the control board drops and 
+switches a potential-free changeover contact.
+(2) the PowerOK bit is 0. With set_laser_control() 
+you can configure the signal suppresion in that 
+way, that the laser switches off in this case, see 
+RTC manual.
+Additionally, you can query the error status of the 
+sensors by a control command. This allows you to 
+check whether the thresholds have been violated and 
+for which sensors.
+There are three possible causes for PowerOK = 0:
+• The output stage of the galvo control is off 
+(StopEvent ! = 0), see chapter 2.3 "Internal 
+Protective Functions" on page 13.
+• One or more sensor signals have violated their 
+error thresholds (the galvo control remains on).
+• The communication with the scan system ist 
+faulty (e. g. cable is not connected).
+All monitored signals are combined to a linked error 
+status. If one of the linked signals is "not ok", the error 
+status is "not ok". Conversely, all linked signals must 
+be "ok" so that the error status is also "ok".
+You must actively reset the error status of the sensors, 
+when the cause of the error is eliminated or is no 
+longer present.
+You can query for each sensor:
+• If the error threshold is active.
+• The threshold for the error status.
+• Specified maximum and minimum thresholds.
+• Measuring range.
+For each available sensor signal, there is an upper and 
+a lower threshold, above or below which an error is 
+triggered. You can configure these limits within the 
+framework of specified maximum and minimum 
+values. SCANLAB provides each sensor with presets 
+for the upper and lower threshold and with the link 
+to the sensor signal/status.
+2.4.2
+Warning Signal
+The warning signal is linked to the TempOK bit. The 
+TempOK bit can be used for the automatic laser signal 
+suppression. 
+Additionally, you can query the warning signal status 
+of the sensors via a control command. This allows you 
+to check whether the thresholds have been violated 
+and for which sensors.
+There are three possible causes for TempOK = 0:
+• Temperature warning: Temperature is outside the 
+operating temperature.
+• Temperature critical: galvo control switches off 
+(PowerOK = 0).
+• One or more sensor signals have violated their 
+error thresholds.
+All monitored signals are combined to a linked 
+warning signal. If one of the linked signals is "not ok", 
+the warning signal is "not ok". Conversely, all linked 
+signals must be "ok" so that the warnig signal is also 
+"ok".
+Unlike the error status, with the warning signal you 
+can configure for each sensor whether:
+• A warning must be acknowledged by you 
+(threshold persistently linked).
+• The warning should be reset automatically when 
+the sensor signal is within the limits again.
+
+[p.16]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+16
+innovators for industry
+You can query for each sensor:
+• If the error threshold is active
+• The threshold for the warning signal
+• Specified maximum and minimum thresholds
+• Measuring range
+For each available sensor signal, there is an upper and 
+a lower threshold, above or below which an error is 
+triggered. You can configure these limits within the 
+framework of specified maximum and minimum 
+values. These thresholds can be freely selected. There 
+are no maximum and minimum values specified by 
+SCANLAB.
+2.4.3
+Sensors
+The following table shows which sensors are avail-
+able for the extended monitoring functionality. In 
+addition, you can check whether a specific sensor is 
+available in the scan system. You can also query the 
+measuring range of the sensor.
+If you link an unavailable sensor signal with the error 
+status, an error is displayed. If you link an unavailable 
+sensor signal with the warning signal, a warning is 
+displayed.
+A number is assigned to each sensor. With this 
+number you configure the monitoring functionality 
+as well as the readout of measured values or config-
+uration data.
+Unless otherwise specified, a sensor measured value 
+is updated approx. every 30 ms. The sensor signal is 
+checked immediately after the measured value is 
+updated. 
+With the sensors control error galvanometer scanner 
+2 and control error galvanometer scanner 1 (sensor 9 
+and 10) you can monitor the control quality, see 
+chapter 2.2.4 "TrAck Signal (Trajectory Acknowledge)" 
+on page 11. The sensor value corresponds to the 
+status channel 0x503. Accordingly, the sensor signal 
+is checked every 10 µs. The signal that you can read 
+back is updated every 30 ms analogously to the other 
+sensors.  If you need a faster update rate, you have to 
+read back status channel 0x503.
+
+[p.17]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+17
+innovators for industry
+Sensor description
+Sensor No
+Description
+Units
+0
+Reserved
+1
+Reserved
+2
+Reserved
+3
+Reserved
+4
+Reserved
+5
+Reserved
+6
+Reserved
+7
+Reserved
+8
+Reserved
+9
+Control error galvanometer scanner 2
+(Temporal resolution of the monitoring: 10 µs)
+µrad mech.
+10
+Control error galvanometer scanner 1
+(Temporal resolution of the monitoring: 10 µs)
+µrad mech.
+11
+Temperature PCB
+m°C
+12
+Temperature PCB PD extension
+m°C
+13
+Temperature galvanometer scanner 2
+m°C
+14
+Temperature galvanometer scanner 1
+m°C
+15
+Power supply
+mV
+
+[p.18]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+18
+innovators for industry
+Error status
+Sensor No
+Adjustable threshold value
+Default setting threshold value
+Link to error status
+Minimum
+Maximum
+Minimum
+Maximum
+Minimum
+Maximum
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-1200 µrad mech.
+1200 µrad mech.
+-50 µrad mech.
+50 µrad mech.
+No
+No
+10
+-1200 µrad mech.
+1200 µrad mech.
+-50 µrad mech.
+50 µrad mech.
+No
+No
+11
+15000 m°C
+75000 m°C
+15000 m°C
+75000 m°C
+No
+No
+12
+15000 m°C
+75000 m°C
+15000 m°C
+75000 m°C
+No
+No
+13
+15000 m°C
+60000 m°C
+15000 m°C
+55000 m°C
+No
+No
+14
+15000 m°C
+60000 m°C
+15000 m°C
+55000 m°C
+No
+No
+15
+18000 mV
+55000 mV
+46000 mV
+51000 mV
+No
+No
+
+[p.19]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+19
+innovators for industry
+Warning signal
+Sensor No
+Default setting threshold value
+Link to warning signal
+Minimum
+Maximum
+Minimum
+Maximum
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-50 µrad mech.
+50 µrad mech.
+No
+No
+10
+-50 µrad mech.
+50 µrad mech.
+No
+No
+11
+18000 m°C
+60000 m°C
+No
+No
+12
+18000 m°C
+60000 m°C
+No
+No
+13
+18000 m°C
+50000 m°C
+No
+No
+14
+18000 m°C
+50000 m°C
+No
+No
+15
+47000 mV
+50000 mV
+No
+No
+
+[p.20]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+20
+innovators for industry
+2.4.4
+Control commands – 
+Interface to the User
+The interface consists of a set of control commands 
+that allows retrieving sensor data as well as retrieving 
+and configuring thresholds and linking sensor signals 
+to the error status or warning signal. Control 
+commands are explained in the following section.
+Querying available sensors
+Action
+Control Command
+Explanation
+To select return 
+channel “Sensor 
+present“
+control_command (
+HeadNo, 
+AxisNo,
+0x056E)
+• AxisNo = 1 (x axis) 
+To read back value
+get_value(arg)
+• arg = 1 for HeadNo = 1 or 
+arg = 4 for HeadNo = 2
+• Return values:
+– Bit 4 = 1 means sensor 0 is available
+– Bit 5 = 1 means sensor 1 is available
+Applies analogously for bit 6 to bit 19 and sensor 
+2 to sensor 15
+
+[p.21]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+21
+innovators for industry
+Error status: Retrieving sensor data
+Error status: Detecting and acknowledge 
+Action
+Control Command
+Explanation
+To select sensor and 
+return value
+control_command(
+HeadNo, 
+AxisNo,
+0x5600 + arg)
+• AxisNo = 1 (x axis) 
+• arg = Return value + SensorNo
+• Return values:
+– Measured value: 0x00
+– Threshold min: 0x20
+– Threshold max: 0x40
+– Measuring range min: 0x60
+– Measuring range max: 0x80
+– Link to error status: 0xA0
+– Lower limit threshold min: 0xC0
+– Upper limit threshold max: 0xE0
+• SensorNo: 0 to 15, see "Sensors" on page 16
+To read back value
+get_value(arg)
+• arg = 1 for HeadNo = 1 or 
+arg = 4 for HeadNo = 2
+• Measured value, measuring range and thresholds: 
+– Temperature in m°C
+– Voltage in mV
+– Control error in µrad mech.
+• Link to error status:
+– 0x00: no link
+– 0x20: Threshold min linked
+– 0x40: Threshold max linked
+– 0x60: Threshold min and max linked
+Action
+Control Command
+Explanation
+To query error status 
+of the sensors
+control_command(
+HeadNo, 
+AxisNo,
+0x056A)
+• AxisNo = 1 (x axis) 
+To read back value
+get_value(arg)
+• arg = 1 for HeadNo = 1 or 
+arg = 4 for HeadNo = 2
+• Return values:
+– Bit 4 = 1 means error sensor 0
+– Bit 5 = 1 means error sensor 1
+Applies analogously for bit 6 to bit 19 and sensor 
+2 to sensor 15
+
+[p.22]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+22
+innovators for industry
+Error status: Configuring thresholds
+Action
+Control Command
+Explanation
+To acknowledge error 
+status
+control_command 
+(HeadNo,
+AxisNo,
+0x5DA3)
+• Reset the error status of the sensors within the next 
+approx. 30 ms, if the criterion for the error is no 
+longer fulfilled during the next measurement.
+Action
+Control Command
+Explanation
+To set threshold
+control_command(
+HeadNo, 
+AxisNo, 
+0x100 + Byte0)
+control_command(
+HeadNo,
+AxisNo,
+0x200 + Byte1)
+control_command(
+HeadNo, 
+AxisNo, 
+0x300 + Byte2)
+• AxisNo = 1 (x axis)  
+• Threshold = Byte2×216 + Byte1×28 + Byte0
+• Thresholds: 
+– Temperature in m°C
+– Voltage in mV
+– Control error in µrad mech
+To select sensor and 
+threshold type
+control_command(
+HeadNo,
+AxisNo,
+0x5700 + arg)
+• AxisNo = 1 (x axis) 
+• arg = Return value + SensorNo
+• Return values:
+– Threshold min: 0x20
+– Threshold max: 0x40
+• SensorNo: 0 to 15, see "Sensors" on page 16
+To check threshold
+see "Error status: 
+Retrieving sensor data" on 
+page 21
+
+[p.23]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+23
+innovators for industry
+Error status: Configuring and reading configu-
+ration
+Warnig signal: Retrieving sensor data
+Action
+Control Command
+Explanation
+To set link to error 
+status
+control_command(
+HeadNo,
+AxisNo,
+0x5800 + arg)
+• AxisNo = 1 (x axis) 
+• arg = Link + SensorNo
+• Link to:
+– No threshold: 0x00
+– Threshold min: 0x20
+– Threshold max: 0x40
+– Threshold min and max: 0x60
+• SensorNo: 0 to 15, see "Sensors" on page 16
+To check configuration
+see "Error status: 
+Retrieving sensor data" on 
+page 21
+Action
+Control Command
+Explanation
+To select sensor and 
+return value
+control_command(
+HeadNo,
+AxisNo,
+0x5F00 + arg)
+• AxisNo = 1 (x axis) 
+• arg = Return value + SensorNo
+• Return values:
+– Measured value: 0x00
+– Threshold min: 0x20
+– Threshold max: 0x40
+– Link to warning signal: 0xA0
+• SensorNo: 0 to 15, see "Sensors" on page 16
+To read back value
+get_value(arg)
+• arg = 1 for HeadNo = 1 or 
+arg = 4 for HeadNo = 2
+• Measured value and thresholds: 
+– Temperature in m°C
+– Voltage in mV
+– Control error in µrad mech.
+• Link to warning signal:
+– 0x00: No link
+– 0x20: Threshold min linked
+– 0x40: Threshold max linked
+– 0x60: Threshold min and max linked
+– 0xA0: Threshold min persistently linked
+– 0xC0: Threshold max persistently linked
+– 0xE0: Threshold persistently linked
+
+[p.24]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+24
+innovators for industry
+Warning signal: Detecting and acknowledging
+Action
+Control Command
+Explanation
+To query warning 
+signal of the sensors
+control_command(
+HeadNo, 
+AxisNo, 
+0x0571)
+• AxisNo = 1 (x axis) 
+To read back value
+get_value(arg)
+• arg = 1 for HeadNo = 1 or 
+arg = 4 for HeadNo = 2
+• Return values:
+– Bit 4 = 1 means error sensor 0
+– Bit 5 = 1 means error sensor 1
+Applies analogously for bit 6 to bit 19 and sensor 
+2 to sensor 15
+Action
+Control Command
+Explanation
+To reset all warning 
+signals
+control_command(
+HeadNo,
+AxisNo,
+0x62A3) 
+• Resetting the warning signal of the sensors within 
+the next approx. 30 ms, if the criterion for the error 
+is no longer fulfilled during the next measurement.
+
+[p.25]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+25
+innovators for industry
+Warning signal: Configuring thresholds
+Warning signal: Activate warning level and read 
+configuration
+Action
+Control Command
+Explanation
+To set threshold
+control_command(
+HeadNo,
+AxisNo,
+0x100 + Byte0)
+control_command(
+HeadNo,
+AxisNo,
+0x200 + Byte1)
+control_command(
+HeadNo,
+AxisNo,
+0x300 + Byte2)
+• AxisNo = 1 (x axis)  
+• Threshold = Byte2×216 + Byte1×28 + Byte0
+• Thresholds: 
+– Temperature in m°C
+– Voltage in mV
+– Control error in µrad mech
+To select sensor and 
+type of warning signal 
+control_command(HeadNo, 
+AxisNo, 0x6000 + arg)
+• AxisNo = 1 (x axis) 
+• arg = Return value + SensorNo
+– Return values:
+Set threshold min: 0x20
+Set threshold max: 0x40
+– SensorNo: 0 to15, see "Sensors" on page 16
+To check warning 
+signal configuration
+see "Warnig signal: 
+Retrieving sensor data" on 
+page 23
+Action
+Control Command
+Explanation
+To set link to warning 
+signal
+control_command(
+HeadNo,
+AxisNo,
+0x6100 + arg)
+• AxisNo = 1 (x axis) 
+• arg = Link + SensorNo
+• Link to:
+– No threshold: 0x00
+– Threshold min: 0x20: 
+– Threshold max: 0x40:
+– Threshold min and max: 0x60:
+– Threshold min persistently: 0xA0
+– Threshold max persistently: 0xC0 
+– Threshold min and max persistently: 0xE0 
+To check configuration
+see "Warnig signal: 
+Retrieving sensor data" on 
+page 23
+
+[p.26]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+26
+innovators for industry
+2.4.5
+Programming Example: 
+Monitoring Supply Voltage
+In following example, the monitoring of the supply 
+voltage shall be configured. If supply voltage exceed 
+a specified limit Uerror, an error shell be reported. The 
+configuration of the warning signal Uwarning follows 
+analogously.
+const uint32_t HeadNo = 1;
+const uint32_t AxisNo = 1; 
+const uint32_t StatusAX = 1;                // see set_trigger
+const uint32_t SensorNo = 15;               // supply voltage
+const uint32_t ErrorLimitMax = 25000;   
+// in mV
+uint32_t cmd = 0;   
+int32_t value = 0; 
+// query all available sensors 
+control_command(HeadNo,AxisNo, 0x056E);
+value = get_value(StatusAX);
+// check if sensor SensorNo is available
+bool available = false;
+value = (value >> 4) & 0xffff;
+if ( (value & pow(2, SensorNo)) == pow(2, SensorNo) )
+{
+    available = true;
+}
+// get upper limit error threshold
+cmd = 0x5600 + 0x00E0 + SensorNo;
+control_command(HeadNo, AxisNo, cmd);
+int32_t error_limit = get_value( StatusAX );
+// set error limit value max
+// Note: error_threshold is constrained to error_limit 
+// if ErrorThresholdMax > error_limit
+// 1) set threshold value
+uint32_t Byte0 = (ErrorThresholdMax & 0x000000FF);
+uint32_t Byte1 = (ErrorThresholdMax & 0x0000FF00) >> 8;
+uint32_t Byte2 = (ErrorThresholdMax & 0x00FF0000) >> 16;
+control_command(HeadNo, AxisNo, 0x0100 + Byte0);
+control_command(HeadNo, AxisNo, 0x0200 + Byte1);
+control_command(HeadNo, AxisNo, 0x0300 + Byte2);
+// 2) set threshold type
+
+[p.27]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+27
+innovators for industry
+cmd = 0x5700 + 0x0040 + SensorNo;
+control_command(HeadNo, AxisNo, cmd);
+// 3) query threshold value
+cmd = 0x5600 + 0x0040 + SensorNo;
+control_command(HeadNo, AxisNo, cmd);
+int32_t error_threshold = get_value(StatusAX);
+// link to error signal
+cmd = 0x5800 + 0x0040 + SensorNo;
+control_command(HeadNo, AxisNo, cmd);
+// read back if sensor is linked
+cmd = 0x5600 + 0x00A0 + SensorNo;
+control_command(HeadNo, AxisNo, cmd);
+int32_t error_link = get_value(StatusAX);   // 0x40 expected
+// check if any one of the sensors is in error state
+// Note: If PowerOK = false you may use this command to check if one of the
+// sensors linked to the error-signal is the reason. 
+sleep( 0,1 );     // wait for sensor update ...
+control_command(HeadNo, AxisNo, 0x056A);
+value = get_value(StatusAX);
+// check if sensor SensorNo is in error state
+bool sensor_error = false;
+value = (value >> 4) & 0x0000ffff;
+if( (value & pow(2, SensorNo)) == pow(2, SensorNo) )
+{
+    sensor_error = true;    // error expected as 
+// ErrorThresholdMax = 25 V < supply voltage
+}
+
+[p.28]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+2 excelliSCAN 20 – Principle of Operation
+28
+innovators for industry
+2.5
+Interlock
+To integrate the scan system into an interlock safety 
+circuit, a floating (potential-free) contact on the 
+interlock connector is available. The interlock 
+connector is located besides the other electrical 
+connections on the excelliSCAN’s top side, see 
+figure 7 on page 34. For the pin-out, see figure 5.
+The interlock signifies an error, if the servo control of 
+the galvanometer scanners is inactive (see 
+chapter 2.3 "Internal Protective Functions" on page 
+13) or if the connection betweeen the digital control 
+board and RTC board is discontinued for a too long 
+time period.
+Additionally, sensors can be integrated into the Inter-
+lock safety circuit, see chapter 2.4 "Monitoring of the 
+Scan System with Integrated Sensors" on page 15.
+Figure 6 shows an simplified circuit of the interlock.
+The COMMON CONTACT is connected either with the 
+MAKE CONTACT or with the BREAK CONTACT.
+• With no error present, the MAKE CONTACT is 
+connected to the COMMON CONTACT.
+• As soon as the scan module’s electronics detects 
+an error, the MAKE CONTACT is disconnected 
+from the COMMON CONTACT and the BREAK 
+CONTACT is connected to the COMMON 
+CONTACT.
+The interlock signal can be integrated in circles e.g. 
+for monitoring purposes via the BREAK CONTACT as 
+well as the MAKE CONTACT (e.g. for emergency 
+stops).
+5
+(1)
+BREAK CONTACT
+(4)
+COMMON CONTACT
+(3)
+MAKE CONTACT
+Interlock
+3-pin male round connector, TE1838838-1, M8
+Pin-out of the interlock connector
+Make
+Contact
+(No Error)
+Break 
+Contact
+(Error)
+Common
+Contact
+6
+Interlock circuit
+
+[p.29]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+3 Safety During Installation and Operation
+29
+innovators for industry
+3
+Safety During Installation and Operation
+The scan head is solely intended for commercial use. 
+It is designed to be incorporated in a laser system and 
+does not meet all criteria of a ready-to-use consumer 
+product. Place the scan head into operation only after 
+integration in a laser system which itself complies 
+with the regulations of all applicable standards and 
+directives (of the country concerned). The scan head 
+is not qualified for use as a toy, in a domestic setting, 
+nor in unfavorable environmental conditions (for 
+example, outdoors). The operator is responsible for 
+implementing measures to prevent such inappro-
+priate usage. 
+The safety and warning notices in this manual are 
+indicated by a symbol set against a gray 
+background:
+To reduce the risk of injury, please observe the 
+following guidelines.
+3.1
+Working Safely with Laser 
+Radiation
+The laser system’s laser radiation presents serious 
+health hazards, e.g. possible eye and skin injuries, 
+injuries from toxic fumes generated by the laser 
+process, or injuries from laser-radiation-induced fire. 
+Therefore, all users must be trained in their usage of 
+the scan head and laser system (particularly working 
+safely with laser radiation) and must be provided 
+with appropriate protective clothing. As a minimum, 
+users must observe the following safety measures:
+• For switched-on laser:
+– always wear protective glasses suitable for the 
+laser’s wavelength and power
+– never look into the laser beam
+– do not place parts of the body in the laser beam
+• Only switch the laser on after power-up of the 
+control PC for the scan head (also see "Safe Start-
+up and Shutdown Sequences" on page 50).
+• For alignment work, reduce the laser power to a 
+minimum value (see "Adjustment and Alignment" 
+on page 51).
+• During operation, do not adjust the laser power 
+above the maximum allowed value (see 
+"excelliSCAN 20 Technical Specifications" on 
+page 60).
+• Switch off the laser when it is not absolutely 
+needed.
+• Comply with all applicable laser safety regula-
+tions.
+Furthermore, the laser system’s safety-related func-
+tionality must minimize risk during normal operation, 
+commissioning and maintenance work. The needed 
+constructional measures depend on the laser’s type 
+and power and the application.
+Instructions that may affect a per-
+son’s health are marked with a 
+warning triangle next to the word 
+"Danger".
+Instructions that recommend appro-
+priate use of this device or warn of 
+damage that may occur to it are iden-
+tified by a circle with an "X" in it, next 
+to the word "Caution".
+!
+
+[p.30]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+3 Safety During Installation and Operation
+30
+innovators for industry
+Needed constructional measures might include:
+• Installation of necessary safety devices, e.g.:
+– An EMERGENCY STOP for the laser and the scan 
+head (automatic and/or manual EMERGENCY 
+STOP that immediately turns off, blocks or 
+attenuates the laser beam and immediately 
+switches off the scan head)
+– Shielding of the laser beam path for blocking 
+external emission (e.g. a protective housing 
+opaque to laser radiation, shutter or laser 
+attenuator)
+– Safety devices that ensure safe switch-on and 
+switch-off sequences of system components, 
+that prevent unintended start-up of the laser 
+and scan head and that prevent uncontrolled 
+modification of laser parameters
+– Safety devices that also perform periodic 
+functional checks (e.g. status monitoring) 
+during operation and that possibly trigger an 
+automatic EMERGENCY STOP upon detection 
+of faults
+• Installation of warning devices
+• Installation of warning signs in areas of risk (typi-
+cally the area of risk is where intended or unex-
+pected laser radiation may occur):
+– Install warning signs displaying information for 
+the applicable laser class (e.g. see IEC 60825-1).
+Certain laser radiation hazards may occur if the scan 
+head incurs damage (e.g. from damaged scan head 
+optics). Therefore:
+• Regularly inspect the scan head.
+• Regularly check the entering laser beam’s param-
+eters (see page 60).
+• Take into account that the scan head’s housing 
+does not offer 100% protection against laser radi-
+ation (under all possible conditions), particularly 
+if the laser beam directly deflects onto the 
+housing itself instead of being deflected toward 
+the beam exit.
+Special measures may be required when performing 
+alignment work: The beam conditioning components 
+need to be accessible for manual adjustments even 
+while the laser is active.
+3.2
+Save Handling of the Scan 
+Head
+Improper handling can also damage the scan head. It 
+contains sensitive optics. So treat them with care. 
+Mechanical damage to the scan head impairs its 
+quality and – in further use – may cause material 
+damage and subsequent injuries (e.g. from laser radi-
+ation).
+3.3
+Electrical Installation Safety
+Improper electrical installation induces health 
+hazards from electric shock, shorts (and their conse-
+quential risks) etc., both during and after installation. 
+Improper electrical installation can also result in func-
+tional faults or damage to the scan head. Subsequent 
+usage may then have health consequences (e.g. via 
+laser radiation).
+Therefore, observe the following recommendations:
+• Installation and commissioning should only be 
+performed by persons with sufficient expertise in 
+safe usage of electrical equipment.
+• Perform installation and maintenance work only 
+with switched-off laser and power supply.
+• Comply with all ESD directives.
+• Observe all notices in the chapter  "Electrical 
+Connections", on page 44.
+• If the scan head is exposed to electromagnetic 
+fields exceeding the 2014/30/EC (EMC) guidelines, 
+then special shielding will be required.
+3.4
+Coolant
+Danger!
+Health damage due to 
+conditioning agents
+Some conditioning agents are harmful to 
+health.
+• Observe the manufacturer's safety instructions.
+!
+
+[p.31]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+3 Safety During Installation and Operation
+31
+innovators for industry
+3.5
+Concept for Safe Operation
+System integrators (i.e. planners, developers and 
+safety officers for the laser system in which the scan 
+head will be integrated) bear sole responsibility for a 
+safety concept that ensures safe operation of the 
+laser system (and thus the scan head).
+When developing a safety concept, the following 
+should also be taken into account:
+• Operating the scan head in high performance 
+applications without the specified water cooling 
+can lead to overheating and resulting damage of 
+the scan head, which could have indirect health 
+consequences.
+• Operating the scan head without the specified air 
+cooling can lead to overheating and resulting 
+damage of the scan head, which could have indi-
+rect health consequences.
+• The main prerequisites for safe operation are a 
+correct installation, correct safety-related integra-
+tion into the laser system (e.g. programming of 
+process monitoring or laser safety functionality) 
+and a correctly performed alignment. The corre-
+sponding work should only be performed by qual-
+ified specialists. Their training, knowledge, 
+experience and familiarity with applicable regula-
+tions must enable them to perform the assigned 
+work and self-reliantly recognize and avoid 
+possible hazards. Only trained personnel should 
+program the laser system.
+– Supply this guide in appropriate form to the 
+involved specialists.
+• The safety concept should also cover mainte-
+nance.
+The scanning system complies with the requirements 
+of the EU Directive on the restriction of the use of 
+certain hazardous substances in electrical and elec-
+tronic equipment (2011/65/EU), known as the RoHS 
+Directive.
+With the CE marking, we confirm that the marked 
+products comply with the substance restrictions 
+specified by the RoHS Directive.
+Caution!
+Damage to the scan system due 
+to contaminated coolant
+Contaminants in the coolant such as solid 
+suspended matter (e.g. sand, clay, bacteria), 
+dissolved solids (e.g. bicarbonates, chlorides, 
+sulphates, silicates) or dissolved gases (e.g. 
+oxygen, carbon dioxide, nitrogen, hydrogen 
+sulphide gas) can damage the cooling system.
+As a result, overheating can cause damage to 
+the scan system.
+• Add conditioning agent to the coolant.
+
+[p.32]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+32
+innovators for industry
+4
+Installation
+Follow each step for preparation, mounting and elec-
+trical connection in the correct order as described in 
+this chapter.
+4.1
+Checking the Specifications
+Make sure the specifications of the scan head meet 
+the requirements of your application (see 
+"excelliSCAN 20 Technical Specifications" on page 60). 
+If your application requires other specifications, then 
+please contact SCANLAB.
+4.2
+Mounting the Objective
+If the scan head is to be operated with an objective 
+which is not factory-installed (or if an already-
+mounted objective is to be exchanged), then proceed 
+as described in the following sections.
+Objectives are mounted either directly or via an objec-
+tive holder onto the housing’s beam exit side. Many 
+objectives require a mounting set, which (in addition 
+to an objective holder) can include components for 
+securing the objective and objective holder, as well as 
+seal rings and space rings to ensure a safe distance 
+between the objective and the deflection mirrors. 
+Different objectives might require different mounting 
+sets. Appropriate objective mounting sets are 
+attached on the scan head, included with the objec-
+tive, or obtainable from SCANLAB.
+4.2.1
+Objective Holder
+If the objective mounting set includes an objective 
+holder, install it as follows.
+Carefully remove (e.g. with a small screw driver) 
+any protective covers from the scan head’s 
+objective opening.
+Lightly lubricate the objective holder’s threads 
+(e.g. with vacuum grease) to prevent cold 
+welding of the objective holder to the housing.
+Screw the objective holder into the threads of the 
+housing’s beam exit side.
+Danger!
+• Make sure all components of the system (laser, 
+controller, power supply, computer) are 
+switched off before installation.
+• After the scan head has been mounted, there is 
+a cone-shaped hazardous laser output area. Do 
+not stare into the laser or its deflected radiation. 
+Keep all parts of the body away from the laser 
+beam.
+• Always turn on the PC controller and the scan 
+head’s power supply first before turning on the 
+laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+Caution!
+• Carefully take the scan head out of the pack-
+aging.
+• Protect the scan head from dust and other 
+contaminants.
+• Never touch the optical surfaces of the 
+deflection mirrors. Always use gloves and/or 
+special lens cleaning tissues when handling the 
+optical components. 
+• Follow the operating and storage conditions, 
+see chapter 4.10 on page 47
+• Follow the procedures in chapter 7.1 on page 55 
+for periodically checking and cleaning the 
+optics.
+!
+Caution!
+• When mounting a lens holder or a lens at the 
+beam exit of the scan head, make sure that no 
+cable is crushed there.
+
+[p.33]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+33
+innovators for industry
+4.2.2
+Objective
+Before mounting, inspect the objective for scratches, 
+lens defects and dirt. If necessary, clean as described 
+in "Routine Maintenance of the Optical Surfaces" on 
+page 55.
+Mount the objective as follows:
+Carefully remove (e.g. with a small screw driver) 
+any protective covers from the objective holder or 
+the scan head’s objective opening.
+Remove the protective cover from the objective’s 
+beam entrance side.
+Some setups require installation of one or more 
+seal rings between the scan head or objective 
+holder and the objective. Seal rings should be 
+lightly lubricated (with vacuum grease). 
+Otherwise, threading of the objective might be 
+very difficult. Additionally, some setups require 
+installation of one or more space rings between 
+the scan head or objective holder and the 
+objective to ensure a safe distance between the 
+objective and the deflection mirrors. Check for 
+corresponding accessories in the objective 
+mounting set.
+Some objectives are secured to their holders via 
+screws (and washers). However, most objectives 
+are directly screwed into the scan head or into the 
+objective holder. Before screwing in the objective, 
+lightly lubricate its threads (e.g. with vacuum 
+grease) to prevent cold welding between the 
+objective and its holder.
+Caution!
+• Before installing the objective, verify its compat-
+ibility with the mounted objective holder or 
+beam exit threads. Otherwise, damage to the 
+objective and scan head mirrors may result. In 
+the event of questions, contact SCANLAB.
+Caution!
+• When installing the objective, ensure that all 
+components of the corresponding objective 
+mounting set are used. Failure to install included 
+seal or space rings can lead to a mirror crash 
+(resulting from inadequate distance between 
+the deflection mirrors and the objective). 
+Furthermore, the beam exit might not be opti-
+mally sealed.
+
+[p.34]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+34
+innovators for industry
+4.3
+Layout and Dimensions
+Figure 7 shows the layout of the scan head with the 
+electrical connectors as well as the connections for 
+water cooling and air cooling.
+Figure 7 on page 34 shows the scan head with the 
+parts which are important for mounting. The scan 
+head installation is described in chapter  "Mounting 
+the Scan Head", on page 39.
+Figure 9 on page 36 and figure 10 on page 37 show 
+the dimensions necessary for mounting the scan 
+head and adjusting the scan head with respect to the 
+working area. Figure 9 depicts the scan head’s 
+mounting surface with its mounting bore holes and 
+a bottom view of the scan head (beam exit side) 
+which shows the displacement of the entry beam axis 
+from the beam exit axis (The deflecting mirrors are in 
+their neutral positions).
+Figure 10 shows the following distances:
+the working distance A.
+the distance B between the axis of the input beam 
+and the lower edge of the housing.
+the distance C between the axis of the input 
+beam and the lowest edge of the objective or its 
+enclosure.
+the diameter D which is the larger of the 
+diameters of the objective and its enclosure.
+the distance E between the front edge of the 
+beam entrance side and the axis of the beam 
+exiting the scan head.
+7
+Scan head overview with connector position
+1
+2
+3
+4
+5
+7
+6
+8
+Legend
+1
+Connection for mirror air cooling
+2
+Electrical connections (see page 44)
+3
+Connection for water cooling
+4
+Air outlet for the mirror air cooling
+5
+Objective
+6
+Emerging beam
+7
+Beam entrance
+8
+Entering beam
+
+[p.35]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+35
+innovators for industry
+  
+ 
+8
+ Scan head with mounting assembly (example mounting with M6 threads)
+4
+2
+1
+3
+Legend
+1
+Mounting screws *
+2
+Laser system flange *
+3
+Alignment pins *
+4
+Beam entrance side with mounting bore holes
+(* not included)
+
+[p.36]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+36
+innovators for industry
+ 
+9
+Side view, frontal view and bottom view (with beam displacement 25.25 mm) of the scan head (all dimensions in mm)
+M6 - 15 deep
+4x
+Ø6H7 - 10 deep 
+2x
+M6 - 7 deep 
+4x
+Ø 6H7 - 5 deep 
+4x
+30
+21
+14
+29
+44
+33
+49
+50
+140
+180
+205
+Ø20
+(14.8)
+75
+90
+70
+35
+120
+LKØ
+70
+90
+35
+Ø 110 F8
+25.25
+67.15
+M4 - 7 deep 
+4x
+Ø 90.5
+Ø 39F8 
+64
+72
+93.67
+
+[p.37]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+37
+innovators for industry
+10
+Working Distance A, distances B-E (see chapter 4.5) and dimensions (excelliSCAN 20)
+4
+5
+1
+ØD
+3
+A
+2
+E
+C
+B
+Legend
+1
+Beam entrance
+2
+Scan head
+3
+Objective (not shown true-to-
+scale)
+4
+Emerging beam
+5
+Image field
+Note: drawing not true-to-scale
+Dimensions
+B
+=
+30 mm
+E
+=
+67.15 mm
+
+[p.38]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+38
+innovators for industry
+4.4
+Modification of the 
+Connector Bracket
+By default, the connectors of the excelliSCAN are on 
+the top. It’s possible to place them on the beam 
+entrance side by turning the connector bracket. For 
+that, proceed as follows:
+Disconnect the air hoses from the air in 
+connection and the air outlet.
+Unscrew the four M3 screws, which hold the 
+connector bracket on the excelliSCAN housing 
+and remove it carefully from the housing 
+(figure 11). Take care not to damage the 
+connected cables or hoses and not to lose the 
+seals while removing.
+Turn the connector bracket so, that the 
+connectors are on the beam entrance side.
+Remove the air in connector and the air outlet 
+from the connector bracket and swap their 
+positions. The air in connector must always be on 
+the left side of the connector bracket, the air 
+outlet always on the right side.
+Place the connector bracket to the excelliSCAN 
+housing and mount it with the four screws you 
+have unscrewed before. Take care that all seals 
+are placed correctly.
+Connect the air hoses to the air in connector and 
+the air outlet again.
+11
+Removing of the connector bracket
+12
+Changing of the AIR IN and AIR OUT connectors
+13
+Correctly modified connector bracket
+
+[p.39]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+39
+innovators for industry
+4.5
+Mounting the Scan Head
+The illustrations for this section are found in the 
+previous section, starting on page 34.
+For mounting the scan head, the beam entrance side 
+provides bore holes designed for attachment to a 
+standardized flange on the laser system – see figure 8 
+on page 35. The laser system flange, alignment pins 
+and mounting screws are not included in the 
+package.
+The dimensions of the beam entrance side and its 
+bore holes are shown in figure 9 on page 36. The 
+beam entry position is defined by two 6H7 alignment 
+holes on the mounting bracket. The laser beam axis 
+must be identical with the laser input axis of the scan 
+head. To ensure this alignment, the laser system 
+flange must have appropriate holes to accommodate 
+two 6h6 alignment pins and four M5-threaded 
+mounting screws (inside bore holes) or four M6-
+threaded mounting screws (outside bore holes).
+On designing the attachment flange, also consider 
+the position of the scan head’s electrical connections 
+(see figure 7 on page 34).
+Mount the scan head in the following manner:
+Carefully remove the protective covering of the 
+laser input hole (e.g. with a small screwdriver).
+Place two 6h6 alignment pins in the corre-
+sponding 6H7 alignment holes on the flange or 
+beam entrance side.
+Place the scan head on the flange so that the 
+alignment pins line up with the alignment holes 
+on the flange and the beam entrance side. This 
+way the scan head is aligned with respect to the 
+laser.
+Fasten the scan head to the flange by installing 
+four mounting screws with four M6 threads into 
+the corresponding threaded mounting holes.
+On mounting the scan head consider a correct 
+alignment in respect to the entering laser beam 
+(also see chapter  "Adjustment and Alignment", 
+on page 51) and in respect to the working field 
+(also see figure 10 on page 37).
+Caution!
+• To align and fasten the scan head, only use the 
+alignment and mounting holes depicted in 
+figure 8 on page 35. Other holes cannot be used 
+for aligning and fastening the scan head or for 
+any other purposes.
+
+[p.40]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+40
+innovators for industry
+4.6
+Water Cooling
+Active scan head cooling is essential in high-perfor-
+mance applications (e.g. continuous operation, 
+highly dynamic scanning motions and/or high laser 
+powers). When in operation, the scan head can dissi-
+pate considerable power. Furthermore, water cooling 
+is particularly needed for active temperature stabili-
+zation in applications requiring high long-term 
+repeatability.
+Therefore, the scan head is equipped with connec-
+tions and channels for water cooling the amplifier 
+boards and the galvanometer scanners. To ensure 
+adequate supply and circulation of coolant water, the 
+scan head must be integrated into a cooling circuit.
+In the technical specifications (page 61) the values 
+specified for to-be-dissipated heat and required flow 
+are typical (for absorption of modest laser power). 
+Treat these values as a rough guide. The actual values 
+in operation (and whether water cooling is even 
+needed at all) strongly depend on the requirements 
+of the specific application.
+Appropriate coolant-water operational parameters 
+can be determined experimentally during a test run. 
+For this, the scan head should be operated for an 
+extensive period under realistic conditions (scanner 
+dynamics, laser power, environmental factors). 
+During the test run, the scan head’s TempOK and 
+PowerOK status signals (see "XY2-100 Status Word" 
+on page 9) should be queried to check if the scan 
+head overheats during operation or experiences an 
+emergency shut down (e.g. due to overheating). You 
+can use the specifications as a guide for establishing 
+the initial values of water-cooling operational param-
+eters.
+4.6.1
+Selecting an Appro-
+priate Cooling System
+When selecting water-cooling components, observe 
+the technical specifications (page 61) and in addition 
+the following recommendations:
+• The water coolant’s flow rate, pressure and 
+temperature should be adjustable at the chiller 
+and monitored during operation.
+• All cooling system components of the entire 
+cooling circuit (cooling channels of the chiller and 
+scan head, coolant lines and connectors, coolant) 
+must be material-compatible to prevent corro-
+sion-induced leaks in the cooling circuit. In partic-
+ular, don’t combine metals that create an 
+electrochemical voltage series. The scan head’s 
+coolant-wetted materials are listed in the tech-
+nical specifications (page 61).
+• Flexible, UV-resistant, opaque plastic hoses with 
+an inner diameter of at least 4 mm are suitable as 
+coolant lines between the chiller and scan head. 
+Materials such as polyamide, EPDM, NBR or 
+PVC-U are appropriate, possibly stainless steel too 
+(depending on the other used materials), but not 
+zinc-plated steel piping, rubber, copper or soft 
+PVC. Ensure that the coolant lines have a nominal 
+pressure rating of PN10 or higher and are 
+installed kink-free.
+• For installing the coolant lines, you can screw suit-
+able adapters into the housing’s coolant connec-
+tors (G1/8x8 threads). Adapters are available from 
+SCANLAB.
+• Even if the laser equipment already has a cooling 
+system (e.g. for laser cooling) of sufficient 
+capacity to also cool the scan head, SCANLAB 
+strongly recommends not using that cooling 
+circuit for the scan head without conducting 
+tests. Here, consultation with the existing cooling 
+system’s (or laser’s) manufacturer is absolutely 
+necessary. Scan head cooling can sometimes be 
+achieved by adding a heat exchanger and a sepa-
+rate cooling circuit to the existing cooling system. 
+Here, too, attention must be paid to material 
+compatibility in the cooling circuit (see above).
+For advice on appropriate cooling systems (in 
+conjunction with the technical specifications 
+(page 61), please contact the manufacturers of 
+cooling systems (e.g. RIEDEL, Termotek AG, Thermo 
+Fisher Scientific, DELTATHERM Hirmer GmbH, H.I.B 
+Caution!
+• Operate the scan head only with appropriate air 
+and water cooling. High operational stability 
+can only be achieved with water cooling. Lack of 
+cooling can extensively damage the scan head 
+through overheating – particularly in high-
+performance applications (e.g. continuous oper-
+ation, highly dynamic scanning motions and/or 
+high laser powers).
+
+[p.41]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+41
+innovators for industry
+Systemtechnik GmbH or SCHWÄMMLE GmbH: 
+www.riedel-cooling.com, www.termotek-ag.com, 
+www.thermofisher.com, www.deltatherm.de, 
+www.h-i-b.de, www.schwaemmle-gmbh.de).
+4.6.2
+Coolants
+SCANLAB recommends demineralized water as the 
+coolant, supplemented with a corrosion inhibitor and 
+a biocidal additive. For example, the NALCO Yelmet 
+Kit in conjunction with demineralized water is manu-
+facturer-specified for conductance < 20 µS/cm and 
+water hardness < 5 mg/l CaCO3 to offer effective 
+protection against corrosion for stainless steel, 
+copper, non-ferrous metals and aluminum as well as 
+protection against bacteria, algae and fungi. The 
+NALCO Yelmet Kit’s organic corrosion inhibitor 
+promotes rapid formation of an anti-corrosive film.
+The coolant’s quality needs to be checked at regular 
+intervals. It might be necessary to periodically replace 
+the coolant. Establish suitable maintenance intervals.  
+For advice on appropriate coolants (in conjunction 
+with the technical specifications on page 61), please 
+contact the manufacturers of coolant additives (e.g. 
+NALCO, Grünbeck or DOW Chemical Company: 
+www.nalco.com, www.gruenbeck.de, 
+www.dow.com).
+4.6.3
+Connecting the Cooling 
+System
+Connect the scan head to the cooling system as 
+follows:
+Prerequisites:
+• Flexible cooling water hoses
+Inner diameter 6 mm
+Outer diameter 8 mm
+• Adapter for connecting the cooling water hoses 
+to the water connections (G1/8x10 thread) of the 
+scan system
+Caution!
+• An unsuitable coolant can produce blockage or 
+corrosion of the cooling channels.
+• If, contrary to the above recommendations, 
+ordinary tap water is used as coolant, then 
+formation of lime and scale deposits can be 
+expected (depending on the water’s hardness 
+and pH), along with increased galvanic corro-
+sion. Furthermore, bacteria, algae and fungi can 
+multiply. Water with excessive chloride will 
+promote strong corrosion of stainless steel and 
+non-ferrous metals, too. Increased corrosion can 
+also be caused by ions of copper and other 
+heavy metals.
+• Depending on the used materials (e.g. 
+aluminum or copper), deionized water with low 
+conductance (and without corrosion inhibitors) 
+can also encourage excessive corrosion. Deion-
+ized water without corrosion inhibitors should 
+ideally be used only with compatible materials 
+such as stainless steel or nickel. It might be 
+necessary to monitor and regulate the water 
+coolant’s conductance via suitable construc-
+tional measures.
+• Adding a corrosion inhibitor will delay – but not 
+prevent – galvanic corrosion. Corrosion inhibi-
+tors bind with and neutralize ions in solution. In 
+the process, the inhibitors are consumed and 
+must be replenished regularly.
+Caution!
+• The cooling water circuit requires a defined flow 
+direction. The water hose for cooling water inlet 
+must always be connected to the IN connector 
+and the water hose for cooling water outlet 
+must always be connected to the OUT 
+connector.
+Caution!
+
+[p.42]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+42
+innovators for industry
+(1) Connect the adapter and cooling water hoses 
+together.
+(2) Screw the adapters into the water connections of 
+the scan system.
+(3) Connect the cooling water hoses to the water 
+cooling system.
+– Cooling water inlet to connection “IN”
+– Cooling water return to connection “OUT”
+(4) Ensure that the flow rate of the water cooling 
+system is set correctly.
+(5) Ensure that the temperature of the coolant in the 
+water cooling system is set correctly.
+The temperature of the water-cooled parts must 
+not exceed 30 °C.
+4.7
+Mirror Air Cooling
+The air supply must be attached to the scan head’s 
+compressed cooling air connection (see figure 7 on 
+page 34). From there the air is guided to the two 
+deflection mirrors. The cooling air inlet has push-in 
+fitting (M5x6 threaded) to connect an air hose with 
+an outside diameter of 6 mm.
+To ensure sufficient cooling, an air flow rate of 
+approximately 20 l/min at a pressure of p < 2.5 bar is 
+required. The pressure of the air source should be 
+adjustable.
+The cooling air must be dry and totally free of dirt, 
+dust and oil to avoid damage to the optical compo-
+nents. SCANLAB recommends a (normally multistage) 
+dust filter system that provides cooling air in compli-
+ance with ISO 8573.1:2001 class 1.6.1. This applies if 
+the supplied air has a temperature of at least 20°C. 
+For lower cooling air temperatures, the pressure dew 
+point should be at least 10 Kelvin lower than the 
+cooling air temperature.
+A flexible air hose with an inside diameter of 4 mm 
+and an outside diameter of 6 mm should be used.
+Achieving the Protection Class
+The IP protection class mentioned in chapter 
+"excelliSCAN 20 Technical Specifications" on page 60 
+can only be achieved under following conditions:
+• The beam entrance and beam exit must be sealed 
+in accordance with the protection class IP 66.
+• The air outlet valve figure 7 on page 34 must be 
+replaced by a compressed air fitting (for example 
+from FESTO).
+• The cooling air existing excelliSCAN must be 
+guided in an area from which no contamination 
+can infiltrate the system.
+• When using a filter or a check valve on the air 
+outlet, the overpressure must not exceed 
+500 mbar in the system.
+• The connectors for power supply and data 
+transfer must have at least protection class IP 67.
+4.8
+Attachment Provisions
+The housing’s beam entrance side provides a beam 
+entrance with a 39F8 fit, see figure 9 on page 36. The 
+excelliSCAN 20 is delivered with an aperture attached 
+to this fit and fixed with two screws (M4x8). The aper-
+ture limits the diameter of the input laser beam to a 
+value of 20 mm. 
+The fit can also be used for attaching other apertures 
+or optical components such as focusing lenses. 
+Components attached here should not penetrate 
+further into the beam entrance than 30 mm.
+Caution!
+• Ensure that the maximum intake pressure (see 
+the technical specifications on page 61) is not 
+exceeded and that condensation doesn’t form in 
+the scan head. Otherwise, scan head damage 
+may occur.
+• To ensure sufficient cooling, the water flow 
+should be monitored continuously during oper-
+ation.
+• Fully remove the coolant prior to transport or 
+long-term storage. Otherwise, scan head 
+damage may occur. Comply with the respective 
+safety and disposal notices.
+• Some coolants can be harmful even in small 
+quantities. Therefore, it’s essential for the scan 
+head to be free of coolant residues prior to 
+storage or transport.
+
+[p.43]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+43
+innovators for industry
+The housing’s beam exit side provides a beam exit 
+with an aperture of 90.5 mm along with four M6- 
+threaded holes and four 6H7 alignment holes for lign-
+ment and attachment of components such as cross 
+jets, illumination, distance sensors, thermalshields, 
+etc. Components attached here should not penetrate 
+further into the beam exit than 12 mm.
+
+[p.44]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+44
+innovators for industry
+4.9
+Electrical Connections
+Figure 14 shows the electrical connectors on the scan 
+head.
+ 
+The scan head provides a 9-pin SL2-100 female D-SUB 
+connector for digital data transfer and a 3-pin 
+POWER IN male D-SUB connector (with high power 
+contacts) for power supply. An interlock connector 
+returns a data signal additionally. Figure 15 shows 
+the pin assignments of the connectors.
+The connector bracket can be modificated so, that 
+the connectors are located on the beam entry side. 
+For that, proceed as described in chapter "Modifica-
+tion of the Connector Bracket" on page 38.
+ 
+ 
+14
+Connections of the scan head
+Legend
+1
+SL2-100 connector
+2
+Interlock connector (see "Interlock" on 
+page 28)
+3
+Mounting screws for the connector 
+bracket
+4
+POWER connector
+17
+28.7
+33
+37.1
+1
+2
+3
+4
+  
+15
+Pin out of electrical connectors
+(* see "Data Cable Guidelines", page 46)
+(6)
+DATA IN –
+(7)
+GND
+(8)
+GND
+(9)
+DATA OUT –
+DATA IN+ (1)
+DO NOT CONNECT
+(2)
+DO NOT CONNECT
+(3)
++3.3 V (DO NOT CONNECT)*(4)
+DATA OUT+ (5)
+SL2-100
+9-pin female SUB-D connector
+(1)
+RELAY CLOSE
+(4)
+RELAY COMMON
+(3)
+RELAY OPEN
+Interlock
+3-pin male round connector, TE1838838-1, M8
+(1)
+GND
+(2)
+NOT CONNECTED
+(3)
++48 V
+POWER IN
+3-pin SUB-D-Mixed-Layout, 3W3PSP
+
+[p.45]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+45
+innovators for industry
+4.9.1
+Power Supply
+Requirements
+For power supply, the scan head requires a DC voltage 
+of (48±2) V with a maximum ripple of 100 mVpp. The 
+current consumption of the scan head can be up to 
+5 A (RMS). A power supply unit is therefore required 
+which can provide at least 5 A (RMS) at 48 V output 
+voltage.
+The excelliSCAN provides reverse-polarity protection 
+and start-up current limiting. The power supply and 
+the SL2-100 data interface are galvanically isolated 
+from each other.
+The supply voltages are monitored by the 
+excelliSCAN’s electronics (see section "Assuring Reli-
+able Power Supply" on page 13).
+The scan head is powered via a 48 V power supply 
+(see figure 16). In general, the power supply is not 
+included in the package, but suitable power supplies 
+are available from SCANLAB. SCANLAB recommends 
+to connect the 0 V connection of the power supply’s 
+output side (or the scan head’s GND connection) to 
+the mains's grounding wire (PE).
+Connections 
+The power signals should be assigned to the corre-
+sponding pins of the scan head’s male high-current 
+POWER IN connector (+48 V / GND, see figure 15).
+Make sure each power connection has the correct 
+polarity.
+Connect each pole of the power source via an 
+appropriate cable to all pins of the scan head’s 
+connector. The cable connecting the power 
+supply and the scan head must be shielded and 
+should have a cross-sectional area of at least 
+1.5 mm2 per pole and a length not exceeding 
+6 meters. RFI must be minimized by connecting 
+the cable’s shielding at one end (utilizing a large 
+surface area) to the power supply’s metal 
+shielding and at the scan head-end to the 
+housing’s D-SUB connector.
+Recommended connection:
+– Connect the power source GND to the GND pin 
+of the POWER IN connector.
+– Connect the +48 V power source to the +48 V 
+pin of the POWER IN connector.
+A suitable mating connector is optionally 
+available from SCANLAB (ID number #131066).
+Scan Head
+48
+48
+48
+16
+Connect the power supply’s 0 V connection (or the scan head’s 
+GND connection) to the mains’s grounding wire (PE).
+Caution!
+• Before proceeding with wiring the scan head, 
+make sure none of the wires carry any voltages. 
+The control electronics and the computer must 
+be turned off.
+• Turn off the power supply before disconnecting 
+the power or the data cable.
+• Follow all power supply electrical specifications 
+exactly.
+
+[p.46]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+46
+innovators for industry
+4.9.2
+Data Cable Guidelines
+Signal transfer between scan head and controller is 
+realized via a data cable. This data cable is connected 
+to the female SL2-100 connector.
+The differential DATA IN input channel receives the 
+the control values from the controller. The differential 
+DATA OUT output channel returns the status signals 
+to the controller. The 3.3 V voltage is supplied for 
+SCANLAB’s POF converter for optical data transmis-
+sion (POF = Polymer Optical Fiber) – also see below. 
+This voltage should not be used for other purposes.
+Appropriate data cables, for either electrical trans-
+mission or optical fiber transmission, are obtainable 
+from SCANLAB. The optical fiber, too, is attached via 
+a 9-pin D-SUB connector. Optical conversion (POF 
+conversion) for optical data transmission takes place 
+in the D-SUB connector. The operating voltage for 
+POF conversion is supplied at the SL2-100 connector 
+and the RTC6 board’s scan head connectors.
+Data cables are generally not included in the 
+package. SCANLAB recommends the following 
+design (for electrical data transmission):
+The cable should be fitted with 9-pin male D-SUB 
+connectors at both ends. The two channels 
+DATA IN± and DATA OUT± (4 wires) must consist 
+of twisted cable pairs and be cross-connected at 
+both D-SUB connectors (e.g. so that the RTC6 
+board’s DATA OUT signal flows to the scan 
+system’s DATA IN input). The cable length should 
+not exceed 25 m. SCANLAB recommends a cable 
+impedance of 110 , independent from the cable 
+length.
+The data cable must have coaxial copper braided 
+shielding.
+The D-SUB connectors must have fully shielded 
+metal housings.
+The electrical connection of the cable’s braided 
+shielding to the D-SUB housing should not be 
+implemented as a wire. Instead, the cable’s 
+braided shielding should be coaxially connected 
+to the D-SUB housing via shielded clamps.
+Figure 17 shows the data cable layout and pin assign-
+ments.
+Connect the scan head via the data cable to the 
+customer-specific controller.
+If an RTC board is used as the controller, then 
+follow the installation instructions in the RTC 
+manual.
+ 
+17
+Data cable layout and pin assignments
+DATA IN +
+DATA IN –
+DATA OUT –
+DATA OUT +
+×
+×
+×
+×
+×
+1
+6
+2
+7
+3
+8
+4
+9
+5
+DATA IN +
+DATA IN –
+DATA OUT –
+DATA OUT +
+×
+×
+×
+×
+×
+1
+6
+2
+7
+3
+8
+4
+9
+5
+Scan system →
+9-pin D-SUB connector, male
+Shielding
+← RTC board
+9-pin D-SUB connector, male
+
+[p.47]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+4 Installation
+47
+innovators for industry
+4.10 Operating and Storage Condi-
+tions
+For storage, operation and servicing, make sure the 
+following environmental conditions are met:
+• The storage temperature for the scan head should 
+be between – 35 °C and +60 °C. For storage, 
+make sure to remove all water from the device’s 
+water-cooled parts.
+• The operating temperature is 25 °C ± 10 °C.
+• Protect the scan head from humidity, dust and 
+corrosive vapors to avoid damage to the mirrors, 
+optics and electronics.
+• Avoid strong electromagnetic fields and static 
+electricity. These can damage the electronics of 
+the interface and amplifier boards.
+Caution!
+• Do not operate the scan head without appro-
+priate air and water cooling. High operational 
+stability can only be achieved with water 
+cooling.
+
+[p.48]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+5 Start-up and Operation
+48
+innovators for industry
+5
+Start-up and Operation
+5.1
+Checking the Installation
+Before operating the scan head, carefully check the 
+following:
+Were the mechanical installation and electrical 
+wiring fully and correctly carried out as described 
+in "Installation" on page 32?
+Is the scan head equipped with the correct 
+objective and suitable mirrors? Therefore, please 
+compare the technical specifications in chapter 9 
+chapter 9 on page 60.
+Are all optical components clean and free of 
+dust? If necessary, clean the optical components 
+as described in "Routine Maintenance of the 
+Optical Surfaces" on page 55.
+Are air and water cooling facilities properly 
+connected to the scan head?
+5.2
+Checking the Laser Param-
+eters
+The scan head’s deflection mirrors are designed for a 
+laser beam with defined parameters.
+Compare the technical specifications on page 60 
+with the requirements of your application. For 
+information on tolerances and deviations, please 
+contact SCANLAB.  
+The values specified for the maximum laser power 
+rating and the laser damage threshold only apply to 
+the scan mirrors. They do not apply to the scan objec-
+tive or other components. Typically, however, the 
+damage thresholds of scan objectives are similar to 
+that of scan mirrors.
+Also be aware that additional optical components in 
+the optical beam path can focus a part of the laser 
+beam onto the mirror and thereby dramatically lower 
+the effective damage threshold. For instance, the 
+lenses or protective window of a scan objective – 
+though coated with an antireflex coating – always 
+reflect a certain fraction of the laser light. If the lenses 
+are shaped such that the reflected laser light is 
+focused onto the scan mirrors, the power density 
+within this focus may be more than 1000 times larger 
+Caution!
+• Check, that the following specifications are not 
+exceeded and are compatible to your system:
+– working wavelength
+– aperture
+– maximum laser power (with or without air 
+cooling)
+– laser power density
+– beam diamater
+– damage threshold
+– maximum intake pressure of the cooling 
+water
+• To cope with the heat resulting from high laser 
+power, the scan head’s mirror’s are air cooled. 
+But if the scan head is used without cooling, 
+damage can result.
+
+[p.49]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+5 Start-up and Operation
+49
+innovators for industry
+than in the original beam and the effective damage 
+threshold will be correspondingly reduced. In partic-
+ular, the mirrors can be damaged by lasers with high 
+pulse energies, short pulse lengths and good beam 
+quality. Contamination on or damage to the optical 
+surfaces of the objective or protective window can 
+further increase residual reflectivity, which further 
+increases the danger of mirror damage from back 
+reflections.
+Furthermore, the specified values only apply to clean 
+and new mirrors. Mirror contamination (dust, finger-
+prints, cleaning residue, deposits from laser 
+processing etc.) as well as mechanical damage 
+(scratches, fractures, burn-in, damage by an 
+improper cleaning procedure) can considerably 
+reduce the damage threshold.
+The specified damage threshold for pulsed operation 
+is the maximum energy density for which no mirror-
+surface damage is expected for the specified wave-
+length and for two hundred pulses with the specified 
+pulse length onto the same mirror spot (see note 
+below).
+In general, the damage threshold considerably 
+decreases with an increasing number of laser pulses. 
+In continuous operation, SCANLAB therefore recom-
+mends only applying suitably reduced energy densi-
+ties (depending on the repetition rate and the laser 
+parameters, typically five times smaller than the 
+specified pulse damage threshold, if necessary even 
+smaller).
+The damage threshold for pulsed operation also 
+decreases with decreasing pulse length. In particular, 
+this effect must be considered for pico- or femto-
+second lasers.
+Note: The specified damage threshold energy density corre-
+sponds to 0% damage probability (see ISO 11254). Here, 
+damage means a permanent, laser induced surface modifi-
+cation. Test parameters: angle of incidence: 45°; pulse 
+length (FWHM): as specified (see page 61); beam profile: 
+TEM00; 200 pulses per test site; mirrors in clean condition; 
+inspection method: Nomarski dark field microscope (150x).
+5.3
+Putting the cooling circuit 
+into operation
+(1) Flush the cooling circuit system completely with 
+an aqueous 2-3% additive solution before filling 
+for the first time.
+(2) Fill the cooling circuit system with coolant.
+(3) After the initial filling, carry out an analysis to 
+ensure that the coolant meets all the required 
+standard values and document the results of the 
+analysis.
+Carry out this analysis within 48 hours of the 
+initial filling.
+
+[p.50]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+5 Start-up and Operation
+50
+innovators for industry
+5.4
+Safe Start-up and Shutdown 
+Sequences
+To assure safety during start-up, proceed exactly as 
+follows:
+(1) Start up the air cooling facilities and monitor 
+the air flow to assure reliable cooling.
+(2) Start up the water cooling facilities and 
+monitor the flow to assure reliable cooling.
+(3) Turn on the controller containing the RTC 
+control board and start up the control soft-
+ware.
+(4) Turn on the power supply for the scan head.
+(5) Turn on the laser.
+When shutting down the system, turn off the compo-
+nents exactly in reverse order.
+Caution!
+• Before first-time operation, check the polari-
+ties of the power supply connections for the 
+scan head.
+• Operate the scan head only with appropriate 
+air and water cooling.
+ Danger!
+• Always turn on the scan head control 
+(controller with RTC control board and control 
+software) and the power supply for the scan 
+head prior to turning on the laser. Otherwise 
+there is the risk that the laser beam might be 
+deflected in an arbitrary direction.
+• Power for the scan head must be applied only 
+when scan head control is active.
+!
+
+[p.51]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+5 Start-up and Operation
+51
+innovators for industry
+5.4.1
+Start-up duration
+The excelliSCAN needs a few seconds to start up 
+when it is switched on. This power-up is complete 
+when the PowerOK status signal changes from 0 to 
+1. The start-up duration (from switching on the spec-
+ified supply voltage until the status signal changes) is 
+typically 12 s and maximum 25 s. Increased start-up 
+durations (up to 25 s) occur only sporadically, but can 
+also occur with a scan system that usually only shows 
+a small start-up time (e.g. 10 seconds). Therefore, 
+always consider the maximum start-up duration 
+when designing the system.
+5.4.2
+Warm-up Time
+Depending on the application and accuracy require-
+ments, SCANLAB recommends a minimum warm-up 
+time of 30 minutes, preferably 3 hours, between 
+switching on the positioning system and starting a 
+laser scan application. Within this warm-up time, it is 
+advisable to have the positioning system perform the 
+same or similar scanning movements as during the 
+actual laser scan application (but with the laser deac-
+tivated). If a cooling of the positioning system is 
+planned, the cooling should already be activated at 
+the beginning of the warm-up time. In order to avoid 
+additional warm-up times during operation, it is 
+usually recommended to continue the scan move-
+ment even during longer processing pauses (with 
+deactivated laser) and, if applicable, to leave the 
+cooling activated.
+5.4.3
+Minimum power-off 
+duration
+The excelliSCAN must not be switched on again 
+immediately after switching it off. After discon-
+necting the supply voltage, a minimum pause (a 
+minimum power-off duration) of 5 s must be 
+observed before reconnecting the specified supply 
+voltage. Note that primary side switching of the 
+power supply can lead to completely other behavior 
+of the scan system due to internal loading processes 
+on the secondary side.
+5.5
+Adjustment and Alignment 
+To ensure optimum performance of the scanning 
+system, it is crucial that the laser beam and the scan 
+head are precisely aligned with respect to each other. 
+Incorrect alignment might lead to the following 
+effects:
+• vignetting of the laser beam
+• a large, irregular spot
+• arbitrary translation of the image field
+In most cases, vignetting will be the predominant 
+effect. Vignetting occurs if the laser beam is not able 
+to fully pass through or be reflected by the optical 
+components. Part of the beam’s diameter will be cut 
+off, resulting in power loss and possible system 
+damage due to excessive absorption of laser power.
+To avoid significant vignetting, the system must be 
+aligned as precisely as possible, particularly in terms 
+of the beam position relative to the scan head’s 
+optical axis. If the laser beam profile is Gaussian, the 
+maximum tolerances appropriate for most applica-
+tions are:
+If you use a laser with "flat top" beam profile, it can 
+be necessary to align the system with even higher 
+precision. Avoid vignetting especially for a high 
+power laser. Align carefully and – if necessary – 
+reduce the beam diameter to an appropriate value.
+ 
+• tilt of the laser beam:
+< 5 mrad
+• displacement:
+< 0.3 mm
+Danger!
+• Do not stare directly into the laser beam or at 
+any of its deflected radiation. Keep all parts of 
+the body away from direct contact with the laser 
+beam or any of its deflected radiation.
+• Adjust the output beam path of the scan head 
+by means of a laser with a laser class not higher 
+than 2. If this is not possible, the laser should be 
+operated at the lowest power. Avoid dangerous 
+deflected radiation!
+!
+
+[p.52]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+5 Start-up and Operation
+52
+innovators for industry
+In order to achieve optimal processing quality, it may 
+be necessary to fine-tune the working distance A. The 
+working distance A is defined as the distance 
+between the axis of the laser beam entering the scan 
+head and the nominal working plane – see figure 10.
+The working distance A can be directly adjusted in 
+small steps. Alternatively, the working distance A can 
+also be adjusted indirectly via the beam divergence – 
+this can be achieved with the help of a beam 
+expander or a variable focusing system (for example, 
+SCANLAB’s varioSCAN 40i) placed in front of the scan 
+head’s entrance aperture.
+5.6
+Checking the Parameters of 
+Application Software
+Before you start a laser application, you must care-
+fully check your application software with regard to 
+the maximum allowed scan angle and working area.
+If scan angles larger than the maximum allowed scan 
+angle indicated on page 60 are used, some 
+vignetting inside the scan head can occur and 
+damage to the interior of the scan head might result. 
+If your application requires larger scan angles and a 
+larger image field, then contact SCANLAB for guid-
+ance. 
+Caution!
+• Remove the protective covers from the scan 
+head’s beam entrance and beam exit or objec-
+tive prior to first-time operation.
+
+[p.53]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+6 Optimizing the Application
+53
+innovators for industry
+6
+Optimizing the Application
+6.1
+Process Optimization via 
+Process Simulation
+During the testing phase of an application program 
+simulations of the scanning process can be helpful. 
+The scanning process is thereby executed with the 
+laser switched-off and the actual scanned positions 
+are read during execution and compared to the 
+programmed set positions. Many process parameters 
+(as settings for speeds, delays, etc.) can be simply 
+optimized by evaluating such process simulations. In 
+this way simulations can largely replace time-
+consuming inspection of processed material.
+6.2
+Process Monitoring
+The scan head provides internal protective mecha-
+nisms for monitoring
+• the power supply
+• the scan range and proper scan operation
+• the operating temperature
+(also see chapter 2.3, "Internal Protective Functions", 
+on page 13).
+In addition, the user has various possibilities for 
+monitoring the scan process as described in the 
+following.
+6.2.1
+Software Monitoring
+When the excelliSCAN is operated via an RTC6 board, 
+then a number of various data signals can be evalu-
+ated for monitoring or test purposes.
+For applications with critical scan precision require-
+ments, the actual galvo scanner value can be moni-
+tored during the entire runtime of an application.
+Alternatively, other data signals (e.g. scanner 
+temperature) can be analyzed during normal opera-
+tion or even when testing user applications.
+Malfunctions can be quickly detected if you regularly 
+query (and store) the excelliSCAN’s operational states 
+before, after or during operations. Furthermore, 
+determination of a malfunction’s cause is simplified 
+considerably (also see chapter 8.1, "Fault Diagnosis 
+and Functional Test", on page 59).
+If scan precision is monitored via the TrAck signal of 
+the XY2-100 status word, the excelliSCAN also 
+enables changing the PosAck threshold value via the 
+command control_command. The default start 
+behavior is for the scan head to set the threshold 
+value to 0.28% of the full position range (i.e. 0.28% 
+of 216 counts) after every power-up or reset. If other 
+threshold values are desired, they must be separately 
+set for each axis.
+6.2.2
+Optical Process Moni-
+toring
+For camera-based observation of the scan head’s 
+working field SCANLAB offers a camera adapter. The 
+camera adapter can be mounted between the scan 
+head’s beam entrance and the laser flange. Then the 
+camera adapter’s dichroitic beam splitter decouples 
+light reflected from the illuminated workpiece and 
+arriving the scan head’s beam entrance via the scan 
+objective and the scan mirrors. The light is decoupled 
+from the beam path and then directed to the camera. 
+Please contact SCANLAB for further information (see 
+page 57).
+6.2.3
+Monitoring with 
+Sensors
+The scan system offers advanced monitoring capabil-
+ities based on the evaluation of sensor signals, see 
+chapter 2.4 "Monitoring of the Scan System with 
+Integrated Sensors" on page 15.
+
+[p.54]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+6 Optimizing the Application
+54
+innovators for industry
+6.3
+Configuring the Start 
+Behavior
+In its default configuration the excelliSCAN is pre-
+configured by SCANLAB so that
+• the scan head transmits a status word compliant 
+with the XY2-100 protocol on all receive channels 
+(also see section "Returned Signals" on page 9),
+• a TrAck threshold value of 0.28% of the full posi-
+tion range (i.e. 0.28% of 216 counts) is set (also 
+see chapter 6.2, "Process Monitoring", on 
+page 53),
+The settings can be changed via the control_com-
+mand. The changed settings are only temporary, 
+however they can be additionally saved as starting 
+settings for subsequent power-ups or resets (power 
+supply switched off and switched on) via the cont-
+rol_command. For details see the separate docu-
+ment "excelliSCAN Scan Heads – Functional Principle 
+of SCANahead Servo Control and Operation by RTC6 
+Boards".
+As long as the start behavior is not changed as 
+described, the scan head starts with the starting 
+settings pre-configured by SCANLAB on every power-
+up or reset.
+
+[p.55]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+7 Routine Maintenance and Customer Service
+55
+innovators for industry
+7
+Routine Maintenance and Customer Service
+7.1
+Routine Maintenance of the 
+Optical Surfaces
+Dirty objectives and mirrors increase the absorption 
+of laser power by their respective optical surfaces. 
+Dirt, dust and other contaminants can distort the 
+laser beam, burn into the surface and damage the 
+optical elements. The warranty does not cover any 
+damage due to improper use, cleaning or handling.
+7.1.1
+Routine Maintenance of 
+the Mirrors
+The deflection mirrors are especially sensitive compo-
+nents and should not be touched or removed from 
+the scan head. Nevertheless, you must regularly 
+inspect the mirrors for dirt, dust and other contami-
+nants. The mirrors must also be inspected after a long 
+storage time.
+If inspection reveals dust particles, then remove them 
+by blowing air on the mirror’s surface with the help 
+of a rubber squeeze bulb or a source of compressed 
+clean air.
+If the dust cannot be removed in this manner, or if 
+inspection reveals more serious contamination, then 
+contact SCANLAB for guidance. In extreme cases, the 
+complete scan head must be returned to SCANLAB 
+for inspection and cleaning of the mirrors. However, 
+in some situations SCANLAB might be able to recom-
+mend a user-performed special cleaning procedure. 
+7.1.2
+Routine Maintenance of 
+the Objective’s Optical Surface
+The outermost optical surface of the scan head’s 
+objective is cleanable by the user. Regularly check the 
+scan head’s objective.
+If dirt, dust or other contaminants are found, clean 
+the objective’s optical surface as follows: Using a 
+rubber squeeze bulb or compressed clean air, blow air 
+on the objective’s surface to remove dust and dirt 
+particles. If the objective is still not clean, then use 
+solvent and lens cleaning tissues as described below:
+ Danger!
+• Never stare at the laser beam or its deflected 
+radiation when performing routine mainte-
+nance of the scan head. Keep all parts of the 
+body away from direct laser beams or 
+deflected radiation. When the laser beam is 
+not required, turn it off or reliably block it via 
+a shutter to prevent its entry into the scan 
+head.
+!
+Caution!
+• Improper cleaning procedures – for instance 
+cleaning cleaning metal-coated mirrors with 
+acetone – can cause irreparable damages to 
+the mirror coatings. Therefore, if the above-
+mentioned cleaning procedure (with air) is 
+insufficient, always contact SCANLAB for guid-
+ance before you start to perform any further 
+cleaning procedures yourself.
+
+[p.56]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+7 Routine Maintenance and Customer Service
+56
+innovators for industry
+(1) Create a lens-tissue brush by folding a clean lens 
+tissue so that the fold is about half as wide as the 
+objective’s lens surface.
+(2) Dampen the lens-tissue brush with solvent. Don’t 
+use too much solvent, because otherwise drying 
+marks might appear.
+(3) Carefully grip one end of the dampened lens-
+tissue brush without touching any part of the 
+tissue that will touch the lens surface.
+(4) Place the dampened lens-tissue brush in the 
+center of the objective’s lens surface. Then use a 
+circular motion to wipe slowly but steadily from 
+the center of the optic around to the outer edges.
+Repeat the above procedure until the objective’s 
+optical surface is completely clean. For each cleaning 
+swipe, create a new lens-tissue brush.
+7.2
+Routine Maintenance of the 
+coolant
+7.2.1 Checking the coolant
+Monthly:
+(1) Check the pH value, electrical conductivity and 
+total hardness of the coolant.
+(2) If the coolant deviates significantly from the stan-
+dard values, replace it completely.
+(3) If there is a strong odor, replace the coolant 
+completely.
+7.2.2 Analyzing the coolant
+Every 6 months (preferably every 3 months):
+(1) Carry out an analysis to ensure that the coolant 
+meets all the required standard values and docu-
+ment the results of the analysis.
+(2) If there are significant deviations from the stan-
+dard values, replace the coolant completely.
+(3) If there is a strong odor, replace the coolant 
+completely.
+7.2.3 Replacing the coolant
+Annually:
+(1) Replace the coolant completely.
+Cleaning Notes
+• Avoid skin contact with the optic.
+• Use only clean lint-free tissues specially manu-
+factured for cleaning optics (e.g. "Kodak lens 
+cleaning paper"). Always use lens tissues with 
+a solvent, because dry tissue can scratch 
+optical surfaces.
+• Use a solvent such as acetone or isopropanol 
+of high purity (evaporation residue < 0.001%). 
+Read and follow the safety advice and warn-
+ings for the solvents you will be using.
+• Use clean gloves or finger cots that are imper-
+meable to the organic cleaning solvents you 
+will be using.
+• Always wipe slowly but steadily, using a 
+circular motion from the center of the optic 
+around to the outer edges. Do not rub back 
+and forth!
+• Only wipe with slight pressure!
+
+[p.57]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+7 Routine Maintenance and Customer Service
+57
+innovators for industry
+7.3
+Customer Service
+Servicing and Repairs
+Except for routine maintenance of the optical 
+surfaces, the scan head does not contain user-service-
+able internal parts. All servicing and repairs should be 
+performed only at SCANLAB. Only SCANLAB has the 
+proper test facilities and procedures to service, repair 
+and calibrate the system optimally.
+Product Warranty
+SCANLAB guarantees this product to be free of 
+defects in manufacturing and material. The warranty 
+is valid for 12 months after delivery. Repairs covered 
+under the warranty will be performed at SCANLAB.
+The scope of the warranty is limited to repair or 
+replacement of the SCANLAB product.
+SCANLAB is responsible for the return delivery of 
+products repaired under warranty; the customer is 
+responsible for delivery to SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged through 
+misuse or improper operation
+• for damage due to improper laser power (e.g. 
+focused beam on optical surfaces) or improper 
+alignment
+• for damage to optical components (mirrors, 
+objective, etc.) caused by improper handling or 
+cleaning 
+• for consequential damages
+• if the scan head has been altered
+• if the warranty seal on the scan head’s housing 
+has been broken
+If a returned scan head must first be brought into a 
+serviceable state by SCANLAB (e.g. by removing align-
+ment pins or attachment hardware and cleaning the 
+unit) before servicing can begin, then the customer 
+must bear the additional cost.
+Contacting SCANLAB
+For service, repairs, advice or information, simply 
+contact SCANLAB using one of the contact possibili-
+ties listed below:
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+Product Disposal
+The excelliSCAN can be returned to SCANLAB for a 
+fee to be properly disposed of in compliance with 
+environmental regulations.
+
+[p.58]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+8 Troubleshooting
+58
+innovators for industry
+8
+Troubleshooting
+If problems occur while operating this device, verify 
+that all operating instructions have been adhered to 
+and then carry out the following troubleshooting 
+procedures:
+If the problems persist, please send the scan head to 
+customer service.
+Problem
+Possible Cause
+Remedy
+Low laser power
+Dirty objective
+Clean as described in "Routine 
+Maintenance of the Optical 
+Surfaces" on page 55
+Altered controller software 
+parameters
+Check input parameters
+Dirty or damaged mirror
+Check mirrors. If they are 
+contaminated, call SCANLAB for 
+guidance. Return damaged scan 
+head mirrors for repair.
+Changed laser spot
+Dirty or damaged objective
+Clean as described in "Routine 
+Maintenance of the Optical 
+Surfaces" on page 55
+Dirty or damaged mirror
+Check mirrors. If they are 
+contaminated, call SCANLAB for 
+guidance. Return damaged scan 
+head mirrors for repair.
+Laser out of adjustment
+Adjust laser
+No laser beam
+Problem with the laser
+Check laser and electrical 
+connections
+Problem with the laser controller
+If the RTC board is used, check all 
+electrical connections and the 
+power supply
+Laser beam path blocked or shutter 
+closed
+Check laser beam path
+Scan head does not steer laser 
+beam in one or both directions
+Problem with the scan head 
+controller
+Check power and data cables. 
+Check software commands. Switch 
+off scan head, and then restart.
+Scan head stopped responding
+Supply voltage of the DSP is too 
+low (see page 13)
+Check power and data cables, 
+ensure correct supply voltages, 
+switch off scan head, and then 
+restart
+
+[p.59]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+8 Troubleshooting
+59
+innovators for industry
+8.1
+Fault Diagnosis and 
+Functional Test
+If a problem occurs, the excelliSCAN’s versatile status 
+return functions can be used for scan head diagnosis, 
+too. These functions allow reading such data as:
+• the current operating state
+• the operating state at the moment the most 
+recent operation interruption occurred
+• an event code indicating which particular event 
+caused the scan head to enter a temporary or 
+permanent error state.
+Also see the section "Returned Signals" on page 9.
+In general, all status informations can be read even 
+after the scan head enters a temporary or permanent 
+error state due to an internal protective mechanism 
+(provided that the scan head is still sufficiently 
+powered).
+To verify that data transfer capability between the 
+RTC6 and the scan head is intact, an 8-bit value – 
+separately for each axis – can transmitted to the scan 
+head via the command control_command. Subse-
+quently, a 16-bit value will be returned on the corre-
+sponding status channel: If data transfer is error-free, 
+then the upper 8 bits of the returned 16-bit value will 
+be identical with the originally sent 8-bit value, and 
+the lower 8 bits will be identical with the complement 
+of the sent 8-bit value.
+These 16-bit values will be returned until the cont-
+rol_command is used to select another return data 
+type.
+The control_command also allows the prior data 
+type to be temporarily stored for later retrieval. This 
+simplifies restoring the status return behavior in 
+effect prior to the data transfer verification.
+
+[p.60]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+9 excelliSCAN 20 Technical Specifications
+60
+innovators for industry
+9
+excelliSCAN 20 Technical Specifications 
+(all angle specifications optical)
+  
+SCANLAB ID number
+of scan head
+144010
+Aperture
+maximum diameter of the laser 
+beam inside the scan head
+20 mm
+Control
+Input and Output Signals
+SL2-100
+Maximum range for control 
+values (1)
+–524288 to
++524287
+Calibration
+±0.408 rad with 
+±503316 bit
+Maximum allowed scan angle
+(vignetting insignificant) (2)
+- without objective
+±0.41 rad
+Power supply
+Supply voltage
+Current consumption
+48 V DC (±2 V)
+up to 5 A (RMS)
+Power supply
+Optical Performance
+Gain error
+<5 mrad
+Zero offset
+<5 mrad
+Skew
+<1.5 mrad
+Nonlinearity
+<0.5 mrad/44°
+Repeatability (RMS)
+< 0.4 µrad
+Dither (RMS)
+< 1.6 µrad
+(1)
+This maximum range for input values should be regarded as a 
+theoretical range. Due to the danger of vignetting by the 
+mirrors (also see page 6), the specified maximum scan angle 
+must never be exceeded.
+(2)
+Theoretical value (see page 6 and page 7)
+Temperature drift (with water cooling)
+• Offset
+10 µrad/K
+• Gain
+5 ppm/K
+8-h drift (after 30 min warm-up)
+(at constant ambient temperature and load,
+with water cooling)
+- Offset
+20 µrad/8h
+- Gain
+20 ppm/8h
+24-h drift (after 3 hours warm-up)
+(at constant ambient temperature and load,
+with water cooling)
+• Offset
+20 µrad/24h
+• Gain
+20 ppm/24h
+Tuning Specifications (Dynamic Performance)
+Tuning
+138997
+Tracking error
+0 ms
+Preview-Time
+1.2 ms
+Acceleration (3)
+160,000 rad/s2
+Maximum speed (3)
+100 rad/s
+Typical speeds 
+(example values with 160 mm objective)
+• Positioning, jump & shoot
+< 16 m/s
+• Line scan / raster scan
+< 16 m/s
+• Typical vector marking
+< 2.5 m/s
+Positioning times 
+(example values with 160 mm objective)
+• 1 mm jump width
+0.40 ms
+• 10 mm jump width
+1.25 ms
+• 100 mm jump width
+6.88 ms
+(3)
+Conversion rad/s or rad/s2 to m/s: 
+Value in rad/s(2) × focal length of the objectiv in m
+
+[p.61]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+9 excelliSCAN 20 Technical Specifications
+61
+innovators for industry
+ 
+Mirror
+Coating
+dielectrical high 
+performance coating
+Working wavelength
+355 nm
+Reflectivity
+– at 355 nm
+more than 99.5% per 
+mirror, over the full 
+range of angles
+– at 633 nm
+more than 50% per 
+mirror
+Maximum allowed average 
+laser power
+– with air cooling
+150 W
+300 W
+Maximum allowed laser power 
+density continuous wave
+– with air cooling
+150 W/cm2
+300 W/cm2
+Damage threshold for pulsed 
+operation (with specified 
+working wavelength, pulse 
+length 10 ns, 200 on 1, also see 
+page 49)
+0.5 J/cm2
+Weight
+without objective
+10 kg
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive
+Protection Class
+excelliSCAN
+IP 66(1)
+(1)
+Only achievable under certain conditions, see "Achieving the 
+Protection Class" on page 42.
+Water Cooling
+Cooled components
+Galvos, Electronic
+Cooling load (to-be-dissipated 
+heat)
+typically < 100 W (a)
+Temperature of the coolant
+20 to 25 °C (constant 
+at ± 1 °C)
+Required flow rate
+5 l/min
+(with a pressure 
+drop < 0.1 bar and a 
+maximum pressure 
+of 4 bar
+Volume of scan head coolant 
+channels
+max. 200 ml
+Pressure loss within scan head
+at 3 l/min
+at 5 l/min
+max. 1.2 bar
+max. 2.1 bar
+Maximum intake pressure
+4 bar
+Coolant-wetted materials
+(heat sinks, hose fittings, hoses, 
+O-rings)
+Stainless steel (A2)
+Nickel-plated brass
+Fluorine rubber 
+(FPM)
+Acrylonitrile 
+butadiene rubber 
+(NBR)
+Polyamide (PA)
+Polyurethane (PU-H)
+Connection holes
+G1/8 thread
+8 mm deep
+Recommended material for the 
+connections
+Stainless steel
+(a)
+application-dependent: high-performance applications (contin-
+uous operation, highly dynamic scanning motions, high laser 
+powers etc.) might increase the amount of heat requiring dissi-
+pation.
+
+[p.62]
+excelliSCAN 20, SL2-100, 355 nm
+Rev. 3.3
+9 excelliSCAN 20 Technical Specifications
+62
+innovators for industry
+Coolant
+Water type
+Fully demineralized 
+water with added 
+conditioning agents
+Appearance
+Clear, without 
+suspended solids 
+and sediment
+Color
+Colorless
+Odor
+Without
+pH value
+8.5 to 9.5
+Electrical conductivity
+< 20 mS/m
+Total hardness
+2.8 to < 5.6 °dH
+Oxygen content
+> 1 g/m3
+Iron content
+< 0.5 g/m3
+Copper content
+< 0.2 g/m3
+Zinc content
+< 0.2 g/m3
+Aluminum content
+< 0.2 g/m3
+Ammonium content
+< 0.5 g/m3
+Chloride content
+< 10 ppm
+Sulphate content
+< 20 ppm
+Colony forming units per ml
+< 1000
+TOC value of the untreated 
+water
+< 25 g/m3
+Conditioning agent
+Limestone inhibitor and 
+corrosion inhibitor
+Protection of the 
+cooling system 
+against deposits (e.g. 
+limescale) and 
+corrosion.
+The agents have a 
+high protective 
+effect at low 
+concentrations and 
+prevent the 
+acceleration of 
+corrosion of other 
+materials.
+Biocide to combat biological 
+contamination
+Protection of the 
+cooling system 
+against algae, 
+bacteria and fungi.
+Shock dosing with a 
+low dosing quantity 
+offers the following 
+advantages:
+Reduced habituation 
+effect
+Effectiveness over a 
+longer period of time
+Conditioning agents recommended by SCANLAB
+Corrosion inhibitor
+Manufacturer: 
+FUCHS LUBRICANTS 
+GERMANY GmbH
+Product: ANTICORIT 
+SKR 3001
+Manufacturer: Nalco 
+Water
+Product: Nalco 
+73199
+Biocide
+Manufacturer: 
+FUCHS LUBRICANTS 
+GERMANY GmbH
+Product: ACTICIDE 
+MBS
+Manufacturer: Nalco 
+Water
+Product: Nalco 7330
+Mirror Air Cooling Specifications
+Rate of flow
+20 l/min
+(p < 2.5 bar)

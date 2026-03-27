@@ -24,7 +24,10 @@ def convert_pdf_to_txt(pdf_path: Path, output_dir: Path) -> tuple[Path, int]:
     lines = []
     extracted = 0
     for i, page in enumerate(reader.pages):
-        text = page.extract_text() or ""
+        try:
+            text = page.extract_text() or ""
+        except Exception:
+            text = ""
         if text.strip():
             lines.append(f"--- Page {i + 1} ---")
             lines.append(text.strip())

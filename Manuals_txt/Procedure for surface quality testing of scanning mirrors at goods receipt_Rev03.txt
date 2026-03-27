@@ -1,0 +1,192 @@
+# Procedure for surface quality testing of scanning mirrors at goods receipt_Rev03
+
+[p.1]
+#144488 
+Procedure for surface quality testing of scanning 
+mirrors at goods receipt 
+CONFIDENTIAL 
+ 
+ 
+Page 1 of 5 
+© SCANLAB GmbH, 2020 
+1 
+Comments 
+This document describes the procedure for inspection and evaluation of an optical 
+surface. This procedure is based on subjective comparison of the visibility of surface 
+defects with a comparison standard. The document on hand follows the current MIL 
+and ISO-Norms where possible. 
+ 
+The specification of surface defect visibility is regulated by MIL-PRF-13830B 
+(„scratch-dig“) and DIN ISO 10110-7: 2018-05. The test methods are described in 
+MIL-PRF-13830B and DIN ISO 14997: 2018-05, respectively. 
+ 
+As stressed by the current ISO-Norm, the test procedure by visual comparison of the 
+defect with a master is subjective. It is to be expected that two inspectors will 
+sometimes come to different assessments. The functional specifications of a scan 
+system are valid independently from the assessment of surface defects. 
+2 
+Test setup and inspection tools 
+Similar to the above mentioned ISO and MIL norms, the following test setup for 
+assessment of defect visibility is recommended: 
+ 
+1. The test object should be inspected in front of a diffuse, non-reflecting black 
+background. A black box or a room with black walls is recommended. 
+2. Diffuse illumination from a spatially extended light source should be used. The 
+MIL norm recommends two 15 watt cool white fluorescent light tubes. 
+Alternatively a cold light source can be used (e.g. Schott KL 1600 LED). 
+3. The eye needs to have a distance of 45 cm to the inspected defect. The 
+inspecting person should not be blinded by the light source. 
+4. The Illuminance of the light source (at the test object) should depend on the 
+environment lighting. Reasonable parameters are listed in the following table. 
+The operation parameters for the cold light source “Schott KL 1600 LED” are 
+listed as well. Please notice the illumination control setting.  
+ 
+Index: 
+ 
+Name 
+Date 
+Checked by 
+Date 
+0 
+Created 
+GVO 
+2020-03-20 
+MV 
+2020-03-20 
+1 
+Section 3 updated 
+GVO 
+2020-04-17 
+MV 
+2020-04-17 
+2 
+Section 3,0 updated 
+GVO 
+2020-07-01 
+MV 
+2020-07-07 
+3 
+Section 5 updated 
+MGO 
+2021-07-13 
+MV 
+2021-07-19
+
+[p.2]
+CONFIDENTIAL 
+Page 2 of 5 
+© SCANLAB GmbH, 2020  
+ 
+5. The rating of the surface defect is achieved by comparison with a reference 
+standard. SCANLAB uses the reference standard „SDPK“ from Thorlabs. The 
+specifications using this reference standard are given in chapter 3. 
+Unfortunately, the “SDPK” reference standard has been discontinued and is 
+no longer available. A potential alternative is reference D-668 provided by 
+Davidson Optronics. SCANLAB has evaluated the comparability of the two 
+reference standards within a survey. The results are: 
+a. Comparability of scratch reference standards 
+The D-668 reference samples S20 and S40 are of similar visual 
+brightness and their brightness is evaluated to be below the S40 
+reference sample of the „SDPK“ standard. These findings are in 
+compliance with published results of brightness measurements using a 
+Savvy Optics scatterometer 1. 
+In order to test for a consistent level of “Scratch 40” quality using either 
+reference standard, SCANLAB specifies to use the Davidson Optronics 
+D-668 as follows: The D-668 reference sample S60 serves as a reject 
+reference sample for scratches. This means that scratches having the 
+same or higher visual brightness than the D-668 S60 reference scratch 
+are rejected, whereas all scratches showing less visual brightness than 
+the D-668 S60 reference sample lie within the permissible range. For 
+example, a scratch with brightness higher than the D-668 S40 
+reference but lower than the D-668 S60 reference is within the 
+permissible range.  
+b. Comparability of dig reference standards 
+Both reference standards are determined to be fully compatible for dig 
+evaluation. No change is necessary when using the Davidson 
+Optronics D-668 as a dig reference standard. 
+ 
+                                            
+1 Aikens, D. M., “Understanding Scratch and Dig Specifications,” Course Notes for SPIE SC700, Rev 
+10.9, 15-24, (2016). 
+Description 
+Illuminance without 
+test light source[lx] 
+Allowed illuminance 
+at test object [lx] 
+Distance to test 
+object for Schott KL 
+1600 LED, 
+illumination control 
+setting on 2 [cm] 
+Very dark 
+surrounding 
+Very small 
+< 2800 
+> 6 
+Surrounding with 
+standard room 
+illumination 
+300-500  
+< 6000 
+> 4
+
+[p.3]
+CONFIDENTIAL 
+Page 3 of 5 
+© SCANLAB GmbH, 2020  
+3 
+Specification 
+The following table summarizes the specifications for the test area of the scanning 
+mirrors referring to the Thorlabs SDPK standard: 
+ 
+Scratch max. class 
+40 
+Dig max. class 
+20 
+ 
+Surface quality compliance criteria for the specified test area: 
+ Surfaces should not have scratches or digs beyond the max. class 
+ The combined length of max. class scratches should not exceed 1/4 of 0,9*w. 
+w is the mirror width as defined in the drawing 
+ The number Nd of max. class digs should not exceed Nd = Round_Up[0.9*w / 
+(5 mm)]
+
+[p.4]
+CONFIDENTIAL 
+Page 4 of 5 
+© SCANLAB GmbH, 2020  
+General definition of the test area: 
+ 
+ 
+Figure 1: General definition of test areas on scan mirrors; (A): 1st scan axis; (B): 2nd scan axis 
+(schematic drawings, actual shape of mirrors might differ) 
+ 
+ 
+Axis 1: 
+Axis 2: 
+Elliptical test area with: 
+Major axis = 90 % of mirror width w 
+Distance a = 5 % of mirror width w 
+Minor axis = Aperture diameter 
+Stadium-like test area with: 
+Circle diameter = 90 % of mirror width w 
+Distance a = 5 % of mirror width w 
+ 
+(A) 
+(B)
+
+[p.5]
+CONFIDENTIAL 
+Page 5 of 5 
+© SCANLAB GmbH, 2020  
+4 
+Possibility of future changes 
+At SCANLAB, the procedure of surface defect specification and testing is in the 
+status of revision. The ISO standard describes two types of defect specifications: by 
+visibility and by geometric size. As described above, the current surface quality 
+specification is based on the visibility type. This allows for quick inspections and 
+flexible testing setups. However, it is subjective in nature. For cases where this 
+subjective evaluation does not lead to a mutual consent, SCANLAB plans to 
+establish an additional specification of the geometric size type, since this can be 
+evaluated in an objective manner if suitable measurement equipment is used. The 
+specification values are not yet defined.

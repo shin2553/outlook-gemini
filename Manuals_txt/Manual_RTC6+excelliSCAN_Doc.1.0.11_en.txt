@@ -1,0 +1,2572 @@
+# Manual_RTC6+excelliSCAN_Doc.1.0.11_en
+
+[p.1]
+excelliSCAN Scan Heads – 
+Functional Principle of SCANahead Servo 
+Control and Operation by RTC6 Boards
+RTC6 Software Package V1.11
+December 14, 2021
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US
+innovators for industry
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2021
+(Doc. Rev. 1.0.11 en-US - December 14, 2021) 
+SCANLAB GmbH reserves the right to change the information in this document without notice.
+No part of this document may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB GmbH.
+RTC is a registered trademark of SCANLAB GmbH.
+Other mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+Contents 
+3
+Contents
+1
+About this Manual ............................................................................................................................. 5
+1.1
+Related Documents .........................................................................................................................  5
+1.2
+Manufacturer ..................................................................................................................................  5
+1.3
+Glossary and Abbreviations .............................................................................................................  6
+2
+Introduction ....................................................................................................................................... 8
+3
+excelliSCAN Scan Heads with SCANahead Servo Control .................................................................. 9
+3.1
+Comparing excelliSCAN Scan Heads to Scan Heads with Conventional Servo Control 
+(for example, intelliSCAN) .............................................................................................................  10
+3.1.1
+What Remains Unchanged with excelliSCAN Scan Heads? .................................................  10
+3.1.2
+Comparison of Scan Heads with Conventional Control and SCANahead Control ...............  11
+3.1.3
+Returned Data Signal Differences: 
+Status Signal Behavior after Limit Value Exceedance ..........................................................  14
+3.1.4
+Differences with Transmitted Signals: 
+New Status Value HEAD_BUSY ...........................................................................................  15
+3.1.5
+Differences with Transmitted Data Signals: 
+Change of Meaning for 0502H Signal ................................................................................  15
+3.1.6
+New Transmitted Data Signal: 
+New Type for SetControlDefinitionMode ........................................................................  15
+3.1.7
+excelliSCAN Timing Diagram (Scan Head with SCANahead Control) ..................................  16
+3.2
+excelliSCAN-specific Changes and Novelties with control_command ............................................  18
+3.3
+Notes on Wobbling with excelliSCAN Scan Heads .........................................................................  22
+3.3.1
+Converting Queried Values .................................................................................................  22
+3.3.2
+Estimating Maximum Wobbel Frequencies ........................................................................  23
+3.4
+Advanced Settings for “Spot Distance Control” ............................................................................  25
+3.4.1
+Setting the Temporal Offset ...............................................................................................  25
+3.4.2
+Reading Back the Temporal Offset .....................................................................................  26
+3.4.3
+Identifying Suitable Temporal Offset Values ......................................................................  26
+4
+RTC6 SCANahead Functions ............................................................................................................. 27
+4.1
+General .........................................................................................................................................  27
+4.2
+Quick Migration Guide ..................................................................................................................  30
+4.2.1
+Example Source Code .........................................................................................................  31
+4.2.2
+Modifying Existing User Programs for excelliSCAN Scan Heads 
+– Basic Steps ......................................................................................................................  33
+4.2.3
+Modifying Existing User Programs for excelliSCAN Scan Heads 
+– Observing Restrictions .....................................................................................................  34
+Non-Usable Functionalities of the RTC6 Board and RTC6 DLL .......................................  34
+Non-Usable iDRIVE Functionalities ................................................................................  34
+4.3
+Modifying Existing User Programs – Further Steps, Background Info 
+on SCANahead and excelliSCAN Functionalities ............................................................................  35
+Notes on Using Commands for Scanner Delays and Laser Delays ................................... 35
+Notes on [*]arc[*] Commands ........................................................................................ 36
+Notes on Polygon Delays ................................................................................................ 36
+Notes on Sky Writing...................................................................................................... 36
+Notes on Coordinate Transformations............................................................................ 37
+Notes on Controlling Peripherals .................................................................................... 37
+Notes on Unique Characteristics of Transmitted Data Signals......................................... 37
+
+[p.4]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+Contents 
+4
+4.4
+RTC6 Commands - Exclusively for SCANahead Systems .................................................................  38
+activate_scanahead_autodelays ....................................................................................  39
+activate_scanahead_autodelays_list .............................................................................  39
+get_scanahead_params ................................................................................................  40
+set_scanahead_laser_shifts ...........................................................................................  42
+set_scanahead_laser_shifts_list .....................................................................................  42
+set_scanahead_line_params .........................................................................................  43
+set_scanahead_line_params_list ...................................................................................  44
+set_scanahead_params .................................................................................................  45
+set_scanahead_speed_control ......................................................................................  47
+5
+Change Index ................................................................................................................................... 48
+
+[p.5]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+1 About this Manual 
+5
+1
+About this Manual
+This manual describes user-relevant differences 
+between excelliSCAN scan heads with SCANahead 
+servo control and scan heads with conventional 
+control. And it describes all special RTC6 commands 
+reserved exclusively for operating SCANahead-based 
+excelliSCAN scan heads.
+In this way, this manual complements the 
+RTC6-Manual. To program complete RTC6 
+applications for SCANahead-based excelliSCAN 
+scan heads, you have to observe both manuals. 
+Also observe the notes in your scan system manual. 
+1.1
+Related Documents
+•
+RTC6-Manual 
+1.2
+Manufacturer
+SCANLAB GmbH 
+Siemensstr. 2a 
+82178 Puchheim 
+Germany 
+Tel. +49 (89) 800 746-0 
+Fax: +49 (89) 800 746-199 
+info@scanlab.de 
+www.scanlab.de
+
+[p.6]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+1 About this Manual 
+6
+1.3
+Glossary and Abbreviations
+DSP 
+Digital signal processor on the RTC6 board. 
+Dynamic focusing unit 
+This includes, for example, the following SCANLAB products: 
+varioSCAN, varioSCANde, varioSCAN FC and varioSCAN FLEX, 
+excelliSHIFT. 
+iDRIVE scan systems 
+In this manual, the term subsumes, for example, the following 
+SCANLAB products: intelliSCAN, intelliSCANde, intelliSCANse, 
+intelliDRILL, intellicube, intelliWELD, varioSCANde, 
+powerSCAN II 50i, excelliSCAN. 
+Image field 
+Synonym: Working field. 
+intelliSCAN 
+In this manual, the term subsumes, for example, the following 
+SCANLAB products: intelliSCAN, intelliSCANde, intelliSCANse, 
+intelliDRILL, intellicube, intelliWELD, powerSCAN II 50i. 
+PosAck 
+“Position Acknowledge”, see PosAck signal. 
+PosAck signal 
+• As of scan system firmware 2001. 
+• PosAck signal-capable SCANLAB scan systems, 
+for example, intelliSCAN 
+• Refers to the meaning of: 
+– Bit #12, Bit #4, Bit #11, Bit #3 of the XY2-100 status word 
+transferred with 16-bit protocol 
+– Bit #16, Bit #8, Bit #15, Bit #7 of the XY2-100 status word 
+transferred with 20-bit protocol 
+• These bits are set, if the Position errors of x axis and y axis are in 
+the allowed range: 
+– Siehe auch Chapter 3.1.3 ”Returned Data Signal Differences: 
+Status Signal Behavior after Limit Value Exceedance”, page 14. 
+– For more information, refer to the corresponding scan head 
+manuals. 
+• Compare to TrAck signal. 
+SCANahead system 
+SCANLAB scan system with SCANahead servo control, for example, 
+scan heads of the excelliSCAN series. 
+For further information see this manual.
+
+[p.7]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+1 About this Manual 
+7
+TrAck 
+“Trajectory Acknowledge”, see TrAck signal. 
+TrAck signal 
+• As of scan system firmware 5102 + 5112. 
+• TrAck signal-capable SCANLAB scan systems, 
+for example, SCANahead systems 
+• Refers to the meaning of: 
+– Bit #12, Bit #4, Bit #11, Bit #3 of the XY2-100 status word 
+transferred with 16-bit protocol 
+– Bit #16, Bit #8, Bit #15, Bit #7 of the XY2-100 status word 
+transferred with 20-bit protocol 
+• These bits are set, if the Trajectory errors of x axis and y axis are 
+in the allowed range: 
+– See also Chapter 3.1.3 ”Returned Data Signal Differences: 
+Status Signal Behavior after Limit Value Exceedance”, page 14. 
+– For more information, refer to the corresponding scan head 
+manuals. 
+• Compare to PosAck signal. 
+Trajectory 
+In this manual: curve with 10 µs parameterization. 
+Trajectory error 
+(= “Position error” equivalent with 
+excelliSCANs) 
+In general: Deviation of the actual Trajectory from the set Trajectory 
+(not: RTC control values). 
+In particular, with excelliSCANs the following applies, see Figure 4 in 
+Chapter 3.1.7 ”excelliSCAN Timing Diagram (Scan Head with 
+SCANahead Control)”, page 16: 
+• 0503H @ clock cyclen = 
+0502H @ clock cyclen–20 – 0501H @ clock cyclen 
+Tracking error 
+Time difference between the planned and actual reaching of a 
+certain mirror position at constant speed. 
+Working field 
+Synonym: Image field.
+
+[p.8]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+2 Introduction 
+8
+2
+Introduction
+SCANLAB excelliSCAN scan heads are equipped with 
+SCANahead servo control. Thus they exhibit different 
+dynamics than scan heads with conventional control. 
+In particular, you need to consider timing differences 
+when synchronously operating your scan head, laser 
+and peripheral equipment. 
+For this purpose, the RTC6 command set contains 
+dedicated SCANahead commands. 
+With these, existing RTC6 user programs (functional 
+with conventional scan heads) can be adapted very 
+easily for excelliSCAN scan heads with SCANahead 
+control. To do this, you essentially only need to add 
+two lines of code to the existing code: 
+set_scanahead_params( 1, 1, 1, 0, 0, 0 ); 
+activate_scanahead_autodelays( 1 ); 
+However, the RTC6 board must be equipped with the 
+“SCANa” option to execute this program code. 
+For details about these and other commands see: 
+• Chapter 3 ”excelliSCAN Scan Heads with 
+SCANahead Servo Control”, page 9 
+• Chapter 4 ”RTC6 SCANahead Functions”, page 27
+
+[p.9]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+9
+3
+excelliSCAN Scan Heads with SCANahead Servo Control
+excelliSCAN scan heads are equipped with 
+SCANahead servo control. This innovative control 
+concept(1):
+• Produces no Tracking error and 
+• Exploits the maximum acceleration capability of 
+the galvanometer scanners.
+The SCANahead servo control consists of 2 parts(2), 
+see Figure 1: 
+• Preprocessing(3) 
+• Control(4) 
+The RTC6 board puts out RTC control values. The 
+“Preprocessing” analyzes the occurring accelerations 
+therein. Accelerations which the scan system cannot 
+execute are replaced by accelerations, which can 
+actually be executed (“the accelerations are limited”). 
+The result is a precalculated set trajectory of 
+acceleration-limited control values. The required time 
+for this is depicted as ReferencePreprocessing in 
+Figure 1 and Figure 4. 
+The galvanometer scanner control successfully 
+traverses the precalculated set trajectory (actual 
+trajectory in Figure 1) – but only with a temporal 
+offset (the control preview time ControlPreview, see 
+Figure 1 and Figure 4). This enables full usage of scan 
+system dynamic capabilities. 
+The entire temporal offset between RTC control 
+values and galvanometer scanner motions (that is, 
+ReferencePreprocessing plus control precalculation 
+time ControlPreview) is called PreviewTime. 
+The term PreviewTime highlights the excelliSCAN 
+scan head’s need to know the RTC control values in 
+advance by this amount of time to ensure punctual 
+execution. 
+For synchronous laser control, the laser control 
+signals likewise need to take PreviewTime into 
+account. This also applies for any other control 
+signals intended to be transmitted synchronously 
+with scan system motion. 
+If the RTC6 board is used, synchronous execution of 
+scan system movement, laser control and other 
+peripherals is ensured.
+The precalculated set trajectories with limited, 
+constant set accelerations cause acceleration time to 
+vary in accordance with speed changes. This means 
+Scanner Delays and Laser Delays needed for taking 
+acceleration time into account are also dependent on 
+speed. 
+The RTC6 board can automatically calculate the 
+required delays. Therefore, SCANLAB recommends 
+the RTC6 board for operating excelliSCAN scan heads 
+with SCANahead servo control, see Chapter 4.1 
+”General”, page 27. 
+(1) Thus, excelliSCAN scan heads cannot be operated like 
+conventional scan heads. 
+(2) Each is a special firmware which runs on the servo 
+board for the galvanometer scanners. 
+(3) A preprocessing for “Control” occurs, that is, the RTC 
+control values are postprocessed. 
+(4) Controls the positions for the both 
+galvanometer scanners. 
+1
+Structure of SCANahead servo control (timing depictions 
+are not true-to-scale). 
+PreviewTime
+ControlPreview 
+ReferencePreprocessing
+(...RTC6)
+Acceleration 
+limiter
+Preprocessing
+Control
+Actual 
+trajectory
+Precalculated 
+set trajectory
+RTC control values
+
+[p.10]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+10
+3.1
+Comparing excelliSCAN 
+Scan Heads to Scan Heads 
+with Conventional Servo 
+Control 
+(for example, intelliSCAN)
+3.1.1
+What Remains Unchanged 
+with excelliSCAN Scan Heads?
+What is described in the RTC6-Manual, Chapter 7.2 
+”Delay Settings – Coordinating Scan Head Control 
+and Laser Control”, page 144 also applies when 
+controlling an excelliSCAN scan head by an 
+RTC6 board: 
+• The galvanometer scanner motions are 
+temporally offset from the RTC control values by 
+the PreviewTime (not: Tracking error!). For details, 
+see the table in Chapter 3.1.2 ”Comparison of 
+Scan Heads with Conventional Control and 
+SCANahead Control”, page 11.
+• The temporal stream of actual values (=actual 
+trajectory) is smoothed (due to the limited 
+acceleration potential of galvanometer scanners) 
+in comparison to the stream of RTC control 
+values(1). 
+• To compensate the temporal offset between 
+RTC control values and actual trajectories when 
+synchronizing galvanometer scanner motions 
+and laser signals, the RTC6 allows setting of 
+scanner and Laser Delays. 
+The meaning of delays for the excelliSCAN is the 
+same as for scan systems without SCANahead 
+control. The same applies to the commands 
+set_scanner_delays and set_laser_delays to set 
+the delays.
+• The preferable alternative is to let the RTC6 board 
+automatically calculate and set Scanner Delays 
+and Laser Delays, see Chapter 4.1 ”General”, 
+page 27.
+(1) That is, any curves within the control value trajectory 
+get reduced.
+
+[p.11]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+11
+3.1.2
+Comparison of Scan Heads 
+with Conventional Control and 
+SCANahead Control
+SCANahead control makes excelliSCAN scan heads 
+behave differently in some respects than scan heads 
+with conventional control. These differences are 
+contrasted in Figure 2 and the following table. 
+2
+Comparison: Conventional control and SCANahead control. 
+1
+1
+1
+1
+ϕ
+ϕ
+ϕ
+ϕ
+t
+tp
+ta
+ta
+t
+tp
+t
+ts
+ta
+t
+ts
+ts = Tracking error
+ta = Acceleration time
+tp = Preview time
+1      = RTC control values
+blue = Set trajectory
+red   = Actual trajectory
+fast
+slow
+SCANahead control
+fast
+slow
+Conventional control
+
+[p.12]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+12
+Scan Head with conventional control
+Scan Head with SCANahead control, 
+for example, excelliSCAN
+• Scan heads with conventional control exhibit a 
+characteristic temporal offset called 
+Tracking error ts, see Figure 2. The Tracking error 
+ts results from the implemented servo control 
+structure. The Tracking error duration ts is a 
+metric for the dynamics of a scan head. 
+The Tracking error ts is (at ”normal” speeds) 
+practically independent of scan speed. It is also 
+affected by the selected tuning.
+• For scan heads with SCANahead control, the 
+temporal offset is not Tracking error ts. Instead it 
+is the fixed, predefined precalculation time 
+PreviewTime tp, see Figure 2.
+The precalculation time PreviewTime tp is 
+qualitatively different from Tracking error ts. And 
+it is not a metric for scan head dynamics. 
+Instead, a physically traversable trajectory gets 
+precalculated within the PreviewTime tp. 
+• Tracking error ts can introduce undesirable 
+artifacts during marking, for example, “necking” 
+in circles and arcs. You can partially compensate 
+such artifacts by specifying over-dimensioned set 
+radii.
+• Vectors can be traversed even at very high 
+speeds. Necking artifacts during circle/arc 
+marking only start to occur at accelerations 
+exceeding Amax(a). Therefore, these necking 
+artifacts can not be compensated by specifying 
+larger set radii!
+• For Tracking error ts, a tolerance (maximum 
+value) is specified (tested by SCANLAB). But the 
+exact value can be serial-number-dependent 
+(minor variation within the tolerances are 
+possible). The exact value cannot be queried, and 
+must instead be experimentally determined.
+• The PreviewTime tp is a serial-number-
+independent value. It is permanently stored in the 
+firmware and can be queried from the scan head.
+• The trajectory of RTC control values gets 
+smoothed by servo control. The result of 
+smoothing is not precisely known in advance. 
+And it is dependent on the selected tuning. In 
+negative acceleration phases, significant 
+undesirable overshoot may occur.
+• From the trajectory of RTC control values, a 
+traversable acceleration-limited set value 
+trajectory gets calculated and transmitted to the 
+servo control, see Figure 1. Deviation of the final 
+actual value trajectory from the RTC control value 
+trajectory is therefore known in advance (because 
+it was precalculated).
+
+[p.13]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+13
+• The duration of acceleration phases is practically 
+speed-independent. 
+Thus the same amount of time is always required 
+to reach the desired target speed. 
+This means that, particularly at low speeds, the 
+acceleration potential is not fully exploited and 
+the process times of applications are therefore 
+not optimal.
+•  SCANahead control ensures constant 
+acceleration (at the maximum capabilities of the 
+scan head) in acceleration phases. 
+The duration of acceleration phases is thus 
+minimized, although speed-dependent. 
+Resultingly, Scanner Delays and Laser Delays 
+need adjusting in accordance with mark speed.
+• You can set Scanner Delays and Laser Delays: 
+These do not need adjusting for changes in 
+speed. There are rules of thumb for sizing the 
+delays, but truly optimal delays always require 
+empirical determination for each case of 
+application. Furthermore, delay values need 
+determining for each tuning. 
+• You can set Scanner Delays and Laser Delays: 
+They must be set differently in accordance with 
+speed. 
+Thanks to constant acceleration and 
+precalculated set positions, the relationship 
+between speed and optimum delays is likewise 
+mathematically known in advance. 
+The RTC6 board can automatically determine the 
+optimal speed-dependent Scanner Delays and 
+Laser Delays. It then also sets them dynamically in 
+real time during list execution. For this, the user 
+activates RTC6 autodelay functionality by 
+set_scanahead_params and 
+activate_scanahead_autodelays( 1 ) as 
+described in Chapter 4.1 ”General”, page 27 with 
+Figure 7 and Figure 8.
+If the user does not want to use RTC6 autodelay 
+functionality (set_scanahead_params and 
+activate_scanahead_autodelays( 0 )), then: 
+– Speed-dependent delays “must” be 
+determined and
+– appropriately set before each change of speed 
+(a) Therefore, at very high speeds or for very small radii. See also empirical formula in Notes on 
+[*]arc[*] Commands, page 36.
+Scan Head with conventional control
+ (Continued)
+Scan Head with SCANahead control, 
+for example, excelliSCAN (Continued)
+
+[p.14]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+14
+3.1.3
+Returned Data Signal Differences: 
+Status Signal Behavior after Limit Value Exceedance
+SCANahead systems transmit the TrAck signal 
+(but no PosAck signal). 
+After exceeding the limit value, the TrAck signal bit 
+– unlike the PosAck signal bits in PosAck-capable 
+scan systems - is not automatically reset to 1 as soon 
+as the Trajectory error is smaller than the limit value, 
+see Figure 3. 
+That is, TrAck signal bits remain at 0. 
+This lets you determine after the event whether a 
+limit exceedance has been occurred. 
+To reset the TrAck signal bits to 1, you must call 
+ResetTrAck: 
+control_command( Data = 403AH ) 
+Notes  
+• The limit value for TrAck signal or PosAck signal 
+(depending on what the scan system supports) is 
+set by SetPosAcknowledgeLevel: 
+control_command( Data = 15nnH ) 
+(nn is the desired limit value [00…FF]) 
+• The TrAck signal limit value cannot be saved for 
+subsequent new starts or resets because 
+excelliSCAN scan heads do not support 
+UpdatePermanentMemory. 
+• For more information on TrAck, refer to the 
+excelliSCAN manual. 
+3
+The TrAck signal must be explicitly reset to 1. 
+t
+0
+1
+0
+1
+Trajectory error signal
+TrAck signal progression
+Limit value
+after 403AH ResetTrAck
+no 403AH ResetTrAck
+Position error signal
+PosAck signal progression
+Limit value
+TrAck-capable scan system 
+PosAck-capable scan system
+
+[p.15]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+15
+3.1.4
+Differences with Transmitted 
+Signals: 
+New Status Value HEAD_BUSY
+New for RTC6 boards together with iDRIVE systems is 
+the returnable status value HEAD_BUSY (bit #23). 
+This status value only gets returned by excelliSCAN 
+scan heads. It can be queried by the get_status 
+control command, see also the RTC6-Manual 
+Chapter 6.4.3 ”List Execution Status”, page 107.
+A prerequisite for this is that 
+set_scanahead_params with valid parameters has 
+been called. That is, the RTC6 board is configured to 
+operate excelliSCAN scan heads. 
+The HEAD_BUSY status value is returned when:
+• A list is being processed 
+• A list has been finished, but scan head output is 
+still in progress 
+(temporal offset = PreviewTime)
+• The marking’s final still-in-progress LaserOffDelay 
+has not yet expired, that is, so long as the laser is 
+still on 
+This allows waiting until the actual end of marking 
+before an equipment controller closes a shutter or 
+power is cut to the scan head, etc. 
+In contrast, if the laser was manually switched on 
+(laser_signal_on) after the list ended but before 
+expiration of PreviewTime, then its LASEROFF is not be 
+waited for. 
+3.1.5
+Differences with Transmitted 
+Data Signals: 
+Change of Meaning for 0502H 
+Signal
+The value 0502H transmitted by excelliSCAN 
+scan heads has a different meaning than for non-
+excelliSCAN scan heads, see Chapter 3.2 
+”excelliSCAN-specific Changes and Novelties with 
+control_command” and Chapter 3.1.7 ”excelliSCAN 
+Timing Diagram (Scan Head with SCANahead 
+Control)”, page 16. 
+3.1.6
+New Transmitted Data Signal: 
+New Type for 
+SetControlDefinitionMode 
+In response to SetControlDefinitionMode, 
+excelliSCAN scan heads transmit the value 4 
+(SCANahead trajectory control), see page 20 in 
+Chapter 3.2 ”excelliSCAN-specific Changes and 
+Novelties with control_command”.
+
+[p.16]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+16
+3.1.7
+excelliSCAN Timing Diagram 
+(Scan Head with SCANahead 
+Control)
+After control_command( Data = 0502H ), excelliSCANs 
+transmit signal 0502H, see Figure 4. 
+With excelliSCANs, signal 0502H is: 
+• The acceleration-limited precalculated set 
+trajectory (angular position of 
+galvanometer scanners) 
+• Delayed with respect to RTC control values by 
+ReferencePreprocessing 
+(100×10 µs clock cycles = ,1.0 ms(1)). 
+The positions of the precalculated target trajectory 
+(signal 0502H) are not reached instantaneously. 
+Instead, the actual trajectory (Signal 0501H) is 
+delayed: 
+• In regards to the precalculated target trajectory 
+by control preview time ControlPreview 
+(20×10 µs clock cycles = 0.2 ms(1))
+• In regards to RTC control values 
+by PreviewTime 
+(120 × 10 µs clock cycles = 1.2 ms). 
+4
+Timing diagram and absolute time values for excelliSCAN scan head. 
+LASERON
+excelliSCAN
+*
+*
+20×10 µs
+100×10 µs
+ReferencePreprocessing
+ControlPreview
+0503H
+=
+0502H
+–
+0501H
+PreviewTime
+RTC6
+0503H @ clock cyclen
+=
+0502H @ clock cyclen-20 
+–
+0501H @ clock cyclen
+*     Information transmission < 5×10 µs
+Acceleration limiter
+Control preview time
+Trajectory error
+Preprocessing time
+Preview time tp
+Set trajectory
+(solid) 
+0502H @ clock cyclen-20
+Actual trajectory
+(dashed)
+0501H
+Precalculated
+set trajectory
+0502H
+RTC control values
+(1) Value applies to excelliSCAN.
+
+[p.17]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+17
+After control_command( Data = 0503H ), excelliSCANs 
+transmit signal 0503H, see Figure 4. 
+Signal 0503H is the Trajectory error which is 
+calculated as follows: 
+• 0503H @ clock cyclen = 
+0502H @ clock cyclen–20 – 0501H @ clock cyclen 
+Important: Observe this context, if you want to 
+calculate the Trajectory error yourself from log 
+files. 
+Even during acceleration phases, the Trajectory error 
+is very small(1). Therefore, you can choose a very small 
+TrAck limit value (in comparison to conventional 
+scan heads) without the limit value being exceeded 
+and the TrAck signal bits getting set. 
+(1) As shown in Figure 4, this is why logging software 
+displays signal 0503H as an x axis parallel (that is, 
+almost horizontal line at 0), if Trajectory error is 
+small.
+
+[p.18]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+18
+3.2
+excelliSCAN-specific Changes 
+and Novelties with 
+control_command
+Ctrl Command
+control_command 
+Function
+Sends a control command. Whether and how the addressed scan system reacts depends on its properties 
+(among other things, the scan system firmware). 
+Here: relevant part for excelliSCAN scan heads only. 
+Call
+control_command( Head, Axis, Data )
+Parameters 
+Head 
+See RTC6-Manual.
+Axis 
+See RTC6-Manual.
+Data 
+See RTC6-Manual.
+CodeHIGH 
+(hex) 
+CodeLOW 
+(hex) 
+05 
+SetMode 
+See RTC6-Manual. As described there:
+– Each CodeLOW parameter value corresponds to a specific data type. 
+– The standard setting is CodeLOW = 00 (XY2-100 status word).
+excelliSCAN-scan heads have an SL2-100 interface. 
+Therefore, they return a signed 20-bit value. 
+CodeHIGH 
+(hex) 
+CodeLOW 
+(hex) 
+Data type to be returned by the scan system 
+05 
+01 
+As of scan system firmware 2001. 
+With NON-excelliSCAN scan heads: 
+Actual position (angular position of galvanometer scanners). 
+Unit with 20-bit protocol: In bits. 
+Value range with 20-bit protocol: [–524.288…+524.287]. 
+With excelliSCAN scan heads: Like NON-excelliSCAN scan heads. 
+See Chapter 3.1.7 ”excelliSCAN Timing Diagram (Scan Head with 
+SCANahead Control)”, page 16 and Figure 4. 
+05 
+02 
+As of scan system firmware 2001. 
+With NON-excelliSCAN scan heads: 
+Set position (angular position of galvanometer scanners). 
+Unit with 20-bit protocol: In bits. 
+Value range with 20-bit protocol: [–524.288…+524.287]. 
+As of scan system firmware 5050. 
+With excelliSCAN scan heads: 
+Precalculated set position (angular position of galvanometer scanners). 
+Bits [–524.288…+524.287]. 
+See Chapter 3.1.7 ”excelliSCAN Timing Diagram (Scan Head with 
+SCANahead Control)”, page 16 and Figure 4. 
+Notice! Generic information. May be incomplete or even incorrect for your scan system. 
+Always consult the dedicated scan system manual!
+
+[p.19]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+19
+Parameters 
+(cont’d) 
+Data 
+(cont’d) 
+CodeHIGH 
+(hex) 
+CodeLOW 
+(hex) 
+Data type to be returned by the scan system 
+05 
+03 
+As of scan system firmware 2001. 
+With NON-excelliSCAN: 
+• Position error 
+(= set position0502H – actual position 0501H) 
+Unit with 20-bit protocol: In bits. 
+Value range with 20-bit protocol: [–524.288…+524.287]. 
+As of scan system firmware 5050. 
+With excelliSCAN scan heads: 
+Trajectory error. See Glosara entry. 
+05 
+15 
+As of scan system firmware 5050. 
+Axis 1 (X-axis): Temperature of the servo board (ISB). 
+Axis 2 (Y-axis): 
+Temperature of the servo add-on board 
+for evaluating the encoder signals. 
+05 
+64 
+As of scan system firmware 5100. 
+See Chapter 3.4 ”Advanced Settings for “Spot Distance Control””, 
+page 25: 
+TimeShift relative to the SCANLAB default offset. 
+05 
+65 
+As of scan system firmware 5100. 
+See Chapter 3.4 ”Advanced Settings for “Spot Distance Control””, 
+page 25: 
+total TimeShift. 
+Ctrl Command
+control_command 
+Notice! Generic information. May be incomplete or even incorrect for your scan system. 
+Always consult the dedicated scan system manual!
+
+[p.20]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+20
+Parameters 
+(cont’d) 
+Data 
+(cont’d) 
+CodeHIGH 
+(hex) 
+CodeLOW 
+(hex) 
+Data type to be returned by the scan system 
+0A 
+As of scan system firmware 5050. 
+UpdatePermanentMemory 
+Only SCANahead systems: 
+SCANahead systems do not support UpdatePermanentMemory. 
+0E 
+As of scan system firmware 5050. 
+SetControlDefinitionMode 
+As described in the RTC6-Manual. SCANahead systems, the value 4 is added as tuning 
+type (“SCANahead servo control”). 
+11 
+As of scan system firmware 5050. 
+SelectControlDefinition 
+Only excelliSCAN: 
+excelliSCAN scan heads do not support SelectControlDefinition. With excelliSCAN 
+scan heads, there is only one tuning. 
+12 
+As of scan system firmware 5050. 
+SetPositionScale 
+Only SCANahead systems: 
+SCANahead systems do not support SetPositionScale. With SCANahead systems, the 
+effective calibration cannot be changed. 
+Ctrl Command
+control_command 
+Notice! Generic information. May be incomplete or even incorrect for your scan system. 
+Always consult the dedicated scan system manual!
+
+[p.21]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+21
+Parameters 
+(cont’d) 
+Data 
+(cont’d) 
+CodeHIGH 
+(hex) 
+CodeLOW 
+(hex) 
+Data type to be returned by the scan system 
+40 
+As of scan system firmware 5102 + 5112. 
+Only excelliSCAN: 
+ResetTrAck 
+ResetTrAck causes the scan system to reset the TrAck signal bits. 
+See also Chapter 3.1.3 ”Returned Data Signal Differences: Status Signal Behavior after 
+Limit Value Exceedance”, page 14. For more information, for example, about 
+configuring the TrAck limit value, see the corresponding scan system manual. 
+Note: The TrAck limit value cannot be saved for subsequent new starts or resets. 
+excelliSCAN scan heads do not support UpdatePermanentMemory. 
+CodeLOW 
+(hex) 
+ 
+3A 
+Reset TrAck signal bits. 
+50 
+As of scan system firmware 5100. 
+Only excelliSCAN: 
+See Chapter 3.4 ”Advanced Settings for “Spot Distance Control””, page 25: dThigh. 
+51 
+As of scan system firmware 5100. 
+Only excelliSCAN: 
+See Chapter 3.4 ”Advanced Settings for “Spot Distance Control””, page 25: dTlow. 
+Comments
+• The scan system firmware a.bb.c is read as abbc, for example, 5100 corresponds to version 5.10.0, and 
+5054 to version 5.05.4. 
+Version info
+As of version DLL 601.
+References
+get_value, get_values, get_head_status, set_trigger, set_trigger4, get_waveform, get_last_error 
+Ctrl Command
+control_command 
+Notice! Generic information. May be incomplete or even incorrect for your scan system. 
+Always consult the dedicated scan system manual!
+
+[p.22]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+22
+3.3
+Notes on Wobbling with 
+excelliSCAN Scan Heads
+Wobbel mode combines the output position’s 
+regular linear motion (that is, the underlying 
+marking) with an elliptical or figure-of-8 motion 
+(= wobbel shape). This causes the laser beam to be 
+guided spirally through the Image field. Here, both 
+accelerations and both speeds are superimposed. 
+Very demanding wobbel markings with the 
+excelliSCAN scan head are achievable, provided that 
+neither its maximum acceleration Amax nor its 
+maximum speed Vmax are exceeded. The following 
+applies: 
+and
+Both the maximum acceleration Amax and maximum 
+speed Vmax are factory-set in the excelliSCAN 
+scan head. 
+They are queried by the control command 
+get_scanahead_params( HeadNo = 256 ). 
+The values are returned as programming bits(1) 
+relative to RTC 10 µs clock cycles: 
+• Amax as programming bits/clock cycle² 
+• Vmax as programming bits/clock cycle. 
+3.3.1
+Converting Queried Values
+In practical application, such data should be in the 
+form of values in m/s and m/s² for the image plane. 
+To convert maximum acceleration Amax from 
+programming bits(1)/clock cycle² to m/s²(2): 
+To convert maximum speed Vmax from 
+programming bits(1)/clock cycle to m/s: 
+Examples 
+• excelliSCAN 14: A maximum acceleration of 
+39 bits/clock cycle² and a calibration factor of 
+K 7700 bits/mm(3) equate to a maximum 
+acceleration in the image plane of 50600 m/s². 
+• excelliSCAN 14: A maximum speed of 
+2465 bits/clock cycle and a calibration factor of 
+K 7700 bits/mm(3) equate to a maximum speed 
+in the image plane of 32 m/s. 
+(1) Not: galvanometer scanner control bits! 
+Programming bits are coordinates in the Image field. 
+Galvanometer scanner control bits correspond to a 
+galvanometer scanner rotation angle. 
+AMarking
+AWobbel
++
+Amax
+
+VMarking
+VWobbel
++
+Vmax
+
+(2) Query Amax is by get_scanahead_params( HeadNo = 256 ). 
+Observe the units specified in the command 
+description for get_scanahead_params. 
+(3) Theoretically assumed example value that might occur 
+for a calibration of 11.7° mechanical, an objective focal 
+length of 160 mm and a 1-to-1 correction file. Actual 
+values are listed in the *_ReadMe.txt file that SCANLAB 
+supplies along with the correction file.
+Amax [Bit/clock cycle²]
+K [Bit/mm]
+0.001 [m/mm]
+(0.00001)² [s²/clock cycle²]
+×
+Vmax [bits/clock cycle]
+K [bits/mm]
+-------------------------------------------------------------
+0.001 [m/mm]
+0.00001 [s/clock cycle]
+------------------------------------------------------------
+
+
+[p.23]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+23
+3.3.2
+Estimating Maximum Wobbel 
+Frequencies
+The following two scenarios illustrate how users can 
+estimate a sensible value for the maximum wobbel 
+frequency fmax.
+Here, it is assumed that a desired wobbel line 
+thickness is to be achieved using the “circle” wobbel 
+shape, see Figure 5. 
+• The wobbel line thickness is twice the radius of 
+the “circle” wobbel shape (“2r” in Figure 5).
+• The “circle” wobbel shape radius r is defined in a 
+parameter of the appropriate RTCcommand. The 
+following applies: 
+r = Transversal = Longitudinal, 
+that is, 
+– set_wobbel_mode (Transversal = r, 
+Longitudinal = r, Freq = fmax, Mode = 0)
+or, 
+– set_wobbel (Transversal = r, 
+Longitudinal = r, Freq = fmax).
+Notes  
+• Nevertheless, users might define wobbel 
+command parameter values for Amplitude 
+(Transversal, Longitudinal) and Frequency (Freq) 
+so unfavorable that set acceleration exceeds 
+Amax. Then the desired wobbel line thickness is 
+not achieved, because marking executes at Amax. 
+Scenario A) Marking Vector and “Circle” Wobbel 
+Shape
+At a constant speed, acceleration is null. 
+If the marking vector has reached the specified 
+mark speed – after an acceleration phase – then the 
+following applies:
+together with (as previously mentioned)
+Hence, the total  Amax of the excelliSCAN scan head 
+can be used for the wobbel shape(1). 
+With uniform circular motions, the following applies 
+to circular acceleration a: 
+Here, r is the circle radius and frequency f is the 
+number of circular iterations per unit of time 
+(note: 2× f is the circle frequency ). 
+By setting a to the excelliSCAN scan head’s maximum 
+acceleration Amax and solving for frequency f, we 
+obtain the maximum wobbel frequency fmax for the 
+marking vector:
+Notes  
+• To apply the above equation for an ellipse, set 
+Radius r to the longer of the two half axes.
+• To check whether the maximum speed of the 
+excelliSCAN scan head is exceeded, use the 
+following equation:
+Whereby the following applies to the trajectory 
+speed VWobbel of a circle during wobbling: 
+5
+Marking vector (red) and “circle” wobbel shape (black). 
+2r indicates the resulting wobbel line thickness. 
+2r
+(1) Valid not only for “circle”, but also generally for any 
+wobbel shape (because AMarking = 0).
+AMarking
+0
+=
+AMarking
+AWobbel
++
+Amax
+
+a
+r
+2
+f
+
+
+
+2
+
+=
+fmax
+1
+2
+-------
+Amax
+r
+---------------
+=
+VMarking
+VWobbel
++
+Vmax
+
+VWobbel
+2
+r
+fWobbel
+
+
+=
+
+[p.24]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+24
+Scenario B) Arc Element and “Circle” Wobbel 
+Shape
+For the circular acceleration AMarking of an 
+arc element the following applies: 
+The acceleration available for wobbel motion is 
+correspondingly reduced by AMarking. 
+For a “circle” wobbel shape – using the equation in 
+Scenario A – the maximum wobbel frequency fmax is: 
+Notes  
+• To apply the above equation for an ellipse, set 
+Radius r to the longer of the two half axes.
+• The trajectory speeds of arc element and wobbel 
+shape are superimposed in accordance with: 
+AMarking
+VMarking
+2
+rArc
+-----------------------------
+=
+fmax
+1
+2
+-------
+Amax
+AMarking
+–
+
+
+rWobbel
+-----------------------------------------------------
+=
+V
+VMarking
+2
++
+fWobbel
+
+rWobbel
+
+=
+
+[p.25]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+25
+3.4
+Advanced Settings for “Spot 
+Distance Control”
+For the “Spot Distance Control” functionality of 
+“Automatic Laser Control“ 
+(set_auto_laser_control( Ctrl = 7 )), 
+SCANahead systems like the excelliSCAN provide 
+temporally corrected position and speed signals. 
+SCANLAB automatically corrects temporal offsets 
+known in advance. A typical value for an 
+excelliSCAN 14 are 6 × 10 µs clock cycles. 
+Not known in advance are temporal offsets for 
+example, caused by the laser reaction times. These 
+appear in the marking result as varying spot distances 
+in acceleration and deceleration phases. 
+To compensate for these offsets, the following 
+functionalities are available with SCANahead systems 
+as of Firmware 5.10.0 (see Comments, page 21): 
+• ”Setting the Temporal Offset”
+• ”Reading Back the Temporal Offset”
+3.4.1
+Setting the Temporal Offset 
+The position and speed signals used for the “Spot 
+Distance Control” functionality can be temporally 
+shifted by TimeShift (in seconds), see also 
+Chapter 3.4.3 ”Identifying Suitable Temporal Offset 
+Values”, page 26(1): 
+• ±8 × 10 µs clock cycles max. 
+• 160 µs/216 resolution 
+• Has an additive effect on the signal propagation 
+time compensation preset by SCANLAB 
+• With positive values, the signals are shifted 
+forward in time, with negative values, they are 
+shifted backward 
+(1) Convert TimeShift to the values dThigh and dTlow 
+as follows: 
+• dT = 215 + TimeShift × 216  / 160 µs 
+Allowed value range for dT: [0…65,535]. 
+• dThigh 
+=  (dT >> 8) & 0xff 
+• dTlow 
+= dT & 0xff 
+(2) Send the value for dThigh and dTlow to the 
+SCANahead system by 
+control_command( Data = [5000H +  dThigh]) 
+(3) Send the value for dThigh and dTlow to the 
+SCANahead system by 
+control_command( Data = [5100H + dTlow]) 
+(1) “Signal propagation time compensation“.
+
+[p.26]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+3 excelliSCAN Scan Heads with SCANahead Servo Control 
+26
+3.4.2
+Reading Back the Temporal 
+Offset 
+The SCANahead system returns the temporal offset 
+set in units of [216/160 µs] after: 
+• control_command( Data = 0564H) 
+temporal offset set by the user 
+• control_command( Data = 0565H) 
+total temporal offset 
+Result in s = get_value(…) × 160 µs/216. 
+3.4.3
+Identifying Suitable Temporal 
+Offset Values 
+A suitable value for TimeShift can be found with 
+marking experiments, see Figure 6. TimeShift is 
+modified until the variation of the pulse distances in 
+acceleration and deceleration phases is minimal. 
+6
+Spot Spacing deficiencies allow conclusions to be drawn as 
+to whether the compensation of the signal propagation 
+times is too big or too small. 
+Legend 
+1
+Compensation of the signal propagation 
+times too small. 
+2
+Compensation of the signal propagation 
+times too big. 
+3
+Focus point is expected to move faster here. 
+4
+Focus point is expected to move slower here. 
+4
+3
+2
+3
+4
+1
+
+[p.27]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+27
+4
+RTC6 SCANahead Functions
+4.1
+General
+The excelliSCAN scan head internally calculates a set 
+trajectory with limited, constant accelerations, 
+whereby the acceleration time depends on speed 
+changes, see Chapter 3 ”excelliSCAN Scan Heads 
+with SCANahead Servo Control”, page 9. Resultingly, 
+the scanner and Laser Delays needed for taking 
+acceleration time into account depend on speed. 
+The RTC6 board can automatically calculate the 
+required delays. For this and other reasons, SCANLAB 
+recommends the RTC6 board for operating 
+excelliSCAN scan heads. 
+Two commands “activate” RTC6 SCANahead 
+functionality for suitable control of excelliSCAN 
+scan heads:
+(1) set_scanahead_params( Mode =1 )
+The RTC6 board queries relevant information 
+from the scan head, processes it (correction file) 
+and holds it for further usage. Additionally, the 
+RTC6 board laser control section gets prepared 
+for taking PreviewTime into account. This affects 
+LASER_DIGITAL_OUT1/2 etc., see Notes on 
+Controlling Peripherals, page 37.
+(2) activate_scanahead_autodelays(1) 
+The RTC6 board is instructed: 
+– To use the results of (1).
+– To ignore delays set in source code by 
+set_scanner_delays and set_laser_delays.
+– To automatically calculate (for high contour 
+fidelity) optimal speed-dependent 
+Scanner Delays and Laser Delays(1). 
+– To also set these dynamically in real time during 
+list execution. 
+– To likewise automatically calculate all required 
+parameters when Sky Writing is used 
+(for example, run-in and run-out motions), 
+see also Notes on Sky Writing, page 36. 
+Thus, users can effortlessly and immediately create 
+markings with high contour fidelity (2) (without the 
+need to determine and optimize delays). 
+Of course, users are also free to tailor marking results 
+using additional suitable RTC6 commands: 
+• Scanner delays are affected by the CornerScale 
+and EndScale parameters(3) of the two commands 
+set_scanahead_line_params and 
+set_scanahead_line_params_list. 
+The effects of these parameters are shown in 
+Figure 7. 
+You can choose between optimal contour fidelity 
+and optimal process speed at the cost of contour 
+fidelity (process optimization). 
+• Laser Delays are affected by the AccScale(4) 
+parameter of the two commands 
+set_scanahead_line_params and 
+set_scanahead_line_params_list. 
+The effect of this parameter is shown in Figure 8 
+which demonstrates a line marked using three 
+different parameter values: the energy deposition 
+at line ends is influenced by partially or wholly 
+show/hide acceleration phases. 
+• Also available for fine-tuning Laser Delays are the 
+RTC6 commands set_scanahead_laser_shifts 
+and set_scanahead_laser_shifts_list. They let 
+you set a temporal offset for the laser switching 
+time points, for example, to compensate signal 
+propagation times(5). 
+(1) For all commands that require delays, that is, jump, 
+mark, arc commands.
+(2) Provided that the specified mark speed makes sense. 
+However, the jump speed is automatically reduced to 
+suitable values.
+(3) These parameters only affect the galvanometer scanner 
+positioning. They do not affect points in time when the 
+laser is to be switched on and off. 
+(4) This parameter only affects points in time when the 
+laser is to be switched on and off. It does not affect the 
+galvanometer scanner positioning! 
+(5) The following applies for DLL 605: the transport 
+delay from the RTC6 board to the scan head (20 µs) is 
+automatically taken into account.
+
+[p.28]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+28
+7
+ set_scanahead_line_params and set_scanahead_line_params_list: the parameters CornerScale and EndScale affect the 
+Scanner Delays. 
+EndScale = 100%
+EndScale < 100%
+CornerScale = 100%
+CornerScale < 100%
+Mark vector
+Mark vector
+Jump vector
+Mark vector
+Parameter CornerScale and EndScale affect the scanner delays
+CornerScale 
+This parameter controls the marking accuracy 
+at mark vector to mark vector alternations (“rounding of corners”). 
+100% = sharp corners. 
+EndScale 
+This parameter controls the marking accuracy 
+at mark vector to jump vector alternations (”line end”) and 
+at jump vector to mark vector alternations (”line start”). 
+100% = straigth line ends/line starts.
+
+[p.29]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+29
+8
+set_scanahead_line_params and set_scanahead_line_params_list: the parameter AccScale affects Laser Delays. 
+With AccScale values < 100 the marked line lengths are shorter than they are actually coded in the user program. 
+With these values the laser is not always on during acceleration times. That is, portions of the acceleration legs are not 
+marked. The acceleration leg lengths are proportional to the square of the acceleration time. 
+The portion of each acceleration leg which is not marked corresponds to (1 – AccScale value / 100)² × 100%. 
+For example, 25% of each acceleration leg is not marked with an AccScale value 50. 
+Note: To achieve the line lengths as coded in the user program completely and with equidistant laser pulse spacing, you 
+must use Sky Writing. 
+= Laser pulse, not outputted
+= Laser pulse, outputted
+Line marked with 
+AccScale value 0 
+=> The laser is on 
+0% 
+of the acceleration time.
+Line marked with 
+AccScale value 50 
+=> The laser is on 
+50% 
+of the acceleration time.
+Line marked with 
+AccScale value 100 
+=> The laser is on 
+100% 
+of the acceleration time.
+Line length as coded in the user programm
+ 
+...in the  
+acceleration time
+"acceleration leg"
+(=> laser pulses 
+are not 
+equidistant)
+Marking result 
+...in the  
+time with constant speed
+(=> laser pulses are equidistant)
+ 
+...in the  
+acceleration time
+"acceleration leg"
+(=> laser pulses 
+are not 
+equidistant)
+AccScale parameter affects the laser delays
+
+[p.30]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+30
+4.2
+Quick Migration Guide
+This chapter gives advanced users the following 
+practical information for quickly transitioning to an 
+excelliSCAN scan head with an RTC6 board: 
+• Example source code for a user program, see 
+Chapter 4.2.1 ”Example Source Code”, page 31
+• Tips on adapting existing RTC user programs for 
+the excelliSCAN, see Chapter 4.2.2 ”Modifying 
+Existing User Programs for excelliSCAN 
+Scan Heads – Basic Steps”, page 33
+• In addition it is briefly mentioned, which 
+restrictions exist due to not usable functionalities, 
+see Chapter 4.2.3 ”Modifying Existing User 
+Programs for excelliSCAN Scan Heads 
+– Observing Restrictions”, page 34
+Further details are provided starting with Chapter 4.3 
+”Modifying Existing User Programs – Further Steps, 
+Background Info on SCANahead and excelliSCAN 
+Functionalities”, page 35.
+
+[p.31]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+31
+4.2.1
+Example Source Code
+The following example code snippets illustrate basic 
+elements of an RTC6 user program to initialize the 
+RTC6DLL.dll and RTC6 board (that is, it is not a 
+complete program code). 
+Because this example uses implicit linking, the files 
+RTC6impl.h and RTC6DLL.lib are required. 
+Additionally, the program needs to be able to load 
+RTC6DLL.dll. If the operating system can not find 
+RTC6DLL.dll during program start, then it responds 
+with an error message and terminates the program. 
+// SAMPLE SOURCE CODE SNIPPETS: TO MARK A SQUARE. 
+//
+// RTC6 header file for implicit linking to RTC6DLL.dll. 
+// also link to Visual C++ import library RTC6DLL.lib, to compile an executable 
+#include “RTC6impl.h” 
+// scanahead line params 
+CornerScale = 100;
+// polyline: 100%: max precision, 0% min execution time 
+EndScale = 100;
+// mark, jump: 100%: max precision, 0% min execution time 
+AccScale = 100;
+// 100%: laser is on during acceleration and deceleration 
+//
+0%: laser is off during acceleration and deceleration 
+// enable/disable variable Polygon Delay or sky writing 
+VariablePolygonDelay = 0; 
+SkyWriting = 0; 
+int main() 
+{ 
+// initialize 
+init_rtc6_dll(); 
+if( 0 != load_program_file( NULL ) ) { return -1; }
+// load RTC firmware 
+if( 0 != load_correction_file( NULL, 1, 2 ) ) { return -2; } 
+set_mark_speed_ctrl( 25000 ); 
+set_jump_speed_ctrl( 50000 ); 
+// laser control 
+set_laser_control( 0 );
+// high active laser signals 
+set_laser_mode( 1 );
+// mode 1 supports YAG 
+set_firstpulse_killer( 640 ); 
+set_laserpulses_ctrl( 320, 128 ); 
+// scanahead: calculate delays automatically. excelliSCAN scan head must be connected and powered.
+set_scanahead_params( 1, 1, 1, 0, 0, 0 );
+// place anywhere after load_correction_file 
+activate_scanahead_autodelays( 1 ); 
+set_scanahead_line_params( CornerScale, EndScale, AccScale ); 
+set_scanahead_laser_shifts( 1600, 1600 );
+// fine tuning LaserON and LaserOFF. 1 bit = 1/64 
+µs
+
+[p.32]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+32
+// sky writing and variable Polygon Delay
+set_delay_mode( VariablePolygonDelay, 0, 2^30, 0, 0 ); 
+set_sky_writing_para( SkyWriting, 0, 0, 0 ); 
+set_sky_writing_mode( 3 ); 
+set_sky_writing_limit( 0.5 ); 
+// create and execute list
+set_start_list( 1 ); 
+jump_abs( 50000, -50000 ); 
+mark_abs( 50000, 50000 ); 
+mark_abs( -50000, 50000 ); 
+mark_abs( -50000, -50000 ); 
+mark_abs( 50000, -50000 ); 
+jump_abs( 0, 0 ); 
+set_end_of_list(); 
+execute_list( 1 ); 
+} 
+// END OF SAMPLE SOURCE CODE SNIPPETS.
+
+[p.33]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+33
+4.2.2
+Modifying Existing User 
+Programs for excelliSCAN 
+Scan Heads 
+– Basic Steps
+To operate an excelliSCAN with an RTC6 board, 
+SCANLAB recommends modifying existing 
+user programs as described below. For more details, 
+see the following chapters, as well as the 
+RTC6-Manual. It is assumed that it is a complete RTC6 
+or RTC5 user program for operating a SCANLAB 
+scan head with conventional control, for example, an 
+intelliSCAN. user program
+(1) After the load_correction_file command at the 
+beginning of your user program, be sure to insert 
+the command set_scanahead_params (for 
+parameters, see the command description).
+This activates the SCANahead functionality of the 
+RTC6 board (incl. laser control!). Mode = 1 initiates 
+direct querying of the scan head for scan-head-
+specific information on PreviewTime, Vmax and 
+Amax. Therefore, an excelliSCAN scan head must 
+be connected to the RTC6 board and already and 
+switched-on during user program runtime. 
+(2) Insert activate_scanahead_autodelays(1).
+This switches on automatic calculation of 
+Scanner Delays and Laser Delays. 
+All set_scanner_delays and set_laser_delays 
+commands in subsequent code lines have no 
+effect, see also notes for 
+activate_scanahead_autodelays. 
+(3) If the original program is an RTC5 user program, 
+then also make the following changes (for more 
+detailed and comprehensive information, see the 
+RTC6-Manual): 
+– change init_rtc5_dll to 
+init_rtc6_dll 
+– change rtc5_count_cards to 
+rtc6_count_cards 
+– change free_rtc5_dll to 
+free_rtc6_dll
+– do NOT(1) change set_rtc5_mode and 
+set_rtc4_mode 
+to set_rtc6_mode. 
+If neither set_rtc4_mode nor set_rtc5_mode is 
+called, then the default state with RTC5 boards 
+is set_rtc5_mode. Insert set_rtc5_mode into the 
+RTC6 user program to automatically convert 
+certain parameter values from RTC5 to RTC6 
+units. 
+These modifications should already suffice for 
+successful execution of your user program. 
+Any source code sections for “Variable 
+Polygon Delays” and Sky Writing should thereby also 
+be runnable. 
+Check whether your code is affected by the 
+restrictions mentioned next, in Chapter 4.2.3 
+”Modifying Existing User Programs for excelliSCAN 
+Scan Heads – Observing Restrictions”, page 34. 
+(1) This section is intended as a quick guide: for detailed 
+information (for example, 3D applications etc.), see the 
+RTC6-Manual.
+
+[p.34]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+34
+4.2.3
+Modifying Existing User 
+Programs for excelliSCAN 
+Scan Heads 
+– Observing Restrictions
+While continuing to modify your user program for 
+the excelliSCAN scan head, keep in mind the 
+following: 
+Non-Usable Functionalities of the 
+RTC6 Board and RTC6 DLL
+• After activation of SCANahead functionality by 
+set_scanahead_params, the following RTC6 
+functionalities are not usable (status DLL 615):
+– load_varpolydelay 
+– laser_on_pulses_list cannot be used for 
+excelliSCAN scan heads, if external signal 
+pulses are required at DIGITAL IN1 
+(laser_on_list can be used with excelliSCAN) 
+Non-Usable iDRIVE Functionalities
+• The following iDRIVE functions are not available 
+for excelliSCAN scan heads: 
+– Changing the effective calibration 
+(SetPositionScale) 
+control_command( Data = 12xxH ) 
+• The following iDRIVE functions are not available 
+for excelliSCAN scan heads with firmware version 
+5.05.4 (see Comments, page 21): 
+– Switching between tunings 
+(SelectControlDefinition) 
+control_command( Data = 11xxH ) 
+See Chapter 3.2 ”excelliSCAN-specific Changes 
+and Novelties with control_command”, page 18.
+
+[p.35]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+35
+4.3
+Modifying Existing User 
+Programs – Further Steps, 
+Background Info 
+on SCANahead and 
+excelliSCAN Functionalities
+While continuing to modify your user program for 
+the excelliSCAN scan head, keep in mind the 
+following: 
+• Notes on Using Commands for Scanner Delays 
+and Laser Delays, page 35
+• Notes on [*]arc[*] Commands, page 36
+• Notes on Polygon Delays, page 36
+• Notes on Sky Writing, page 36
+• Notes on Controlling Peripherals, page 37
+• Notes on Unique Characteristics of Transmitted 
+Data Signals, page 37
+Notes on Using Commands for 
+Scanner Delays and Laser Delays
+When using commands with the excelliSCAN to 
+synchronize scan motions and laser control signals, 
+observe the following:
+• All relevant SCANahead parameters (article-
+number-specific) are stored in the excelliSCAN 
+scan head during manufacturing. Although 
+set_scanahead_params( Mode = 2 ) allows 
+other values, we recommend only using the 
+values queried from the excelliSCAN scan head. 
+Mode 2 is primarily intended for software 
+development without an attached excelliSCAN 
+scan head.
+• For excelliSCAN scan heads, the actual position of 
+the scan motion lags the control values by 
+PreviewTime, see Figure 1(1). For synchronous 
+laser control, the laser control signals also need to 
+take PreviewTime into account. 
+This can be done manually by appropriately 
+modifying parameters for the 
+set_scanner_delays and set_laser_delays 
+commands. But here, you must take the 
+excelliSCAN’s speed-dependent acceleration time 
+into account. 
+The preferable alternative is to simply use the 
+activate_scanahead_autodelays command for 
+automatic calculation of Scanner Delays and 
+Laser Delays. Then, the following applies: 
+– The existing command parameters for 
+set_scanner_delays and set_laser_delays are 
+invalidated by activate_scanahead_autodelays( 
+Mode = 1 ) and not modified. They become 
+immediately effective again if automatic delay 
+calculation gets deactivated by 
+activate_scanahead_autodelays( Mode = 0 ).
+– set_scanahead_params( Mode = 1 or 2, 
+HeadNo, TableNo, PreviewTime, Vmax, Amax ) 
+defines parameters for automatic calculation of 
+Scanner Delays and Laser Delays together with 
+activate_scanahead_autodelays( Mode = 1).
+• If needed, throughput of laser-marked 
+workpieces can be increased, if lower quality is 
+acceptable (“process optimization”): see 
+set_scanahead_line_params( CornerScale, 
+EndScale, AccScale ). 
+See also Figure 7 and Figure 8.
+• For fine-tuning Laser Delays (for example, to 
+compensate signal propagation times to the laser 
+or to take laser system switching behavior into 
+account), see set_scanahead_laser_shifts
+( dLasOn, dLasOff ). 
+(1) This temporal offset differs quantitatively and 
+qualitatively from Tracking error in scan heads without 
+SCANahead control.
+
+[p.36]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+36
+Notes on [*]arc[*] Commands
+• excelliSCAN scan heads have a nominal 
+Tracking error of 0(1). Tracking-related artifacts 
+(for example, necking during small, quick circular 
+motions) do not occur so long as the maximum 
+acceleration of the head is not exceeded (for 
+example, when in the source code a too large 
+speed in relation to the circular diameter has 
+been specified). 
+• To estimate maximum acceleration within the 
+Image field, the maximum acceleration in 
+programming bits(2) (Image field coordinates) 
+can be queried by get_scanahead_params( HeadNo 
+= 256 ). For conversion to m/s², see Chapter 3.3.1 
+”Converting Queried Values”, page 22. 
+• The allowed velocity range for a given circle 
+radius can be estimated by: 
+v²/r < Amax(3)(4)(5) 
+– If you use arc_abs, arc_abs_3d, arc_rel, 
+arc_rel_3d, note that these commands apply 
+rounding upon Microstepping. Thus, the speed 
+which the RTC6 commands to the excelliSCAN 
+may differ from the programmed (in 
+set_mark_speed) mark speed. In cases where 
+the acceleration (resulting from the 
+commanded speed) exceeds the maximum 
+acceleration Amax of the excelliSCAN, then 
+circles are smaller as programmed. 
+– With timed_arc_abs and timed_arc_rel, you 
+must specify the execution time in multiples of 
+10 µs (to prevent rounding). 
+Notes on Polygon Delays 
+• On the excelliSCAN, “Variable Polygon Delays” 
+work similarly to scan heads without SCANahead 
+control. 
+To activate variable polygon Scanner Delays, you 
+still must call set_delay_mode with VarPoly > 0. 
+If automatic delay calculation 
+(activate_scanahead_autodelays) is switched 
+on, its parameters EdgeLevel, MinJumpDelay and 
+JumpLengthLimit have no effect. But they become 
+immediately effective if automatic delay 
+calculation gets switched off. 
+In contrast, the DirectMove3D parameter is always 
+effective. 
+• For excelliSCAN, load_varpolydelay has no 
+effect. No user-defined “Variable Polygon Delay” 
+tables are available. 
+Notes on Sky Writing
+• For excelliSCAN, Sky Writing functionality has the 
+same effect as on scan heads without 
+SCANahead control. All three modes are 
+selectable. 
+To activate Sky Writing functionality, you must 
+still call the command set_sky_writing or 
+set_sky_writing_para with Timelag > 1/4 µs. 
+If automatic delay calculation 
+(activate_scanahead_autodelays) is switched 
+on, then Timelag (except for the actual activation 
+of Sky Writing) and the parameters Nprev and 
+Npost have no effect. But they immediately 
+become effective, if automatic delay calculation 
+gets switched off. 
+In contrast, the LaserOnShift parameter is always 
+effective.
+• If Sky-Writing is activated, only the parameter 
+EndScale(6) is effective. 
+• The other parameters(6) CornerScale and AccScale 
+are not applied – except there is no genuine 
+Sky Writing movement: 
+– If Sky-Writing Mode 3 is activated and the 
+angular limit is undercut, CornerScale is 
+effective. 
+(1) The output delayed by PreviewTime is not Tracking error 
+in the usual sense. 
+(2) See footnote (1) on page page 22. 
+(3) Query Amax by get_scanahead_params( HeadNo = 256 ). 
+Observe the units specified in the command 
+description for get_scanahead_params. 
+(4) Applies to frequencies 6,25 kHz (excelliSCAN 14) as 
+well as 4,00 kHz (excelliSCAN 20, excelliSCAN 30); 
+f = v / (2× r). 
+(5) Valid for excelliSCAN with any objective. Insert either 
+control bits or programming bits into the formula). See 
+also second list bullet. 
+(6) See set_scanahead_line_params, 
+set_scanahead_line_params_list.
+
+[p.37]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+37
+Notes on Coordinate Transformations
+When using commands to transform coordinates, 
+observe the following: 
+• A coordinate transformation should not change 
+the shape and size(1) of the marking, that is, the 
+(2 x 2) total matrix M (see RTC6-Manual, 
+Chapter 8.2 ”Coordinate Transformations”, 
+page 223) is ideally a pure rotation matrix. 
+Notes on Controlling Peripherals
+When using commands to control peripherals (LASER 
+connector pins ANALOG OUT 1 and ANALOG OUT 2, 
+EXTENSION 1 and EXTENSION 2 headers), observe the 
+following. 
+If the SCANahead functionality of the RTC6 board has 
+been activated by set_scanahead_params
+(PreviewTime > 0) the following applies: 
+(1) The control commands write_io_port, 
+write_8bit_port, write_da_x, write_da_1 and 
+write_da_2 are immediately executed 
+(“asynchronous”).
+(2) The list commands write_io_port_list, 
+write_8bit_port_list, write_da_x_list, 
+write_da_1_list and write_da_2_list are 
+executed delayed by the Previewtime, that is, 
+simultaneous with the galvanometer scanners
+(“axissynchronous”).
+(3) For a “laser synchronous” output of a laser power 
+control, set_laser_power must be used instead 
+of the list commands from (2). 
+If the SCANahead functionality of the RTC6 board has 
+not been activated (PreviewTime = 0), then 
+asynchronous and axissynchronous execution (1) and 
+(2) are identical. 
+With the new laser control mode of the RTC6 
+(set_dsp_mode( 3 )), LaserOn Delays during a series 
+of short vectors can extend across one or several 
+subsequent vectors. The RTC5-compatible synthetic 
+Scanner Delays in DSP mode 2 are omitted. Output is 
+then synchronous with each vector’s corresponding 
+LaserOn Delay. 
+With the RTC5-compatible laser control 
+(set_dsp_mode( 2 )) axissynchronous and 
+lasersynchronous execution are identical. 
+Notes on Unique Characteristics of 
+Transmitted Data Signals
+Some data signals transmitted by excelliSCANs differ 
+from those of other iDRIVE scan heads, for example, 
+intelliSCAN. 
+• TrAck signal 
+(instead of PosAck signal) 
+See Chapter 3.1.3 ”Returned Data Signal 
+Differences: Status Signal Behavior after 
+Limit Value Exceedance”, page 14.
+• Trajectory error 
+(instead of Position error) 
+See Chapter 3.1.7 ”excelliSCAN Timing Diagram 
+(Scan Head with SCANahead Control)”, page 16. 
+(1) Quality losses are likely, if size changes more than 5%.
+
+[p.38]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+38
+4.4
+RTC6 Commands - Exclusively 
+for SCANahead Systems
+This chapter describes RTC6 commands intended 
+exclusively for scan systems with SCANahead control, 
+for example, the excelliSCAN. 
+This command type is identifiable by the name 
+element “_scanahead_”. 
+All are also available as multi-board commands. 
+Multi-board command names begin with the 
+prefix n_. 
+(n_) activate_scanahead_autodelays con (1) ..... 39
+(n_) activate_scanahead_autodelays_list us (2) . 39
+(n_) get_scanahead_params con ....................... 40
+(n_) set_scanahead_laser_shifts con ................. 42
+(n_) set_scanahead_laser_shifts_list us ............ 42
+(n_) set_scanahead_line_params con ................ 43
+(n_) set_scanahead_line_params_list us ........... 44
+(n_) set_scanahead_params con ....................... 45
+(n_) set_scanahead_speed_control con ............ 47
+Notes  
+• Universally usable RTC6 commands are described 
+in the RTC6-Manual. 
+(1) con
+control command 
+(2) us
+undelayed short list command
+
+[p.39]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+39
+Ctrl Command
+activate_scanahead_autodelays
+Function
+Switches on or off the automatic (dynamic) calculation of the Scanner Delays and 
+Laser Delays. Returns the current mode after the command has been executed. 
+Call
+CurrentMode = activate_scanahead_autodelays( Mode )
+Parameters
+Mode As a signed 32-bit value. 
+–1: Only returns the current mode. The current mode is not changed.
+0:
+Switches off automatic calculation. 
+1:
+Switches on automatic calculation (Mode = 1) if set_scanahead_params has 
+been called previously. Otherwise, Mode remains 0 after the command has been 
+executed. 
+Result
+Current mode. As an unsigned 32-bit value. 
+Comments
+• If Mode = 0, then normal Scanner Delays and Laser Delays are used (see 
+set_scanner_delays and set_laser_delays). If Mode = 1, then Scanner Delays and 
+Laser Delays are calculated and set automatically. 
+Values for Mode = 0 do not get overwritten. After switch-off, they remain available in 
+Mode = 0 for usage (as with non-excelliSCAN scan heads).
+• activate_scanahead_autodelays also affects Sky Writing: the Sky Writing command 
+parameters Timelag (except for the actual activation of Sky Writing), Nprev and Npost 
+have no effect. However, they are going to have immediate effect once the automatic 
+delay calculation is switched off. In contrast, the parameter LaserOnShift is always 
+effective. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command. 
+Version info
+Available as of version DLL 600, OUT 600.
+References
+activate_scanahead_autodelays_list, set_scanner_delays, set_laser_delays 
+Undelayed 
+Short List 
+Command
+activate_scanahead_autodelays_list
+Function
+As activate_scanahead_autodelays, but an undelayed short list command.
+Call
+CurrentMode = activate_scanahead_autodelays_list( Mode )
+Parameters
+Mode As an unsigned 32-bit value. 
+For values, see activate_scanahead_autodelays. 
+Comments
+• activate_scanahead_autodelays_list takes effect upon the next to-be-calculated 
+delay. 
+• Mode = –1 is not available with activate_scanahead_autodelays_list. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command.
+Version info
+Available as of version DLL 600, OUT 600.
+References
+activate_scanahead_autodelays
+
+[p.40]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+40
+Ctrl Command
+get_scanahead_params
+Function
+Queries certain parameters from the specified scan head. 
+The attached scan head must be an excelliSCAN. 
+Restriction
+get_scanahead_params can be executed only, if no list is currently being processed. 
+Otherwise, the get_last_error return code gets set to RTC6_BUSY and error code 5 is 
+returned. 
+Call
+Error = get_scanahead_params( HeadNo, &PreviewTime, &Vmax, &Amax )
+Parameters
+HeadNo 
+Scan head connector number. As an unsigned 32-bit value. 
+Allowed values: 
+= 1: Scan head connector 1.
+= 2: Scan head connector 2 (activation required). 
+= 256: RTC6 board (no scan head connector). 
+The parameters Vmax and Amax are returned converted to Image 
+field coordinates. 
+Returned 
+parameter 
+values
+PreviewTime 
+Precalculation time for galvanometer scanner control in [10 µs]. 
+As a pointer to an unsigned 32-bit value. 
+Vmax 
+For HeadNo 1, 2: Velocity limit as control bits (galvanometer scanner 
+rotation angle) [bits/10 µs]. 
+For HeadNo 256: Velocity limit as programming bits (Image field 
+coordinates) [bits/10 µs]. 
+As a pointer to an unsigned 32-bit value. 
+Amax 
+For HeadNo 1, 2: Acceleration limit as control bits (galvanometer scanner 
+rotation angle) [bits/(10 µs)²].
+For HeadNo 256: Acceleration limit as programming bits (Image field 
+coordinates) [bits/(10 µs)²]. 
+As a pointer to a 64-bit IEEE floating point value. 
+Result
+Error code. As an unsigned 32-bit value. 
+Value 
+Description
+3 
+No excelliSCAN scan head is attached or
+its excelliSCAN tuning is not active 
+(get_last_error return code: RTC6_PARAM_ERROR).
+5 
+A list is currently active
+(get_last_error return code: RTC6_BUSY).
+6 
+HeadNo = 0 or HeadNo >2 has been specified as parameter 
+(get_last_error return code: RTC6_PARAM_ERROR).
+8 
+The RTC6 board is not responding. Probably a program 
+has not been loaded yet 
+(get_last_error return code: RTC6_TIMEOUT).
+11 
+A PCI error occurred 
+(get_last_error return code: RTC6_SEND_ERROR).
+
+[p.41]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+41
+Comments 
+• The returned parameter values are also used by set_scanahead_params. 
+• Vmax is the maximum angular velocity of the galvanometers. Vmax is not the mark speed 
+in the image plane. The returned parameter value unit type is therefore [bits/10 µs] and 
+not [bits/ms]. Distortion by the correction file is not yet taken into account in the 
+returned parameter value (see set_scanahead_params). 
+• HeadNo = 256 only returns meaningful values if set_scanahead_params was previously 
+called. 
+• The values returned by HeadNo = 256 are scaled. Do not use them with 
+set_scanahead_params( Mode = 2 )because then they would be scaled again. 
+• For dual SCANahead systems (for example, 2 excelliSCAN scan heads; requires Option 
+“Second Scan Head Control”) it is recommended that the single SCANahead systems 
+used have as similar properties as possible (aperture, lens, correction file): For automatic 
+calculation of the Scanner Delays and Laser Delays, among other things, the parameter 
+Amax of scan-system HeadNo is required. The delays are only calculated for this scan 
+system, but are also used unchanged for the second one. If the two scan systems differ 
+too much for example, in parameter Amax, unwanted deviations may occur between the 
+markings. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command.
+Version info
+Available as of version DLL 600, OUT 600.
+Last change with version DLL 605: data type of Amax. 
+References
+set_scanahead_params, get_last_error 
+Ctrl Command
+get_scanahead_params
+
+[p.42]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+42
+Ctrl Command
+set_scanahead_laser_shifts
+Function
+Shifts the LaserOn signals and LaserOff signals temporally forward or back. 
+Call
+set_scanahead_laser_shifts( dLasOn, dLasOff )
+Parameters
+dLasOn 
+Time shift of LaserOn signals in [1/64 µs]. 
+As a signed 32-bit value.
+dLasOff 
+Time shift of LaserOff signals in [1/64 µs]. 
+As a signed 32-bit value. 
+Comments
+• set_scanahead_laser_shifts lets you fine-tune the Laser Delays, for example, to 
+compensate laser signal propagation times or to take the laser system switching 
+behavior into account. 
+• If set_scanahead_params has not been already called and automatic calculation has 
+not been activated (activate_scanahead_autodelays Mode = 0), then the values only 
+get stored, but not applied. But they are applied as soon as required conditions are 
+fulfilled. 
+• There is a transport delay from the RTC6 board to the scan head of 20 µs. As of 
+DLL 605 this is automatically taken into account. dLasOn and dLasOff parameter values 
+optimized for < DLL 605 must be decreased by 20 µs to be suitable for DLL 605. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command.
+Version info
+Available as of version DLL 600, OUT 600. 
+Change as of version DLL 603, OUT 603, RBF 607: increased parameter resolution is now 
+1/64 µs instead of 1/2 µs. 
+References
+set_scanahead_laser_shifts_list, set_scanahead_params, 
+activate_scanahead_autodelays 
+Undelayed 
+Short List 
+Command
+set_scanahead_laser_shifts_list
+Function
+Like set_scanahead_laser_shifts, but an undelayed short list command.
+Call
+set_scanahead_laser_shifts_list( dLasOn, dLasOff )
+Parameters
+dLasOn 
+See set_scanahead_laser_shifts. 
+dLasOff 
+See set_scanahead_laser_shifts. 
+Comment
+• set_scanahead_laser_shifts_list takes effect upon the next to-be-calculated delay. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command. 
+Version info
+Available as of version DLL 600, OUT 600. 
+References
+set_scanahead_laser_shifts
+
+[p.43]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+43
+Ctrl Command
+set_scanahead_line_params
+Function
+Influences the quality of marking results at runtime. 
+Smaller percent values increase throughput at the expense of quality. 
+Call
+set_scanahead_line_params( CornerScale, EndScale, AccScale )
+Parameters
+CornerScale 
+Corner sharpness with mark/mark sequences in percent. 
+100% = sharp corners. 
+As an unsigned 32-bit value. 
+EndScale 
+Marking accuracy at mark/jump and jump/mark transitions.                          
+100% = straight line ends. 
+As an unsigned 32-bit value. 
+AccScale 
+Determines the portion of the acceleration time (not: distance traversed) 
+in which the laser is active, in percent. 100% = entire acceleration time.
+As an unsigned 32-bit value. 
+Comments
+• Only values from 0% to 100% are useful. Higher values do not improve quality 
+(that is, corners cannot be even sharper than sharp), but instead only extend marking 
+times.
+• If set_scanahead_params has not been already called, then the values only get stored, 
+but not applied. 
+• The parameters CornerScale and EndScale only affect the galvanometer scanner 
+positioning. They do not affect points in time when the laser is to be switched on and 
+off. 
+• The parameter AccScale only affects points in time when the laser is to be switched on 
+and off. It does not affect the galvanometer scanner positioning! 
+• If Sky-Writing is activated, only the parameter EndScale is effective. 
+• The other parameters CornerScale and AccScale are not applied – except there is no 
+genuine Sky Writing movement: 
+– If Sky-Writing Mode 3 is activated and the angular limit is undercut, CornerScale is 
+effective. 
+• The parameter EndScale is effective, if Sky Writing is activated (here, the following 
+applies as well: smaller percent values increase throughput at the expense of quality). 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command.
+Version info
+Available as of version DLL 600, OUT 600. 
+References
+set_scanahead_line_params_list
+
+[p.44]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+44
+Undelayed 
+Short List 
+Command
+set_scanahead_line_params_list
+Function
+Like set_scanahead_line_params, but an undelayed short list command. 
+Call
+set_scanahead_line_params_list( CornerScale, EndScale, AccScale )
+Parameters
+CornerScale 
+See set_scanahead_line_params. 
+EndScale 
+See set_scanahead_line_params. 
+AccScale 
+See set_scanahead_line_params. 
+Comment
+• set_scanahead_line_params_list takes effect upon the next to-be-calculated delay. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command.
+Version info
+Available as of version DLL 600, OUT 600.
+References
+set_scanahead_line_params
+
+[p.45]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+45
+Ctrl Command
+set_scanahead_params
+Function
+Activates the RTC6-SCANahead functionality suitable to control an excelliSCAN scan head. 
+The laser control and digital inputs/outputs for the peripherals are prepared for an 
+excelliSCAN scan head, that is, delayed by PreviewTime. 
+To have also the Scanner Delays and Laser Delays calculated automatically, 
+activate_scanahead_autodelays must be called. 
+Restriction
+set_scanahead_params can only be executed, if no list is currently active.
+Otherwise, the get_last_error return code gets set to RTC6_BUSY and error code 5 is 
+returned. 
+set_scanahead_params can only be executed, if the “SCANa” option is enabled. 
+Otherwise, the get_last_error return code gets set to RTC6_REJECTED and error code 1 is 
+returned. 
+Call
+Error = set_scanahead_params( Mode, HeadNo, TableNo, PreviewTime, Vmax, Amax )
+Parameters
+Mode 
+= 0: Deactivates the RTC6-SCANahead functionality. The additional 
+parameters TableNo, PreviewTime, Vmax, Amax are not taken into 
+account. Default after load_program_file. 
+Mode, for example, for operating intelliSCAN scan heads. 
+= 1: Queries parameters of the scan head with the specified HeadNo and 
+applies them. The parameters PreviewTime, Vmax, Amax are not taken 
+into account. See also comments that follow. 
+Mode for operating attached excelliSCAN scan heads. 
+= 2: Apply the parameters of this command. 
+Mode, for example, for software development. An excelliSCAN 
+scan head does not need to be connected. 
+As an unsigned 32-bit value. 
+HeadNo 
+Number of the scan head connector. 
+Allowed values: 
+= 1: Scan head connector 1. 
+= 2: Scan head connector 2 (activation required). 
+As an unsigned 32-bit value. 
+TableNo 
+Allowed value range 1…8. A correction file should have been loaded by 
+load_correction_file(…, TableNo, …). This is used for converting the 
+parameters Amax and Vmax from control bits (galvanometer scanner rotation 
+angle) into programing bits (Image field coordinates). See 
+get_scanahead_params. 
+As an unsigned 32-bit value.
+PreviewTime Precalculation time for galvanometer scanner control in [10 µs].
+This parameter is ignored in Mode = 0 and Mode = 1. 
+As an unsigned 32-bit value.
+Vmax 
+Velocity limit as control bits (galvanometer scanner rotation angle) 
+[bits/10 µs].
+This parameter is ignored in Mode = 0 and Mode = 1. 
+As an unsigned 32-bit value.
+Amax 
+Acceleration limit as control bits (galvanometer scanner rotation angle) 
+[bits/(10 µs)²]. 
+This parameter is ignored in Mode = 0 and Mode = 1. 
+As a 64-bit IEEE floating point value.
+
+[p.46]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+46
+Result
+Error code. As an unsigned 32-bit value. 
+Value 
+Description
+1 
+“SCANa” option is not present. 
+(get_last_error return code: RTC6_REJECTED). 
+3 
+No excelliSCAN scan head attached or excelliSCAN tuning is not active 
+(get_last_error return code: RTC6_PARAM_ERROR).
+5 
+A list is currently active
+(get_last_error return code: RTC6_BUSY).
+6 
+HeadNo = 0 and HeadNo >2 
+(get_last_error return code: RTC6_PARAM_ERROR).
+7 
+The determined scaling factor exceeds 16 or is below 1/16 (possibly no 
+correction file was loaded). The scaling factor is set to 1.
+8 
+The RTC6 board is not responding. Probably a program 
+has not been loaded yet 
+(get_last_error return code: RTC6_TIMEOUT).
+11 
+A PCI error occurred 
+(get_last_error return code: RTC6_SEND_ERROR)
+Comments
+• The Vmax and Amax parameters are used for automatic calculation of Scanner Delays and 
+Laser Delays, see activate_scanahead_autodelays.
+• The values for Vmax and Amax are specified as control bits (galvanometer scanner 
+rotation angles). Information is read-out from the correction file and used for an 
+internal conversion into programing bits (sample values). Therefore, the correction file 
+needs to be specified in the TableNo parameter. At conversion time, the correction file 
+must have been already loaded onto the RTC6 board, but does not yet need to be 
+assigned. The system cannot reliably detect correction files that have not been loaded. 
+The Vmax and Amax values which have been converted into programing bits can be 
+queried by get_scanahead_params( HeadNo= 256 ). 
+• For error return information, see get_scanahead_params.
+• Mode = 1 results in aborted command execution (Error = 3) if no excelliSCAN is attached 
+and active. All SCANahead functionality is deactivated. Parameters specified for 
+Mode = 2 are not applied! 
+• set_scanahead_params( Mode = 1) cannot be executed when an automatic laser 
+control is active that uses read-out data from an iDRIVE scan system, 
+see set_auto_laser_control. Please deactivate temporarily. 
+Ctrl Command
+set_scanahead_params
+
+[p.47]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+4 RTC6 SCANahead Functions 
+47
+Comments 
+(cont’d) 
+• set_scanahead_params waits until the last session has finished traversing, that is, the 
+HEAD_BUSY signal (Bit #23) from get_status is no longer set. 
+In any case, set_scanahead_params waits no longer than 255 × [10 µs].
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command.
+Version info
+Available as of version DLL 600, OUT 600. 
+Last change with version DLL 605: data type of Amax. 
+References
+get_scanahead_params, activate_scanahead_autodelays, get_last_error, get_status, 
+load_correction_file
+Ctrl Command
+set_scanahead_params
+Ctrl Command
+set_scanahead_speed_control
+Function
+Controls the Scanner Delays either depending on the target speed or actual achievable 
+speed. 
+Call
+set_scanahead_speed_control( Mode ) 
+Parameters
+Mode 
+Modus. 
+As an unsigned 32-bit value. 
+Comments
+• Mode with: 
+– Bit #0 
+controls mark commands 
+– Bit #1 
+controls jump commands 
+– Bit #n = 0 
+controls the Scanner Delays depending on the target speed 
+– Bit #n = 1 
+controls the Scanner Delays depending on the actual 
+achievable speed 
+• Default after load_program_file: Mode = 2. 
+RTC4RTC6
+New command. 
+RTC5RTC6
+New command. 
+Version info
+Available as of version DLL 610, OUT 610. 
+Last change with version OUT 611: adjustment of Laser Delays. 
+References
+–
+
+[p.48]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+5 Change Index 
+48
+5
+Change Index
+The following are changes in this manual due to the 
+technical evolution of the product as well as 
+significant editorial changes. 
+Changes to document revision 1.0.8 en-US from document revision 1.0.7 en-US 
+Changes to document revision 1.0.9 en-US from document revision 1.0.8 en-US 
+Changes to document revision 1.0.10 en-US from document revision 1.0.9 en-US 
+Where 
+What 
+Global 
+Document Revision 
+• 1.0.8 en-US 
+applies to RTC6 Software Package 
+• V1.6.1 
+set_scanahead_laser_shifts 
+Editorial change. Command name corrected. 
+set_scanahead_laser_shifts_list 
+Editorial change. Command name corrected. 
+Where 
+What 
+Global 
+Document Revision 
+• 1.0.9 en-US 
+applies to RTC6 Software Package 
+• V1.9 
+Chapter 3.1.3 ”Returned Data Signal 
+Differences: Status Signal Behavior after 
+Limit Value Exceedance”, page 14 
+Due to technical advancements, SCANLAB renames “PosAck” 
+to “TrAck” for excelliSCAN. 
+ResetTrAck, page 21 
+As a result of the renaming (see above) ResetPOSACK is now 
+called ResetTrAck accordingly. 
+Where 
+What 
+Global 
+Document Revision 
+• 1.0.10 en-US 
+applies to RTC6 Software Package 
+• V1.9 
+Chapter 3.4.3 ”Identifying Suitable Temporal 
+Offset Values”, page 26 
+Editorial enhancement. Figure 6.
+
+[p.49]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+5 Change Index 
+49
+Changes to document revision 1.0.11 en-US from document revision 1.0.10 en-US 
+Where 
+What 
+Global 
+Document Revision 
+• 1.0.11 en-US 
+applies to RTC6 Software Package 
+• V1.11 
+Chapter 3.1.3 ”Returned Data Signal 
+Differences: Status Signal Behavior after 
+Limit Value Exceedance”, page 14 
+Editorial change. More details. 
+Chapter 3.1.7 ”excelliSCAN Timing Diagram 
+(Scan Head with SCANahead Control)”, 
+page 16 
+Editorial change. More details. 
+control_command, page 19 
+Editorial change. More details for 0503H. 
+Section ”Notes on [*]arc[*] Commands”, 
+page 36 
+Editorial change. More details.
+
+[p.50]
+innovators for industry
+RTC6 boards and excelliSCAN 
+Doc. Rev. 1.0.11 en-US 
+5 Change Index 
+50
+Notes

@@ -1,0 +1,128 @@
+# 2016-09-16_Driver_e
+
+[p.1]
+RTC®5 Boards
+1
+innovators for industry
+Software Package
+The RTC®5 Board is delivered with a software 
+package including drivers and DLL files for Microsoft 
+Windows operating systems. The RTC®5 drivers 
+support the plug and play capability of the RTC®5 
+and simultaneously drive any number of RTC®5 
+Boards. RTC®5 DLL files contain the functions which 
+can be called by RTC®5 commands. 
+• RTC®5 drivers and RTC®5 DLL files included in 
+RTC®5 software packages of version 2013_02_21 
+and later (with version DLL 535) are designed 
+for 32-bit as well as 64-bit versions of Microsoft 
+Windows 10, 8, 7, Vista, XP SP2, XP SP3. 
+RTC®5 DLL files from these packages do not 
+support Microsoft Windows 2000 and XP SP1. 
+• RTC®5 drivers and RTC®5 DLL files included in 
+RTC®5 software packages of version 2011_09_29 
+through 2012_09_05 (with version 
+DLL 528…DLL 535) are designed for Microsoft 
+32-bit as well as 64-bit versions of Windows 7, 
+Vista, XP SP2, XP SP3. 
+RTC®5 DLL files from these packages do not 
+support Microsoft Windows 2000 and XP SP1. 
+• RTC®5 drivers and RTC®5 DLL files included in 
+RTC®5 software packages of version 2011_07_27 
+and earlier (with version DLL 527; they have less 
+functionality) are designed for 32-bit versions of 
+Microsoft Windows 7, Vista, XP and 2000.
+Notes 
+• RTC®5 software package version 2013_02_21 
+and later contain (newer) WDF(1) drivers version 
+6.1.7600.16385. Earlier packages contain (older) 
+WDM(2) drivers of version 1.0.4.0 or 2.0.6.0.
+• RTC®5 DLL files version DLL 533 are not 
+compatible with the WDF drivers.
+• RTC®5 DLL files version DLL 535 are compatible 
+with the WDM drivers.
+• In comparison to old WDM drivers, the new WDF 
+driver offers the following new functionality: If 
+init_rtc5_dll is called, then the driver prevents 
+automatic activation of standby or sleep modes 
+(continuously until the next system restart). This 
+enables RTC®5 Boards to continue processing 
+lists autonomously even when the initiating 
+program has already terminated.
+However, standby or sleep modes cannot be 
+prevented if triggered manually or by discharged 
+batteries. Afterward, loaded lists and other 
+settings of the RTC®5 Board are lost. After a 
+wake-up, the board might no longer be correctly 
+addressable. Users themselves must prevent 
+standby or sleep modes prior to the first call of 
+init_rtc5_dll. 
+Windows Drivers 
+• RTC5DRV.sys, RTC5DRVx64.sys, RTC5DRVx86.sys
+RTC®5 driver files
+• RTC5DRV.inf
+Installation file (setup information)
+• RTC5DRV.cat, rtc5drvx64.cat, rtc5drvx86.cat
+Security catalog files
+• amd64/WdfCoInstaller01009.dll, 
+x86/WdfCoInstaller01009.dll
+Installation assistant help files
+• AfterInstallation/ScanlabClassChecker.cmd,
+Security installation script with description in
+ReadMe_ScanlabClassChecker.pdf 
+Caution!
+• The RTC®5 Board does not support power-
+saving modes, that switch off power to the PCI 
+bus. Accordingly, you must disable standby or 
+sleep modes of the operating system (see also 
+note below).
+(1)
+Windows Driver Framework
+(2)
+Windows Driver Model
+
+[p.2]
+RTC®5 Boards
+2
+innovators for industry
+Installing the Drivers
+To install the RTC®5 drivers for Windows 10, 8, 7, 
+Vista, XP SP2, XP SP3, proceed as follows:
+After the RTC®5 Board has been installed, start 
+the computer.
+For Windows 7, Vista, XP SP2 XP SP3: 
+If the “Add Hardware Wizard“ does not come up 
+automatically, call it from the Control Panel.
+In the “Add Hardware Wizard“ specify the 
+directory that includes the RTC®5 drivers. During 
+installation, the operating system automatically 
+selects the appropriate driver file (32- oder 64-
+bit).
+For Windows 10, 8: 
+Open the Device Manager to display the device 
+tree. Look for the “PCI device” entry and update 
+its driver by specifying the directory that includes 
+the RTC®5 driver.
+Driver Upgrade 
+If you wish to perform a complete upgrade from an 
+RTC®5 software package with version 2012_09_05 or 
+earlier (WDM driver) to an RTC®5 software package 
+with version 2013_02_21 or later (WDF driver), then 
+first install only the RTC®5 software files and test your 
+user program’s functionality. Only afterward should 
+you install the new driver, because quickly changing 
+back to older RTC®5 software files is then only 
+possible if you also change the driver (see also notes 
+on page 1).
+If upgrading the driver, also read the notes in 
+ReadMe_ScanlabClassChecker.pdf.
+Typically, the script ScanlabClassChecker.cmd needs 
+to be run, too. 
+Caution!
+• The RTC®5 Board does not support power-
+saving modes that switch off power to the PCI 
+bus. Accordingly, you must disable standby or 
+sleep modes of the operating system. Particu-
+larly disable the Windows sleep mode option 
+(some Windows operating systems enable this 
+option by default). See also the note on page 1.

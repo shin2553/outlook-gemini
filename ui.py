@@ -226,8 +226,8 @@ class SettingsDialog(tk.Toplevel):
             import config as cfg_module
             importlib.reload(cfg_module)
             import gemini_client
-            from google import genai
-            gemini_client._client = genai.Client(api_key=cfg_module.GEMINI_API_KEY)
+            importlib.reload(gemini_client)
+            gemini_client.reset_client()
         except Exception:
             pass
         messagebox.showinfo("저장 완료", "API 키가 저장되었습니다.", parent=self)
@@ -450,7 +450,7 @@ class ProfileDialog(tk.Toplevel):
     def __init__(self, parent):
         super().__init__(parent)
         self.title("답변 주체 프로필 관리")
-        self.geometry("420x320")
+        self.geometry("420x400")
         self.resizable(False, False)
         self.grab_set()  # 모달
 
@@ -911,19 +911,36 @@ class App(tk.Tk):
 
         def _task():
             import pythoncom
+            import traceback
             pythoncom.CoInitialize()
             try:
                 from mail_extractor import extract_mail
-                mail = self._mail = extract_mail()
+                mail = extract_mail()
+
+                # 이전 메일 임시 파일 정리
+                prev = self._mail
+                self._mail = mail
+                if prev is not None:
+                    prev.cleanup()
 
                 from manual_searcher import build_manual_context, get_matched_file_names
                 query = mail.subject + " " + mail.body
                 matched = get_matched_file_names(query)
                 self._manual_context = build_manual_context(query)
 
-                self.after(0, lambda: self._on_mail_loaded(mail, matched))
+                if self.winfo_exists():
+                    self.after(0, lambda: self._on_mail_loaded(mail, matched))
             except Exception as e:
-                self.after(0, lambda: self._on_mail_error(str(e)))
+                err_detail = traceback.format_exc()
+                try:
+                    import os
+                    log_path = os.path.join(os.path.expanduser("~"), "Desktop", "outlook_gemini_error.log")
+                    with open(log_path, "w", encoding="utf-8") as f:
+                        f.write(err_detail)
+                except Exception:
+                    pass
+                if self.winfo_exists():
+                    self.after(0, lambda: self._on_mail_error(str(e)))
             finally:
                 pythoncom.CoUninitialize()
 

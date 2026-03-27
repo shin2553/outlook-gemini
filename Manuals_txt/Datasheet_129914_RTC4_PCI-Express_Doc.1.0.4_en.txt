@@ -1,0 +1,26 @@
+# Datasheet_129914_RTC4_PCI-Express_Doc.1.0.4_en
+
+[p.1]
+RTC4 PCI-Express Board
+Rev. 1.0.4 e
+Configuration Information
+May 24, 2022
+innovators for industry
+Configuration Information
+Product Name and Article Number
+• RTC4 PCI-Express Board: 129914
+Options
+• –12 V at the EXTENSION 2 socket connector 
+(for RTC4 I/O extension board operation)
+Factory Jumper Settings
+(See chapter 8 for details.)
+• Laser Signals: active-low 
+(Jumper X10 open)
+• 9-pin LASER Connector:
+– Pin (2): LASERON Signal
+(Jumper X7 in position 1-2)
+– Pin (4): ANALOG OUT1 Signal
+(Jumper X6 in position 2-3)
+– ANALOG OUT1 Port:
+Output range: 0 V … 10 V
+(Jumper X3 in position 2-3)

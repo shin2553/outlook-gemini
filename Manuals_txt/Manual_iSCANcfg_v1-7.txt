@@ -1,0 +1,537 @@
+# Manual_iSCANcfg_v1-7
+
+[p.1]
+Diagnostic Tool
+for Scan Heads using iDRIVE Technology
+iSCANcfg
+November 20, 2019
+Rev. 1.7 e
+innovators for industry
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2019
+(Doc. Rev. 1.7 e - November 20, 2019)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB.
+All mentioned trademarks are registered trademarks of their respective companies.
+
+[p.3]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+Contents
+3
+innovators for industry
+Contents
+1
+Introduction ....................................................................................................................................... 4
+1.1
+Manufacturer ............................................................................................................................  4
+1.2
+System Requirements ................................................................................................................  4
+2
+Installation ......................................................................................................................................... 5
+3
+Program Start and Connection Setup ............................................................................................... 6
+Recommended procedure .................................................................................................  6
+Automatic RTC board search .............................................................................................  8
+RTC-Ethernet board search ................................................................................................  8
+Automatic connection setup to found RTC boards ............................................................  9
+Automatic connection setup to scan heads .......................................................................  9
+4
+Diagnostics ....................................................................................................................................... 10
+Checking communication ................................................................................................  10
+Checking the current operating status ............................................................................  10
+5
+Settings ............................................................................................................................................ 12
+Selecting the tuning ........................................................................................................  12
+Selecting the scaling ........................................................................................................  12
+Verify settings .................................................................................................................  13
+Saving settings permanently ...........................................................................................  13
+
+[p.4]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+1
+Introduction
+4
+innovators for industry
+1
+Introduction
+This manual describes how to use the iSCANcfg diag-
+nostic tool revision 3.1.0 for the following purposes:
+• Check for proper communication between RTC 
+boards and scan heads using SCANLAB’s iDRIVE 
+technology
+• Check whether a scan head is operational
+• Identify error states and write a scan head’s 
+operational state to a text file
+• Select different scan head tunings (and with it 
+different dynamic performance)
+• Select a scan head’s scaling (1/1, 1/2, 1/4 or 1/8)
+• Save a scan head’s tuning and scaling setting 
+permanently.
+1.1
+Manufacturer
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel.
++49 (89) 800 746-0
+Fax:
++49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+1.2
+System Requirements
+Hardware
+The usage of the iSCANcfg diagnostic tool revision 
+3.1.0 only makes sense under the following condi-
+tions:
+• At least one of the following RTC boards and their 
+drivers must be correctly installed in/at a 
+Windows PC (for installation see the respective 
+manual):
+– RTC6 Ethernet
+– RTC6 PCI Express
+– RTC5 PCI Express
+– RTC5 PCI
+– RTC5 PC/104-Plus
+– RTC5 PCIe/104
+– RTC4 PCI Express
+– RTC4 PCI
+• At least one scan head using SCANLAB’s iDRIVE 
+technology (e.g. intelliSCAN, intellicube, 
+intelliWELD or intelliDRILL) should be properly 
+connected to one of these RTC boards.
+Operating system
+The iSCANcfg diagnostic tool revision 3.1.0 is a 
+dialog-based Win32 application usable with the 
+following Microsoft operating systems:
+• MS Windows 7
+• MS Windows 8
+• MS Windows 10
+
+[p.5]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+2
+Installation
+5
+innovators for industry
+2
+Installation
+Before installing the iSCANcfg software, ensure 
+that the drivers for the corresponding RTC boards 
+are installed on the PC in which your RTC boards 
+are installed.
+Copy all the following files to a directory on your 
+PC:
+– iScanCfg.exe
+– RtcHalDLL.dll
+Depending on the RTC boards installed, 
+additionally copy the following RTC software files 
+listed in the following table into the same 
+directory of your PC:
+– Preferably copy the files from the latest RTC 
+software package (this can be downloaded 
+from the SCANLAB website if required), other-
+wise copy the files from RTC software packages 
+with a minimum version as listed in the table.
+– For RTC6 boards, the board’s BIOS version must 
+also be taken into account (RTC6 software 
+packages contain a BIOS file, too).
+RTC board
+Files to copy
+Minimum required RTC software package version
+(appropriate for iSCANcfg revision 3.1.0)
+RTC6 Ethernet
+RTC6Dat.dat
+RTC6DLL.dll
+RTC6ETH.out
+RTC6RBF.rbf
+RTC6_Software_Package_Rev.1.3.2_2018_01_23.zip
+DAT 601, DLL 608, OUT 608, RBF 611
+BIOS version 21 (BIOS file RTC6BIOSETH_21.out)
+RTC6 PCI Express
+RTC6Dat.dat
+RTC6DLL.dll
+RTC6OUT.out
+RTC6RBF.rbf
+RTC6_Software_Package_Rev.1.3.1_2017_11_09.zip
+DAT 601, DLL 607, OUT 607, RBF 611
+BIOS version 21 (BIOS file RTC6BIOSOUT_21.out)
+RTC5 PCI Express,
+RTC5 PCI,
+RTC5 PC/104-Plus
+RTC5 PCIe/104
+RTC5Dat.dat
+RTC5DLL.dll
+RTC5Out.out
+RTC5RBF.rbf
+RTC5_Software_2009_09_24.zip
+DAT 500, DLL 515, OUT 514, RBF 512
+RTC4 PCI Express,
+RTC4 PCI
+RTC4D2.hex
+RTC4DLL.dll
+any version
+
+[p.6]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+3
+Program Start and Connection Setup
+6
+innovators for industry
+3
+Program Start and 
+Connection Setup
+Recommended procedure
+Launch the iSCANcfg program by double-clicking 
+iScanCfg.exe or an appropriately created 
+desktop symbol. 
+The main program window appears. The following is 
+displayed there after a search run started automati-
+cally by iSCANcfg:
+• RTC software files located in the program 
+directory (see the ’Event log’ window on the 
+right)
+• Installed RTC PCI and PCI-Express boards and the 
+scan heads connected to them (see the ’Event 
+Log’ window on the right and the tree structure 
+in the ’System info’ window on the left).
+Figure 1 shows an example display of the main 
+program window after such a search run.
+Searching for installed RTC Ethernet boards is not 
+performed automatically. Herefore, proceed as 
+follows (see the following sections for details):
+Open the 'Eth > Eth settings' menu.
+Optionally double-click on the desired network 
+interface controller in the 'NIC addresses' list of 
+the 'Eth settings' window (double-click on the 
+controller to which the RTC Ethernet boards to be 
+searched for are connected).
+Optionally select the appropriate search type.
+Optional specify a search range.
+Click on the 'Search' button.
+In the 'Found Eth boards' list, select the desired 
+RTC Ethernet boards via checkbox.
+Click on the button 'Acquire selected boards'.
+Now the selected RTC Ethernet boards and the scan 
+heads connected to them should also be displayed in 
+the main program window – if necessary together 
+with the RTC PCI and PCI Express boards installed on 
+the PC and the scan heads connected to them (see 
+figure 2 on page 7).
+ 
+1
+
+[p.7]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+3
+Program Start and Connection Setup
+7
+innovators for industry
+ 
+Via menu 'Eth >Clear Eth boards' (see figure 3),
+the listed RTC Ethernet boards can be removed from 
+the tree structure of the system info window.
+ 
+2
+3
+
+[p.8]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+3
+Program Start and Connection Setup
+8
+innovators for industry
+Automatic RTC board search
+• iSCANcfg only searches for RTC boards, for which 
+suitable software files are located in the program 
+directory (see chapter 2 on page 5).
+• iSCANcfg automatically starts a search run for 
+RTC PCI and PCI Express boards after program 
+launch. In case of success, iSCANcfg will automat-
+ically attempt to set up a connection to these 
+boards and the connected scan heads, too.
+RTC-Ethernet board search
+• iSCANcfg does not automatically search for RTC 
+Ethernet boards.
+• After opening menu 'Eth > Eth settings' (see 
+figure 4), iSCANcfg automatically searches for all 
+network interface controllers of the PC and lists 
+them under 'NIC addresses'. Additionally 
+iSCANcfg displays the assigned Broadcast IPv4 
+address of the first network interface controller 
+(from the list) under 'Search-IP' and 'Netmask' (see 
+figure 5).
+ 
+• After double clicking on one of the network 
+interface controllers listed in 'NIC addresses', 
+iSCANcfg displays the assigned broadcast IPv4 
+address of the selected network interface 
+controller under 'Search IP' and 'Search Netmask'.
+• The search type should be selected according to 
+the respective network (e.g. according to the 
+network guidelines). The following types can be 
+selected:
+– ’Broadcast’
+– ’IP scan' for searching for RTC Ethernet boards 
+in a specific IP search range [IP range start ... 
+IP range end]: The width of the search range is 
+limited to 1024 by iSCANcfg. If the search 
+range width is too large, a corresponding error 
+message is displayed ('IP range too large'). See 
+also figure 6.
+• After clicking the 'Search' button, iSCANcfg starts 
+a one-time search for RTC Ethernet boards.
+– With a 'Broadcast' search the specified subnet is 
+searched, with an 'IP scan' search the specified 
+IP search range is searched.
+– Found boards are listed in the 'Found Eth 
+boards' window with IP address, serial number 
+and board type (see figure 6). iSCANcfg auto-
+matically sets the selection checkboxes for all 
+boards. If you do not want to acquire certain 
+RTC Ethernet boards listed in the list, deactivate 
+their checkboxes in the window 'Found Eth 
+boards'.
+– Each search refreshes the list. A simultaneous 
+use of several Ethernet boards in different sub-
+nets is currently only possible if their subnets 
+are so close to each other that the relevant IP 
+range can be searched with a single 'IP scan' 
+search.
+4
+5
+6
+
+[p.9]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+3
+Program Start and Connection Setup
+9
+innovators for industry
+• In case an Ethernet board is not found by 
+iSCANcfg with the procedure described above, 
+this could be due to the following reasons:
+– The board may be not powered or connected 
+incorrectly.
+– The board’s IP configuration has been set such 
+that – although it might be reached via one of 
+the found network interface controllers – it is 
+located in a different subnet (than searched via 
+'Search IP' and 'Search Netmask') or its IP 
+address is not in the specified IP search range.
+– The IP configuration of the board has been set 
+such that it is located in a subnet that cannot 
+be reached by the PC (e.g. because the firewall 
+blocks the board search).
+• After clicking the 'Acquire selected boards' 
+button, iSCANcfg (also) lists the found RTC 
+Ethernet boards in the tree structure in the 
+’System info’ window. iSCANcfg will then 
+automatically attempt to set up a connection to 
+these boards and the connected scan heads, too. 
+The listed RTC Ethernet boards can be removed 
+from the ’System info’ window’s tree structure 
+via menu 'Eth >Clear Eth boards'.
+Automatic connection setup to found 
+RTC boards
+• iSCANcfg tries to initialize and acquire the found 
+RTC boards (found RTC Ethernet boards only 
+after 'Acquire selected boards') and displays the 
+corresponding result in the ’Event Log’ window 
+(right) and in the ’System Info’ window (left):
+– In case of success: 'OK’
+– Otherwise: an error message
+• In case of success, iSCANcfg also displays 
+metadata of the respective RTC boards in the tree 
+structure of the ’System info’ window.
+• An error may occur if initialization and acquisition 
+of an RTC board is blocked because the board has 
+already been acquired by another program.
+iSCANcfg can only establish a connection to an 
+RTC board if the board has not already been 
+acquired by another program. Therefore, 
+iSCANcfg cannot be used to monitor a scan head 
+during a running RTC user program.
+Conversely, no other RTC user program can use 
+an RTC board if iSCANcfg has acquired this RTC 
+board before and has not yet released it again 
+(PCI and PCI Express boards will be released only 
+by closing iSCANcfg, RTC Ethernet boards also by 
+deleting them from the tree structure).
+• If the connection state between PC and an RTC 
+board changes, iSCANcfg automatically updates 
+the display in the main program window.
+– If connection to an RTC board is interrupted for 
+any reason, this will be displayed as 'BOARD 
+ERROR' in the ’Event Log’ window and in the 
+’System info’ window.
+– If connection to an RTC Ethernet board is inter-
+rupted, the connection will not be automati-
+cally resumed when the disturbing cause has 
+been eliminated. To do this, first click on 
+'Acquire selected boards' again.
+Automatic connection setup to scan 
+heads
+• iSCANcfg automatically checks if scan heads with 
+SCANLAB iDRIVE technology are connected to 
+acquired RTC boards and lists the found scan 
+heads in the ’Event log’ window and in the 
+’System Info’ window. In the ’System info’ 
+window iSCANcfg additionally displays status 
+information of the found scan heads in the tree 
+structure.
+• If the connection state between RTC board and 
+the connected scan head changes, the display is 
+updated.
+• Scan heads without iDRIVE technology are not 
+displayed by iSCANcfg.
+
+[p.10]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+4
+Diagnostics
+10
+innovators for industry
+4
+Diagnostics
+Checking communication
+Notes on checking the communication between PC 
+and RTC boards or between RTC boards and the 
+connected scan heads:
+• A working communication is displayed as 'OK' in 
+the ’Event log’ window.
+• Errors may also be displayed in the tree structure 
+of the ’System Info’ window.
+Checking the current operating 
+status
+To check the metadata of an RTC board or the 
+operating state parameters or settings of a scan 
+head, expand the desired folders and subfolders 
+by clicking the corresponding symbol in the tree 
+structure of the ’System info’ window (see 
+figure 7).
+Select 'File > Save' from the menu bar. The 
+individual operating state parameters and 
+settings of the RTC boards and scan heads are 
+then written to a text file.
+ 
+7
+
+[p.11]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+4
+Diagnostics
+11
+innovators for industry
+If iSCANcfg identifies a malfunction of a scan head, 
+iSCANcfg automatically expands the corresponding 
+folders/subfolders in the tree structure (see example 
+in figure 8).
+•
+ indicates malfunctions which leads to a 
+switch-off of a galvo power stage.
+•
+ indicates malfunctions, which do not lead to 
+a switch-off of a galvo power stage.
+Malfunctions can be caused, for example, by 
+exceeding the critical temperature during a previ-
+ously executed (and ended) user program.
+ 
+8
+
+[p.12]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+5
+Settings
+12
+innovators for industry
+5
+Settings
+Additional to the diagnostic function, iSCANcfg lets 
+you perform the following scan head settings:
+• Selecting the tuning
+• Selecting the scaling
+• Saving the settings permanently
+Notes:
+• The settings described below will be performed 
+via the menu bar. The menu bar becomes visible, 
+once communication with the scan head is estab-
+lished.
+• These settings are not possible with an 
+excelliSCAN scan head.
+Selecting the tuning
+Diverse applications have differing requirements 
+regarding the laser positioning dynamics. iDRIVE® 
+scan systems can be equipped with multiple tunings 
+with different dynamic performance.
+Select the desired tuning (within the iSCANcfg 
+program called “controller”) via the menu 
+’Commands > RTC number, Head number > 
+Select control > Select controller...’ (see figure 9).
+ 
+Selecting the scaling
+The scaling lets you (down) scale the position values 
+received from the RTC by a specific factor (1/1, 1/2, 
+1/4 or 1/8). Thereby, the scan area can be confined to 
+a smaller angular range (see RTC5 or RTC6 manual). 
+Select the desired the scaling of the input/output 
+signals via the menu ’Commands > RTC number, 
+Head number > Set position down scaling > 
+Set position * ...’ (see figure 10).
+ 
+9
+10
+
+[p.13]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+5
+Settings
+13
+innovators for industry
+Verify settings
+The current settings can be verified by expanding the 
+corresponding folder (both below ’Axis 1’ and 
+’Axis 2’, see figure 11):
+• Tuning: ’Axis...\Galvo control’
+• Scaling: ’Axis...\Condition\Options’
+ 
+Saving settings permanently
+The scan head settings described above are reset to 
+default after power cycling.
+If current settings shall get persistent, then save 
+them permanently in the flash memory via the 
+menu ’Commands > RTC number, Head number 
+> Save settings permanently’ (see figure 12).
+ 
+11
+12
+
+[p.14]
+Diagnosis Tool iSCANcfg
+Rev. 1.7 e
+Notes
+14
+innovators for industry
+Notes

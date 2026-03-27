@@ -13,7 +13,10 @@ a = Analysis(
         # pywin32 / Outlook COM
         'win32com',
         'win32com.client',
+        'win32com.client.dynamic',
+        'win32com.client.gencache',
         'win32com.server',
+        'win32com.server.util',
         'win32com.shell',
         'pywintypes',
         'pythoncom',
@@ -31,7 +34,7 @@ a = Analysis(
     ],
     hookspath=[],
     hooksconfig={},
-    runtime_hooks=[],
+    runtime_hooks=['hook_win32com.py'],
     excludes=[
         'matplotlib',
         'PyQt5',

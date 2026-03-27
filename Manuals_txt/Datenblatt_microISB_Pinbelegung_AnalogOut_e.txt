@@ -1,0 +1,33 @@
+--- Page 1 ---
+
+© SCANLAB GmbH 2016
+innovators for industry
+microISB Digital Interface Board
+Pin-out
+Pin-out of the digital power input connector
+CLOCK – (1)
+SYNC – (3)
+CHAN1 – (5)
+CHAN2 – (7)
+DO NOT CONNECT (9)
+STATUS2 – (11)
+DO NOT CONNECT (13)
+STATUS1 – (15)
++30 V (17)
++30 V (19)
+GND (21)
+DO NOT CONNECT (23)
+ANALOG OUT 1 (25)
+(2) CLOCK+
+(4) SYNC+
+(6) CHAN1+
+(8) CHAN2+
+(10) DO NOT CONNECT
+(12) STATUS2+
+(14) DO NOT CONNECT
+(16) STATUS1+
+(18) +30 V
+(20) GND
+(22) GND
+(24) ANALOG OUT 2
+(26) COOLING PLATE

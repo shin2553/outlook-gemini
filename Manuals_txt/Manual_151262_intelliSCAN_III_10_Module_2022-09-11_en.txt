@@ -1,0 +1,2129 @@
+# Manual_151262_intelliSCAN_III_10_Module_2022-09-11_en
+
+[p.1]
+intelliSCAN III 10 Module, 355 nm, digital SL2-100
+Installation and 
+Operation
+intelliSCAN III 10 Module
+digital SL2-100, 355 nm
+Installation and
+Operation
+September 11, 2022
+
+[p.2]
+SCANLAB GmbH 
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+www.scanlab.de
+info@scanlab.de
+© SCANLAB GmbH 2022
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB.
+All mentioned trademarks are registered trademarks of their respective companies.
+
+[p.3]
+Contents
+1
+Delivery .....................................................................................................................4
+1.1
+Package and Unpacking Instructions ..................................................................... 4
+1.2
+About this Operating Manual................................................................................ 4
+1.3
+Article Number and I.D. Plate ................................................................................ 4
+1.4
+Manufacturer ........................................................................................................ 5
+2
+Safety during Installation and Operation.................................................................6
+2.1
+Safety and Warning Symbols used in these Operating Instructions ....................... 6
+2.2
+Intended Use ......................................................................................................... 6
+2.3
+Safety during Installation and Start up of the Scan Module .................................. 7
+2.3.1
+Steps for Safe Operation ............................................................................ 7
+2.3.2
+Safety Procedures that the Customer is Responsible for............................. 8
+2.3.3
+Electrical Safety ........................................................................................ 10
+2.4
+Electromagnetic Compatibility............................................................................. 10
+2.5
+Conformity to Guidelines..................................................................................... 10
+3
+The intelliSCAN III 10 Module – Principle of Operation..........................................11
+3.1
+Deflection Mirrors................................................................................................ 11
+3.2
+Objective ............................................................................................................. 12
+4
+Installation..............................................................................................................13
+4.1
+Preparation of the Scan Module for Mounting.................................................... 13
+4.1.1
+Mounting the Objective on the Scan Module ........................................... 13
+4.2
+Scan Module Assembly........................................................................................ 14
+4.2.1
+Assembly of the Galvanometer Holder ..................................................... 14
+4.2.2
+Cable Connections.................................................................................... 17
+4.2.3
+Installation of the Electronic..................................................................... 18
+4.3
+Electrical Connection........................................................................................... 21
+4.3.1
+Power Supply............................................................................................ 21
+4.3.2
+Data Transfer ............................................................................................ 22
+4.3.3
+Data Cable Guidelines .............................................................................. 23
+5
+Start up ...................................................................................................................24
+5.1
+Installation Examination ...................................................................................... 24
+5.2
+Data Transmission between the Scan Module and the Control............................ 24
+5.2.1
+Returned Data Signals .............................................................................. 24
+5.3
+Reference System for the Input Signal................................................................. 28
+5.4
+Assuring Safe Operating Temperatures................................................................ 29
+5.5
+Monitoring the Scan Range................................................................................. 29
+6
+Servicing, Maintenance, Repairs and Disposal .......................................................30
+6.1
+Servicing.............................................................................................................. 30
+6.1.1
+Regular Cleaning of the Optical Surfaces.................................................. 30
+6.2
+Disposal............................................................................................................... 30
+7
+Troubleshooting......................................................................................................31
+8
+Customer Service ....................................................................................................32
+9
+Warranty .................................................................................................................33
+10 Technical Specifications – intelliSCAN III 10 Module .............................................. 34
+
+[p.4]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+1 Delivery
+4
+1
+Delivery
+1.1
+Package and Unpacking 
+Instructions 
+> Carefully remove the scan module from the
+package. 
+> Keep the packaging, so that in case of repair
+the scan module can be repackaged properly
+and sent back to SCANLAB.
+Check that all parts have been delivered.
+The intelliSCAN III 10 Module is designed for a
+laser with a wavelength of 355 nm, aimed
+through an aperture of 10 mm (see section 3). 
+The scan module is designed for digital signal
+processing via the DSIB-SL digital interface
+board.
+Included in the package are the 10 mm galva-
+nometer 
+holder 
+with 
+two 
+galvanometer
+scanners and mirrors, two DSCB digital control
+boards, and an DSIB-SL digital interface board.
+1.2
+About this Operating 
+Manual
+This operating manual is a part of the device.
+Please keep it available for servicing, mainte-
+nance, repairs and disposal. These instructions
+or a copy thereof should be handed over if this
+device is disposed of.
+SCANLAB reserves the right to update these
+operating instructions at any time and without
+any notification.
+1.3
+Article Number and I.D. 
+Plate
+The scan module has the following article 
+number:
+135705
+The scan module’s I.D. plate (see figure 1) with 
+the scan module’s serial number is found on the 
+galvanometer holder.
+1
+I.D. plate with serial number (SN)
+	
+	
+	
+
+
+
+intelliSCAN III 10
+355 nm
+
+[p.5]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+1 Delivery
+5
+innovators for industry
+1.4
+Manufacturer 
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel.
++49 (89) 800 746-0
+Fax:
++49 (89) 800 746-199
+www.scanlab.de
+info@scanlab.de
+
+[p.6]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+2 Safety during Installation and Operation
+6
+2
+Safety during Installation and Operation
+Please 
+read 
+these 
+operating 
+instructions
+completely before you begin with the instal-
+lation and operation of the scan module. If you
+have any questions regarding the contents or
+anything is unclear, please contact SCANLAB.
+2.1
+Safety and Warning 
+Symbols used in these 
+Operating Instructions
+The following symbols are used in this manual: 
+2.2
+Intended Use
+The intelliSCAN III 10 Module is an OEM version
+which is intended for an integration into a
+system with a proper housing.
+The scan module is designed for applications
+that demand a two dimensional positioning of
+a laser beam on a working plane. The
+wavelength of the input rays should correspond
+to the layout of the scan module. The maximum
+rating for the input aperture and laser power
+should not be exceeded. Follow the specifica-
+tions for the input signal and power supply. If
+your application requires different specifica-
+tions, please contact SCANLAB.
+For storage, operation and servicing, make sure
+the following environmental conditions are
+met: 
+> The storage temperature for the scan
+module should be between – 35 °C and
++60 °C.
+> The operating temperature is 25 °C ± 10 °C.
+> The environment should not be damp or
+corrosive.
+Install and operate the scan module according
+to this operating manual.
+Instructions that may affect a
+persons health are marked with a
+warning triangle next to the
+word "Danger". 
+Instructions 
+that 
+recommend
+appropriate use of this device or
+warn of damage that may occur to
+it are identified by a circle with an
+"X" through it, next to the word
+"Caution".
+!
+
+[p.7]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+2 Safety during Installation and Operation
+7
+innovators for industry
+2.3
+Safety during Installation and 
+Start up of the Scan Module
+To reduce the risk of injury, please observe the
+following instructions:
+2.3.1Steps for Safe Operation
+Danger!
+• During assembly or operation of the scan
+module, never stare directly into the laser
+beam or its deflected radiation. Keep all
+parts of the body away from the laser
+beam and its path. For servicing closely
+follow the procedure in section 6 and
+observe all safety instructions.
+• Adjust the path of the output beam of the
+scan module by means of a Class 2 laser.
+If this is not possible, the laser should be
+operated at the lowest power. Avoid
+dangerous deflected radiation.
+• The danger of damaging deflected
+radiation can increase when optical
+instruments are used in combination with
+the scan module.
+• Before checking the scan module make
+absolutely sure that laser and scan
+module are turned off.
+• Cover the path of the laser beam to block
+laser radiation.
+• Do not obstruct the movement of the
+mirrors in the scan module in any way.
+When the scan module is turned on, the
+mirrors must not be touched at all. 
+• Follow all applicable laser safety regula-
+tions closely.
+• Safety regulations may differ from coun-
+try to country. It is the responsibility of the
+customer to comply with all local regula-
+tions.
+• Wear appropriate eye protection at all
+times.
+!
+Caution!
+• The 
+galvanometer 
+holder 
+and 
+the
+electronic boards must be securely
+fastened. Please pay attention to the
+information given in Chapter 4.2 "Scan
+Module Assembly", page 14.
+• No stress should be applied to the boards
+and cables.
+• Protect the scan module from humidity,
+dust and corrosive vapours to avoid
+damage to the mirrors, optics and
+electronics. 
+• Touch the optical components only with
+cotton gloves and special lens cleaning
+tissues.
+• Avoid electromagnetic fields and static
+electricity. 
+These 
+can 
+damage 
+the
+electronics of the interface and the
+amplifier boards. Therefore protect the
+scan 
+module 
+with 
+an 
+appropriate
+housing.
+• Follow 
+the cleaning instructions of
+section 6.
+• The coating of the mirrors can handle a
+maximum power density of 300 W/cm2
+continuous wave. Do not exceed this
+rating. 
+For a laser power higher than 100 W
+contact SCANLAB.
+
+[p.8]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+2 Safety during Installation and Operation
+8
+innovators for industry
+2.3.2Safety Procedures that the 
+Customer is Responsible for
+The scan module is usually operated in conjunction
+with a laser. Therefore, before installation and oper-
+ation, all regulations for safe operation of lasers must
+be known and applied. Since SCANLAB has no influ-
+ence over the employed laser, the customer is solely
+responsible for safe operation of the laser together
+with the scan module.
+Shutter
+The scan module has no shutter and there is no
+device to decrease the laser output power. It is the
+responsibility of the customer to include such a
+device in the system in a way as to comply with all
+regulations. The observance of laser safety for the
+entire assembly of the system must be ensured. 
+Maintenance
+During maintenance of the laser equipment, the class
+of the laser can increase. Therefore, the customer
+must take suitable protective measures. 
+Warning symbols
+According to VBG 93 and VBG 125 a warning symbol
+indicating the class of the employed laser must be
+put up such that the area is marked where the
+emerging beam is harmful. In addition, a warning
+symbol must be placed at the emitting aperture of
+the laser system. The table on page 9 shows the
+appropriate warning symbols for the various laser
+classes according to VBG 93.
+Danger!
+• The operation of the scan module must
+comply with all applicable safety regula-
+tions.
+• Safety regulations may differ from coun-
+try to country. It is the responsibility of the
+customer to comply with all local regula-
+tions.
+!
+
+[p.9]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+2 Safety during Installation and Operation
+9
+innovators for industry
+Laser Classes: 
+Visible Laser Radiation
+Invisible Laser Radiation
+LASER CLASS 1
+LASER CLASS 1
+Class 1:
+This laser radiation is not
+harmful.
+LASER RADIATION
+DO NOT STARE DIRECTLY 
+INTO THE BEAM
+LASER CLASS 2
+Class 2:
+This laser radiation is in the
+visible spectrum of 400 to
+700 nm. Exposure to this radi-
+ation for less than 0.25 s is
+not harmful to the eyes.
+LASER RADIATION
+DO NOT STARE DIRECTLY 
+INTO THE BEAM WITH OR 
+WITHOUT OPTICAL 
+INSTRUMENTS
+LASER CLASS 3A
+INVISIBLE LASER RADIATION
+DO NOT STARE DIRECTLY 
+INTO THE BEAM WITH OR 
+WITHOUT OPTICAL 
+INSTRUMENTS
+LASER CLASS 3A
+Class 3A:
+Exposure to this radiation is
+harmful to the eyes if optical
+instruments 
+are 
+used 
+to
+reduce the cross section of
+the laser beam. If this is not
+the case and the laser radia-
+tion has a wavelength of 400
+to 700 nm, exposure for up to
+0.25 s is not harmful. For
+other wavelengths, longtime
+exposure is also not harmful.
+LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3B
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3B
+Class 3B:
+This laser radiation is harmful
+to the eyes and in some cases
+to the skin.
+LASER RADIATION
+AVOID ANY EXPOSURE OF 
+THE EYES OR THE SKIN TO 
+DIRECT OR SCATTERED 
+RADIATION
+LASER CLASS 4
+INVISIBLE LASER RADIATION
+AVOID ANY EXPOSURE OF 
+THE EYES OR THE SKIN TO 
+DIRECT OR SCATTERED 
+RADIATION
+LASER CLASS 4
+Class 4:
+This laser radiation is very
+harmful to the eyes and skin.
+Stray radiation can also be
+dangerous. This radiation can
+cause fire or explosion.
+
+[p.10]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+2 Safety during Installation and Operation
+10
+innovators for industry
+When operating the scan module, the following
+guidelines and standards should be followed:
+• EC-Guideline 73/23/EWG 
+Low Voltage Guidelines
+• EC-Guideline 89/336/EWG
+Electromagnetic Compatibility 
+(including changes 92/31/EWG)
+• EC-Guideline 89/392/EWG
+Machine Guidelines (including changes 
+91/368/EWG and 93/44/EWG)
+• EN 60825
+Laser Equipment Safety, Part 1 (1994 Edition):
+Classification of Equipment, Demands and User
+Guidelines (VDE 0836)
+• EN 60204
+Electrical Equipment Part 1: 
+General Demands (June 1993)
+2.3.3Electrical Safety
+The scan module is powered by low voltage. The
+power supply of the scan module must meet the
+following requirements: 
+If the connectors are covered and cannot be reached
+without tools from the outside, single separation
+between mains and low voltage circuit with a test
+voltage of 2 kV AC is sufficient.
+If the connectors can be reached from the outside,
+double or reinforced isolation between mains and
+low voltage circuit with a test voltage of 4 kV is
+necessary. 
+2.4
+Electromagnetic Compati-
+bility
+The customer is responsible for the observance of the
+electromagnetic compatibility, for example by assem-
+bling the scan module in an appropriate housing.
+2.5
+Conformity to Guidelines
+The following guidelines have been complied with:
+• EC-Guideline 89/392/EWG
+• EC-Guideline 73/23/EWG
+Please contact SCANLAB for further information
+about this product and applicable guidelines. For the
+address see section 8 "Customer Service", page 32.
+Caution!
+• The electronic boards must be securely
+fastened and protected.
+
+[p.11]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+3 The intelliSCAN III 10 Module – Principle of Operation
+11
+3
+The intelliSCAN III 10 Module – Principle of 
+Operation
+The scan module deflects a parallel beam of rays
+in XY direction. Figure 2 shows the principle of
+operation. The beam enters the scan module
+through the input aperture. Once inside, the
+beam hits mirror 1 on galvanometer scanner 1,
+then it is deflected by mirror 2 on galvanometer
+scanner 2. The deflection angle is determined
+by the adjustable position of the galvanometer
+scanner. The beam leaves the scan module
+through the output opening that can carry an
+F-Theta objective.
+The F-Theta objective focuses the parallel beam
+of rays on the working plane. With the F-Theta
+objective, the angle of incidence of the beam
+and the position of the focal point on the image
+field are directly proportional.
+The pillow-barrel-shaped distortion of the
+square image field is caused by the path of the
+beam in the scan module and by the objective.
+This field distortion must be compensated by
+the control. See section 5.3 "Reference System
+for the Input Signal", page 28.
+The scan module is designed for a parallel beam
+of rays with a defined maximum diameter that
+is marked as aperture. A beam within this
+device should not exceed this diameter.
+3.1
+Deflection Mirrors
+The deflection mirrors are intended for a
+specific beam diameter, called aperture. This
+diameter affects the characteristics of the
+optical image. The way the deflection mirrors
+are designed for a specific aperture affects the
+dynamic behaviour of the scan module. The
+aperture of the deflection mirrors is 10 mm. The
+use of beams that have a larger diameter inside
+the scan module might result in damages.
+The deflection mirrors have a dielectrical high
+performance coating: The coating is designed
+for a defined wavelength. 
+• The mirrors are designed for a wavelength of 
+355 nm.
+• At a wavelength of 355 nm, the maximum
+laser 
+power 
+density 
+of 
+300 W/cm2
+2
+1
+2
+3
+4
+5
+6
+8
+Legend:
+1 Beam entrance
+2 Mirror 1
+3 Galvanometer scanner 1
+4 Mirror 2
+5 Galvanometer scanner 2
+6 F-Theta objective
+7 Beam exit
+8 Image field
+7
+The parallel beam of rays is 
+deflected by two 
+galvanometer scanners
+
+[p.12]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+3 The intelliSCAN III 10 Module – Principle of Operation
+12
+innovators for industry
+continuous wave may not be exceeded.
+• If you wish to use a laser with a power higher than
+100 W, please contact SCANLAB.
+• The mirror reflectivity using a wavelength of 355 nm
+is more than 99.5% over the whole range of angles.
+> Make sure the aperture and the coating of the
+deflection mirrors meet the requirements of your
+application. For tolerances and deviations, please
+contact SCANLAB.
+3.2
+Objective 
+The objective has to have the matching focal length
+and be set up for the used wavelength. The distance
+A between the laser input and the image field
+(figure 3) and the size of the image field depend on
+various factors, e.g. the focal length of the objective
+and the aperture of the scan module. Furthermore,
+the distance A depends on the divergence of the
+input beam.
+Due to the mechanical dimensions of the mirrors in
+the scan module, some vignetting of the beam can
+occur, if the scan angle exceeds a certain value. That
+means, a part of the beam can not any more be lead
+by the mirrors. This part of the beam is absorbed by
+the scan module resulting in a loss of power.
+Furthermore the interior of the scan module might be
+damaged due to the absorption of laser radiation.
+Using a gaussian beam profile, the vignetting of the
+laser beam is insignificant, if the scan angle of each
+mirror does not exceed the size of the "maximum
+scan angle" 
+defined in chapter 10 "Technical Specifications
+intelliSCAN III 10 Module".
+Caution!
+• Using scan angles exceeding the size of
+the maximum scan angle indicated in
+chapter 10, some vignetting inside the
+scan module can occur and the interior of
+the scan module might be damaged.
+If your application requires other scan
+angles, please contact SCANLAB.
+3
+Legend
+1 Beam entrance
+2 Scan module
+3 Emerging beam
+4 Image field
+A Distance 
+beam entrance –    
+image field
+
+
+
+
+
+Distance A between beam 
+entrance and image field
+
+[p.13]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+4 Installation
+13
+4
+Installation
+4.1
+Preparation of the Scan 
+Module for Mounting 
+4.1.1Mounting the Objective on 
+the Scan Module
+If the objective is not mounted on the galva-
+nometer holder by the manufacturer, then an
+objective holder is mounted
+Danger!
+• Make sure all components of the system
+(laser, control, voltage supply, computer)
+are switched off before installation.
+• During installation of the scan module,
+never stare directly into the laser beam or
+in any of its deflected radiation.
+• Never hold parts of the body into the
+direct path of the laser or its deflected
+radiation.
+• After the scan module has been mounted
+there is a cone-shaped dangerous laser
+output area. Do not stare into the laser or
+its deflected radiation. Keep all parts of
+the body away from the laser beam.
+Caution!
+• Protect the scan module and the objective
+from any kind of dirt.
+• Follow 
+the 
+operating 
+and 
+storage
+instructions. See section 2.2 "Intended
+Use", page 6.
+• Follow each step for mounting and
+electrical connection in the correct order
+as outlined in this operating manual.
+!
+Caution!
+• Never touch the optical surfaces of the
+deflection mirrors or of the objective.
+• Carefully take the scan module out of the
+packaging.
+• The objective is very sensitive and can be
+damaged by mechanical stress.
+• Never place the scan module on top of the
+objective.
+Caution!
+• Do not touch the optical surface of the
+objective.
+• Before mounting the objective make sure
+that a combination of the objective and
+the objective holder is possible. Otherwise
+damage to the objective and the mirrors
+in the scan module can occur.
+If anything is unclear, please contact
+SCANLAB.
+• The orientation of the objective holder
+must be identical with the orientation
+adjusted by SCANLAB.
+• Use only the original objective holder
+from SCANLAB. Otherwise you risk
+damages of the mirrors inside the scan
+module.
+
+[p.14]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+14
+innovators for industry
+To mount the objective, follow these instructions:
+> Carefully remove the protective covering of the
+beam output on the scan module (e.g. with a
+small screwdriver). 
+> Check the objective for scratches, flaws and
+particles of dirt. If necessary clean it according to
+section 6.1.1 "Regular Cleaning of the Optical
+Surfaces", page 30.
+> Lubricate the thread on the objective with vacuum
+grease.
+> Screw the objective onto the scan module and
+carefully tighten it by hand.
+4.2
+Scan Module Assembly
+To install the scan module, the galvanometer holder
+with the galvanometer scanners and the electronic
+boards have to be mounted.
+4.2.1Assembly of the Galvanometer 
+Holder
+The illustrations for this section are found on page 15
+and 16. 
+Figure 4 shows the galvanometer holder with the
+two galvanometer scanners, the mounting assembly
+and dimensions. Alignment pins and screws are not
+included in the package. Figure 5 depicts the position
+of the laser input at the input side of the galva-
+nometer holder. The laser beam axis must be
+identical with the laser input axis of the galva-
+nometer holder. The installation of the galvanometer
+holder has to be performed with the indicated
+alignment pins and screws – see figure 4.
+Figure 5 also shows a bottom view of the galva-
+nometer holder with the beam displacement of the
+laser input axis and the middle of the objective or the
+emerging beam. The deflecting mirrors are in a
+neutral position. Mount the galvanometer holder in
+the following manner:
+> Carefully remove the protective covering of the
+laser input on the mounting bracket. (e.g. with a
+small screwdriver).
+> Fix the alignment with two alignment pins 4h6 in
+the fitting holes.
+> Fasten the galvanometer holder with four screws
+having M6 threads. 
+Caution!
+• Do not change the position of the
+galvanometer 
+scanners 
+in 
+the
+galvanometer 
+holder 
+adjusted 
+by
+SCANLAB.
+• Never 
+open 
+the 
+screws 
+of 
+the
+galvanometer scanners.
+• Use only the bore holes shown in figures
+4 and 5. Other holes can not be used for
+fastening the galvanometer holder or for
+any other purposes.
+
+[p.15]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+15
+innovators for industry
+Legend
+1 Beam in
+2 Screws (M6 thread)
+3 Alignment pins (4h6)
+4 Emerging beam 
+5 Galvanometer scanner 1
+6 Galvanometer scanner 2
+4
+
+
+
+
+
+
+Galvanometer holder with 
+galvanometer scanners and 
+mounting assembly
+
+[p.16]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+16
+innovators for industry
+5
+
+
+
+
+
+
+
+
+
+
+
+ !"#
+$
+
+
+
+
+
+$%
+ &"#
+'
+&
+'"(#
+
+
+
+)
+
+
+
+
+
+ !")#
+
+$%
+
+
+
+
+$
+
+
+Bottom view 
+with beam exit 
+and beam 
+displacement 
+(12.56 mm)
+Side view of the
+galvanometer 
+mount with 
+mounting 
+holes and 
+beam entrance
+
+[p.17]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+17
+innovators for industry
+4.2.2Cable Connections
+To ensure correct data transfer between the control
+and the scan module and correct power supply,
+please note the following:
+> Each galvanometer scanner belongs to one of the
+two DSCB digital control boards. The DSCB and
+the scanners are labelled with "Galvo1" or
+"Galvo2". The labels of the DSCB are located at the
+angle plate of the DSCB. Please connect the
+corresponding units.
+> Connect 
+the 
+DIGITAL & POWER IN 
+and 
+the
+POWER IN connectors of the two DSCB boards via
+the four delivered cables to the corresponding
+DIGITAL & POWER OUT 
+and 
+POWER OUT
+connectors of the DSIB-SL board.
+> Optionally a DA40 adapter board is part of the
+delivery. The DA40 adapter board provides a 3-pin
+D-Sub connector for power supply and a 9-pin
+connector for data transfer. Connect this board to
+the DSIB-SL board’s SL2-100 and POWER IN
+connectors.
+> Connect the PC controller with RTC5 board via an
+appropriate data cable to the DSIB-SL board’s or
+the DA40 adapter board’s 
+SL2-100 connector.
+> Connect the power supply to the DSIB-SL board’s
+or the DA40 adapter board’s POWER IN connector.
+Figure 6 shows the arrangement of the boards.
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+ !"
+6
+Arrangement of the boards and cable connection
+
+[p.18]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+18
+innovators for industry
+4.2.3Installation of the Electronic
+Boards
+Figures 7 and 8 on the following pages show the
+dimensions of the electronic boards.
+The DSCB digital control boards have to be fastened
+at the two holes in the angle plate shown in figure 7.
+Screws with M3 thread have to be used.
+To make sure the temperature of the board does not
+rise too high, it is important to fix the angle plate on
+a heat sink or an appropriate-sized part of a housing.
+The material and the dimension of the heat sink must
+be chosen such that the temperature of the DSCB
+board’s angle plate does not exceed 50 °C.
+For fastening the DSIB-SL board, the board provides
+four holes in the angle plate (see figure 8 on page
+20). Two of the four holes are M3-threaded. For all
+holes screws with M3 thread must be used.
+Caution!
+• The tuning of the electronic boards must
+not be changed.
+• To avoid damages on the electronic
+boards caused by electrostatic effects,
+please observe the ESD regulations.
+• Protect the boards from humidity, dust,
+corrosive vapours, stress and mechanical
+damage. 
+• No stress should be applied to the boards
+and cables.
+• Use only the original cables.
+• For the assembly of the electronic boards
+use only the bore holes shown in figure 7
+and 8. Other holes can not be used for
+fastening the boards or for any other
+purposes.
+
+[p.19]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+19
+innovators for industry
+
+
+)
+
+
+
+
+ '
+
+ !
+
+)
+)
+
+
+
+
+
+7
+Legend
+1
+Angle plate
+2
+POWER IN connector
+3
+DIGITAL & POWER IN connector
+4+5 Scanner connectors
+Dimensions of the DSCB digital control board
+
+[p.20]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+20
+innovators for industry
+  
+8
+
+)
+ !
+ '
+
+
+
+
+
+
+
+
+)
+
+
+
+
+
+
+
+Legend
+1
+Angle plate
+2
+POWER IN connector
+3
+SL2-100 connector for connecting the PC controller
+4
+POWER OUT connector for axis 2 (X)
+5
+DIGITAL & POWER OUT connector for axis 2 (X)
+6
+POWER OUT connector for axis 1 (Y)
+7
+DIGITAL & POWER OUT connector for axis 1 (Y)
+Dimensions of the DSIB-SL digital interface board
+
+[p.21]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+21
+innovators for industry
+4.3
+Electrical Connection
+4.3.1Power Supply
+For connecting the power supply to the scan module 
+the DSIB-SL board provides a 2-pin POWER IN 
+connector. Its pin-out is shown in figure 9.
+Optionally the scan module is supplied with a DA40
+adapter board. This adapter board provides a 3-pin
+D-SUB connector for power connection. Figure 10
+shows its pin out.
+ 
+The scan module requires a power supply of 30 V DC
+(29-33 V) or alternatively a balance source of
+±(15+1.5) V DC and a maximum current of 3 A. The
+residual ripple of the power source should not exceed
+100 mVpp.
+The power supply is galvanically isolated from the
+SL2-100 interface. In addition the scan module
+provides reverse-polarity protection and start-up
+current limiting.
+Moreover, the scan module’s electronics monitors the 
+supply voltages. If, during operation, the supply 
+voltage falls below a minimum of approx. 25 V (e.g. 
+due to excessively long or thin cables, a weak power 
+supply or high loads), then the electronics discon-
+nects the scan module from the power supply. If the 
+supply voltage has returned (within a short time) to 
+permissible levels, the scan module is restarted.
+If the external supply voltage fails to return to permis-
+sible levels, the scan module will then remain discon-
+nected from the power supply. The supply voltage 
+problem must be resolved and the scan module 
+switched off and then restarted.
+> Check the polarity of the power source.
+> Connect the power source.
+The scan module can be powered via one 30 V power
+supply or via two ±15 V power supplies (see figure
+11). In general, power supplies are not included in
+the package, but suitable power supplies are
+available from SCANLAB.
+SCANLAB recommends to connect the scan module’s
+GND connection (or the corresponding connection of
+the power supply’s output side) to the mains's
+grounding wire (PE). The scanners’ housings are
+internally connected to the scan module’s GND
+connector. Also see figure 11.
+ 
+Caution!
+• When wiring the scan module, make sure
+none of the wires carry any voltage. All
+control devices must be turned off.
+• Turn off the power supply before dis-
+connecting the power or the data cable.
+• Follow all electrical specifications exactly.
+9
++30V (2)
+PWRGND (1)
+Pin out of DSIB-SL board’s POWER IN 
+10
+(1)
+GND
+(2)
+DO NOT CONNECT
+(3)
++30 V
+Pin-out of the optional adapter board’s POWER IN connector
+
+	
+
+
+
+
+
+ 
+
+ 
+ 
+
+
+!
+"#
+
+
+$# 
+"#
+
+
+ #
+
+ 
+ 
+
+!
+
+11
+Connect the scan module’s GND connection 
+(or the corresponding connection of the
+
+[p.22]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+22
+innovators for industry
+.
+4.3.2Data Transfer
+For connecting the scan module to an RTC5 board for 
+serial data transfer, the SL2-100 connector of the 
+DSIB-SL board is used. Figure 12 shows the pin-out of 
+this connector.
+ 
+Alternatively, the optional adapter board’s
+9-pin D-SUB connector can be used for digital data
+transfer. Figure 13 shows its pin out.
+ 
+A description of the input and output signals can be
+found in sections 5.2 "Data Transmission between the
+Scan Module and the Control" and 5.3 "Reference
+System for the Input Signal", page 28.
+Caution!
+• Do not connect any voltage to the
+housings of the galvanometer scanners.
+Especially ensure, that there is no
+electrical contact between the scanner
+housings and +30 V or +15 V. Otherwise
+the scanners and the electronics can be
+damaged.
+12
+DATA IN+ (1)
+N.C. (3)
+N.C. (5)
++3.3 V (D.N.C.) (7)
+DATA OUT+ (9)
+(2)
+DATA IN –
+(4)
+GND
+(6)
+GND
+(8)
+DATA OUT –
+(10) N.C.
+Pin-out of the DSIB-SL board’s SL2-100 
+13
+(6)
+DATA IN –
+(7)
+GND
+(8)
+GND
+(9)
+DATA OUT –
+DATA IN+
+(1)
+N.C.
+(2)
+N.C.
+(3)
++3.3 V (D.N.C.)
+(4)
+DATA OUT+
+(5)
+Pin configuration of the optional adapter 
+board’s SL2-100 connector
+
+[p.23]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+4 Installation
+23
+innovators for industry
+4.3.3Data Cable Guidelines
+Signal transfer between scan module and controller
+is realized via a data cable. This data cable is
+connected to SL2-100 connector.
+The differential DATA IN input channel receives the
+control values from the controller. The differential
+DATA OUT output channel returns the status signals
+to the controller. The 3.3 V voltage is supplied for
+SCANLAB’s POF converter for optical data trans-
+mission (POF = Polymer Optical Fiber) – also see
+below. This voltage should not be used for other
+purposes.
+Appropriate data cables, for either electrical trans-
+mission or optical fiber transmission, are obtainable
+from SCANLAB. The optical fiber, too, is attached via
+a 9-pin D-SUB connector. Optical conversion (POF
+conversion) for optical data transmission takes place
+in the D-SUB connector. The operating voltage for
+POF conversion is supplied at the SL2-100 connector
+and the RTC5 board’s scan head connectors.
+Data cables are generally not included in the
+package. SCANLAB recommends the following
+design (for electrical data transmission):
+• The cable should be fitted with 9-pin male D-SUB
+connectors at both ends. The two channels DATA
+IN± and DATA OUT± (4 wires) must consist of
+twisted cable pairs and be cross-connected at
+both D-SUB connectors (e.g. so that the RTC5
+board’s DATA OUT signal flows to the scan
+system’s DATA IN input). The cable length should
+not exceed 25 m. SCANLAB recommends a cable
+impedance of 110 W, independent from the cable
+length.
+• The data cable must have coaxial copper braided
+shielding.
+• The D-SUB connectors must have fully shielded
+metal housings.
+• The electrical connection of the cable’s braided
+shielding to the D-SUB housing should not be
+implemented as a wire. Instead, the cable’s
+braided shielding should be coaxially connected to
+the D-SUB housing via shielded clamps.
+• The data cable’s controller end must be fitted with
+a ferrit ring (e.g. Würth WE 742 711 32).
+Figure 14 shows the data cable layout and pin assign-
+ments.
+• Connect the scan module via the data cable to the
+customer-specific controller.
+• If an RTC board is used as the controller, then
+follow the installation instructions in the RTC
+manual.
+ 
+14
+Data cable layout and pin assignments
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+*#+
+,"-$
+*
+,"-$
+*
+#
+.%	%*
+
+[p.24]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+5 Start up
+24
+5
+Start up
+5.1
+Installation Examination
+Before operating the scan module, please check
+the following:
+> Does the scan module have the proper
+objective and mirrors? Do the requirements
+of the application comply with the technical
+data?
+> Are all components clean and free of dust?
+> If necessary, clean the optical components as
+described in the section 6.1.1 "Regular
+Cleaning of the Optical Surfaces", page 30.
+> Are the mechanical installation and electrical
+connections 
+exactly 
+as 
+described 
+in
+section 4?
+5.2
+Data Transmission 
+between the Scan Module 
+and the Control
+The controller and the scan module are inter-
+connected via a serial interface for digital data
+transfer. Data transmission follows the SL2-100
+protocol. In the process, essentially the
+following signals are transferred:
+• The controller delivers position values, i.e.
+(20-bit) set values for the X and Y axes.
+• The scan module generates a status signal to
+be returned to the controller.
+The scan module can be operated via a
+SCANLAB RTC5 control board (RTC5 PC interface
+board or RTC5 PC/104-Plus board) but not via
+an older RTC board as an RTC3, RTC4 or
+RTC SCANalone.
+5.2.1Returned Data Signals
+The scan module’s digital servo architecture 
+allows a wide variety of data signals to be 
+returned to the control board. Via the return 
+channel (DATA OUT±), data are transmitted to 
+the controller board every 10 µs simultaneously 
+for both axes (in compliance with the SL2-100 
+protocol). This opens up possibilities such as 
+monitoring the galvanometer scanners’ actual 
+values during execution of an application or 
+carrying out comprehensive troubleshooting in 
+case of operational malfunction.
+The scan module returns the following signals 
+to the control board every 10 µs:
+• a 20-bit status word:
+When the scan module is operated via an 
+RTC5 control board, the command 
+control_command can be used for 
+selecting which data the scan module 
+should return to the control board via the 
+20-bit status word. The selected data 
+Danger!
+• Do not stare directly into the laser beam
+or in any of its deflected radiation. Keep
+all parts of the body away from direct
+contact with the laser beam or any of its
+deflected radiation.
+• Use a Class 1 laser to adjust the path of
+the beam. If this is not possible the laser
+should be operated at its lowest power.
+Avoid dangerous deflected radiation.
+!
+
+[p.25]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+5 Start up
+25
+innovators for industry
+sources will be transmitted until another source is 
+selected. By default, after every reboot or reset, 
+the XY2-100 status word (see below) is returned 
+via the 20-bit status word.
+• 6 additional status bits:
+Via these status bits, the scan module returns to 
+the control board (independently on the selection 
+via control_command) the PWROK, TempOK and 
+PosAck status informations of the XY2-100 status 
+word (see below).
+Data received by the RTC5 board can be synchro-
+nously or asynchronously read at any time via 
+get_head_status, get_value or additional 
+commands (see the RTC5 manual).
+XY2-100 Status Word
+By default, starting from five seconds after every
+reboot or reset, the XY2-100 status word is returned
+via the 20-bit status word. The status word contains
+three status values, which are also returned
+(continuously and independently on the selection via
+control_command) via the six additional status bits:
+• PWROK (i.e. "Power OK")
+PWROK = 0 signifies a problem in the power
+supply. In normal operation, the PWROK signal is
+1. If the signal switches from 1 to 0 during
+operation, then the laser must be turned off
+immediately. Under some circumstances the
+system could deflect the laser beam in an
+unintended direction, which may cause health
+hazards and severe equipment damage. The
+system should be checked immediately to
+determine the cause (also see section "Power
+Supply", page 21).
+• TempOK (i.e. "Temperature OK")
+The TEMPOK signal always switches from 0 to 1
+when the operating temperature has been
+reached (which might take a few minutes). If,
+during operation, the galvo temperature drops
+below its minimum operating temperature or
+exceeds a maximum allowable temperature, the
+TEMPOK signal will switch to 0. In this case,
+system operation does not need to be stopped
+immediately, but large drift or other side-effects
+may occur.
+If system operation is not stopped and the scanner
+temperatures then reach a still higher critical
+value, then the built-in temperature control
+mechanism will switch off the galvanometer
+scanner drive stages to avoid heat-induced
+damage to the scanners or the module (see
+page 29). If the scanner temperature drops again
+below the power-down threshold, the scanner
+drive stages are automatically restarted.
+• PosAck (i.e. "Position Acknowledge") 
+PosAck = 1 signifies that the difference between
+the set value and the real position is less than
+0.28% of the image field size. The PosAck signal
+normally switches to 1 within a few seconds after
+power-up. The PosAck signals of the X and Y axis
+are logically AND-connected and returned as
+common signal.
+Additional Data Types
+When the scan module is operated via an RTC5
+board, the command control_command (see the
+RTC5 manual) can be used for selecting which data
+the scan module should return to the control board.
+Unless the configuration is changed after reset, the
+XY2-100 status word will be transferred (see the
+previous section). The selected data is transmitted at
+10 µs intervals until a different data type is
+requested.
+The following is a description of the data types that
+may be selected. The data can and must be
+separately evaluated for each axis.
+XY2-100 Status word
+See the previous section.
+Actual Position
+Actual angular position of the corresponding axis
+Set Position
+Set angular position of the corresponding axis
+Position Error
+Set angular position - Actual angular position
+(difference between the current actual angular
+position and the current set angular position of the
+corresponding axis)
+Actual Current
+Actual galvo output stage current of the corre-
+sponding axis
+Relative Galvo Control
+Galvo control voltage (in per mille of the maximum
+value)
+
+[p.26]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+5 Start up
+26
+innovators for industry
+Actual Velocity
+Actual angular velocity of the corresponding axis
+Operational Status
+The scan module provides various blocks of extended
+status informations.
+If the first block is selected to be returned to the
+control board, then the scan module provides the
+following information about the current operating
+state:
+• Status of galvo output stage (on/off)
+• Status of galvo heater output stage (on/off)
+• Status of internal voltages (all voltages o.k. or at
+least one internal voltage not o.k.)
+• Status of external voltage (o.k. or power supply
+interruption)
+• Status of AD converter (successfully initialized or
+not initialized)
+• Status of booting process (complete or not yet
+completed)
+• Status of control parameters (valid or invalid).
+• Boot signal: The control is activated, as soon as all
+necessary flags are set
+• Status of positioning (positioning error within the
+allowed range (< 0.28%) or not in the allowed
+range)
+• Status of positioning (positioning within the
+allowed range or critical position reached)
+• Temperature Status (operating temperatures of
+galvanometer scanners and servo boards reached
+or not yet reached)
+• Temperature 
+Status 
+(temperature 
+of
+galvanometer scanner and servo board below a
+critical value or at least one of the two
+temperatures above the critical value): If one of
+the two temperatures exceeds the critical value,
+then the scan module automatically enters a
+temporary temperature error state: the output
+stages of the affected axis are (temporarily)
+deactivated. The scan module resumes normal
+operation, as soon as the temperature drops
+below the maximum allowed value.
+• Error Status (no critical error or system presently in
+critical error state). Critical errors are for instance
+improper internal voltages, external power supply
+interruption or reaching a critical edge position
+If a critical error occurs, the scan module
+automatically enters a permanent error state, in
+which the output stages of the affected axis
+remain deactivated – even if the critical error was
+only temporarily present. Normal operation is not
+resumed.
+Note:
+During both temporary and permanent error states, the 
+scan module will continue to transmit data to the control 
+board. Even in these states, switching or selection of data 
+signals for diagnostic purposes is still possible.
+The second information block can be selected to be
+returned to the control board if more detailed infor-
+mation about the current operation state is desired.
+This block separately indicates potential error states
+of the various internal voltages and of the galva-
+nometer scanner and servo board temperature.
+Alternatively, two further information blocks can be
+selected to be returned to the control board: They
+indicate the operation states listed above at the
+moment of the most recently occurred operation
+interruption. After every successful restart – and, as
+long as no error has occured – all status informations
+of these two blocks are irrelevant. Only, as soon as an
+error causes a switch into a temporary or permanent
+error state, the current status values will be saved
+into these blocks. Simultaneously, also an event code
+is set, indicating which particular event caused the
+error state. This event code can be read out
+separately.
+Temperature
+For each axis, the following temperatures can be
+returned to the control board:
+• Temperature of the corresponding galvanometer
+scanner
+• Temperature of the corresponding servo board
+Internal Voltages
+For each axis, the following internal voltages can be
+returned to the control board:
+• AGC (automatic gain control) voltage:
+supply voltage of the corresponding position
+detector
+• DSP core supply voltage (1.8 V)
+• DSP IO voltage (3.3 V)
+• Analog section voltage (9 V)
+• AD converter supply voltage (5 V)
+Exact values for the internal voltages can vary for
+different versions of the scan module.
+Heating Output of the Galvo Heaters
+Relative heating output (0 to 1000 per mille) of the
+corresponding galvanometer scanner’s heater.
+
+[p.27]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+5 Start up
+27
+innovators for industry
+General Scan Module Information
+Alternatively, the following data types may be
+selected at both axes:
+• Serial number
+• Article number
+• Firmware version number
+• Calibration
+• Aperture
+• Wavelength
+• Running time
+
+[p.28]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+5 Start up
+28
+innovators for industry
+5.3
+Reference System for the 
+Input Signal
+The excursion of the laser beam in X and Y axis direc-
+tion is determined by input signals. The definition of
+the axes is shown in figure 14. The module is cali-
+brated in such a way that for the maximum excursion
+in a negative axis direction it transmits a value of
+"–524.288” for the neutral position a value of "0" and
+for maximum excursion in a positive axis direction, a
+value of "+524.287”.
+The following table shows the values of the input
+signal for defined positions in the image field. 
+There is a pillow-barrel-shaped distortion of the
+square image field which is caused by the path of the
+beam in the scan module and by the objective.
+Figure 15 shows the orientation of the field
+distortion to the axes. The field distortion has to be
+compensated by the control.
+Position
+X-Value 
+Y-Value
+0
+0
+0
+1
++524.287
+0
+2
++524.287
++524.287
+3
+0
++524.287
+4
+–524.288
++524.287
+5
+–524.288
+0
+6
+–524.288
+–524.288
+7
+0
+–524.288
+8
++524.287
+–524.288
+
+
+
+
+
+
+
+
+)
+/
+0
+15
+Positions in the image field
+
+[p.29]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+5 Start up
+29
+innovators for industry
+5.4
+Assuring Safe Operating 
+Temperatures
+If the scanners are driven for long periods of time at
+high positioning speeds or if the application includes
+a high rate of vector changes, the correspondingly
+high current consumption of the galvanometer
+scanners can lead to excessive temperatures –
+especially in the case of insufficient cooling, for
+instance due to a weak thermal link to the machine.
+To 
+prevent 
+damage 
+to 
+the 
+scanners, 
+the
+intelliSCAN III 10 Module provides a two-stage
+temperature control mechanism.
+To 
+prevent 
+damage 
+to 
+the 
+scanners, 
+the
+intelliSCAN III 10 Module provides a two-stage
+temperature control mechanism.
+Stage 1: Temperature Status Warning
+The temperature status signal TempOK indicates that
+the scanner is operating at a safe temperature level.
+During normal operation, the signal is 1. 
+If the scanner temperature rises above a certain value
+or drops below a minimum value, then the TempOK
+signal switches to 0. If the TEMPOK signal switches to
+0 during operation, system operation should be
+stopped and the system should be checked to
+determine the cause. If system operation is not
+stopped, large drift or other side-effects may occur.
+Stage 2: Critical Temperature Shutdown
+In addition to the temperature status warning, the
+following scanner protective function is imple-
+mented:
+If a scanner’s temperature rises above the critical
+value for temperature status warning and reaches a
+second, still higher critical value, then the scanner’s
+output stage is turned off to prevent damage to the
+scanner. In this situation, the scanner’s position is
+stationary and no longer under programmatic
+control.
+If the scanner’s temperature drops again below the
+power-down threshold, the scanner’s drive stage is
+automatically restarted and the scan module will
+resume normal operation. 
+5.5
+Monitoring the Scan Range
+The scan module has a built-in monitoring function
+to prevent damage to its galvanometer scanners or
+electronics when a problem occurs.
+If a galvanometer scanner’s scan angle exceeds the
+allowed range due to an operational disturbance, its
+output stage will be shut down. In such situations,
+the galvanometer scanner can no longer be
+controlled.
+Caution!
+• The user must ensure that the application
+program 
+evaluates 
+the 
+temperature
+control signals correctly, as described
+below.
+Caution!
+• If the PowerOK signal switches to 0, laser
+power must be switched off immediately.
+Otherwise, health hazards and severe
+equipment damage can occur due to
+uncontrolled laser radiation.
+Danger!
+• If an output stage is shut down due to a
+scan range overrun, laser power must be
+switched off immediately. Otherwise,
+health hazards and severe equipment
+damage can occur due to uncontrolled
+laser radiation.
+!
+
+[p.30]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+6 Servicing, Maintenance, Repairs and Disposal
+30
+6
+Servicing, Maintenance, Repairs and Disposal
+6.1
+Servicing
+The scan module does not have any parts that
+can be serviced by the user. All servicing and
+repairs should be performed by SCANLAB. Only
+SCANLAB has the proper test standards and
+routines to calibrate the system optimally.
+6.1.1Regular Cleaning of the 
+Optical Surfaces
+Dirty objectives and mirrors increase the
+absorption of laser power on the optical
+surfaces. The dirt can burn into the surface and
+disturb the optical elements. The warranty does
+not cover any damage due to improper use,
+cleaning or handling.
+> Regularly check all objectives and mirrors. In
+case dirt is found, clean the optical surfaces
+as follows:
+> Carefully hold the optical element by its
+edges with cotton gloves and place its
+optical surface up on a clean work surface.
+> Blow clean compressed air on the surface to
+remove dust and dirt particles.
+> Dampen a lens cleaning tissue (e.g. Kodak
+lens cleaning tissue) on one end with Ethanol
+(electronic or spectrometer cleaner).
+> Put the dampened end of the tissue on one
+end of the optics and slowly pull it across. Do
+not rub back and forth!
+> If necessary, remove the rest of the Ethanol
+with the dry end of the tissue.
+> Repeat the above until the optical surface is
+completely clean. For every cleaning swipe,
+use a new objective cleaning tissue.
+6.2
+Disposal
+The intelliSCAN III 10 Module can be returned
+to SCANLAB for a fee to be properly disposed
+of.
+Danger!
+• Do not stare directly into the laser beam
+or its deflected radiation during servicing
+or maintenance and keep all parts of the
+body away.
+!
+
+[p.31]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+7 Troubleshooting
+31
+7
+Troubleshooting
+If problems occur while operating this device,
+please check to see if all operating instructions
+have been adhered to and then carry out the
+following troubleshooting procedures:
+If the problems persist, please send the scan
+module to customer service.
+Problem
+Possible Cause
+Remedy
+Low laser power
+Dirty objective
+Cleaning according to 
+section 6.1
+Altered software parameters
+Check input parameters
+Dirty or damaged mirror
+Check mirrors, if possible 
+clean them according to 
+section 6.1. If mirrors are 
+damaged have them serviced
+Changed laser spot
+Dirty objective
+Cleaning according to 
+section 6.1
+Dirty or damaged mirror
+Check mirrors, if possible 
+clean them according to 
+section 6.1. If mirrors are 
+damaged have them serviced
+Laser out of adjustment
+Adjust laser
+No laser beam
+Flaw in the laser
+Check laser and electrical 
+connections
+Flaw in the laser control
+If an RTC board is used check 
+all electrical and power 
+connections
+Laser beam path blocked or 
+shutter closed 
+Check laser beam path.
+Scan module does not steer 
+laser beam in one or more 
+directions
+Flaw in the scan module 
+control
+Check power and data cables. 
+Check software commands.
+Differences in the dynamic 
+between the two scanners
+Flaw in the connection 
+between DSCB and scanner
+Check the cable connection
+X and Y axis are changed
+Flaw in the cable connection
+Check the cable connection
+Scan module stopped 
+responding
+The scan module’s electronics 
+has disconnected the scan 
+module from the power 
+supply due to impermissible 
+supply voltages (see page 21)
+Ensure correct supply 
+voltages, switch off scan 
+module, and then restart
+
+[p.32]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+8 Customer Service
+32
+8
+Customer Service
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+www.scanlab.de
+info@scanlab.de
+The scan module can only be serviced and
+repaired at SCANLAB. See section 6 "Servicing,
+Maintenance, Repairs and Disposal", page 30.
+
+[p.33]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+9 Warranty
+33
+9
+Warranty
+SCANLAB guarantees this product to be free of
+defects in manufacturing and material. The
+warranty is valid for 12 months after delivery.
+Repairs covered under the warranty will be
+performed at SCANLAB.
+The scope of the warranty is limited to repair or
+replacement of the SCANLAB product.
+SCANLAB is responsible for the return delivery
+of products repaired under warranty; the
+customer 
+is 
+responsible 
+for 
+delivery 
+to
+SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged
+through misuse or improper operation
+• for damage due to improper laser power
+(e.g. focused beam on optical surfaces) or
+improper adjustment
+• for damage to optical components (mirrors,
+objective, etc.) caused by improper handling
+or cleaning 
+• for consequential damages
+• if the scan module has been altered
+If a returned scan module must first be brought
+into a serviceable state by SCANLAB (e.g. by
+removing alignment pins and other customer-
+added parts or cleaning the scan module)
+before servicing can begin, then the customer
+must bear the additional cost.
+
+[p.34]
+intelliSCAN III 10 Module, 355 nm, dgital SL2-100
+10 Technical Specifications – intelliSCAN III 10 Module
+34
+10 Technical Specifications – intelliSCAN III 10 Module
+(all angle specifications optical)  
+Aperture
+Maximum diameter of the
+laser beam inside the
+scan module
+10 mm
+Control
+Input and Output Signals
+SL2-100
+Maximum range for the
+input values(1)
+–524.288 to 
++524.287
+Calibration
+±0.408 rad
+with ± 503.316
+Maximum allowed scan 
+angle
+(vignetting insignificant)
+without objective
+±0.37 rad
+Power supply
+Requirements
+30 V DC (29-33 V), 
+max. 3 A or
+±(15+1.5) V DC, 
+max. 3 A each pole
+Optical Performance
+Gain error
+<5 mrad
+Zero offset
+<5 mrad
+Skew
+<1.5 mrad
+Nonlinearity
+<0.9 mrad/44°
+Repeatability (RMS)
+< 2 µrad
+Temperature drift
+- Offset
+15 µrad/K
+- Gain
+25 ppm/K
+8-h-drift (after 30 min warm-up) 
+at constant ambient temperature and load, 
+without water cooling
+- Offset
+100 µrad/8h
+- Gain
+100 ppm/8h
+24-h-drift (after 30 min 
+warm-up) 
+- Gain
+100 ppm/24h
+- Offset
+100 µrad/24h
+Tuning Specifications (Dynam. Performance)
+... for tuning 124231 (std. vector tuning)
+Tracking error
+< 0,11 ms
+Typical positioning speed
+(* with 160 mm objective)
+75 rad/s
+(*12 m/s)
+Maximum positioning 
+speed
+100 rad/s
+Typical marking speed (for 
+marking small characters, 
+with 160 mm objective)
+3.5 m/s
+Mirrors
+Coating
+dielectrical high 
+performance
+coating 
+Wavelength
+355 nm
+Reflectivity
+• at 355 nm
+99.5% per mirror,
+over the whole
+range of angles
+Maximum laser power
+100 W
+Maximum laser power
+density continuous wave
+300 W/cm2
+Damage threshold for 
+pulsed operation (with 
+specified working 
+wavelength, pulse length 
+10 ns, 200 on 1)
+0.5 J/cm2
+(1) This maximum range for the input values has to be
+regarded as theoretical range for the input values.
+Due to possible vignetting by the mirrors, and the
+objective, the indicated maximum scan angle has
+not to be exceeded.
+
+[p.35]
+<gerade>excelli<SCAN>SCAN<gerade> 14, SL2-100, 1030 nm - 1090 nm
+Rev. 2.0
+10 Technical Specifications – intelliSCAN III 10 Module
+35
+innovators for industry
+Weight
+Galvanometer holder with 
+galvanometer scanners
+approx. 2 kg
+DSCB
+approx. 200 g
+DSIB-SL
+approx. 155 g
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive

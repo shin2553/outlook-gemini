@@ -4,7 +4,6 @@
 Gemini API에 전달할 컨텍스트 텍스트와 PDF 경로를 반환합니다.
 """
 
-import sys
 from pathlib import Path
 
 import config
@@ -18,6 +17,8 @@ def _find_and_load_manual_index():
       2. manual_dir 의 상위 폴더
       3. manual_dir 자체
     """
+    import importlib.util
+
     candidates = []
     if config.MANUAL_INDEX_PATH:
         candidates.append(Path(config.MANUAL_INDEX_PATH))
@@ -28,13 +29,19 @@ def _find_and_load_manual_index():
 
     for p in candidates:
         if p.exists():
-            sys.path.insert(0, str(p.parent))
-            from manual_index import search_manuals as _sm
-            return _sm
+            spec = importlib.util.spec_from_file_location("manual_index", str(p))
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            # EXPORT_DIR을 config.MANUAL_DIR로 덮어써서 폴더명 변경에 대응
+            if config.MANUAL_DIR:
+                mod.EXPORT_DIR = Path(config.MANUAL_DIR)
+            return mod.search_manuals
 
+    tried = "\n".join(str(p) for p in candidates) if candidates else "(경로 없음)"
     raise FileNotFoundError(
         "manual_index.py를 찾을 수 없습니다.\n"
-        "설정 > 매뉴얼 관리에서 txt 매뉴얼 폴더를 올바르게 지정하세요."
+        "설정 > 매뉴얼 관리에서 txt 매뉴얼 폴더를 올바르게 지정하세요.\n\n"
+        f"탐색한 경로:\n{tried}"
     )
 
 

@@ -1,0 +1,1175 @@
+# Manual_148094_SCANcube_IV_14_Part2_Doc.2.3_en
+
+[p.1]
+SCANcube IV 14 (ID# 148094) – Prototype
+digital scan system, 355 nm, XY2-100
+Part 2: Specific Description
+14. März 2025
+Rev. 2.3 e
+innovators for industry
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2025
+(Doc. Rev. 2.3 e - March 10, 2025)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB GmbH.
+SCANcube is a registered trademark of SCANLAB GmbH.
+Other mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+SCANcube IV
+Rev. 2.3 e
+Table of Contents
+3
+innovators for industry
+Table of Contents
+1
+Introduction.........................................................................................................................................4
+1.1
+Content of this Manual..................................................................................................................... 4
+1.2
+Use and Distribution of this Manual ................................................................................................. 4
+1.3
+Additional Manuals........................................................................................................................... 4
+1.4
+Manufacturer.................................................................................................................................... 4
+2
+Identification Plate with Serial Number ..............................................................................................5
+3
+Dimensions...........................................................................................................................................6
+4
+Electrical Connections..........................................................................................................................8
+4.1
+Power Supply .................................................................................................................................... 8
+4.1.1
+Pin-Out................................................................................................................................... 8
+4.1.2
+Connection ............................................................................................................................ 9
+4.2
+Data Transfer................................................................................................................................... 10
+4.2.1
+Data Cable Guidlines............................................................................................................ 10
+4.2.2
+Connection .......................................................................................................................... 11
+4.3
+Y Cable (optional) ........................................................................................................................... 12
+5
+Controlling the Scan System..............................................................................................................13
+5.1
+Data Transmission ........................................................................................................................... 13
+5.2
+Position Signals, Image Field and X-Y Reference System.................................................................. 13
+5.3
+Monitoring of the Scan System with Integrated Sensors (optional) ................................................ 15
+5.4
+Status Signals.................................................................................................................................. 16
+5.5
+Pre-processing tracking error control .............................................................................................. 16
+5.5.1
+Adjustment of the control for systems with pre-processing tracking error control .............. 16
+6
+SCANcube IV 14 - Technical Specifications ........................................................................................18
+
+[p.4]
+SCANcube IV
+Rev. 2.3 e
+1
+Introduction
+4
+innovators for industry
+1
+Introduction
+1.1
+Content of this Manual
+This manual (Part 2 of 2) is the specific description of 
+SCANLAB’s SCANcube IV 14 scan head and contains 
+the specifications of the delivered system.
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification. The 
+information in this manual supersedes the content of 
+previous manuals.
+The product status is "prototype", therefore modifica-
+tions are possible.
+1.2
+Use and Distribution of this 
+Manual
+This manual is part of the product. Read it carefully 
+before proceeding to plan, install and operate the 
+scan system. If there are any questions regarding the 
+contents of this manual, please contact SCANLAB 
+(see chapter 1.4).
+This manual is particularly intended for system inte-
+grators, i.e. laser system planners, developers and 
+safety officers, as well as persons involved in scan 
+system installation, start-up, maintenance, deinstal-
+lation, storage or transport preparation. It is the 
+product purchaser’s/operator’s responsibility to 
+provide access to this manual (or relevant parts) in 
+suitable form to all involved persons.
+SCANLAB typically supplies this manual in electronic 
+form (as a PDF file).
+Provide access to this manual in suitable form to 
+all involved persons (see above).
+Maintain accessibility to this manual even after 
+planning.
+This manual should accompany the scan system if 
+ownership changes hands.
+1.3
+Additional Manuals
+• Part 1: Installation and Operation
+The general description provides a product over-
+view, a functional description of  safety guide-
+lines, the description of installation and start-up 
+as well as maintenance.
+1.4
+Manufacturer
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+
+[p.5]
+SCANcube IV
+Rev. 2.3 e
+2
+Identification Plate with Serial Number
+5
+innovators for industry
+2
+Identification Plate with Serial Number
+• Type of the scan system
+• Serial number (SN, also as barcode)
+• Wave length ()
+1
+Identification plate with serial number (SN)
+	
+	
+	
+
+
+
+SCANcube IV 14
+355 nm
+
+[p.6]
+SCANcube IV
+Rev. 2.3 e
+3
+Dimensions
+6
+innovators for industry
+3
+Dimensions
+Figure 2 and figure 3 shows the dimensions neces-
+sary for mounting the scan head and adjusting the 
+scan head with respect to the working area. Additio-
+nally figure 2 shows the mounting surface with its 
+mounting bore holes and a bottom view of the scan 
+head (beam exit side) which shows the displacement 
+of the entry beam axis from the beam exit axis. The 
+deflecting mirrors are in their neutral positions.
+2
+Side view, frontal view and bottom view (with beam displacement 16,42 mm) of the scan head (all dimensions in mm)
+99.5
+118.5
+135
+O 79
+M79 x 1
+ - 5 deep
+55.92
+42.52
+3.2
+78.5
+22.41
+O 14
+7
+15
+M5  - 6 deep (4x)
+O 4 H7  - 5 deep (2x)
+32
+22
+39.5
+16.42
+
+[p.7]
+SCANcube IV
+Rev. 2.3 e
+3
+Dimensions
+7
+innovators for industry
+Figure 3 shows the following distances for the system 
+integration:
+• the working distance A
+• the distance B between the axis of the input beam 
+and the lower edge of the housing
+• the distance C between the axis of the input beam 
+and the lowest edge of the objective or its enclo-
+sure
+• the diameter D which is the larger of the diame-
+ters of the objective and its enclosure
+• the distance E between the front edge of the 
+beam entrance side and the axis of the beam 
+exiting the scan head.
+3
+Working distance A, and distances B-E
+4
+5
+1
+C
+ØD
+3
+2
+A
+B
+E
+Legend
+1
+Beam entrance
+2
+Scan head
+3
+Objective (not shown true-to-
+scale)
+4
+Emerging beam
+5
+Image field
+Note: drawing not true-to-scale
+Dimensions
+B
+= 22.41 mm
+E
+= 42.52 mm
+
+[p.8]
+SCANcube IV
+Rev. 2.3 e
+4
+Electrical Connections
+8
+innovators for industry
+4
+Electrical Connections
+The scan head provides a 25-pin female D-SUB 
+connector for power supply and digital data transfer, 
+which follows the XY2-100 protocoll.
+Configure a suitable cable for the connection of the 
+power supply and the data transfer. A suitable Y cable 
+is available from SCANLAB, see chapter 4.3 "Y Cable 
+(optional)" on page 12.
+4.1
+Power Supply
+The scan head requires a power supply of 30 V
+(29 - 33 V) and a maximum current of 3 A. The resi-
+dual ripple of the power source should not exceed 
+100 mVSS.
+Only use a power supply with soft start.
+The scan head is powered via a 30 V power supply 
+(see figure 4). In general, the power supply is not 
+included in the package, but suitable power supplies 
+are available from SCANLAB. SCANLAB recommends 
+to connect the 0 V connection of the power supply’s 
+output side (or the scan head’s GND connection) to 
+the mains's grounding wire (PE).
+There should be no more than ±5 V potential diffe-
+rence between the ground of the scan head’s power 
+source and the ground of the control computer. 
+Usually the ground of the control computer is 
+connected to the mains’s grounding wire (PE) via the 
+computer’s mains cable. Therefore, excessive poten-
+tial differences between the two grounds can be 
+generally avoided by connecting the power supply’s 
+0 V connection to the mains's grounding wire (PE) via 
+a short as possible cable and as close as possible to 
+the PC ground.
+4.1.1Pin-Out
+The scan head provides a 25-pin female D-SUB 
+connector for data transfer and power supply (30 V). 
+Figure 8 shows the pin assignments of the connector.
+ 
+5
+Pin-out of the 25-pin female D-SUB connector 
+(* see figure 6)
+Scan Head
+4
+Connect the power supply’s 0 V connection (or the scan head’s 
+GND connection) to the mains’s grounding wire (PE).
+(14) CLOCK+
+(15) SYNC+
+(16) CHAN1+
+(17) CHAN2+
+(18) DO NOT CONNECT
+(19) STATUS+
+(20) DO NOT CONNECT
+(21) STATUS1+
+(22) +30 V
+(23) GND
+(24) GND
+(25) DO NOT CONNECT
+CLOCK–
+(1)
+SYNC–
+(2)
+CHAN1–
+(3)
+CHAN2–
+(4)
+DO NOT CONNECT
+(5)
+STATUS–
+(6)
+DO NOT CONNECT
+(7)
+STATUS1-
+(8)
++30 V
+(9)
++30 V (10)
+GND (11)
+DO NOT CONNECT (12)
+DO NOT CONNECT (13)
+DIGITAL POWER IN 30 V
+
+[p.9]
+SCANcube IV
+Rev. 2.3 e
+4
+Electrical Connections
+9
+innovators for industry
+4.1.2Connection
+Connect the power supply to the respective pins of 
+the 25-pin female D-SUB connector (+30 V / GND, 
+see figure 5) as follows:
+Make sure each power connection has the correct 
+polarity.
+Connect each pole of the power source via an 
+appropriate cable to all pins of the scan head’s 
+connector. The cable connecting the power 
+supply and the scan head must be shielded and 
+should have a cross-sectional area of at least 
+1.5 mm2 per pole and a length not exceeding 6 
+meters. RFI must be minimized by connecting the 
+cable’s shielding at one end (utilizing a large 
+surface area) to the power supply’s metal 
+shielding and at the scanhead-end to the 
+housing’s SUB-D connector.
+– connect the power source GND to all three GND 
+pins of the 25-pin female D-SUB connector
+– connect the +30 V power source to all three 
++30 V pins of the 25-pin female D-SUB 
+connector
+Caution!
+• Before proceeding with wiring the scan head, 
+make sure none of the wires carry any voltages. 
+The control electronics and the computer must 
+be turned off.
+• Turn off the power supply before disconnecting 
+the power or the data cable.
+• Follow all power supply electrical specifications 
+exactly.
+
+[p.10]
+SCANcube IV
+Rev. 2.3 e
+4
+Electrical Connections
+10
+innovators for industry
+4.2
+Data Transfer
+The signals between scan head and controller are 
+transmmitted by a data cable (when controlling with 
+an RTC5 board, an XY2-100 converter is additionally 
+necessary). For a description of the transmitted 
+signals, see chapter 5 "Controlling the Scan System" 
+on page 13.
+4.2.1Data Cable Guidlines
+Data cables are generally not included in the 
+package. SCANLAB recommends the following 
+design (for electrical data transmission):
+• The cable should not be longer than 10 m. If a 
+longer data cable is needed, the synchronization 
+of the (bidirectional) communication between 
+scan head and RTC control board should be 
+adjusted. If you control the scan head via an RTC3, 
+RTC4 or RTC SCANalone board, this adjustment 
+can be realized via the RTC command 
+set_piso_control (see RTC manual; hereby the 
+cable length must not exceed 20 m). If you 
+control the scan head via an RTC5 board, the 
+adjustment can be realized via configuring the 
+XY2-100 converter’s solder jumpers (see RTC5 
+manual; hereby cable lengths above 25 m are not 
+recommended).
+• The data cable should have 25-pin male SUB-D 
+connectors with identical pin-out at both ends. 
+The connection channels (SYNC±, CLOCK±, 
+CHAN1±, CHAN2±, STATUS±, STATUS1±) should 
+be realized as a twisted cable pair, each.
+• The data cable must have coaxial copper braided 
+shielding.
+• The D-SUB connectors must have fully shielded 
+metal housings.
+• The electrical connection of the cable’s braided 
+shielding to the D-SUB housing should not be 
+implemented as a wire. Instead, the cable’s 
+braided shielding should be coaxially connected 
+to the D-SUB housing via shielded clamps.
+• The data cable’s controller end must be fitted 
+with a ferrit ring (e.g. Würth WE 742 711 32).
+Figure 6 on page 11 shows the data cable layout and 
+pin assignments.
+The scan head uses a single connector to provide 
+both the power supply voltages and the data signals. 
+Therefore SCANLAB recommends implementing a 
+cabling solution that allows the use of separate 
+cables for data and power. The data section of such 
+a cabling solution should be designed to accommo-
+date the data cable shown in figure 6.
+
+[p.11]
+SCANcube IV
+Rev. 2.3 e
+4
+Electrical Connections
+11
+innovators for industry
+4.2.2Connection
+Connect the scan head via the data cable to the 
+customer-specific controller.
+When using an RTC board as the controller, follow 
+the installation instructions in the RTC manual.
+6
+Data cable layout and pin assignments
+CLOCK−
+1
+SYNC−
+2
+CHAN1−
+3
+CHAN2−
+4
+5
+STATUS− *
+6
+7
+STATUS1− *
+8
+9
+10
+11
+12
+13
+CLOCK+
+14
+SYNC+
+15
+CHAN1+
+16
+CHAN2+
+17
+18
+STATUS+ *
+19
+20
+STATUS1+ *
+21
+22
+23
+24
+25
+Ferrit
+CLOCK−
+1
+SYNC−
+2
+CHAN1−
+3
+CHAN2−
+4
+5
+STATUS− *
+6
+7
+STATUS1− *
+8
+9
+10
+11
+12
+13
+CLOCK+
+14
+SYNC+
+15
+CHAN1+
+16
+CHAN2+
+17
+18
+STATUS+ *
+19
+20
+STATUS1+ *
+21
+22
+23
+24
+25
+Shielding
+To RTC board
+25-pin D-SUB connector, male
+To scan head
+25-pin D-SUB connector, male
+*) Is required to ensure the iDRIVE function of the scan head
+
+[p.12]
+SCANcube IV
+Rev. 2.3 e
+4
+Electrical Connections
+12
+innovators for industry
+4.3
+Y Cable (optional)
+An Y cable is optional available from SCANLAB to 
+connect the scan head with the power supply and the 
+data transfer. Figure 7 shows the pin-out of the Y 
+cable.
+7
+Pin-out of the optional Y cable (SCANLAB #117067)
+(1)
+CLOCK –
+(2)
+SYNC –
+(3)
+CHAN1 –
+(4)
+CHAN2 –
+(5)
+DO NOT CONNECT
+(6)
+STATUS –
+(7)
+DO NOT CONNECT
+(8)
+STATUS1-
+(9)
+DO NOT CONNECT
+(10) DO NOT CONNECT
+(11) DO NOT CONNECT
+(12) DO NOT CONNECT
+(13) DO NOT CONNECT
+CLOCK+ (14)
+SYNC+ (15)
+CHAN1+ (16)
+CHAN2+ (17)
+DO NOT CONNECT (18)
+STATUS+ (19)
+DO NOT CONNECT (20)
+STATUS1+ (21)
+DO NOT CONNECT (22)
+DO NOT CONNECT (23)
+DO NOT CONNECT (24)
+DO NOT CONNECT (25)
+DATA
+(9-pin male D-SUB connector)
+Connection to the control
+POWER
+(9-pin male D-SUB connector)
+Connection to the power supply
+5 m ±15 mm
+DATA/POWER
+(25-pin male D-SUB connector)
+Connection to the control and power supply
+(1)
+CLOCK –
+(2)
+SYNC –
+(3)
+CHAN1 –
+(4)
+CHAN2 –
+(5)
+DO NOT CONNECT
+(6)
+STATUS –
+(7)
+DO NOT CONNECT
+(8)
+STATUS1-
+(9)
++30 V
+(10) +30 V
+(11) GND
+(12) DO NOT CONNECT
+(13) DO NOT CONNECT
+CLOCK+ (14)
+SYNC+ (15)
+CHAN1+ (16)
+CHAN2+ (17)
+DO NOT CONNECT (18)
+STATUS+ (19)
+DO NOT CONNECT (20)
+STATUS1+ (21)
++30 V (22)
+GND (23)
+GND (24)
+DO NOT CONNECT (25)
+(1)
+D.N.C.
+(2)
+D.N.C.
+(3)
+ GND
+(4)
++30 V
+(5)
++30 V
+D.N.C.
+(6)
+GND
+(7)
+GND
+(8)
++30 V
+(9)
+
+[p.13]
+SCANcube IV
+Rev. 2.3 e
+5
+Controlling the Scan System
+13
+innovators for industry
+5
+Controlling the Scan System
+5.1
+Data Transmission
+The positions of the galvanometer scanners are 
+controlled via the transmission of digital input 
+signals. The controller and the scan system are inter-
+connected via a serial interface. Data transmission 
+follows the XY2-100 protocol. In the process, essen-
+tially the following signals are transferred:
+• The controller delivers set values for the scanner 
+positions.
+• The scan system generates status signals to be 
+returned to the controller.
+• Two additional channels transmit
+the data transport synchronization signal
+and a clock signal.
+Figure 8 shows the timing of the clock signal 
+(CLOCK), the synchronization signal (SYNC) and the 
+three data channels (CHAN1/CHAN2/CHAN3).
+Every 10 µs, three 20-bit words (3 control bits, 16 
+data bits, 1 parity bit) are transmitted serially as 
+differential signals.
+5.2
+Position Signals, Image Field 
+and X-Y Reference System
+Position signals are digitally transferred from the 
+controller to the scan head. 
+Figure 9 shows the definition of the X-Y reference 
+system which is used for the position signals trans-
+mitted to the scan head. The orientation of the axes 
+corresponds to the orientation used by the RTC 
+boards from SCANLAB: The Y axis points in the oppo-
+site direction of the entry beam (and the Z axis in the 
+opposite direction of the exit beam). Consequently: 
+Scanner 1 deflects the beam in the Y direction, 
+Scanner 2 in the X direction.
+The scan head is calibrated in such a way that for a 
+scan angle of 0.408 rad optically with excursion in 
+the negative axis direction the bit-value "1311" has to 
+be transmitted, for the neutral position (null point) 
+the bit-value "32768, and for a scan angle of 0.384 
+rad optically with excursion in the positive axis direc-
+tion the bit-value "64225".
+The maximum adjustable scan angle is (1 / 0.96) 
+larger than the calibration angle. The input signal 
+values for the maximum adjustable image field points 
+(see figure 9) are listed in the following table.
+Vignetting can occur at a particular scan angle 
+dependent on the specific scan head and objective. 
+The laser beam is then partially blocked within the 
+scan head or objective, which results in transmission 
+losses. The higher the power loss, the greater is the 
+risk of damage to the scan system. In view of this, the 
+technical specifications on page 18 include not only 
+the calibration angle, but also the maximum allowed 
+scan angle. This is not the same as the maximum 
+adjustable scan angle. To avoid scan system damage, 
+make sure the maximum allowed scan angle is never 
+exceeded.
+8
+Timing diagram of the serial interface signals
+Legend
+1
+CLOCK
+2
+SYNC
+3
+CHAN1/CHAN2/CHAN3
+	
+
+
+
+
+
+1
+2
+3
+Position
+X Bit-Value
+(CHAN2)
+Y Bit-Value
+(CHAN1)
+0
+32768
+32768
+1
+65535
+32768
+2
+65535
+65535
+3
+32768
+65535
+4
+0
+65535
+5
+0
+32768
+6
+0
+0
+7
+32768
+0
+8
+65535
+0
+
+[p.14]
+SCANcube IV
+Rev. 2.3 e
+5
+Controlling the Scan System
+14
+innovators for industry
+The maximum allowed scan angle is derived from the 
+geometric and optical data of the employed compo-
+nents. In some cases, particularly with sufficiently 
+small calibration angles, the maximum allowed scan 
+angle can be larger than the maximum adjustable 
+angle. In such cases, the specified maximum allowed 
+scan angle has no practical relevance.
+Figure 9 also depicts the pillow-barrel-shaped distor-
+tion of the square image field and shows the orienta-
+tion of this distortion with reference to the axes. The 
+field distortion is caused by the beam path within the 
+scan head and by the characteristics of the objective. 
+It must be compensated by the controller. 
+If you use a SCANLAB RTC control board for 
+controlling the scan head, the field distortion is 
+compensated automatically. Before data values are 
+transferred to the scan head, the values are trans-
+formed by the RTC boards with the help of a correc-
+tion table. A correction table specific for your system 
+is included in the RTC software package or can be 
+ordered from SCANLAB (also refer to the RTC 
+manual). You can use positive and negative coordi-
+nate bit-values ( – 32768 to +32767) of an ideal 
+image field, based on the reference system shown in 
+figure 9, with the origin (zero point) in the center of 
+the image field. The RTC board calculates the corre-
+sponding input values and transfers them to the scan 
+head.
+The image field size, as well as the working distance A 
+between the input laser beam and the nominal 
+working plane, depend on various factors – among 
+them the focal length of the objective and the aper-
+ture of the scan head. The divergence of the input 
+beam also has an influence on the working 
+distance A.
+9
+Positions in the image field
+1
+8
+7
+6
+5
+4
+3
+2
+0
+X
+Y
+
+[p.15]
+SCANcube IV
+Rev. 2.3 e
+5
+Controlling the Scan System
+15
+innovators for industry
+5.3
+Monitoring of the Scan 
+System with Integrated 
+Sensors (optional)
+This scan system is equipped with a temperature 
+sensor on the servo boards PCB and temperature 
+sensors for the galvanometer scanner 1 and 2. The 
+scan system therefore offers advanced monitoring 
+capabilities based on the evaluation of the sensor 
+signal.
+Default thresholds for the error status and for the 
+warning signal have been configured for each sensor. 
+During monitoring, the scan system returns an error 
+status and/or warning message if the threshold 
+values are violated.
+Error Status
+The error status is linked to the PowerOK bit. If the 
+error status is "not ok", the PowerOK bit is 0. With 
+set_laser_control() you can configure the signal 
+suppression so that the laser switches off in this case, 
+see RTC manual.
+There are three possible causes for PowerOK = 0:
+• The output stage of the galvo control is off 
+(StopEvent ! = 0).
+• One or more sensor signals have violated their 
+error thresholds.
+• The communication with the scan system is faulty 
+(e. g. cable is not connected).
+All monitored signals are combined to a linked error 
+status. If one of the linked signals is "not ok", the error 
+status is "not ok". Conversely, all linked signals must 
+be "ok" so that the error status is also "ok".
+For each available sensor signal, there is an upper 
+threshold, above which an error is triggered (see 
+table below).
+Warning Signal
+The warning signal is linked to the TempOK bit. The 
+TempOK bit can be used for the automatic laser signal 
+suppression.
+There are three possible causes for TempOK = 0:
+• Temperature warning: Temperature is outside the 
+operating temperature.
+• Temperature critical: galvo control switches off 
+(PowerOK = 0).
+• One or more sensor signals have violated their 
+warning threshold.
+All monitored signals are combined to a linked 
+warning signal. If one of the linked signals is “not 
+ok”, the warning signal is “not ok”. Conversely, all 
+linked signals must be “ok” so that the warnig signal 
+is also “ok”.
+For each available sensor signal, there is an upper 
+threshold, above which a warning message is trig-
+gered (see table below).
+Sensor
+Threshold values for warning signal
+Threshold values for error status
+Minimum
+Maximum
+Minimum
+Maximum
+Temp. PCB
+N/A
+75 °C
+N/A
+80 °C
+Temp. 
+Galvanometer 
+scanner 1 and 2
+10 °C
+57 °C
+10 °C
+70 °C
+
+[p.16]
+SCANcube IV
+Rev. 2.3 e
+5
+Controlling the Scan System
+16
+innovators for industry
+5.4
+Status Signals
+The scan head provides a PWROK status signal (i.e. 
+"Power OK") available via the XY2-100 protocol. If you 
+use an RTC control board, then this status signal can 
+be evaluated via the get_head_status or get_value 
+commands.
+The PWROK signal indicates the status of the power 
+supply. Upon power-up, the PWROK signal is initially 
+0. After less than one second (when the electronic 
+components have reached a stable operating state) 
+the PWROK signal then switches to 1. 
+PWROK = 0 signifies a problem in the power supply 
+or a protective action by the electronics. If, upon 
+powering up, the PWROK signal doesn’t switch to 1 
+within a second or if the signal switches from 1 to 0 
+during operation, then the laser must be turned off 
+immediately. Under some circumstances the system 
+could deflect the laser beam in an unintended direc-
+tion, which may cause health hazards and severe 
+equipment damage. The system should be checked 
+immediately to determine the cause. 
+Switching of the PWROK status signal from 1 to 0 
+during operation can be caused, for example, by a 
+defective power supply (also see chapter 4.1 "Power 
+Supply" on page 8).
+5.5
+Pre-processing tracking error 
+control
+The digital control consists of two components:
+• Pre-processing
+In comparison to conventional tracking error 
+control, the pre-processing calculates a target 
+trajectory with tracking error from the RTC control 
+values. The duration of the pre-processing is 
+referred to as ControlPreview. The ControlPreview 
+is indicated in the technical specifications (see 
+chapter 6 "SCANcube IV 14 - Technical Specifica-
+tions" on page 18).
+• Control
+The galvanometer scanner control follows this 
+target trajectory with a small trajectory error 
+(actual trajectory).
+This type of control has the following advantages:
+• Precise tracking errors with significantly reduced 
+specimen scatter (<1%)
+• Optional read-back of the status signals PosAck or 
+TrAck
+For synchronous control of the scan system and laser, 
+the tracking error and the ControlPreview must be 
+taken into account in the control signals for the laser. 
+This also applies to all other control signals that are 
+to be executed synchronously with the movement of 
+the scan system.
+5.5.1Adjustment of the control for 
+systems with pre-processing tracking 
+error control
+General
+The actual position is additionally delayed compared 
+to the control values. This means that the times of the 
+laser control signals must also be shifted in relation 
+to the target position specification.
+• Shift of the laser control signals = ControlPreview 
++ tracking error
+When using a RTC control card, this has no effect on 
+the duration of a job. The switching times of the laser 
+are executed after the position calculation of the job 
+in a buffer memory of the RTC control card. The next 
+job can already be executed.
+SCANLAB recommends shifting the switching times 
+of the laser so that the desired proportion of accele-
+ration and deceleration phase is also achieved:
+• Shift the switch-on points of the laser forward by 
+approx. 40% to fade in the acceleration phase.
+Switch-on delay of the laser (laser-on-delay) = 
+60% * tracking error + ControlPreview
+• Shift the switch-off points of the laser back by 
+approx. 20% to fade in the deceleration phase.
+Switch-off delay of the laser (laser-off delay) = 
+120% * tracking error + ControlPreview.
+The ControlPreview has no influence on the scanner 
+delays.
+RTC6 control card
+The RTC5 control card offers a function for automatic 
+compensation of the ControlPreview.
+This compensation is activated via the 
+set_control_preview_compensation command.
+
+[p.17]
+SCANcube IV
+Rev. 2.3 e
+5
+Controlling the Scan System
+17
+innovators for industry
+After activation, the usual control is carried out in the 
+same way as for systems with conventional tracking 
+control.
+RTC5 control card
+The RTC5 control card does not offer a function for 
+automatic compensation of the ControlPreview.
+There is no compatibility between set_sky_writing() 
+and systems with preprocessing tracking error 
+control.
+With set_sky_writing_para(), the switching shift of 
+the laser and the sky writing paths must be defined 
+independently of each other. The ControlPreview 
+must be taken into account.
+RTC4 control card
+The RTC4 control card does not offer a function for 
+automatic compensation of the ControlPreview.
+When using a RTC4 control card, it is sufficient to 
+adjust the laser-on and laser-off delays.
+Handling with tracking error
+The handling of the tracking error is essentially iden-
+tical to the systems with conventional tracking error 
+control.
+These empirical values apply to the scanner delays:
+• Jump-Delay: 200% of the tracking error
+• Mark-Delay: 100% of the tracking error
+• Polygon-Delay: 50% of the tracking error
+When comparing the actual position with the target 
+position, ControlPreview and tracking error must also 
+be taken into account.
+In systems with conventional tracking error control, 
+the tracking error is a characteristic of the scanning 
+system. Depending on the tuning, the tracking error 
+can vary between different examples of the same 
+scanning system.
+For systems with ControlPreview, the tracking error is 
+a characteristic of the pre-processing. The tracking 
+error is identical for all examples of the same scan-
+ning system.
+
+[p.18]
+SCANcube IV
+Rev. 2.3 e
+6
+SCANcube IV 14 - Technical Specifications
+18
+innovators for industry
+6
+SCANcube IV 14 - Technical Specifications
+(all angle specifications optical)
+Scan head ID number
+148094
+Aperture
+Maximum diameter of the 
+laser beam inside the scan 
+head
+14 mm
+Control
+Input and output signals
+XY2-100 Standard
+Maximum range for control 
+values(1) 
+(1)
+This maximum range for input values should be regarded as a 
+theoretical range. Due to the danger of vignetting by the 
+mirrors, the specified maximum scan angle must never be 
+exceeded.
+0 to 65535
+Calibration
+±0.408 rad with 
+(32768 ±31457) 
+bit
+Maximum allowed scan angle
+(vignetting insignificant)
+– without objective
+±0.36 rad
+Power Supply
+Requirements
+30 V DC (29–33 V), 
+max. 3 A each pole
+Weight
+Without objective
+2.7 kg
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive
+Optical Performance
+Temperature drift
+• Offset
+< 20 µrad/K
+• Gain 
+< 20 ppm/K
+8-h drift (after 30 min warm-up)
+(at constant ambient temperature and load)
+- Offset
+< 50 µrad/8h
+- Gain
+< 50 ppm/8h
+Tuning Specifications (Dynamic Performance)
+ID number
+145451
+Type
+Vector
+ControlPreview
+70 µs
+Tracking error
+< 0.17 ms
+Dither (RMS)
+< 6 µrad
+Typical positioning speed
+90 rad/s
+Typical positioning speed in 
+the image field
+14.4 m/s
+Maximum positioning speed
+100 rad/s
+Typical marking speed (for 
+marking small characters)
+2 m/s
+Step response for 1% of full 
+scale
+< 0.37 ms
+Step response for 10% of full 
+scale
+< 1.25 ms
+Specifications in m/s: with 160 mm objective
+Step response: settling to 1/1000 full scale
+
+[p.19]
+SCANcube IV
+Rev. 2.3 e
+6
+SCANcube IV 14 - Technical Specifications
+19
+innovators for industry
+Mirror
+Coating
+dielectrical high 
+performance 
+coating
+Working wavelength
+355 nm
+Reflectivity
+• at 355 nm
+more than 99.5% 
+per mirror, over the 
+full range of angles
+• at 633 nm
+more than 50% per 
+mirror
+Maximum allowed average 
+laser power
+150 W
+Maximum allowed laser 
+power density continuous 
+wave
+300 W/cm2
+Damage threshold for pulsed 
+operation (at specified 
+wavelength, with pulse length 
+10 ns, 200 on 1)
+0.5 J/cm2

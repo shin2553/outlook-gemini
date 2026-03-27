@@ -1,0 +1,103 @@
+# RTC6conf
+
+[p.1]
+2023-02-28 
+ 
+ 
+Page 1 / 4 
+RTC6 Configuration Tool 
+Document Version 1.4 
+ 
+ABSTRACT 
+ 
+ 
+RTC6conf is a software tool to configure SCANLAB RTC6 controller boards and to display var-
+ious parameters. Both PCI-Express boards (RTC6e) and Ethernet boards (RTC6eth) are sup-
+ported. This document gives a short overview of how to use RTC6conf. 
+ 
+Following features are available: 
+ 
+RTC6e and RTC6eth 
+ Display serial number and available options such as 3D-option, Processing-on-the-fly, 
+etc. 
+ Perform an option upgrade. For that purpose a license file has to be obtained from 
+SCANLAB. 
+ Display the BIOS version. The BIOS is a part of the RTC6 firmware and stored in flash 
+memory, unlike the other firmware parts that have to be downloaded to volatile 
+memory every time the board is powered up. 
+ Upgrade the BIOS version. 
+ 
+RTC6eth only 
+ Search for boards in configurable network segments (subnets) and display board spe-
+cific parameters. 
+ Display the version numbers of the stored firmware. 
+ Display network parameters like MAC address and current IP address. 
+ Display and change network settings for static IP configuration. 
+ Erase program and data that have been stored in standalone memory. 
+ Detect and disable boards in Remote Interface mode.
+
+[p.2]
+2023-02-28 
+ 
+ 
+Page 2 / 4 
+GRAPHICAL USER INTERFACE 
+ 
+RTC6conf has only one main window. On the left-hand side, a tree view allows to view avail-
+able RTC6e boards, to set network parameters and to search for RTC6eth boards, and to 
+view found RTC6eth boards.  
+ 
+1. Use with PCIe Boards 
+ 
+When an RTC6e board is selected in the tree view, its corresponding information is shown on 
+the right-hand side of the dialog. Buttons are provided to upgrade the feature options (“UP-
+GRADE OPTIONS”) and to flash the BIOS (“FLASH BIOS”).  
+Notice that the options are abbreviated (e.g. “FLY” for “Processing on the fly”). If you hover 
+the mouse over the text, a tooltip opens showing the unabbreviated options. 
+ 
+ 
+Figure 1: RTC6e Software Versions Panel
+
+[p.3]
+2023-02-28 
+ 
+ 
+Page 3 / 4 
+2. Use with RTC6eth Boards 
+2.1 Board Search 
+ 
+Selecting the entry “Network Settings” in the tree view, you can specify all necessary net-
+work parameters to search an RTC6eth board in a subnet. 
+Left-clicking the checkbox “Search enabled” enables or disables a periodic search within the 
+given search interval. A right-click on the checkbox performs a one-time search. 
+The dropdown box “Search Type” allows choosing between the two search types “Broad-
+cast” and “IP scan”. For each type, the corresponding IP addresses have to be entered in the 
+appropriate text boxes. 
+To simplify the input of the search subnet’s IP address and net mask, these parameters can 
+be determined automatically from the Windows settings. To do this, click the "Get NIC set-
+tings" button in order to populate the text fields with the determined values. 
+ 
+Figure 2: RTC6eth Network Settings
+
+[p.4]
+2023-02-28 
+ 
+ 
+Page 4 / 4 
+2.2 Board Settings 
+ 
+When an RTC6eth board is selected in the tree view, its corresponding information is shown 
+on the right-hand side of the dialog. Buttons are provided to upgrade the feature options 
+(“UPGRADE OPTIONS”), to flash the BIOS (“FLAS BIOS”) and to erase the standalone pro-
+gram/data (“ERASE SA MEMORY”). “Remote Interface” shows if a board is in Remote Inter-
+face mode. The button (“DISABLE”) can be used to temporarily (until the next reboot) disa-
+ble Remote Interface mode. 
+An additional section displays network parameters and settings. Here you can set a static IP 
+address configuration, consisting of the IP address, corresponding netmask and an optional 
+gateway address. If the gateway address is zero, no gateway is used. 
+Click “STORE SETTINGS” to save the parameters permanently. A reboot of the board is nec-
+essary afterwards. If supported by the current firmware version, a dialog box opens to ask if 
+an automatic reboot should be performed. Otherwise, the RTC6eth board must be power 
+cycled manually. Make sure the jumper “FORCE DHCP” on the RTC6eth board is set correctly. 
+The inputs fields for the network ports are currently disabled and will be available in a future 
+release.

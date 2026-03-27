@@ -1,0 +1,4777 @@
+# Manual_varioSCAN_de_II_20i_Part1_Doc.1.1.8_en
+
+[p.1]
+varioSCANde II 20i 
+Dynamic Focusing System 
+Part 1 – General Description
+innovators for industry
+  
+December 12, 2024
+Doc. Rev. 1.1.8 e
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2024
+(Doc. Rev. 1.1.8 e - December 27, 2023)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB GmbH.
+All mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+ Contents
+3
+innovators for industry
+Contents
+1
+General ............................................................................................................................................... 6
+1.1
+Contents of this Manual .................................................................................................................  6
+1.2
+Usage and Distribution of this Manual ............................................................................................  6
+1.3
+Additional Manuals .........................................................................................................................  6
+1.4
+Manufacturer ..................................................................................................................................  6
+1.5
+Symbols ..........................................................................................................................................  7
+1.6
+Product Overview ............................................................................................................................  7
+1.6.1
+Application ..........................................................................................................................  7
+1.6.2
+Components ........................................................................................................................  7
+1.7
+Unpacking and Scope of Delivery ....................................................................................................  8
+2
+Safety During Installation and Operation ......................................................................................... 9
+2.1
+Guidelines and Standards ...............................................................................................................  9
+2.1.1
+Conformity to EC Guidelines for Electromagnetic Compatibility (EMC) ................................  9
+2.1.2
+Complying with Relevant Standards for the CE Label ...........................................................  9
+2.2
+Electrical Safety .............................................................................................................................  10
+2.3
+Laser Safety ...................................................................................................................................  11
+3
+Principle of Operation ...................................................................................................................... 14
+3.1
+Mechanical and Optical Overview .................................................................................................  14
+3.1.4
+Operating Principle ............................................................................................................  14
+3.2
+DSCB Digital Servo Control Board .................................................................................................  16
+3.2.1
+Configuring the Servo and Start Behavior (iDRIVE Functions) ............................................  16
+3.2.2
+Internal Protective Functions ..............................................................................................  16
+3.3
+System Integration ........................................................................................................................  17
+3.3.1
+Integration into a 3-Axis Scan Configuration .....................................................................  17
+3.3.2
+Digital Interface Boards ......................................................................................................  19
+3.3.3
+RTC Control Boards ............................................................................................................  20
+4
+Installation ....................................................................................................................................... 22
+4.1
+Installing the varioSCAN II .............................................................................................................  22
+4.1.1
+ ..........................................................................................................................................  25
+4.2
+Water Cooling (optional) ..............................................................................................................  25
+4.2.1
+Water-cooled aperture (optional) .......................................................................................  27
+4.2.2
+Selecting an Appropriate Water Cooling System ................................................................  27
+4.2.3
+Coolants .............................................................................................................................  28
+4.2.4
+Connecting to a Cooling System ........................................................................................  29
+4.3
+Installing the Electronic Components ............................................................................................  30
+4.3.1
+Installing the DSCB Servo Control Board ............................................................................  30
+4.3.2
+Installing the Digital Interface Board (optional) .................................................................  33
+4.3.3
+Installing the Electronic Box ...............................................................................................  35
+4.4
+Operating and Storage Conditions ................................................................................................  36
+5
+Electrical Connections ...................................................................................................................... 37
+5.1
+.Control via an Interface Board in the Electronic Box ....................................................................  38
+5.1.1
+Connecting the varioSCAN II ..............................................................................................  38
+5.1.2
+Connecting the RTC Board .................................................................................................  38
+
+[p.4]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+ Contents
+4
+innovators for industry
+5.1.3
+Connecting the Power Supply ............................................................................................  40
+5.2
+ Control via a Separate DSIB Interface Board .................................................................................  41
+5.2.1
+Connecting the varioSCAN II ..............................................................................................  42
+5.2.2
+Connect the DSCB and DSIB Boards ...................................................................................  42
+5.2.3
+Connect the DSIB and RTC Boards ......................................................................................  42
+5.2.4
+Connecting the Power Supply ............................................................................................  44
+5.3
+Control via a Separate DSIB-SL Interface Board .............................................................................  44
+5.3.1
+Connecting the varioSCAN II ..............................................................................................  45
+5.3.2
+Connecting the DSCB and DSIB-SL Boards .........................................................................  45
+5.3.3
+Connecting the DSIB-SL and RTC Boards ............................................................................  45
+5.3.4
+Connecting the Power Supply ............................................................................................  46
+5.4
+Data Cable ....................................................................................................................................  47
+5.5
+Power Supply ................................................................................................................................  49
+5.5.1
+Specifications .....................................................................................................................  49
+5.5.2
+Connecting ........................................................................................................................  49
+6
+Control ............................................................................................................................................. 51
+6.1
+Position Control ............................................................................................................................  51
+6.1.1
+Digital Control via a SCANLAB Digital Interface Board (without RTC Board) .......................  51
+6.1.2
+Digital Control with an RTC Board .....................................................................................  51
+6.2
+Returned Signals ...........................................................................................................................  53
+6.2.1
+Digital Control via a Digital Interface Board (without RTC Board) ......................................  53
+6.2.2
+Digital Control with an RTC Board .....................................................................................  53
+6.3
+Process Monitoring .......................................................................................................................  56
+6.4
+Configuring the Start Behavior ......................................................................................................  56
+6.5
+Tracking Error Compensation ........................................................................................................  57
+6.5.1
+Using the varioSCAN II with excelliSCAN and SCANahead Control ....................................  57
+6.5.2
+High Dynamic Requirements ..............................................................................................  57
+7
+Commissioning ................................................................................................................................ 58
+7.1
+Checking the Installation ...............................................................................................................  58
+7.2
+Checking the Laser Parameters .....................................................................................................  59
+7.3
+Integration into a 3-Axis Configuration .........................................................................................  60
+7.4
+Safe Startup and Shutdown Sequences ........................................................................................  61
+7.5
+Alignment .....................................................................................................................................  62
+7.5.1
+Recommended Tolerances .................................................................................................  62
+7.5.2
+Aligning the Components ..................................................................................................  62
+7.5.3
+Adjusting the Distance to the Scan System ........................................................................  63
+7.5.4
+Adjusting the Working Distance .........................................................................................  63
+7.5.5
+Checking the Z-Axis Calibration .........................................................................................  64
+7.6
+Monitoring Operating Temperature and Current Draw .................................................................  64
+8
+Maintenance and Customer Service ................................................................................................ 65
+8.1
+Periodic Inspection and Cleaning of the Objective ........................................................................  65
+8.2
+Customer Service ..........................................................................................................................  67
+8.2.1
+Servicing and Repairs .........................................................................................................  67
+8.2.2
+Warranty ............................................................................................................................  67
+8.2.3
+Contacting SCANLAB .........................................................................................................  67
+
+[p.5]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+ Contents
+5
+innovators for industry
+8.2.4
+Product Disposal ................................................................................................................  67
+9
+Troubleshooting ............................................................................................................................... 68
+9.1
+Fault Diagnosis and Functional Test ..............................................................................................  69
+10 General Technical Specifications ..................................................................................................... 70
+
+[p.6]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+1 General
+6
+innovators for industry
+1
+General
+1.1
+Contents of this Manual
+This manual is a general description of the 
+varioSCANde II 20i dynamic focusing system from 
+SCANLAB. This general description – Part 1 of 2 parts 
+– provides a product overview, a functional descrip-
+tion, general safety tips and instructions on installa-
+tion, commissioning and maintenance.
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification. The 
+information in this manual supersedes the content of 
+previous manuals.
+1.2
+Usage and Distribution of 
+this Manual
+This manual is part of the product. Read it carefully 
+before proceeding to plan, install and operate the 
+scan system. If there are any questions regarding the 
+contents of this manual, contact SCANLAB (see 
+chapter 1.4).
+This manual is particularly intended for system inte-
+grators, i.e. laser system planners, developers and 
+safety officers, as well as persons involved in scan 
+system installation, start-up, maintenance, deinstal-
+lation, storage or transport preparation. It is the 
+product purchaser’s/operator’s responsibility to 
+provide access to this manual (or relevant parts) in 
+suitable form to all involved persons.
+SCANLAB typically supplies this manual in electronic 
+form (as a PDF file).
+Provide access to this manual in suitable form to 
+all involved persons (see above).
+Maintain accessibility to this manual even after 
+planning.
+This manual should accompany the scan system if 
+ownership changes hands.
+1.3
+Additional Manuals
+• Part 2 – Specific Description:
+Covers the delivered product’s scope of delivery 
+and technical specifications.
+• If the varioSCAN II is to be used in conjunction 
+with an XY scan system, then also read the docu-
+mentation of the XY scan system.
+• For a specific 3-axis configuration consisting of 
+the varioSCAN II, an XY scan system and possibly 
+an objective in conjunction with a correction file, 
+SCANLAB will provide a data sheet listing that 
+configuration’s optical properties.
+• Furthermore, you will receive the Application 
+Note “Calibrating a 3-Axis Laser Scan System” 
+from SCANLAB.
+1.4
+Manufacturer
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+
+[p.7]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+1 General
+7
+innovators for industry
+1.5
+Symbols
+Warnings
+The warning notices in this manual are indicated by 
+a symbol and set against a gray background. The 
+notices are accompanied by signal words conveying 
+the degree of hazard. To prevent accidents, injuries 
+and material damage, always comply with these 
+notices.  
+Tips and Recommendations
+1.6
+Product Overview
+1.6.1Application
+The varioSCAN II is designed for use in a laser scan 
+system. It enables the laser beam to be focused and 
+the laser spot to be moved quickly and precisely 
+along the optical axis. It thereby supplements an 
+XY scan system (scan head or scan module) to form a 
+3-axis scan system.
+The varioSCAN II’s optical parameters are optimized 
+for a specific scan system configuration and designed 
+either for use with an objective or for use without an 
+objective(1). Depending on the optical configuration 
+of the complete laser scan system, the varioSCAN II 
+serves to maintain the laser focus in a planar target 
+area and/or to shift the laser focus within the working 
+volume in the Z-direction for 3D applications.
+1.6.2Components
+The varioSCAN II consists of a dynamic focusing unit 
+(motorblock with diverging optic, optional water-
+cooled entrance aperture and objective) and a suit-
+able servo control board. These two components 
+together form a functional unit.
+The following two variants are available:
+(1) The varioSCAN II supplied with a separate servo 
+control board.
+(2) The varioSCAN II supplied with an electronic box 
+containing the servo control board and a digital 
+interface board. The box protects the electronic 
+boards from moisture, dust and corrosive vapors, 
+as well as damage due to mechanical stress.
+servo The supplied components and technical speci-
+fications of your varioSCAN II are described in Part 2 
+– Specific Description.
+Danger!
+... indicates a possibly dangerous situation that 
+could result in death or injuries if not avoided.
+Caution!
+... indicates a possibly dangerous situation 
+that could result in material and environ-
+mental damage if not avoided.
+Note
+... highlights useful tips and recommenda-
+tions, as well as information for efficient and 
+trouble-free operation.
+!
+(1)
+Part 1 of the manual describes the varioSCANde II 20i, typically 
+without differentiating between optical implementation for 
+use with an objective (varioSCANde II 20i FT) or without an 
+objective (varioSCANde II 20i PR). Reference to the respective 
+implementation is only discussed where necessary.
+Part 2 of the manual describes the supplied system’s specific 
+characteristics.
+
+[p.8]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+1 General
+8
+innovators for industry
+1.7
+Unpacking and Scope of 
+Delivery
+Unpack the delivered package as follows:
+Carefully remove the varioSCAN II and its servo 
+control board or electronic box from the 
+packaging.
+Protect the varioSCAN II and its electronic 
+components from dust and other contaminants.
+Keep the packaging the varioSCAN II and 
+electronic components were delivered in, so that 
+they can be properly repacked and returned to 
+SCANLAB in case of repair.
+The electronic components must always be 
+included, because the varioSCAN II and servo 
+control board form a functional unit.
+Check that all parts have been delivered. The 
+package includes:
+– the varioSCAN II,
+– a separate DSCB digital servo control board
+– or an electronic box (with integrated servo con-
+trol board and digital interface board),
+– this operating manual.
+For digitally controlling the varioSCAN II, a digital 
+interface board, an RTC control board and suitable 
+data cables may also be included. Refer to the corre-
+sponding packing list.
+Caution!
+• When unpacking the package contents, 
+handle all parts with care.
+• Follow ESD guidelines when handling the elec-
+trostatically sensitive servo control boards.
+
+[p.9]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+2 Safety During Installation and Operation
+9
+innovators for industry
+2
+Safety During Installation and Operation
+The safety and warning notices in this manual are 
+indicated by a symbol set against a gray background 
+(see chapter 1.5 on page 7).
+To reduce the risk of injury, observe the following 
+guidelines.
+2.1
+Guidelines and Standards
+When operating the varioSCAN II, the following 
+guidelines and standards should be followed:
+• 2006/42/EG
+Machinery Directive
+• 2014/30/EU
+Electromagnetic Compatibility (EMC)
+• 2014/35/EU
+Low Voltage Directive
+• DIN EN ISO 11553-1 (2009)
+Safety of Machinery – Laser Processing Machines 
+– Part 1: General Safety Requirements
+• EN 60204-1 (2006)
+Safety of Machinery – Electrical Equipments of 
+Machines, Part 1: General Requirements
+• EN 60825-1 / VDE 0837 (2015)
+Safety of Laser Products, Part 1: Equipment Clas-
+sification, Requirements and User’s Guide
+• EN 60825-4 / VDE 0837 (2011)
+Safety of Laser Products, Part 4: Laser Guards
+It is the system integrator’s and operator’s responsi-
+bility to determine which of the listed guidelines and 
+standards are relevant. Additional requirements may 
+apply via regional guidelines and standards or due to 
+specific applications and environmental conditions.
+2.1.1Conformity to EC Guidelines for 
+Electromagnetic Compatibility (EMC)
+The varioSCAN II is supplied as an OEM component 
+intended for installation in a machine (usually a laser 
+system). The varioSCAN II must not be put into oper-
+ation until it has been installed in a machine that 
+complies with the provisions of all applicable direc-
+tives and standards.
+Neither the varioSCAN II nor its servo control board 
+(nor an optionally supplied interface board) are 
+shielded against electromagnetic fields. This also 
+applies if the cards are installed in SCANLAB's elec-
+tronic box.  
+After installing the varioSCAN II, the manufacturer of 
+the entire system must ensure that electromagnetic 
+compatibility is maintained, for example by:
+• attaching shielding or plates
+• installing the varioSCAN II (incl. servo control 
+board and optional interface board or optional ) 
+in an EMC-compatible housing
+• servo control using EMC-compliant cabling to 
+electrically connect the varioSCAN II
+• assessing the overall system to establish confor-
+mity with relevant technical requirements and 
+applicable EMC directives.
+2.1.2Complying with Relevant Stan-
+dards for the CE Label
+The varioSCAN II is delivered as an OEM component 
+conceived of for integration into a laser scan system.
+The system manufacturer bears the responsibility for 
+complying with the standards and guidelines 
+required for equipment usage and for the CE label.
+Note:
+If the varioSCAN II is used without structural 
+measures for shielding against electromagnetic 
+fields, then SCANLAB views this as an impermis-
+sible installation or application situation within 
+the meaning of the protective goals of the EU’s 
+EMC Directive.
+
+[p.10]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+2 Safety During Installation and Operation
+10
+innovators for industry
+2.2
+Electrical Safety
+Power is furnished to the varioSCAN II by a low 
+voltage power supply. The power supply unit must 
+meet the following mains insulation requirements:
+• If the connectors are covered and cannot be 
+reached without tools from the outside, single 
+insulation between the mains and the low voltage 
+circuit is sufficient. The mains insulation must be 
+able to withstand a test voltage of 2 kV AC 
+applied between the mains and the low voltage 
+circuit.
+• If the connectors for low voltage signals can be 
+reached from the outside, then double or rein-
+forced insulation between the mains and the low 
+voltage circuit is necessary. The mains insulation 
+must be able to withstand a test voltage of 4 kV 
+AC applied between the mains and the low 
+voltage circuit.
+Additional application-dependent guidelines and 
+standards may apply.
+Danger!
+Personal injury due to electric shock caused by 
+capacitors!
+Possible residual charges in capacitors as well as 
+contact between supply pins can lead to electric 
+shock.
+• After switching off, do not connect the pins for 
+approx. 1 minute and wait.
+!
+
+[p.11]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+2 Safety During Installation and Operation
+11
+innovators for industry
+2.3
+Laser Safety
+The varioSCAN II is designed to provide variable 
+focusing of a laser beam. Because the varioSCAN II is 
+typically used with a laser, all relevant rules and regu-
+lations for safe operation of lasers must be known 
+and applied before installing it. Since SCANLAB has 
+no influence over the employed laser or the overall 
+system, the customer is solely responsible for laser 
+safety.
+Follow the instructions for laser safety provided in the 
+“Safety During Installation and Operation” chapter of 
+your SCANLAB XY scan system manual.
+Maintenance
+During maintenance of the laser equipment, the class 
+of the laser can temporarily increase. Therefore, the 
+customer must take suitable protective measures.
+Warning Symbol
+The area where laser radiation may occur must be 
+marked with a warning symbol indicating the class of 
+the employed laser – in accordance with BGV B2 and 
+BGV A8 laser safety requirements. Additionally, 
+warning symbols should be placed at the beam exit
+The table on page 12 shows appropriate warning 
+symbols for the various laser classes specified by DIN 
+EN 60825-1 (or VDE 0837 T1 / IEC 60825-1) "Safety of 
+Laser Products".
+Danger!
+• Safety regulations may differ from country to 
+country. The customer bears sole responsibility 
+for compliance with all applicable safety regula-
+tions of their respective regulatory jurisdiction.
+Danger!
+Personal injury due to burns/ blindness caused 
+by laser radiation from the !
+During normal operation and during mainte-
+nance, servicing and adjustment of the 
+• Wear laser safety glasses.
+• Do not stay in the area of the beam cone.
+• Do not look into the laser beam or the scattered 
+radiation.
+• Keep body parts away from direct laser beam or 
+scattered radiation and protect them.
+• Before entering the , switch off the laser beam 
+or block it with an shutter.
+!
+!
+Danger!
+• Routine maintenance should be performed as 
+described in "Periodic Inspection and Cleaning 
+of the Objective" on page 65 and all safety 
+instructions should be observed.
+• Adjust the output beam path by means of a 
+laser with a laser class not higher than 2.
+• The risk of hazardous deflected radiation can 
+increase when optical instruments are used in 
+combination with the scan system.
+• Before inspecting the varioSCAN II, make 
+absolutely sure that the laser and the 
+varioSCAN II are turned off. 
+• Follow all applicable accident prevention regu-
+lations, particularly BGV B2 "Laser Radiation".
+• Always turn on the controlling PC and power 
+to the varioSCAN II first before turning on the 
+laser. Otherwise, the laser beam might be 
+deflected and focused to an arbitrary position.
+!
+
+[p.12]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+2 Safety During Installation and Operation
+12
+innovators for industry
+Labels for Laser Classes Specified by DIN EN 60825-1 (or VDE 0837 T1 / IEC 60825-1) 
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER CLASS 1
+LASER CLASS 1
+Class 1:
+The accessible laser radiation is not 
+harmful; is eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OPTICAL 
+INSTRUMENTS
+LASER CLASS 1 M
+INVISIBLE LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OPTICAL 
+INSTRUMENTS
+LASER CLASS 1 M
+Class 1 M:
+The accessible laser radiation is 
+harmful to the eyes if optical 
+instruments are used to reduce the 
+cross section of the laser beam. If 
+this is not the case, this laser 
+radiation is not harmful; is eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM
+LASER CLASS 2
+Class 2:
+The accessible laser radiation is only 
+in the visible spectrum of 400 to 
+700 nm. Exposure to this radiation 
+for less than 0.25 s is not harmful to 
+the eyes. It is eye-safe due to the 
+eye’s natural aversion response and 
+blink reflex
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM EVEN WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 2 M
+Class 2 M:
+The accessible laser radiation is in the 
+visible spectrum of 400 to 700 nm. 
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+exposure to this radiation for less 
+than 0.25 s is not harmful to the eyes 
+and is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+AVOID DIRECT EXPOSURE OF THE 
+EYES
+LASER CLASS 3 R
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 R
+Class 3 R: 
+The accessible laser radiation is 
+harmful to the eyes. Eye exposure 
+exceeds the maximum allowable 
+value.
+
+[p.13]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+2 Safety During Installation and Operation
+13
+innovators for industry
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+Class 3 B: 
+The accessible laser radiation is 
+harmful to the eyes and in some 
+cases to the skin.
+LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+INVISIBLE LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+Class 4: 
+The accessible laser radiation is very 
+harmful to the eyes and skin. Stray 
+radiation can also be dangerous. This 
+radiation can cause fire or explosion 
+and the generation of toxic gases or 
+vapors.
+
+[p.14]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+14
+innovators for industry
+3
+Principle of Operation
+3.1
+Mechanical and Optical 
+Overview
+The varioSCAN II is an optical system with a dynami-
+cally variable focal length. It consists of the following 
+major parts (see figure 1):
+(1) motor block with a movable diverging optic and 
+clamping surface for mounting the varioSCAN II
+(2) objective consisting of a focus ring and a static 
+focusing optic
+(3) optional water-cooled entrance aperture (water-
+cooled aperture)
+3.1.4Operating Principle
+The operating principle is shown in figure 2 on 
+page 15. The entering laser beam is expanded by the 
+movable diverging optic (a negative focal length 
+lens). Next, the beam is collimated and focused by the 
+objective (consisting of a lens system with positive 
+focal length).
+The varioSCAN II’s (total) focal length, and thus also 
+the emerging beam’s divergence and convergence 
+angles, can be varied by moving the diverging optic. 
+This is achieved with a motor regulated by the PC 
+controller.
+SCANLAB provides a travel range in the beam direc-
+tion that suits the customer’s particular application 
+by selecting optics with appropriate characteristics.
+The user can fine-tune the working distance by manu-
+ally turning the varioSCAN II’s focus ring, which 
+moves the objective lens along the optical axis of the 
+varioSCAN II (see "Adjusting the Working Distance" 
+on page 63).
+For matching the varioSCAN II’s output beam diam-
+eter to the entrance aperture of an XY system (scan 
+head or scan module), SCANLAB chooses an optical 
+configuration with a suitable expansion factor (see 
+Part 2 – Technical Specifications). Additionally, it may 
+be necessary to place a beam expander into the beam 
+path for this purpose (see figure 30 on page 60).
+A water-cooled entrance aperture (water-cooled 
+aperture) may be required to dissipate the heat 
+absorbed from laser energy (see chapter 4.2 on 
+page 25).
+When mounting the varioSCAN II (see chapter 4.1 on 
+page 22), only use the clamping surface indicated in 
+figure 1.
+1
+Layout of varioSCAN II
+Legend
+1a Motor block
+1b Clamping surface
+2
+Objective
+3a water-cooled aper-
+ture
+3b Cooling water 
+2
+1a
+3b
+3a
+1b
+
+[p.15]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+15
+innovators for industry
+7
+2
+Operating principle of the varioSCAN II dynamic focusing system
+Objective
+Motor 
+block
+Optical axis
+Watercooled 
+entrance aperture 
+(optional)
+Diverging
+optic
+Beam shape FT
+Beam shape PR
+Caution!
+• Make sure that the varioSCAN II’s aperture and 
+optical configuration meet the requirements of 
+your application (see Part 2 – Technical Specifi-
+cations).
+For information on tolerances and deviations, 
+contact SCANLAB.
+• Make sure that the wavelength, working 
+distance and typical image field size meet the 
+requirements of your application. If this is not 
+the case, then contact SCANLAB.
+• Check if your input beam’s wavelength, 
+maximum beam diameter and laser power 
+match the specifications of the varioSCAN II (see 
+Part 2 – Technical Specifications).
+
+[p.16]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+16
+innovators for industry
+3.2
+DSCB Digital Servo Control 
+Board
+For controlling the varioSCAN II, a DSCB digital servo 
+control board (see figure 11 on page 31) is included. 
+Depending on the variant (see "Components" on 
+page 7), the servo control board is
+• included in the package
+• or integrated in the supplied electronic box.
+The servo control board controls the position of the 
+diverging optic in accordance with received data and 
+returns miscellaneous status information to the 
+controlling PC (see "Returned Signals" on page 53).
+The servo control board forms a closed servo loop in 
+conjunction with the varioSCAN II’s motor. Each 
+servo control board is individually tuned by SCANLAB 
+for its assigned motor-lens configuration.
+Together with the digital servo control board and 
+supplemented by an digital interface board and an 
+RTC control board, the varioSCAN II can be controlled 
+via digital signals from a controlling PC (see "Position 
+Control" on page 51).
+3.2.1Configuring the Servo and Start 
+Behavior (iDRIVE Functions)
+The varioSCAN II’s digital servo control board allows 
+configuration of a number of settings.
+If the varioSCAN II is used together with an RTC4, 
+RTC5 or RTC6 board, configuring can be realized via 
+the command control_command (see RTC manual).
+The user can:
+• select the data types to be transmitted from the 
+varioSCAN II to the RTC control board (see "Addi-
+tional Data Types" on page 54)
+• set a desired POSACK threshold value (see 
+"Process Monitoring" on page 56)
+• configure the varioSCAN II’s start behavior (see 
+"Configuring the Start Behavior" on page 56)
+• perform fault diagnostics or verify intact data 
+transfer capability (see "Fault Diagnosis and Func-
+tional Test" on page 69)
+3.2.2Internal Protective Functions
+Assuring Reliable Power
+For safe operation of the varioSCAN II, a reliable 
+supply of power is absolutely essential. If the supply 
+voltages deviate excessively from their specified 
+values (30 V or 48V) or if the mechanism for 
+switching on power does not result in symmetrical 
+turn-on of the supply voltages, then unintended 
+movements of the diverging optic may occur. This in 
+turn can damage the varioSCAN II or the optics of the 
+scan system and can (if the laser is on) lead to an 
+unintended spot position.
+The varioSCAN II’s supply voltages are monitored by 
+the digital servo electronics. If, during operation, the 
+supply voltage falls below a minimum of approx. 
+25 V (e.g. due to excessively long or thin cables, a 
+weak power supply or high loads), then the elec-
+tronics disconnects the varioSCAN II from the power 
+supply. To restart the varioSCAN II, the supply voltage 
+problem must first be resolved and the varioSCAN II 
+switched off and then restarted.
+Monitoring Position Range and Proper 
+Operation
+The varioSCAN II has a built-in monitoring function to 
+prevent damage to its motor or electronics when a 
+problem occurs.
+If the motor’s position exceeds the allowed position 
+range due to an operational disturbance or if the 
+diverging optic is not moved to its set position within 
+a certain time, then the output stage of the servo 
+electronics will be shut down. In such situations, the 
+varioSCAN II can no longer be controlled.
+Danger!
+If the output stage is shut down due to position 
+range overrun or any other problem, laser 
+power must be switched off immediately. 
+Otherwise, serious health hazards and severe 
+equipment damage can occur due to uncon-
+trolled laser radiation.
+!
+
+[p.17]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+17
+innovators for industry
+3.3
+System Integration
+3.3.1Integration into a 3-Axis Scan 
+Configuration
+The varioSCAN II is designed to supplement an XY 
+scan system (scan head or scan module) to form a 
+3-axis scan configuration.
+The XY scan system deflects the laser beam in the XY 
+directions and the varioSCAN II or an optional scan 
+lens focuses the beam at the desired location. During 
+the XY scan system’s scanning process, the 
+varioSCAN II’s diverging optic can move highly 
+dynamically along the optical axis. Together with the 
+stationary focusing optic, this produces a change to 
+the system’s overall focal length, synchronized with 
+the XY system’s mirrors.
+varioSCAN II PR
+The varioSCAN II PR can replace a flat field objective 
+(F-Theta objective) and enable processes in a plane 
+perpendicular to the optical axis of the XY scan 
+system. Here, the varioSCAN II PR is used to focus the 
+laser beam and maintain the laser focus in a planar 
+target area (see figure 3).
+The varioSCAN II PR can additionally be used to shift 
+the laser spot in the Z direction within a certain 
+working volume (i.e. to shift the working plane). It 
+thereby transforms an XY scan system into a 3D beam 
+deflection system and enables processing in three 
+dimensions (see figure 4).
+3
+3-axis scan system with the varioSCAN II PR as replacement for a 
+scan lens
+XY scan system
+Y
+X
+Scan area
+Scanner 2 (X)
+Scanner 1 (Y)
+varioSCAN II PR
+4
+3-axis scan system with a varioSCAN II PR for processing a scan 
+volume
+XY scan system
+Y
+X
+Scanner 2
+Scanner 1
+varioSCAN II PR
+Scan volume
+
+[p.18]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+18
+innovators for industry
+varioSCAN II FT
+If the XY scan system is equipped with a scan lens (e.g 
+an F-Theta objective), then the laser beam is focused 
+within a planar target area by the scan lens. With the 
+varioSCAN II FT installed in front of the XY scan 
+system’s beam entrance, the working distance (i.e. 
+the distance between the beam entrance and the 
+target plane) can be varied by changing the 
+varioSCAN II’s focal length (see figure 5).
+SCANLAB offers optical configurations for a wide 
+variety of working distances, image field sizes, ranges 
+of achievable focal lengths, beam diameters, wave-
+lengths and laser powers to optimally tune the 
+system to the customer’s particular application. Thus, 
+a maximized image field size is achieved with the 
+minimum spot size.
+Every varioSCAN II is optimized for a specific scan 
+system configuration. The technical specifications of 
+this product are described in Part 2 of the manual. A 
+separately supplied data sheet covers the characteris-
+tics of the 3-axis scan configuration. 
+Control and Power Supply
+Most laser systems require the varioSCAN II and the 
+complete 3-axis scan configuration to be controllable 
+from a controlling PC via digital data transfer. For this 
+purpose, the varioSCAN II and its DSCB servo control 
+board must be supplemented by a SCANLAB digital 
+interface board and a SCANLAB RTC control board 
+(see figure 6):
+• The interface board must be connected to the 
+varioSCAN II’s DSCB servo control board and 
+provides a digital interface to be connected to an 
+RTC board.
+• The RTC control board is designed for simulta-
+neous and real-time control of the varioSCAN II, 
+the XY scan system and additional components 
+(laser and peripheral equipment). Easy software 
+commands enable the laser spot to be moved to 
+the desired point in the target plane or scan 
+volume.
+The varioSCAN II and the XY scan system are typically 
+separately supplied with power.
+The varioSCAN II is usually controlled by an interface 
+card separate from the XY scan system. Available 
+SCANLAB interface boards are listed on page 19. 
+Available SCANLAB RTC control boards are listed on 
+page 20. Data transfer between the controlling PC 
+and the varioSCAN II is explained on page 51.
+An appropriate electronic box is available from 
+SCANLAB for integrating a separate digital interface 
+board and the varioSCAN II’s DSCB board (see 
+page 35).
+5
+3-axis scan system with a varioSCAN II FT and a scan lens (objective) 
+for processing a scan volume
+XY scan system
+Y
+X
+Z
+varioSCAN II FT
+Objective
+Scan volume
+Scanner 2
+Scanner 1
+
+[p.19]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+19
+innovators for industry
+ 
+3.3.2Digital Interface Boards
+The following table shows the digital interface 
+boards available from SCANLAB for this varioSCAN II:
+The interface boards have different digital interfaces 
+matched to the corresponding interfaces of the 
+various SCANLAB RTC control boards. Data transfer is 
+electrical. The interface boards support different 
+position control resolutions.
+The varioSCAN II and the XY scan system will each 
+need their own interface boards. Both interface 
+boards have to be connected via separate data cables 
+to the RTC control board (which has two scan head 
+connectors).
+With all SCANLAB scan systems, the varioSCAN II 
+always requires its own power supply.
+An appropriate electronic box is available from 
+SCANLAB for integrating a separate interface board 
+and the varioSCAN II’s DSCB board (see page 35).
+6
+Digital control of the varioSCAN II – schematic diagram
+varioSCANde
+XY scan system
+Digital
+interface board
+Scanner
+with
+servo
+electronics
+Laser,
+Peripheral
+equipment
+DSCB servo
+control board
+Digital
+interface board
+RTC control board
+System control
+Power supply
+XY scan system
+Digital
+interface board
+Scanner
+with
+servo
+electronics
+Laser,
+Peripheral
+equipment
+DSCB servo
+control board
+varioSCANde
+Digital
+interface board
+RTC control board
+System control
+Power supply
+Electronic box
+or
+Interface 
+board
+Digital interface 
+type
+Position control 
+resolution
+DSIB
+XY2-100 Enhanced
+16 bit
+DSIB-SL
+SL2-100
+16 bit
+(up to 20 bit for the 
+XY scan system)
+
+[p.20]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+20
+innovators for industry
+3.3.3RTC Control Boards
+The following table shows the RTC control boards 
+available from SCANLAB:
+RTC PCI and PCIe control boards must be installed in 
+a Windows-compatible PC having a PCI or PCIe bus 
+interface (e.g. inserted in a PC slot). RTC Ethernet 
+boards are designed for operation without requiring 
+a PC.
+For controlling a varioSCAN II, the RTC’s 3D option 
+must be enabled. With the 3D option enabled, all RTC 
+boards provide data transfer for all three axes of a 3-
+axis scan system.
+All RTC4 and RTC5 boards and RTC6 PCIe boards 
+provide two scan head connectors The RTC6 Ethernet 
+board has only one connector. Data transfer to the 
+axes occurs via the following connectors:
+• RTC4 PCIe and RTC4 Ethernet boards:
+From the primary scan head connector via an 
+interface board to the X and Y axes, and from the 
+2nd scan head connector via a second interface 
+board to the Z axis.
+The “second scan head” option must be enabled.
+• RTC5 PCI, RTC5 PCIe and RTC6 PCIe Boards:
+From the primary scan head connector via an 
+interface board to the X and Y axes, and from the 
+2nd scan head connector via a second interface to 
+the Z axis.
+(The “second scan head” option must not be 
+enabled.)
+• RTC6 Ethernet Board:
+Starting from the common scan head connector 
+for all axes (X, Y and Z), then through a Y dividing 
+cable(1) and via two separate interface boards to 
+the X, Y and Z axes.
+(The “second scan head” option must not be 
+enabled.)
+RTC board
+3-axis support
+(with enabled 3D 
+option)
+Supported 
+interface 
+board
+Digital interface 
+type
+iDRIVE support
+– RTC4 PCIe(1)
+– RTC4 Ethernet(1)
+X and Y via one scan 
+head connector,
+Z via the other scan 
+head connector
+DSIB
+XY2-100 Enhanced
+restricted (fewer 
+iDRIVE-commands 
+than with the RTC5 
+board)
+– RTC5 PCI(1)
+– RTC5 PCIe
+– RTC6 PCIe
+X and Y via one scan 
+head connector,
+Z via the other scan 
+head connector
+DSIB-SL
+SL2-100
+full
+or
+DSIB and 
+XY2-100 
+converter
+XY2-100 Enhanced
+restricted (fewer 
+readout functions 
+than with the
+DSIB-SL board)
+– RTC6 Ethernet
+one scan head 
+connector: X and Y via 
+pins 01-10,
+Z via pins 11-20
+DSIB-SL
+SL2-100
+full
+or
+DSIB and 
+XY2-100 
+converter
+XY2-100 Enhanced
+restricted (fewer 
+readout functions 
+than with the
+DSIB-SL board
+(1)
+The rest of this manual doesn’t distinguish between the PCI, PCIe or Ethernet bus interfaces if it has no relevance for the varioSCAN II’s 
+functions. In cases where differentiation is required, the bus interface will be mentioned.
+(1)
+The Y cable is available from SCANLAB:
+Art.-No. 116050; BG-Cable RTC5 PC104 Scan head 1 and 2
+(Length=0.18 m)
+
+[p.21]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+3 Principle of Operation
+21
+innovators for industry
+The table on page 20 also shows what interface 
+boards can be combined with which RTC control 
+boards. For the various combinations, it also shows 
+the degree of iDRIVE support, which is relevant for 
+the varioSCAN II and the intelliSCAN and 
+excelliSCANscan systems from SCANLAB. Here iDRIVE 
+functions allow configuring the servo and start 
+behavior or performing extended diagnostics of the 
+system’s operational state (for details, see the section 
+"Configuring the Servo and Start Behavior (iDRIVE 
+Functions)" on page 16 and the corresponding 
+manuals).
+
+[p.22]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+22
+innovators for industry
+4
+Installation
+4.1
+Installing the varioSCAN II
+The varioSCAN II is freely installable in any position 
+(e.g. horizontally, vertically or inclined) – there are no 
+limitations to orientation. Likewise, there are no 
+limitations regarding rotation about its longitudinal 
+axis – i.e. there is no up or down.
+The varioSCAN II must be mounted via its clamping 
+surface (see figure 1 on page 14) into a clamping 
+block. The clamping block surface’s diameter is 
+Ø 44h6 mm (see figure 7).
+For simplified longitudinal positioning of the 
+clamping block, the varioSCAN II’s housing has a 3H7 
+alignment bore hole to accommodate the supplied 
+alignment pin. It then serves as a stop at the end of 
+the clamping surface.
+Note:
+When installing the system, note the differing 
+cable lengths between components (see 
+"Electrical Connections" on page 37).
+Caution!
+Glue the alignment pin in place to prevent it 
+from falling out.
+7
+Dimensions of the varioSCAN II (all dimensions in mm)
+* Depending on optics version; the exact length of your varioSCAN II is listed in Part 2 – Specific Description.
+Note that the total length doesn’t include the length of the optional water-cooled aperture.
+34
+35.5
+43
+34
+5
+Ø 3
+160°
+Ø 43.8
+Ø 44h6
+22
+22
+Ø 3H7 - 7 deep
+Tolerance of the clamping surface diameter 44h6:
+  44 +0.00 mm
+  44 -0.016 mm
+19
+approx. 100 - 175 *
+
+[p.23]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+23
+innovators for industry
+The customer must provide a suitable fixture 
+(clamping block) for installation of the varioSCAN II 
+that ensures that the varioSCAN II is correctly posi-
+tioned and stably attached in the laser scan system. 
+SCANLAB recommends a divided or slotted clamping 
+block. A divided clamping block is shown in figure 8. 
+The entire clamping surface should be enclosed by 
+the clamping block, i.e. the bore hole diameter of the 
+clamping block should be identical with the diameter 
+of the clamping surface (44H6), and the depth of the 
+clamping surface should be 34 mm.
+ 
+To prevent the temperature of the varioSCAN II from 
+rising excessively, the clamping block should be 
+constructed of aluminum or another material with 
+similar thermal conductivity. Under some operating 
+conditions, it could be appropriate to use a water 
+cooled clamping block (see chapter 4.2 on page 25).
+The varioSCAN II must be electrically insulated to 
+ensure reliable operation. SCANLAB recommends 
+using one of the two following options:
+• An electrically non-conductive foil sheet is placed 
+between the clamping block and the support (see 
+figure 8).
+• Or the surfaces of the clamping block are galvan-
+ically processed in such a way that electrical isola-
+tion is automatically provided. Care must be taken 
+to ensure the tolerance of the bore hole diameter 
+(see figure 8).
+The attachment of the clamping block to the support 
+with screws must also be electrically non-conductive. 
+Insulating washers must be fitted between the 
+fastening screws and the clamping block for this 
+purpose. But care must be taken that heat transfer is 
+still achieved.
+Furthermore, the alignment pin, which serves as a 
+stop (see page 22), must also not be electrically 
+conductive. For this reason, the dowel pin supplied is 
+made of plastic.
+8
+Recommended clamping block – cross section
+Caution!
+• When designing or providing the clamping 
+block, observe chapter 7.5 on page 62, espe-
+cially the recommended tolerances for the 
+beam position.
+• The clamping block must be mounted firmly 
+onto a sufficiently stable support.
+If the clamping block is not fastened with suffi-
+cient firmness, this can lead to vibrations of the 
+varioSCAN II, which might result in marking 
+process inaccuracies.
+Tolerance of the bore 
+hole diameter 44H6 :
+44 + 0.016 mm
+44 - 0.00 mm
+Depth: 34 mm
+Insulating foil
+Insulating washer
+Ø 44H6
+Fastening screw
+
+[p.24]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+24
+innovators for industry
+The clamping force applied to the varioSCAN II’s 
+clamping surface should be 10 kN (±2 kN). 
+To convert clamping force into tightening torque for 
+divided or slotted clamping, you can use the 
+following formulas (see figure 9):   
+Caution!
+A larger clamping force tolerance may introduce 
+dynamic deviations compared to the system 
+calibration.
+Note:
+For a different type of clamping construction, 
+you’ll need to devise your own calculation 
+method.
+9
+Calculation of tightening torque
+Divided clamping
+Slotted clamping
+Legend
+MA
+Tightening torque [Nm]
+P
+Screw thread pitch [mm]
+n
+Number of screws
+L1
+Slot spacing – gap midpoint [mm]
+L2
+Slot spacing – screw midpoint [mm]
+t
+varioSCAN II clamping surface depth 
+(±3 mm)
+n
+MA = 10 · P
+n
+L2
+L1
+t
+n
+MA = 12.7 · L1 · P
+L2 · n
+
+[p.25]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+25
+innovators for industry
+To mount the varioSCAN II, proceed as follows:
+If you require a stop, then insert the supplied 
+alignment pin into the alignment bore hole (3H7) 
+of the varioSCAN II housing (see figure 7 on 
+page 22) and glue it in place.
+Insert the varioSCAN II into the clamping block, 
+up to the stop if present.
+Fasten the varioSCAN II by tightening the 
+clamping block’s screw(s) with the correct tight-
+ening torque.
+If necessary, also tighten the clamping block.
+4.1.1
+4.2
+Water Cooling (optional)
+The varioSCAN II can be optionally equipped with a 
+water-cooled entrance aperture (water-cooled aper-
+ture, see figure 10 on page 27). This water-cooled 
+aperture is used to dissipate the heat that is absorbed 
+from the laser energy at the beam entrance. (The 
+maximum allowed laser power is specified in Part 2 – 
+Specific Description.) Whether water cooling is 
+required will depend on various process conditions. 
+SCANLAB recommends determining in test operation 
+whether the varioSCAN II must be operated with 
+water cooling. In doing so, suitable operating param-
+eters can be determined. For this purpose, the scan 
+system should be operated over a longer period of 
+time with realistic operating conditions (scan 
+dynamics, laser power, ambient conditions).
+During the test operation, the TempOK and PowerOK 
+status signals of the scan system should be read out 
+(see page 53) to check whether the scan system over-
+heats during operation or whether the scan system is 
+switched off in an emergency (e.g. due to over-
+heating). The guide values from the cooling specifica-
+tions can be used as start values for the operating 
+parameters of the water cooling (see "Technical spec-
+ifications" in the manual Part 2 - Specific description).
+Depending on the application, it may also be neces-
+sary to use a water-cooled clamping block to cool the 
+motor block of the varioSCAN II. This is necessary if 
+the temperature at the clamping surface exceeds 60° 
+Caution!
+• The varioSCAN II must not be opened.
+• Before mounting the varioSCAN II, cover its 
+beam entrance and exit to protect the optical 
+components from contamination during the 
+mounting process.
+• To attach the varioSCAN II, use only the 
+clamping surface shown in figure 1 on 
+page 14. Other parts of the varioSCAN II must 
+not be used for mounting.
+• Apply the correct clamping force (for conver-
+sion into tightening torque, see figure 9 on 
+page 24). To tighten the screws, use a torque 
+wrench.
+• Ensure that the varioSCAN II or clamping block 
+is electrically insulated.
+Caution!
+Material damage due to live malfunction of 
+the water cooling system
+Leakage of the water cooling system can lead 
+to voltage increase with the electronics in the 
+optics compartment.
+• The use of couplings with automatic shut-off 
+valves is recommended for the connection of 
+the water cooling system
+
+[p.26]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+26
+innovators for industry
+C or if the average electrical power consumption 
+exceeds the value of 26 W(1). The terminal block (see 
+page 23) should then be designed with water 
+cooling. 
+(1)
+The power consumption refers to the entire system, i.e. the 
+focusing unit and the servo control board.
+Caution!
+• Do not operate the varioSCAN II with a laser 
+power and beam power density exceeding the 
+specified maximum values (see “Technical 
+Specifications” in Part 2 – Specific Description).
+• To avoid system damage, the user is asked to 
+check the current consumption and the 
+temperature in new applications:
+The current consumption of the DSCB servo 
+control board must not exceed a value of 
+0.85 A RMS (26 W).
+• Additional cooling of the motor block may be 
+required for particularly intensive use. For this 
+purpose, SCANLAB recommends the use of a 
+water-cooled clamping block.
+• Do not exceed the maximum water pressure of 
+4 bar. The water supply should be adjustable. 
+SCANLAB recommends a water inlet tempera-
+ture of 20–25 °C, constant to ±0.5 k.
+• To ensure sufficient cooling, the water flow 
+should be monitored continuously during 
+operation.
+
+[p.27]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+27
+innovators for industry
+4.2.1Water-cooled aperture 
+(optional)
+If required, the varioSCAN II must be equipped with 
+a water-cooled aperture (see page 25)(1). If the 
+water-cooled aperture was delivered unassembled, it 
+must be mounted on the varioSCAN II’s beam 
+entrance side. You can choose the installation posi-
+tion freely, i.e. offset by 180°. Proceed as follows:
+Position the water-cooled aperture (see (2) in 
+figure 10) onto the varioSCAN II’s (1) beam 
+entrance side such that the water-cooled 
+aperture’s through-holes line up with the 
+threaded bore holes of the varioSCAN II.
+Tighten the water-cooled aperture with the 
+supplied Torx screws (3) with a Torx wrench (T8) 
+to a torque of 80 Ncm.
+Screw suitable hose connectors into the water-
+cooled aperture’s G1/8-threaded bore holes (see 
+"Connecting to a Cooling System" on page 29).
+4.2.2Selecting an Appropriate Water 
+Cooling System
+When selecting water-cooling components, observe 
+the "Cooling Water Specifications (optional)" on 
+page 71, and in addition the following recommenda-
+tions:
+• The water coolant’s flow rate, pressure and 
+temperature should be appropriately adjustable 
+at the chiller and monitored during operation.
+• All cooling system components of the entire 
+cooling circuit (cooling channels of the chiller and 
+varioSCAN II, coolant lines and connectors, 
+coolant) must be material-compatible to prevent 
+corrosion-induced leaks in the cooling circuit. In 
+particular, don’t combine metals that create an 
+electrochemical voltage series. The coolant-
+wetted metal parts and materials inside the 
+varioSCAN II are type-dependent of aluminum 
+alloy or stainless steel. Please refer to the manual 
+Part 2 – Specific Description to find out what 
+material the coolant-wetted parts of your 
+varioSCAN II are made of.
+• Flexible, UV-resistant, opaque plastic hoses with 
+an internal diameter of at least 4 mm are suitable 
+as coolant lines between the chiller and 
+varioSCAN II. Materials such as polyamide, EPDM, 
+NBR or PVC-U are appropriate, possibly stainless 
+steel too (depending on the other used materials), 
+but not zinc-plated steel piping, rubber, copper or 
+soft PVC. Ensure that the coolant lines have a 
+nominal pressure rating of PN10 or higher and are 
+installed kink-free.
+• Even if the laser equipment already has a cooling 
+system (e.g. for laser cooling) of sufficient 
+capacity to also cool the varioSCAN II and an XY 
+scan system, SCANLAB strongly recommends not 
+using that cooling system for the XY scan system, 
+too, without conducting tests. Here, consultation 
+with the existing cooling system’s (or laser’s) 
+(1)
+A suitable water-cooled aperture is available from SCANLAB:
+Art.-No. 144962; BG-Cooling-Stop-20; VS II 20; Alu
+10
+Mounting the optional water-cooled aperture
+Legend
+1
+varioSCAN II
+2
+water-cooled aperture
+3
+Torx screws M2.5x20
+(2x) G1/8 - 8 deep
+1
+2
+3
+Note:
+If the varioSCAN II is used in conjunction with an 
+XY scan system, then refer to its user manual for 
+coolant specifications and installation instruc-
+tions.
+
+[p.28]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+28
+innovators for industry
+manufacturer is absolutely necessary. Scan system 
+cooling can sometimes be achieved by adding a 
+heat exchanger and a separate cooling circuit to 
+the existing cooling system. Here, too, attention 
+must be paid to material compatibility in the 
+cooling circuit (see above).
+To obtain advice on suitable cooling systems, refer to 
+the information in "Cooling Water Specifications 
+(optional)" on page 71 when contacting cooling 
+system manufacturers (e.g. RIEDEL, Termotek AG, 
+Thermo Fisher Scientific, DELTATHERM Hirmer GmbH, 
+H.I.B Systemtechnik GmbH or SCHWÄMMLE GmbH: 
+www.riedel-cooling.com, www.termotek-ag.com, 
+www.thermofisher.com, www.deltatherm.de, 
+www.h-i-b.de, www.schwaemmle-gmbh.de).
+4.2.3Coolants
+SCANLAB recommends demineralized water as the 
+coolant, supplemented with a corrosion inhibitor and 
+a biocidal additive. For example, the NALCO Yelmet 
+Kit in conjunction with demineralized water is manu-
+facturer-specified for conductance < 20 µS/cm and 
+water hardness < 5 mg/l CaCO3 to offer effective 
+protection against corrosion for stainless steel, 
+copper, non-ferrous metals and aluminum as well as 
+protection against bacteria, algae and fungi. The 
+NALCO Yelmet Kit’s organic corrosion inhibitor 
+promotes rapid formation of an anti-corrosive film.
+The coolant’s quality needs to be checked at regular 
+intervals. It might be necessary to periodically replace 
+the coolant. Establish suitable maintenance intervals.
+For advice on appropriate coolants, refer to the infor-
+mation in "Cooling Water Specifications (optional)" 
+on page 71) when contacting manufacturers of 
+coolant additives (e.g. NALCO, Grünbeck or DOW 
+Chemical Company: www.nalco.com, www.gruen-
+beck.de, www.dow.com).
+Caution!
+• An unsuitable coolant can produce blockage or 
+corrosion of the cooling channels.
+• If, contrary to the above recommendations, 
+ordinary tap water is used as coolant, then 
+formation of lime and scale deposits can be 
+expected (depending on the water’s hardness 
+and pH), along with increased galvanic corro-
+sion. Furthermore, bacteria, algae and fungi can 
+multiply. Water with excessive chloride will 
+promote strong corrosion of stainless steel and 
+non-ferrous metals, too. Increased corrosion can 
+also be caused by ions of copper and other 
+heavy metals.
+• Depending on the used materials (e.g. 
+aluminum or copper), deionized water with low 
+conductance (and without corrosion inhibitors) 
+can also encourage excessive corrosion. Deion-
+ized water without corrosion inhibitors should 
+ideally be used only with compatible materials 
+such as stainless steel or nickel. It might be 
+necessary to monitor and regulate the water 
+coolant’s conductance via suitable construc-
+tional measures.
+• Adding a corrosion inhibitor will delay – but not 
+prevent – galvanic corrosion. Corrosion inhibi-
+tors bind with and neutralize ions in solution. In 
+the process, the inhibitors are consumed and 
+must be replenished regularly.
+Caution!
+
+[p.29]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+29
+innovators for industry
+4.2.4Connecting to a Cooling System
+To connect the varioSCAN II to a cooling system, you 
+must first install suitable hose connectors at the 
+water-cooled aperture (and at the water-cooled 
+clamping block if necessary). For this, the cooling 
+block provides two G1/8 threaded holes (see 
+figure 10 on page 27).
+Connect the varioSCAN II to the cooling circuit as 
+follows:
+Screw suitable hose connectors into the G1/8 
+threaded holes of the varioSCAN II’s water-cooled 
+aperture.
+Check the coolant hoses (with an internal 
+diameter of at least 4 mm) for cleanliness.
+Attach the hoses to the hose connectors.
+Ensure that the connections are leak-free.
+If desired, install (quick-release) connectors in the 
+hoses. Here, ensure that the distance between the 
+varioSCAN II and connector is large enough to 
+prevent water from contacting the varioSCAN II.
+Attach the hoses to the cooling system.
+Fill the cooling circuit with new coolant.
+Follow the advice of the cooling system and 
+coolant manufacturers.
+Caution!
+water-cooled aperture and coolant connectors 
+must be material-compatible. Don’t combine 
+metals that create an electrochemical voltage 
+series.
+Please refer to the manual Part 2 – Specific 
+Description to find out what material the coolant-
+wetted parts of your varioSCAN II are made of.
+Caution!
+• Ensure that the maximum intake pressure (see 
+"Cooling Water Specifications (optional)" on 
+page 71) is not exceeded and that condensation 
+doesn’t form in the varioSCAN II. Otherwise, 
+damage to the varioSCAN II may occur.
+• Water cooling should be monitored during 
+operation to ensure sufficient cooling.
+• Fully remove the coolant prior to transport or 
+long-term storage of the varioSCAN II. Other-
+wise, damage to the varioSCAN II may occur. 
+Comply with the respective safety and disposal 
+notices.
+• Some coolants can present health risks even in 
+small quantities. Therefore make sure that the 
+cooling block is free of coolant residue before 
+transporting the varioSCAN II.
+
+[p.30]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+30
+innovators for industry
+4.3
+Installing the Electronic 
+Components
+Which electronic components need to be installed 
+and how to install them depends on the delivered 
+items (see "Components" on page 7):
+• If you received the variant with a separate DSCB 
+digital servo control board, then refer to the 
+section "Installing the DSCB Servo Control Board".
+• If you received a separate optional digital inter-
+face board from SCANLAB, then refer to the 
+section "Installing the Digital Interface Board 
+(optional)" on page 33.
+• If you received the variant with the electronic box, 
+then refer to the section "Installing the Electronic 
+Box" on page 35.
+During installation, pay attention to cable lengths 
+between the individual components (see "Electrical 
+Connections" on page 37)
+4.3.1Installing the DSCB Servo 
+Control Board
+The separate DSCB digital servo control board must 
+be installed separately. Figure 11 shows the dimen-
+sions of the DSCB digital servo control board as well 
+as its input and output connectors. The board is 
+mounted on an angle plate.
+Danger!
+Personal injury due to cuts caused by sharp 
+edges!
+Sharp edges on electronic cards can cause cuts.
+• Only touch the electronic cards at the carrier 
+angle.
+!
+
+[p.31]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+31
+innovators for industry
+11
+DSCB digital servo control board (all dimensions in mm)
+30
+118
+86,5
+6
+106
+80
+15
+3 x Ø3,3
+2 x M3
+11,5
+5
+6
+4
+67
+1
+3
+2
+Legend
+1
+Angle plate
+2
+Board
+3
+Expansion PCB
+Input connectors:
+4
+POWER IN (3-pin)
+5
+DIGITAL&POWER IN
+Data transfer and
+power supply
+(20-pin)
+Output connectors:
+6
+varioSCAN II data transfer
+(D-Sub, 9-pin)
+7
+varioSCAN II power supply
+(5-pin)
+
+[p.32]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+32
+innovators for industry
+When installing the servo control board, observe the 
+following:  
+When fastening the board, observe the following:
+• The angle plate’s small side surface provides two 
+M3 threaded bore holes and two Ø3.3 mm bore 
+holes. The rear side provides three additional (M3) 
+bore holes. Use at least two of these bore holes to 
+fasten the board. M3 screws must be used for all 
+bore holes. Ensure that no electrical contact exists 
+between the screws and the board’s electronic 
+components.
+• To prevent damage to the board from excessive 
+heat, it is important to attach the board’s angle 
+plate to a heat sink or a heat-dissipating part of a 
+housing. The material and dimensions of the heat 
+sink must be chosen such that the temperature of 
+the angle plate does not exceed 50 °C.
+• The DSCB servo control board sensitive to the 
+varioSCAN II’s magnetic stray field. Therefore, the 
+board must be installed with a minimum distance 
+of 60 mm between its angle plate and the 
+varioSCAN II (see figure 12). Otherwise, the elec-
+tronics must be shielded accordingly to prevent 
+interferences.
+Fasten the servo control board as follows:
+Use M3 screws to fasten the DSCB servo control 
+board to a heatsink or to part of a housing.
+Here, use the bore holes designated in figure 11 
+on page 31.
+Caution!
+• To prevent damage to the board, handle it with 
+care. Avoid applying mechanical force to the 
+board and cables.
+• Take appropriate ESD protective measures to 
+prevent electrostatic damage to the board 
+during installation.
+• Protect the board from moisture, dust and 
+corrosive vapors.
+• Don’t let the board’s temperature rise exces-
+sively.
+• Only use the threaded M3or Ø3.3 mm bore 
+holes designated in figure 11 on page 31 to 
+mount the electronics board. Other bore holes 
+must not be used for board mounting or any 
+other purpose.
+• Make sure no conductive contact exists 
+between the screws and the board’s electronic 
+components. 
+12
+Distance between varioSCAN II and servo control board, and 
+between varioSCAN II and interface board
+Legend
+1
+varioSCAN II
+2
+Angle plate
+3
+Board
+min. 60 mm
+1
+2
+3
+
+[p.33]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+33
+innovators for industry
+4.3.2Installing the Digital Interface 
+Board (optional)
+If a separate digital interface board was included in 
+delivery, then it must be installed separately.
+Figure 13 shows the dimensions of SCANLAB’s DSIB 
+and DSIB-SL interface boards, as well as their input 
+and output connectors. The board is mounted on an 
+angle plate. 
+13
+DSIB and DSIB-SL digital interface boards (all dimensions in mm)
+Legend
+1
+Angle bracket
+2
+Board
+Input connectors:
+3
+POWER IN (2-pin)
+4
+DIGITAL IN (16-pin) – DSIB
+5
+DIGITAL IN (10-pin) – DSIB-SL
+Output connectors:
+6
+POWER OUT X (3-pin)
+7
+POWER OUT Y (3-pin)
+8
+POWER OUT Z*) (3-pin) – DSIB
+9
+DIGITAL&POWER OUT X (20-pin)
+10 DIGITAL&POWER OUT Y (20-pin)
+11 DIGITAL&POWER OUT Z*) (20-pin) – DSIB
+DSIB
+1
+1
+1
+1
+1
+1
+1
+1
+DSIB-SL
+1
+1
+1
+1
+1
+1
+75
+80
+2x M3
+2x Ø3.4
+21
+6.5
+47.5
+3
+69
+30
+47.5
+40
+2x M3
+13.8
+1
+1
+2
+2
+2
+37
+36
+36
+35
+34
+39
+39
+3
+11
+3
+3
+37
+38
+3
+10
+3
+10
+*) Only in combination with RTC4 board
+
+[p.34]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+34
+innovators for industry
+Observe the following when installing the interface 
+board: 
+Observe the following when fastening the board:
+• The angle plate’s small side and rear side surfaces 
+each provide two M3 threaded bore holes and the 
+small side additionally provides two Ø3.4 mm 
+bore holes (see figure 13 on page 33). Use at least 
+two of the bore holes to fasten the board. All bore 
+holes require M3 mounting screws. Ensure that 
+no electrical contact exists between the screws 
+and the board’s electronic components.
+• To prevent damage to the board from excessive 
+heat, it is important to attach the board’s angle 
+plate to a heat sink or a heat-dissipating part of a 
+housing. The material and dimension of the heat 
+sink must be chosen such that the temperature of 
+the angle plate does not exceed 50 °C.
+• The digital interface board is sensitive to the 
+varioSCAN II’s magnetic stray field. Therefore, it 
+must be installed with a minimum distance of 60 
+mm between the board’s angle plate and the 
+varioSCAN II (see figure 12 on page 32). Other-
+wise, the electronics must be shielded accord-
+ingly, otherwise interference may can occur.
+Fasten the interface board as follows:
+Use M3 screws to fasten the interface board to a 
+heatsink or part of a housing.
+Here, use the designated bore holes shown in 
+figure 13 on page 33.
+Caution!
+• To prevent damage to the board, handle it with 
+care. Avoid applying mechanical force to the 
+board and cables.
+• Take appropriate ESD protective measures to 
+prevent electrostatic damage to the board 
+during installation.
+• Protect the board from moisture, dust and 
+corrosive vapors.
+• Don’t let the board’s temperature rise exces-
+sively.
+• Only use the threaded M3 or Ø3.4 mm bore 
+holes designated in figure 13 on page 33 to 
+mount the electronics board. Other bore holes 
+must not be used for board mounting or any 
+other purpose.
+• Make sure no conductive contact exists 
+between the screws and the board’s electronic 
+components.
+
+[p.35]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+35
+innovators for industry
+4.3.3Installing the Electronic Box 
+The electronic box contains a pre-installed DSCB 
+digital servo control board and an interface board.
+The electronic boxoffers the following benefits:
+• The boards are protected from humidity, dust and 
+corrosive vapors, as well from damage by 
+mechanical stress.
+• The customer doesn’t need to interconnect the 
+boards.
+The electronic box’s housing provides connectors for 
+the varioSCAN II  and , see figure 14), as well as 
+connectors for the power supply and system control. 
+Input connectors will vary depending on the inte-
+grated interface board.
+ 
+14
+Electronic box – example
+The input connectors vary depending on the supplied interface board (see chapter 29 on page 50).
+(4x) M3 - 5 deep
+SL2-100
+ID plate with
+varioSCAN II de
+serial number (SN)
+Mounting
+holes (4x)
+varioSCAN II de
+connectors
+POWER Z
+Z OUT
+POWER IN
+Input
+connectors
+
+[p.36]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+4 Installation
+36
+innovators for industry
+Observe the following when installing the electronic 
+box: 
+Observe the following when fastening the electronic 
+box:
+• Four M3-threaded bore holes are provided for 
+fastening the electronic box (see figure 14 on 
+page 35)
+• To make sure component temperatures in the 
+electronic box do not rise excessively, it’s 
+important to attach the box to a heatsink or part 
+of a housing. The material and dimensions of the 
+heatsink must be chosen such that the tempera-
+ture of the electronic box does not exceed 50 °C.
+Fasten the electronic boxas follows:
+Use M3 screws to fasten the electronic box to a 
+heatsink or part of a housing.
+Here, use the designated bore holes shown in 
+figure 14 on page 35.
+4.4
+Operating and Storage Condi-
+tions
+For operating, storing and servicing the varioSCAN II, 
+make sure the following ambient conditions are met:
+• The operating temperature is +25 °C ±10 °C.
+• The storage temperature range is – 35 °C to 
++60 °C.
+• To prevent damage to the varioSCAN II’s optical 
+components and electronics, protect it from 
+moisture, dust and corrosive vapors.
+• Avoid electromagnetic fields and static charges. 
+Both can damage the electronic components on 
+the servo control and interface boards. 
+Caution!
+• To prevent damage to the electronic box, 
+handle it with care.
+• Take appropriate ESD protective measures to 
+prevent electrostatic damage to the electronic 
+box during installation.
+• Protect the electronic box from moisture, dust 
+and corrosive vapors.
+• Only use the threaded M3 bore holes desig-
+nated in figure 14 on page 35 to mount the 
+electronic box. Other bore holes must not be 
+used for box mounting.
+• Don’t let the electronic box’s temperature rise 
+excessively.
+Caution!
+Determine whether your application requires 
+operating the varioSCAN II with a water-cooled 
+entrance aperture.
+(see chapter 4.2 on page 25).
+Caution!
+Before storing or transporting the device, 
+remove all coolant from its water-cooled parts.
+
+[p.37]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+37
+innovators for industry
+5
+Electrical Connections
+This chapter describes how the varioSCAN II and its 
+DSCB servo control board can be connected to the 
+RTC control board and to the power supply. 
+Depending on the used RTC control board and the 
+overall 3-axis configuration, the varioSCAN II’s DSCB 
+servo control board can be connected to the RTC 
+board as follows: 
+Important notes regarding the data cable between 
+the interface board and RTC control board are listed 
+in chapter 5.4 on page 47. Important notes 
+regarding the power supply can be found in 
+chapter 5.5 on page 49.
+Caution!
+Material damage due to short circuit of the !
+A short circuit in the .
+• Do not use highly flammable materials near to 
+the or electronic boards
+• via an interface board in the electronic box
+– see chapter 14 on page 35
+• via a separately installed DSIB interface board
+– see chapter 5.2 on page 41
+• via a separately installed DSIB-SL interface 
+board
+– see chapter 5.3 on page 44
+Note:
+• For descriptions of the RTC board’s electrical 
+connections, refer to the corresponding user 
+manuals.
+
+[p.38]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+38
+innovators for industry
+5.1
+.Control via an Interface 
+Board in the Electronic Box
+If the varioSCAN II’s DSCB servo control board and 
+the SCANLAB digital interface board are integrated in 
+SCANLAB’s electronic box, then data transfer and 
+power supply occur via this electronic box. 
+After installing the system’s individual components, 
+connect them as described below.
+5.1.1Connecting the varioSCAN II
+The varioSCAN II and the DSCB servo control board 
+integrated in the electronic box are one functional 
+unit. Do not interchange the servo boards. Optimum 
+positioning accuracy cannot be guaranteed if servo 
+boards are interchanged. Therefore, if you received 
+more than one servo board (or several electronic 
+boxes), make sure the various electronic components 
+are properly combined. To help achieve this, the iden-
+tification plate of each electronic box is marked with 
+the serial number of its assigned varioSCAN II (see 
+figure 14 on page 35).
+Connect the varioSCAN II as follows:
+Connect the varioSCAN II to the ’s - and -
+connector (D-Sub 9-pin resp. 5-pin) electronic 
+box’s(see figure 14 on page 35).
+5.1.2Connecting the RTC Board
+The electronic box’s’s housing provides input connec-
+tors for system control and power (see figure 14 on 
+page 35). These connectors vary depending on the 
+integrated interface board (DSIB or DSIB-SL, see 
+figure 16 on page 39).
+Connecting the DSIB Board (XY2-100 
+Enhanced)
+If SCANLAB’s DSIB digital interface board is inte-
+grated in the electronic box, then the box provides a 
+DIGITAL IN connector for electrical data transfer 
+using the XY2-100 enhanced protocol (the 25-pin D-
+Sub connector’s pinout is shown in figure 16 on 
+page 39). The electronic box’s XY2-100 connector 
+can be connected:
+• to an RTC4 board (with XY2-100 interface and 
+enabled 3D and “second scan head” options)
+• via an XY2-100 converter to an RTC5 or RTC6 
+board (with enabled 3D option)
+15
+System cabling
+Caution!
+• When wiring the system, make sure none of 
+the wires carry any voltages. All control devices 
+must be turned off.
+• Always turn off the power supply before 
+connecting or disconnecting the power cables 
+or data cables.
+• Follow all electrical specifications exactly.
+Power
+supply
+primary
+scan head
+connector
+secondary
+scan head
+connector
+RTC
+XY2-100
+converter
+Adapter
+XY scan system
+Electronic 
+box
+varioSCANde II
+The two cables connecting the varioSCAN II and the 
+DSCB board are part of the varioSCAN II.
+The default cable length including connector is 
+approx. 0.55 m.
+
+[p.39]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+39
+innovators for industry
+Suitable data cables are optionally available from 
+SCANLAB. These data cables are equipped at both 
+ends with 25-pin male D-Sub connectors, matching 
+the electronic box’s 25-pin XY2-100 connector and 
+the RTC board’s primary scan head connector or the 
+XY2 converter (all 25-pin female D-Sub) (also see 
+page 47).
+Appropriate adapters (cable with slot bracket and 
+female D-Sub connector; Y cable for the 
+RTC6 Ethernet) are available from SCANLAB for 
+connecting a data cable with its D-Sub connector (or 
+a converter) to the RTC board’s secondary scan head 
+connector (which is not a D-Sub connector).
+Connect the RTC board as follows:
+Connect the XY2-100 connector to a scan head 
+connector on the RTC board using a suitable data 
+cable.
+– Typically, the XY scan system is connected to 
+the RTC’s primary scan head connector and the 
+varioSCAN II to the secondary scan head con-
+nector. But inverse connection is also possible. 
+So take care to correctly assign the correction 
+file (see page 52).
+– An XY2-100 converter is needed when connect-
+ing to an RTC5 or RTC6 board (see figure 15 on 
+page 38).
+16
+Electronic box’s input connectors: pinouts
+(connectors vary depending on the integrated interface board)
+XY2-100
+(14) CLOCK+
+(15) SYNC+
+(16) CHAN1+
+(17) CHAN2+
+(18) CHAN3+
+(19) STATUS2+
+(20) STATUS3+
+(21) STATUS1+
+(22) DO NOT CONNECT
+(23) DO NOT CONNECT
+(24) DO NOT CONNECT
+(25) DO NOT CONNECT
+CLOCK –
+(1)
+SYNC –
+(2)
+CHAN1–
+(3)
+CHAN2–
+(4)
+CHAN3–
+(5)
+STATUS2 –
+(6)
+STATUS3 –
+(7)
+STATUS1 –
+(8)
+DO NOT CONNECT
+(9)
+DO NOT CONNECT (10)
+DO NOT CONNECT (11)
+DO NOT CONNECT (12)
+DO NOT CONNECT (13)
+POWER IN
+DSIB (XY2-100 Enhanced):
+(1)
+GND
+(2)
+GND
+(3)
+NOT CONNECTED
+(4)
++30 V
+(5)
++30 V
+GND
+(6)
+NOT CONNECTED
+(7)
+NOT CONNECTED
+(8)
++30 V
+(9)
+female D-Sub
+male D-Sub
+SL2-100
+POWER IN
+DSIB-SL (SL2-100):
+(1)
+GND
+(2)
+NOT CONNECTED
+(3)
++30 V
+(6)
+DATA IN –
+(7)
+GND, DO NOT CONNECT
+(8)
+GND, DO NOT CONNECT
+(9)
+DATA OUT –
+DATA IN+
+(1)
+DO NOT CONNECT
+(2)
+DO NOT CONNECT
+(3)
+DNC, +3.3 V
+(4)
+DATA OUT+
+(5)
+female D-Sub
+male D-Sub
+male D-Sub 
+mixed layout
+optional
+
+[p.40]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+40
+innovators for industry
+Connecting a DSIB-SL Board (SL2-100)
+If SCANLAB’s DSIB digital interface board is inte-
+grated in the electronic box, then the box provides an 
+SL2-100 connector for electrical data transfer using 
+the SL2-100 protocol (9-pin D-Sub pinout shown in 
+figure 16 on page 39). This electronic box connector 
+allows connection to an RTC5 or RTC6 control board 
+(with enabled 3D option).
+Suitable data cables are optionally available from 
+SCANLAB. These data cables are equipped at both 
+ends with 9-pin male Sub-D connectors, matching 
+the electronic box’s’s 9-pin SL2-100 connector and 
+the RTC board’s primary scan head connector (both 
+9-pin female Sub-D) (also see page 47).
+Appropriate adapters (cable with slot bracket and D-
+Sub connector; Y cable for the RTC6 Ethernet) are 
+available from SCANLAB for connecting a data cable 
+with its D-Sub connector to the RTC board’s 
+secondary scan head connector (which is not a D-Sub 
+connector).
+Connect the RTC board as follows:
+Connect the SL2-100 connector to a scan head 
+connector on the RTC board using a suitable data 
+cable.
+Typically, the XY scan system is connected to the 
+RTC’s primary scan head connector and the 
+varioSCAN II to the secondary scan head 
+connector. But inverse connection is also possible. 
+So take care to correctly assign the correction file 
+(see page 52).
+5.1.3Connecting the Power Supply
+The varioSCAN II and XY scan system must be sepa-
+rately supplied with power. The power supply and the 
+data interface are galvanically isolated from each 
+other.
+Depending on the integrated interface board, the 
+electronic box provides either a 3-pin or 9-pin male 
+POWER IN connector for power (the D-Sub 
+connector’s pinout is shown in figure 16 on page 39).
+Connect the power supply as follows:
+Connect the power supply to the electronic 
+box’s’s POWER IN connector using a suitable 
+cable.
+Exactly follow all electrical specifications in 
+chapter 5.5 on page 49.
+
+[p.41]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+41
+innovators for industry
+5.2
+ Control via a Separate DSIB 
+Interface Board
+SCANLAB’s DSIB digital interface board provides an 
+XY2-100 Enhanced interface for electrical data 
+transfer. A single DSIB board enables control of up to 
+three axes. The DSIB board can be connected to the 
+following control boards:
+• to an RTC4 control board (with XY2-100 interface, 
+enabled 3D and “second scan head” options)
+• or via an XY2-100 converter to an RTC5 or RTC6 
+(with enabled 3D option)
+Figure 17 on page 41 shows how the following 
+components are interconnected:
+• varioSCAN II
+• varioSCAN II’s DSCB servo control board
+• DSIB digital interface board
+• RTC control board
+• XY scan system
+• power supply
+Suitable cables and adapters are optionally available 
+from SCANLAB. After installing the individual compo-
+nents, connect them as described below. 
+Caution!
+• When wiring the system, make sure none of 
+the wires carry any voltages. All control devices 
+must be turned off.
+• Always turn off the power supply before 
+connecting or disconnecting the power cables 
+or data cables.
+• Follow all electrical specifications exactly.
+17
+System cabling
+Note the difference in cabling between the DSCB and DSIB boards 
+when using an RTC4 board (top) vs. an RTC5 or RTC6 board 
+(bottom).
+Adapter
+XY scan system
+Power
+supply
+Adapter
+Adapter
+XY scan system
+XY2-100
+converter
+Adapter
+RTC4
+DIGITAL&POWER IN
+POWER IN
+DSCB
+DIGITAL&POWER IN
+POWER IN
+DSCB
+DIGITAL IN
+POWER IN
+DIGITAL&POWER OUT Z
+POWER OUT Z
+DSIB
+DIGITAL IN
+POWER IN
+DIGITAL&
+POWER OUT X
+POWER OUT X
+DSIB
+Power
+supply
+varioSCANde II
+Extension board
+RTC5 / RTC6
+varioSCANde II
+primary
+scan head
+connector
+secondary
+scan head
+connector
+primary
+scan head
+connector
+secondary
+scan head
+connector
+Extension board
+
+[p.42]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+42
+innovators for industry
+5.2.1Connecting the varioSCAN II
+The varioSCAN II and the DSCB servo control board 
+are one functional unit. Do not interchange the servo 
+boards. Optimum positioning accuracy cannot be 
+guaranteed if servo boards are interchanged. There-
+fore, if you received more than one servo board (or 
+several electronic boxes), make sure the various elec-
+tronic components are properly combined. To help 
+achieve this, each servo board’s angle plate is marked 
+with the serial number of its assigned varioSCAN II.
+The two cables connecting the varioSCAN II and the 
+DSCB board are part of the varioSCAN II.
+The default cable length including the connector is 
+approx. 0.55 m.
+Connect the varioSCAN II as follows:
+Connect the varioSCAN II to the expansion 
+board’s 9-pin D-Sub connector and the DSCB 
+servo control board’s 5-pin connector (see (6) and 
+(7) in figure 11 on page 31).
+5.2.2Connect the DSCB and DSIB 
+Boards
+The length of the data cable (particularly if this is a 
+flat ribbon cable) should be as short as possible to 
+avoid interference. If the recommended maximum 
+length of 0.3 m needs to be exceeded, contact 
+SCANLAB.
+Connection when using a RTC4 board
+Connect the boards as follows:
+Connect the DSCB board’s POWER IN connector 
+(see (4) in figure 11 on page 31) to the DSIB 
+interface board’s POWER OUT Z connector (see 
+(8) in figure 13 on page 33) using a 1:1 cable. A 
+suitable cable is already attached to the DSIB 
+board (default cable length incl. connector: either 
+approx. 0.13 m or approx. 0.30 m).
+Connect the DSCB board’s DIGITAL&POWER IN 
+connector (see (5) in figure 11 on page 31) to the 
+DSIB board’s DIGITAL&POWER OUT Z connector 
+(see (11) in figure 13 on page 33) via a 1:1 cable. 
+A suitable cable is supplied with the DSIB board 
+(default cable length incl. connector: either 
+approx. 0.13 m or approx. 0.30 m).
+Connection when using a RTC5 or RTC6 board
+Connect the boards as follows:
+Connect the DSCB board’s POWER IN connector 
+(see (4) in figure 11 on page 31) to the DSIB 
+interface board’s POWER_OUT_X (or 
+POWER_OUT_Y) connector (see (6) and (7) in 
+figure 13 on page 33) via a 1:1 cable. An appro-
+priate cable is already attached to the DSIB board 
+(default cable length including connector: either 
+approx. 0.13 m or approx. 0.30 m).
+Connect the DSCB board’s DIGITAL&POWER IN 
+connector (see (5) in figure 11 on page 31) to the 
+DSIB interface board’s DIGITAL&POWER OUT X 
+(or DIGITAL&POWER OUT Y) connector (see (9) 
+and (10) in figure 13 on page 33) via a 1:1 cable. 
+A suitable cable is already attached to the DSIB 
+board (default cable length including connector: 
+either approx. 0.13 m or approx. 0.30 m).
+5.2.3Connect the DSIB and RTC 
+Boards
+Figure 18 shows the pinout of the DSIB board’s 
+DIGITAL IN connector.
+Suitable cables are optionally available from 
+SCANLAB.
+These data cables are equipped at both ends with 25-
+pin male D-Sub connectors (also see page 47), 
+matching the 25-pin female D-Sub connector at the 
+RTC board’s primary scan head port or at the XY2-100 
+converter.
+18
+DSIB board’s DIGITAL IN connector. pinout
+DIGITAL IN
+CLOCK –  (1)
+SYNC –  (3)
+CHAN1–  (5)
+CHAN2–  (7)
+CHAN3–  (9)
+STATUS2 – (11)
+STATUS3 – (13)
+STATUS1 – (15)
+(2)
+CLOCK+
+(4)
+SYNC+
+(6)
+CHAN1+
+(8)
+CHAN2+
+(10) CHAN3+
+(12) STATUS2+
+(14) STATUS3+
+(16) STATUS1+
+
+[p.43]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+43
+innovators for industry
+SCANLAB’s optional DA20 and DA30 adapters 
+feature a board with D-Sub connectors and a short 
+cable (default cable length approx. 0.14 m) to facili-
+tate installation of data transmission and power 
+connectors into a customer-specific housing.
+Adapter DA20 (SCANLAB Art. No. 103483) provides a 
+25-pin female D-Sub connector (DATA) and a 9-pin 
+male D-Sub connector (POWER). Adapter DA30 
+(SCANLAB Art. No. 104276) provides a 25-pin female 
+D-Sub connector (DATA) and a 3-pin male D-Sub 
+connector (POWER). Connector pinouts are shown in 
+figure 19 and figure 20.
+Appropriate adapters (cable with slot bracket and D-
+Sub connector; Y cable for the RTC6 Ethernet) are 
+available from SCANLAB for connecting a data cable 
+with its D-Sub connector (or an XY2-100 converter) 
+to the RTC board’s secondary scan head connector 
+(which is not D-Sub connector).
+Connect the boards as follows:
+Connect the DSIB board’s DIGITAL IN connector 
+(see (4) in figure 13 on page 33) or (if used) a 
+DA20/DA30 adapter’s DATA connector (pinouts 
+shown in figure 19 and figure 20 on page 43) to 
+a scan head connector at the RTC board using a 
+1:1 cable.
+– Typically, the XY scan system is connected to 
+the RTC’s primary scan head connector and the 
+varioSCAN II to the secondary scan head con-
+nector. But inverse connection is also possible. 
+So take care to correctly assign the correction 
+file (see page 52).
+– An XY2-100 converter is required for connect-
+ing the DSIB to an RTC5 or RTC6 board (see 
+figure 17 below).
+19
+Female DATA connector and male POWER connector of adapter 
+DA20: pinouts
+DATA
+(14) CLOCK+
+(15) SYNC+
+(16) CHAN1+
+(17) CHAN2+
+(18) CHAN3+
+(19) STATUS2+
+(20) STATUS3+
+(21) STATUS1+
+(22) DO NOT CONNECT
+(23) DO NOT CONNECT
+(24) DO NOT CONNECT
+(25) DO NOT CONNECT
+CLOCK –
+(1)
+SYNC –
+(2)
+CHAN1–
+(3)
+CHAN2–
+(4)
+CHAN3–
+(5)
+STATUS2–
+(6)
+STATUS3–
+(7)
+STATUS1–
+(8)
+DO NOT CONNECT
+(9)
+DO NOT CONNECT (10)
+DO NOT CONNECT (11)
+DO NOT CONNECT (12)
+DO NOT CONNECT (13)
+(1)
+GND
+(2)
+GND
+(3)
+NOT CONNECTED
+(4)
++30 V
+(5)
++30 V
+GND
+(6)
+NOT CONNECTED
+(7)
+NOT CONNECTED
+(8)
++30 V
+(9)
+POWER
+20
+DA30 adapter’s female DATA and male POWER connectors: pinouts
+POWER
+(1)
+GND
+(2)
+NOT CONNECTED
+(3)
++30 V
+DATA
+(14) CLOCK+
+(15) SYNC+
+(16) CHAN1+
+(17) CHAN2+
+(18) CHAN3+
+(19) STATUS2+
+(20) STATUS3+
+(21) STATUS1+
+(22) DO NOT CONNECT
+(23) DO NOT CONNECT
+(24) DO NOT CONNECT
+(25) DO NOT CONNECT
+CLOCK –
+(1)
+SYNC –
+(2)
+CHAN1 –
+(3)
+CHAN2 –
+(4)
+CHAN3 –
+(5)
+STATUS2 –
+(6)
+STATUS3 –
+(7)
+STATUS1 –
+(8)
+DO NOT CONNECT
+(9)
+DO NOT CONNECT (10)
+DO NOT CONNECT (11)
+DO NOT CONNECT (12)
+DO NOT CONNECT (13)
+
+[p.44]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+44
+innovators for industry
+5.2.4Connecting the Power Supply
+The power supply and the XY2-100 Enhanced inter-
+face are galvanically isolated from each other. The 
+varioSCAN II and the XY scan system must be sepa-
+rately supplied with power.
+Connect the power supply as follows:
+Use a suitable cable to connect the power supply 
+to the DSIB board’s POWER IN connector (see (3) 
+in figure 13 on page 33; pinout shown in 
+figure 21) or to (if used) a DA20/DA30 adapter’s 
+POWER connector (pinout shown in figure 19 and 
+figure 20 on page 43).
+Exactly follow all electrical specifications in 
+chapter 5.4 on page 47.
+5.3
+Control via a Separate DSIB-
+SL Interface Board
+SCANLAB’s DSIB-SL digital interface board provides 
+an SL2-100 interface for electrical transmission of 
+data. A single DSIB-SL board enables control of up to 
+two axes. The DSIB-SL board can be connected to an 
+RTC5 or RTC6 board (with enabled 3D option).
+Figure 22 shows how the following components are 
+connected:
+• varioSCAN II
+• varioSCAN II’s DSCB servo control board 
+• DSIB-SL digital interface board
+• RTC control board
+• XY scan system
+• power supply
+21
+DSIB board’s POWER IN connector: pinout
+POWER IN
+(1)
+GND
+(2)
++30V
+22
+System cabling
+DSIB-SL
+Adapter
+XY scan system
+Adapter
+DSCB
+DIGITAL IN
+POWER IN
+DIGITAL&
+POWER OUT X
+POWER OUT X
+Power
+supply
+varioSCANde II
+RTC5 / RTC6
+DIGITAL&POWER IN
+POWER IN
+Extension board
+primary
+scan head
+connector
+secondary
+scan head
+connector
+
+[p.45]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+45
+innovators for industry
+Suitable data cables and adapters are optionally 
+available from SCANLAB. After installing the indi-
+vidual components, connect them as described 
+below. 
+5.3.1Connecting the varioSCAN II
+The varioSCAN II and the DSCB servo control board 
+are one functional unit. Do not interchange the servo 
+boards. Optimum positioning accuracy cannot be 
+guaranteed if servo boards are interchanged. There-
+fore, if you received more than one servo board, 
+make sure the various electronic components are 
+properly combined. To help achieve this, each servo 
+board’s angle plate is marked with the serial number 
+of its assigned varioSCAN II.
+The two cables connecting the varioSCAN II and the 
+DSCB board are part of the varioSCAN II.
+The default cable length including the connector is 
+approx. 0.55 m.
+Connect the varioSCAN II as follows:
+Connect the varioSCAN II to the expansion 
+board’s 9-pin D-Sub connector and to the 5-pin 
+connector on the DSCB board (see (6) and (7) in 
+figure 11 on page 31).
+5.3.2Connecting the DSCB and DSIB-
+SL Boards
+The length of the data cable (particularly if this is a 
+flat ribbon cable) should be as short as possible to 
+avoid interference. If the recommended maximum 
+length of 0.3 m needs to be exceeded, contact 
+SCANLAB.
+Connect the boards as follows:
+Connect the DSCB board’s POWER IN connector 
+(see (4) in figure 11 on page 31) to the DSIB-SL 
+board’s POWER OUT X (or POWER OUT Y) 
+connector (see (6) and (7) in figure 13 on 
+page 33) via a 1:1 cable. The DSIB-SL’s scope of 
+delivery includes an appropriate cable (default 
+cable length including connector: either 
+approx. 0,13 m or approx. 0,30 m).
+Connect the DSCB board’s DIGITAL&POWER IN 
+connector (see (5) in figure 11 on page 31) to the 
+DSIB-SL board’s DIGITAL&POWER OUT X (or 
+DIGITAL&POWER OUT Y) connector (see (9) and 
+(10) in figure 13 on page 33) via a 1:1 cable. The 
+DSIB-SL’s scope of delivery includes an appro-
+priate cable (default cable length including 
+connector: either approx. 0,13 m or approx. 
+0,30 m).
+5.3.3Connecting the DSIB-SL and RTC 
+Boards
+Figure 23 shows the pinout of the DSIB-SL board’s 
+DIGITAL IN connector.
+Suitable data cables and adapters are optionally 
+available from SCANLAB.
+These data cables are equipped at both ends with 9-
+pin male D-Sub connectors (also see page 47), 
+matching the 9-pin female D-Sub connector at the 
+RTC5 or RTC6 board’s primary scan head port.
+SCANLAB’s optional DA40 adapter (Art. No. 104553) 
+for the DSIB-SL board provides a DATA connector and 
+a POWER connector, as well as a short cable (default 
+cable length approx. 0.14 m) for attachment to the 
+DSIB-SL board’s DIGITAL IN and POWER IN connec-
+tors. This facilitates installation of data transmission 
+Caution!
+• When wiring the system, make sure none of 
+the wires carry any voltages. All control devices 
+must be turned off.
+• Always turn off the power supply before 
+connecting or disconnecting the power cables 
+or data cables.
+• Follow all electrical specifications exactly.
+23
+Pinout of the DSIB-SL interface board’s DIGITAL IN connector
+DIGITAL IN
+DATA IN+
+(1)
+DO NOT CONNECT
+(3)
+DO NOT CONNECT
+(5)
++3.3 V  (7)
+DATA OUT+
+(9)
+(2)
+DATA IN –
+(4)
+GND
+(6)
+GND
+(8)
+DATA OUT–
+(10) DO NOT CONNECT
+
+[p.46]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+46
+innovators for industry
+and power connectors into a customer-specific 
+housing. Pinouts of the (9-pin male D-Sub) DATA 
+connector and (3-pin male D-Sub) POWER connector 
+are shown in figure 24. 
+Appropriate adapters (cable with slot bracket and D-
+Sub connector; Y cable for the RTC6 Ethernet) are 
+available from SCANLAB for connecting a data cable 
+with its D-Sub connector to the RTC5 or RTC6 board’s 
+secondary scan head connector (which is not a D-Sub 
+connector).
+Connect the boards as follows:
+Connect the DSIB-SL board’s DIGITAL IN 
+connector (see (5) in figure 13 on page 33) – or (if 
+used) the DA40 adapter’s DATA connector 
+(pinout shown in figure 24 on page 46) – to one 
+of the RTC board’s scan head connectors via a 
+suitable cable.
+– Typically, the XY scan system is connected to 
+the RTC’s primary scan head connector and the 
+varioSCAN II to the secondary scan head con-
+nector. But inverse connection is also possible. 
+So take care to correctly assign the correction 
+file (see page 52).
+5.3.4Connecting the Power Supply
+The power supply and the SL2-100 data interface are 
+galvanically isolated from each other. The 
+varioSCAN II and the XY scan system must be 
+supplied with power separately.
+Connect the power supply as follows:
+Use a suitable cable to connect the power supply 
+to the DSIB-SL board’s POWER IN connector (see 
+(3) in figure 13 on page 33 and pinout in 
+figure 25) – or (if using) to a DA40 adapter’s 
+POWER connector (pinout shown in figure 24).
+Exactly follow all electrical specifications in 
+chapter 5.4 on page 47.
+24
+Pinouts of DA40 adapter’s female DATA and male POWER 
+connectors
+DATA
+(6)
+DATA IN –
+(7)
+GND, DNC
+(8)
+GND, DNC
+(9)
+DATA OUT –
+DATA IN+
+(1)
+DO NOT CONNECT
+(2)
+DO NOT CONNECT
+(3)
+DNC, +3.3 V
+(4)
+DATA OUT+
+(5)
+POWER
+(1)
+GND
+(2)
+NOT CONNECTED
+(3)
++30 V
+25
+DSIB-SL interface board’s POWER IN connector: pinout
+POWER IN
+(1)
+GND
+(2)
++30V
+
+[p.47]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+47
+innovators for industry
+5.4
+Data Cable
+Suitable data cables are optionally available from 
+SCANLAB. But if the data cable for connecting the 
+RTC4 control board with XY2-100 Enhanced interface 
+to a DSIB interface board or the data cable for 
+connecting the RTC5 or RTC6 control board to a DSIB-
+SL interface board is not included in the scope of 
+delivery, then SCANLAB strongly recommends the 
+following cable configuration (data cable layout and 
+pin assignments are shown in figure 26 and figure 27 
+on page 48):
+• The data cable for connecting the RTC4 control 
+board with XY2-100 Enhanced interface to a DSIB 
+interface board (for data transfer using the 
+XY2-100 protocol, see figure 26) should be fitted 
+with 25-pin male D-Sub connectors with identical 
+pinouts at both ends.
+The 8 channels CLOCK±, SYNC±, CHAN1±, 
+CHAN2±, CHAN3±, STATUS2±, STATUS3±, 
+STATUS1± (16 wires) should each be realized as 
+twisted cable pairs.
+The data cable’s controller end must be fitted 
+with a ferrite ring (e.g. Würth WE 742 711 32).
+The data cable should not be longer than 10 m. If 
+a longer data cable is needed, the signal timing of 
+the RTC control board should be adjusted to 
+ensure correct communication between the RTC 
+and the interface board. (For details, see the RTC 
+command set_piso_control in the corresponding 
+RTC manual).
+• The data cable between the RTC5 or RTC6 control 
+board and a DSIB-SL interface board (for data 
+transfer using the SL2-100 protocol, see 
+figure 27) should be fitted with 9-pin male D-Sub 
+connectors with identical pinouts at both ends.
+The two channels DATA IN± and DATA OUT± 
+(4 wires) consist of twisted cable pairs and should 
+be cross-connected at both D-Sub connectors (so 
+that the RTC5/RTC6 board’s DATA OUT signal 
+flows to the scan head’s DATA IN input).
+The cable length should not exceed 25 m. 
+SCANLAB recommends a cable impedance of 
+110 , independent of the cable length.
+• The data cable must have coaxial copper braided 
+shielding.
+The male D-Sub connectors must have fully 
+shielded metal housings. The cable’s shielding 
+must not be implemented as a wire at the D-Sub 
+housing. Instead, it must be conducted coaxially 
+via shielded cable clamps.
+ 
+26
+Data cable for data transmission according to XY2-100 protocol: pinouts and layout
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+[p.48]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+48
+innovators for industry
+27
+Data cable for data transmission according to SL2-100 protocol: pinouts and layout
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+[p.49]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+49
+innovators for industry
+5.5
+Power Supply
+5.5.1Specifications
+The varioSCAN II requires a balanced DC power 
+source of 30 V (29 - 33 V) or 48 V (±2 V), or alterna-
+tively a balanced DC power source of ±(15+1,5) V, 
+with a maximum current of 1,5 A. The residual DC 
+ripple should not exceed 100 mVPP.
+The varioSCAN II has reverse polarity protection and 
+inrush current limiting. The power supply and data 
+interface are galvanically isolated from each other.
+The power supply is monitored by the DSCB servo 
+control board (see "Assuring Reliable Power" on 
+page 16).
+For information about the power supply require-
+ments of your XY scan system, refer to its corre-
+sponding manual.
+5.5.2Connecting
+The varioSCAN II’s DSCB servo control board must be 
+connected to a SCANLAB digital interface board. The 
+varioSCAN II will then receive its power from the 
+DSCB board’s 3-pin POWER IN connector (see (4) in 
+figure 11 on page 31).
+When connecting the power supply, observe the 
+following points:
+• To ensure reliable operation, the varioSCAN II or 
+its clamping block must be electrically insulated 
+(see chapter 4.1 on page 22).
+• The varioSCAN II or its digital interface board are 
+separately connected to the power supply.
+• The cable connecting the power source to the 
+varioSCAN II must be shielded and should have a 
+cross-sectional area of at least 1.5 mm2 per pole 
+and a length not exceeding 6 m. RFI must be mini-
+mized by connecting the cable’s shielding at one 
+end (utilizing a large surface area) to the power 
+supply’s metal shielding, and at the varioSCAN II’s 
+end to the D-Sub connector’s housing.
+• The varioSCAN II is usually operated with a 30 V 
+power supply, but operation with two ±15 V 
+power supplies is also possible (see figure 28). 
+Another option is the 48 V power supply (see 
+figure 29).
+Though power supplies are typically not included 
+in the scope of delivery, they are optionally avail-
+able from SCANLAB.
+ 
+28
+Connection to the mains grounding wire 30 V (PE) 
+PE
+L N
++V
+–V
++V
+–V
++V
+–V
++V
+–V
++V
+–V
+GND
++15 V
+–15 V
+0 V
++15 V
+–15 V
+0 V
+0 V
++30 V
+varioSCANde II
+varioSCANde II
+varioSCANde II
+iDRIVE-
+XY scan system
+iDRIVE-
+XY scan system
++30 V
+GND
++30 V
+GND
++30 V
+GND
++30 V
+GND
++30 V
+Analog
+XY scan system
+GND
++15 V
+–15 V
+Mains
+±15 V
+Power
+supply 1
+±15 V
+Power
+supply 2
+±15 V
+Power
+supply 1
+±15 V
+Power
+supply 2
+30 V
+Power
+supply
+
+[p.50]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+5 Electrical Connections
+50
+innovators for industry
+Connect the power supply as follows:
+Make sure each power connection has the correct 
+polarity.
+Connect each pole of the power source via an 
+appropriate cable to all pins of the varioSCAN II 
+connector (on the digital interface board or 
+optional adapter).
+If you connect the XY scan system and the 
+varioSCAN II to the same power supply but not to 
+a common digital interface board, then observe 
+the following notes (also see figure 28 on 
+page 49):
+– If a +30 V or 48 V power supply is used for the 
+varioSCAN II and an iDRIVE scan system 
+(intelliSCAN or excelliSCAN), then connect the 
+0 V connection of the power supply output side 
+to the mains grounding wire (PE).
+– If a ±15 V power supply is used for the 
+varioSCAN II and an iDRIVE scan system, then 
+connect the –15 V connection of the power 
+supply output side to the mains grounding wire 
+(PE).
+– If a ±15 V power supply is used for the 
+varioSCAN II and an analog XY scan system, 
+then connect the 0 V connection of the power 
+supply output side to the mains grounding wire 
+(PE).
+If the varioSCAN II and the XY scan system are 
+connected to two different power sources, then 
+connect the varioSCAN II’s ground connector to 
+the XY scan system’s ground connector.
+29
+Connection to the mains grounding wire 48 V (PE)
+PE
+L N
+Mains
++V
+–V
+GND
+0 V
++48 V
+varioSCANde II 
+iDRIVE-
+XY scan system
++48 V
+GND
++48 V
+48 V
+Power
+supply
+Caution!
+• In this configuration, the varioSCAN II’s 
+GND connector (and thus also its elec-
+tronics and housing) are connected to 
+–15 V.
+Therefore, the housing must be mounted 
+potential-free.
+
+[p.51]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+51
+innovators for industry
+6
+Control
+6.1
+Position Control
+6.1.1Digital Control via a SCANLAB 
+Digital Interface Board (without RTC 
+Board)
+If the varioSCAN II’s DSCB digital servo control board 
+is connected to a SCANLAB digital interface board, 
+then the varioSCAN II can be controlled via digital 
+signals. The extremal positions of the varioSCAN II’s 
+movable diverging optic are reachable via the 
+maximum and minimum allowed set values (in 
+conjunction with a DSIB interface board these are 
+65536 and 0; in conjunction with a DSIB-SL interface 
+board these are +524287 and –524288). An increase 
+of the specified value moves the varioSCAN II’s 
+diverging optic in the direction of the beam exit, thus 
+increasing the varioSCAN II’s focal length.
+6.1.2Digital Control with an RTC 
+Board
+If the DSCB digital servo control board is connected 
+to a SCANLAB RTC control board via a SCANLAB 
+digital interface board, then the varioSCAN II can be 
+controlled via RTC commands from a controlling PC.
+These commands can be integrated into a customer-
+specific application (e.g. a C program) and allow you 
+to specify the desired position within the processing 
+volume. The controlling PC with RTC control board 
+delivers the corresponding position signals (set 
+values) for the varioSCAN II (and the XY scan system’s 
+galvo scanners).
+Assisted by a 3D correction table in an RTC software 
+correction file, the RTC board:
+• calculates appropriate varioSCAN II focal lengths 
+for each XY position of the XY scan system
+• compensates distortions of the image field 
+caused by the scan system’s two-mirror configu-
+ration or by the shift of the working plane
+The correction file is specific for a certain working 
+distance, field size and optical configuration of the 
+varioSCAN II. For details, refer to the section "3D 
+Correction Table Assignment" on page 52 or the RTC 
+manual.
+In the RTC command set, the desired X, Y and Z values 
+for the XY scan system and the varioSCAN II must be 
+specified as bit values, which are calculated via multi-
+plying the desired values in [mm] by the calibration 
+factor K in [bits/mm]. The calibration factor K in 
+[bits/mm] and the usable scan volume (X x Y x Z in 
+[mm]) are listed in the separate data sheet “Charac-
+teristics of the 3-Axis Configuration”.
+Figure 5 on page 18 shows the reference system for 
+the image field which is used by the RTC boards. The 
+Y axis points in the reverse direction of the entering 
+laser beam, the Z axis points in the reverse direction 
+of the emerging laser beam (X axis, Y axis and Z axis 
+form a right-handed reference system). The extremal 
+positions of the movable diverging optic are reached 
+via the maximum and minimum allowed Z values (set 
+values) +32767 and –32768.
+An increase of the specified bit value moves the 
+varioSCAN II’s diverging optic in the direction of the 
+beam entrance, thus decreasing the varioSCAN II’s 
+focal length. 
+Notes:
+• Control of a varioSCAN II via an RTC board is 
+only possible if its 3D option is enabled.
+• The calibration factor for RTC4 boards (PCIe 
+and Ethernet) is equal in the X, Y and Z direc-
+tions. Correction files in the ctb format must 
+be used with these boards.
+
+[p.52]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+52
+innovators for industry
+3D Correction Table Assignment
+With the help of 3D correction tables, the RTC control 
+board calculates appropriate varioSCAN II focal 
+lengths for each position within the processing plane 
+or volume. A correction table can be loaded onto the 
+RTC board from a 3D correction file included in the 
+RTC software via the RTC command load_correc-
+tion_file. Afterward, the correction table must be 
+assigned to the desired scan head connector of the 
+RTC board via the RTC command select_cor_table.
+Take into account that RTC4 boards use different 
+correction files than RTC5 and RTC6 boards, and that 
+correction table assignment for the RTC4 board 
+differs from that for RTC5 and RTC6 boards (also refer 
+to the manual of your RTC board):
+RTC4 Control Board
+The digital interfaces of the RTC4 PCIe and 
+RTC4 Ethernet boards allow transmission of X, Y and 
+Z data via one scan head connector.
+Correction tables for these boards can be loaded 
+from 3D correction files with the name/format 
+D3_XXXX.ctb.
+Assign the correction table as follows:
+If the varioSCAN II is connected to a scan head 
+connector via a separate SCANLAB digital 
+interface board and an XY scan system is attached 
+to the other scan head connector, then assign the 
+same correction table to both scan head 
+connectors with select_cor_table(1,1).
+(In this case, the RTC control board’s “second 
+scan head” option must be enabled additionally 
+to the 3D option).
+If the varioSCAN II is connected to a scan head 
+connector via a separate SCANLAB digital 
+interface board and no XY scan system is 
+attached to the other scan head connector, then 
+assign the correction table to the scan head 
+connector to which the digital interface board is 
+attached (with the command 
+select_cor_table(1,0) or (0,1)).
+RTC5 and RTC6 Control Boards
+The digital interfaces of the RTC5 and RTC6 boards 
+(PCI, PCIe and Ethernet) allow transmission of X and 
+Y data via one scan head connector and transmission 
+of Z data via both channels of the other scan head 
+connector. Here, the varioSCAN II can only be 
+controlled via a separate interface board.
+Correction tables for these boards can be loaded 
+from 3D correction files with the name/format 
+D3_XXXX.ct5.
+Assign the correction tables as follows:
+Assign the correction table to the scan head 
+connector to which the varioSCAN II’s digital 
+interface board is not attached:
+– If the varioSCAN II’s digital interface board is 
+attached to the secondary scan head connec-
+tor, then assign the 3D correction table to the 
+primary scan head connector with 
+select_cor_table(1,0).
+– If the varioSCAN II’s digital interface board is 
+attached to the primary scan head connector, 
+assign the 3D correction table to the secondary 
+scan head connector with 
+select_cor_table(0,1).
+• The calibration factor for RTC5 and RTC6 
+boards (PCI, PCIe and Ethernet) is equal only in 
+the X and Y directions. The Z direction’s cali-
+bration factor is different: Kz = Kxy / 16. 
+Correction files in the format ct5 must be used 
+with these boards.
+• The RTC commands are detailed in your RTC 
+board’s manual.
+Notes:
+
+[p.53]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+53
+innovators for industry
+6.2
+Returned Signals
+6.2.1Digital Control via a Digital 
+Interface Board (without RTC Board)
+If the varioSCAN II’s DSCB digital servo control board 
+is attached to a SCANLAB digital interface board, 
+then the status signals generated by the servo control 
+board are returned as digital values via the status 
+channel of the digital interface board (for the 
+returned data types see the next section).
+6.2.2Digital Control with an RTC 
+Board
+If the varioSCAN II’s DSCB digital servo control board 
+is connected to a SCANLAB RTC control board via a 
+SCANLAB digital interface board (see overview on 
+page 20), then status signals generated by the 
+varioSCAN II’s (and XY scan system’s) servo control 
+board are returned to the RTC board for evaluation. 
+RTC commands such as get_head_status or 
+get_value can be used to query the current status. 
+These commands can be integrated into a customer-
+specific application (e.g. a C program) to define 
+status-dependent process sequences.
+The varioSCAN II’s digital servo architecture allows a 
+wide variety of data signals to be returned to the RTC 
+via the DSCB’s status channel. This opens up possibil-
+ities such as monitoring the varioSCAN II’s actual 
+values during an application or carrying out compre-
+hensive troubleshooting in case of operational 
+malfunction. For the returned data signals of your XY 
+scan system, refer to the corresponding RTC manual.
+If the varioSCAN II is operated via an RTC4, RTC5 or 
+RTC6 control board (PCI, PCIe or Ethernet), then the 
+command control_command can be used for 
+selecting which data the varioSCAN II should return 
+to the RTC board. The selected data source will be 
+transmitted until another source is selected. Data 
+received by the RTC board can be synchronously or 
+asynchronously read at any time via additional 
+commands (for details, refer to your SCANLAB RTC 
+manual).
+XY2-100 Status Word
+Five seconds after every reboot or reset, an XY2-100 
+status word is transmitted. The status word contains 
+three status values that can be queried via the RTC 
+command get_head_status:
+• PWROK (“Power OK”)
+PWROK =0 signifies a problem in the power 
+supply. In normal operation (after the electronic 
+components have reached a stable operating 
+state), the PWROK signal is 1. 
+If the signal switches from 1 to 0 during opera-
+tion, then the laser must be turned off immedi-
+ately. Under some circumstances, the 
+varioSCAN II could focus the laser beam to an 
+unintended position, which may cause serious 
+health hazards and severe equipment damage. 
+The system should be checked immediately to 
+determine the cause. PWROK=0 can be caused, 
+for example, by a defective power supply.
+• TEMPOK (“Temperature OK”)
+The TEMPOK signal switches from 0 to 1 within a 
+few seconds after power-up.
+• POSACK (“Position Acknowledge”)
+POSACK = 1 signifies that the difference between 
+the set value and the real position is less than 
+0.56% of the movable diverging optic’s maximum 
+travel range. The POSACK signal normally 
+switches to 1 within a few seconds after power-
+up. The command control_command allows you 
+to change the POSACK threshold value (see 
+"Process Monitoring" on page 56).
+The Z return channel returns the varioSCAN II’s three 
+XY2-100 status values separately from any status 
+values of the XY scan system (in contrast, the X and 
+Y return channels of a 2-axis or 3-axis scan system 
+both return a logically ANDed POSACK signal of the 
+X and Y axis).
+
+[p.54]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+54
+innovators for industry
+Additional Data Types
+When the varioSCAN II is operated via an RTC board, 
+then the command control_command (see RTC 
+manual) can be used for selecting which data the 
+varioSCAN II should return to the RTC board. Unless 
+the setting is changed after reset, the XY2-100 status 
+word will be transferred (see the previous section). 
+The selected data is transmitted at 10 µs intervals 
+until a different data type is requested.
+The following is a description of the data types that 
+may be selected (similar data can be separately eval-
+uated for the X and Y axes of a 3-axis configuration).
+Status (XY2-100)
+This data type corresponds to the status word speci-
+fied by the XY2-100 protocol (see the previous 
+section).
+Actual Position
+Current actual position of the movable diverging 
+optic on the mechanical travel path(1)
+Set Position
+Current set position of the movable diverging optic 
+on the mechanical travel path
+Position Error
+Set Position – Real Position (difference between the 
+current real position and the current set position of 
+the movable diverging optic on the mechanical 
+travel path)
+Actual Current
+Actual output stage current of the motor
+Relative Motor Control
+The motor’s control voltage (in per mille of the 
+maximum value)
+Actual Velocity
+Actual velocity of the movable diverging optic
+Operational Status
+The varioSCAN II provides various blocks of extended 
+status information.
+When the first block is selected to be returned to the 
+RTC board, the following information will be 
+provided about the current operational state:
+• Status of output stage (on/off)
+• Status of internal voltages (all voltages o.k. or at 
+least one internal voltage not o.k.)
+• Status of external voltage (o.k. or power supply 
+interruption)
+• Status of AD converter (successfully initialized or 
+not initialized)
+• Status of booting process (complete or not yet 
+completed)
+• Status of control parameters (valid or invalid)
+• Boot signal: The control is activated as soon as all 
+necessary flags are set
+• Status of positioning (positioning error within the 
+allowed range (< 0.56%) or no longer in the 
+allowed range)
+• Status of positioning (positioning within the 
+allowed range or critical position reached)
+• Temperature status (operating temperature of 
+DSCB board reached or not yet reached)
+(1)
+The position data read back via the status channel are returned 
+in bit values from –215 to 215. Here, the extreme values corre-
+spond to the mechanical edge positions of the lens position. 
+The resulting positions in the respective 2D or 3D application 
+are determined by the correction file.
+
+[p.55]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+55
+innovators for industry
+• Error status (no critical error or system presently 
+in critical error state). Critical errors include:
+– improper internal voltages
+– drop in the external power supply
+– reaching a critical edge position
+– reaching a critical dynamic load
+If a critical error occurs, the varioSCAN II auto-
+matically enters a permanent error state in which 
+the output stage remains deactivated – even if 
+the critical error was only temporarily present. 
+Normal operation is not resumed. 
+The second information block can be selected to be 
+returned to the RTC board if more detailed informa-
+tion about the current operational state is desired. 
+This block separately indicates potential error states 
+of the various internal voltages and of the servo 
+board temperature.
+Alternatively, two further status information blocks 
+can be selected to be returned to the RTC board: They 
+indicate the above-listed operation states at the 
+moment of the most recently occurred operation 
+interruption. After every successful restart – and, as 
+long as no error has occurred – the status information 
+in these two blocks will have no meaning. Only when 
+an error causes a switch into a temporary or perma-
+nent error state will the current status values be saved 
+here. Simultaneously, an event code is also set, indi-
+cating which particular event caused the error state. 
+This event code can be read out separately.
+Temperature
+The DSCB board’s temperature can be returned to the 
+RTC board.
+Internal Voltages
+The following internal voltages can be returned to the 
+RTC board:
+• DSP core supply voltage (1.8 V)
+• DSP IO voltage (3.3 V)
+• Analog section voltage (9 V)
+• AD converter supply voltage (5 V)
+The exact values for the internal voltages may vary 
+depending on the varioSCAN II serial number.
+General Information
+One of the following types may be selected:
+• Serial number
+• Art. No.
+• Firmware version 
+• Calibration
+• Aperture
+• Wavelength
+• Running time
+Note:
+• During permanent error states, the 
+varioSCAN II will continue to transmit data to 
+the control board. Even in these states, 
+switching or querying of data types for diag-
+nostic purposes is still possible.
+
+[p.56]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+56
+innovators for industry
+6.3
+Process Monitoring
+The varioSCAN II provides internal protective mecha-
+nisms. The following is monitored:
+• the power supply
+• the position range and proper operation
+(See "Internal Protective Functions" on page 16):
+When the varioSCAN II is operated with an RTC 
+board, then an additional series of diverse data 
+signals can be evaluated for monitoring or test 
+purposes (see "Returned Signals" on page 53).
+If an applications has critical position precision 
+requirements, then the real position value can be 
+monitored during that application’s entire runtime.
+Alternatively, other data signals (e.g. current velocity) 
+can be analyzed during normal operation or even 
+when testing a user application.
+Malfunctions can be quickly detected if you regularly 
+query (and store) the varioSCAN II’s current opera-
+tional states before, during and after operations. This 
+also considerably simplifies determination of a 
+malfunction’s cause (see "Fault Diagnosis and Func-
+tional Test" on page 69).
+If you monitor scan accuracy with the XY2-100 status 
+word’s PosAck status signal, then you’ll also have the 
+possibility to change the PosAcknowledge threshold 
+value via the command control_command. The 
+default start behavior is for the varioSCAN II to set 
+the threshold value to 0.56% of the full positional 
+range (i.e. 0.56% of 216 counts).
+If a different threshold value is desired, then you’ll 
+need to configure it (see "Configuring the Start 
+Behavior" on page 56).
+6.4
+Configuring the Start 
+Behavior
+As delivered, the varioSCAN II is preconfigured by 
+SCANLAB for a PosAcknowledge threshold value of 
+0.56% of the full positional range (i.e. 0.56% of 216 
+counts) (also see "Process Monitoring" on page 56).
+The settings can be changed by the command 
+control_command. The changed settings are initially 
+temporary, but can later be saved via control_com-
+mand as starting settings for subsequent power-ups 
+or resets (power switched off and switched on).
+As long as the start behavior is not changed as 
+described, the varioSCAN II will start using the 
+starting settings pre-configured by SCANLAB on 
+every power-up or reset.
+The status return behavior of the varioSCAN II can 
+only be temporarily changed. The corresponding 
+start behavior is fixed by SCANLAB: after every restart, 
+the scan system transmits the XY2-100 status word 
+(also see page 53).
+
+[p.57]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+6 Control
+57
+innovators for industry
+6.5
+Tracking Error Compensation
+The varioSCAN II’s tracking error typically lags that of 
+the XY scan system. This can, for example, produce 
+unfavorable laser processing results due to focus lag 
+when processing inclined surfaces.
+If control of the focusing system and XY scan system 
+is performed by a SCANLAB RTC6 board, then 
+tracking error compensation can be activated to 
+delay signals to the XY scan system. For this, use the 
+RTC6 command set_timelag_compensation (see 
+the RTC6 manual).
+The varioSCAN II’s tracking error is listed in Part 2 of 
+this manual, and the scan head’s tracking error is 
+specified in the scan head’s manual.
+Even if the racking error compensation is applied, the 
+XY scan system and the varioSCAN II show a different 
+behavior during the acceleration phase. As a result, 
+incorrect focusing can still occur during acceleration. 
+Only after the final speed has been reached is the 
+dynamic defocusing also constant or disappears. The 
+acceleration time required here corresponds to twice 
+the larger tracking error (that of the XY scan system 
+or that of the Z axis). Even when using the tracking 
+error compensation, the delays must be selected 
+accordingly for minimum dynamic defocusing.
+6.5.1Using the varioSCAN II with 
+excelliSCAN and SCANahead Control
+If the varioSCAN II is used in a 3D configuration with 
+an excelliSCAN, SCANLAB recommends using the 
+tracking error compensation of the RTC6 board 
+(set_timelag_compensation). Since the excelliSCAN 
+with the SCANahead control does not have a tracking 
+error, the PreviewTime is used here as a comparison 
+value to the tracking error of the varioSCAN II (further 
+details on this can be found in the manuals of the 
+RTC6 and the excelliSCAN). Thus, after reaching the 
+final speed, the focusing error disappears. During the 
+acceleration phase, however, faulty focusing may 
+occur again. If the occurrence is to be suppressed, the 
+AccScale value can be set to 0. This switches the laser 
+off during the acceleration phase.
+As a rule, the maximum positioning and marking 
+speed of the 3D configuration consisting of 
+varioSCAN II and excelliSCAN is limited by the 
+maximum running speed of the varioSCAN II.
+6.5.2High Dynamic Requirements
+In general, the maximum achievable speeds for the 
+XY scan system and the Z axis are different for a 
+3D configuration. The maximum speed of the 
+3D configuration is limited by the slower of the two 
+speeds. When controlling with a strong dynamic 
+load, the maximum speed of the 3D configuration 
+must therefore be taken into account. If this is 
+exceeded, focusing errors can occur constantly over 
+the entire travel range and the varioSCAN II can reach 
+the mechanical edge stops for the lens positions.
+
+[p.58]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+58
+innovators for industry
+7
+Commissioning
+ 
+7.1
+Checking the Installation
+Before placing the varioSCAN II into operation, care-
+fully check the following:
+• If protective caps were installed at the 
+varioSCAN II’s beam entrance and exit, have you 
+removed them?
+• Were the mechanical installation and electrical 
+wiring fully and correctly carried out?
+(See chapter 4.1 on page 22.)
+• If the varioSCAN II is equipped with an optional 
+water-cooled entrance aperture, are the water 
+cooling facilities properly connected?
+(See chapter 4.2 on page 25)
+• Were the electrical connections fully and correctly 
+carried out?
+(See chapter 4.3 on page 30.)
+• Is the varioSCAN II’s objective clean and free of 
+dust?
+If necessary, clean the objective as described in 
+"Periodic Inspection and Cleaning of the Objec-
+tive" on page 65.
+Danger!
+Personal injury due to burns caused by very hot 
+components inside the !
+The Malfunctions: Dirty or damaged lenses as 
+well as an incorrectly adjusted beam can cause 
+optics or components to heat up strongly.
+• In the event of such malfunction, it is important 
+to allow sufficient time for cooling
+Danger!
+Personal injury due to burns caused by very hot 
+separate electrical components of the !
+Individual electrical components or the motor 
+block become hot during operation.
+• Allow sufficient time for cooling.
+• Monitor the TempOK singal and current 
+consumption to detect excessive heating.
+!
+!
+
+[p.59]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+59
+innovators for industry
+7.2
+Checking the Laser Param-
+eters 
+The varioSCAN II is designed for a laser beam with 
+defined parameters. 
+Compare the technical specifications (see Part 2 
+of the manual – Specific Description) to your 
+application’s requirements. For information on 
+tolerances and deviations, contact SCANLAB.
+Ensure that your entering beam’s wavelength 
+and diameter, as well as the maximum laser 
+power, are compatible with the varioSCAN II’s 
+specifications.
+Caution!
+• Operate the varioSCAN II only with the specified 
+laser parameters. Particularly take into account 
+the following technical specifications listed in 
+Part 2 of this manual:
+– A wavelength or wavelength range suitable 
+for the AR coating
+– Dimension of the entrance aperture (deter-
+mines the maximum beam diameter)
+– Beam expansion factor (the exit beam’s diam-
+eter derives from this)
+– Maximum laser power density
+– Maximum laser power
+• Check in test operation whether the 
+varioSCAN II must be operated with water 
+cooling (see chapter 4.2 on page 25).
+
+[p.60]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+60
+innovators for industry
+7.3
+Integration into a 3-Axis 
+Configuration
+To integrate the varioSCAN II into a 3-axis configura-
+tion, SCANLAB recommends the setup shown in 
+figure 30. The laser beam must be very precisely 
+aligned with respect to the varioSCAN II’s optical 
+axis. Therefore, two adjustable mirrors should be 
+placed in the beam path ahead of the varioSCAN II. 
+For details, see chapter 7.5 "Alignment" on page 62.
+To prevent the power densities on the optical compo-
+nents of the varioSCAN II and the XY scan system 
+from being too high, the beam diameter at the inlet 
+of the varioSCAN II must not fall below a critical size 
+(see the power specifications of the varioSCAN II and 
+the XY scan system). Otherwise, the optical elements 
+may be damaged. If necessary, beam expanders 
+(available on the market) can be used to adjust the 
+beam diameter. The beam expander factor of the 
+varioSCAN II is given in the Technical Specifications in 
+Part 2 of the manual. The achievable focus diameters 
+in the working volume depend accordingly on the 
+illumination of the entrance aperture on the 
+varioSCAN II.
+If, on the other hand, the diameter of the beam 
+entering the XY scan system is too large, there will be 
+a loss of power at the entrance aperture of the scan 
+system. This will reduce power density at the focused 
+spot and might also lead to damage.  
+30
+Setup of the 3-axis scan configuration – Definition of working distance A, the distance B and the origin of the Z-axis
+varioSCANde II 20i
+varioSCANde II 20i
+Scan head
+Beam expander
+(optional)
+adjustable
+mirrors
+Laser
+z
+0
+A
+B
+A
+B
+z
+0
+Scan module
+Laser
+Beam expander
+(optional)
+adjustable
+mirrors
+F-Theta objective
+Working
+volume
+Working
+volume
+
+[p.61]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+61
+innovators for industry
+7.4
+Safe Startup and Shutdown 
+Sequences
+To ensure safety during startup, proceed exactly as 
+follows:
+(1) If the varioSCAN is equipped with a water-cooled 
+entrance aperture, then start the water cooling 
+facilities and monitor the flow to assure reliable 
+cooling.
+(2) Turn on the PC containing the RTC control board 
+and start up the control software.
+(3) Turn on the power supply for the varioSCAN II 
+and XY scan system.
+(4) Turn on the laser.
+When shutting down the system, turn off the compo-
+nents exactly in reverse order.
+Caution!
+• Damage will result if you operate the 
+varioSCAN II without removing protective 
+caps.
+Protective caps must be removed before first-
+time operation and before switching on the 
+varioSCAN II’s power supply.
+• Only operate the varioSCAN II with suitable 
+water cooling if you have determined during 
+test operation that this is necessary (see 
+chapter 4.2 on page 25).
+• Always turn on the control (PC with RTC 
+control board and control software) and the 
+power supply for the varioSCAN II prior to 
+turning on the laser. Otherwise the laser beam 
+might be deflected in an arbitrary direction 
+and system damage might occur.
+• Power for the varioSCAN II and the XY scan 
+system must be applied only after the control 
+becomes active.
+• When the varioSCAN II is switched on, it navi-
+gates to an optical reference mark. With an 
+RTC control board, you can use the command 
+control_command(Data = 0528H) (see RTC 
+manual) to query whether the reference mark 
+has been found. 
+If the reference mark was found, then Flag B6 
+of the returned data signal = 1 (“AD converter 
+successfully initialized”); otherwise this 
+flag = 0.
+If the reference mark is repeatedly not found, 
+contact SCANLAB for support.
+
+[p.62]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+62
+innovators for industry
+7.5
+Alignment
+To ensure optimum performance of the laser scan-
+ning system, it is crucial that the varioSCAN II, the 
+laser beam and the XY scan system (scan head or scan 
+module) are precisely aligned with respect to each 
+other. Incorrect alignment might lead to the 
+following effects:
+• vignetting of the laser beam
+• impaired focus quality
+• arbitrary translation of the image field
+In most cases, the first-mentioned effect will be 
+present. Vignetting occurs if the laser beam is not 
+able to fully pass through the optical components. 
+Part of the beam cross section will be cut off, 
+reducing the working beam’s power. Additionally, 
+scan system damage may readily occur due to exces-
+sive absorption of laser power. Therefore, the align-
+ment procedure must be carried out with 
+considerable care.
+7.5.1Recommended Tolerances
+To avoid vignetting, the system must be aligned as 
+precisely as possible. If the laser beam profile is 
+gaussian, the maximum tolerances appropriate for 
+most applications are:
+Beam Position
+(relative to the varioSCAN II)’s optical axis 
+Relative Orientation of XY Scan System and 
+varioSCAN II
+(relative to the input aperture of the XY scan system)
+If you use a laser with a flat top beam profile, it can 
+be necessary to align the scan system with even 
+higher precision. Avoid vignetting, especially with 
+very high power lasers. Align as carefully as possible 
+and – if necessary – reduce the beam diameter to an 
+appropriate value.
+7.5.2Aligning the Components
+Prior to aligning and adjusting the components, you 
+must carry out the following steps:
+Suitably arrange all components of the system, 
+including the laser, the beam expander (optional), 
+adjustable mirrors and the XY scan system (see 
+figure 30 on page 60).
+If present, remove protective caps from the 
+varioSCAN II’s beam entrance and beam exit.
+For alignment, follow the steps listed below:
+The first element to align is the beam expander. 
+Adjust its position so that the laser beam 
+coincides with the optical axis of the beam 
+expander. The beam expander must provide the 
+correct expansion factor. So after the laser beam 
+passes through the beam expander, the diameter 
+of the beam has to match the varioSCAN II’s 
+entrance aperture; and after passing through the 
+varioSCAN II, the diameter of the beam has to 
+match the XY scan system’s entrance aperture 
+(also see "Checking the Laser Parameters" on 
+page 59).
+Make sure that the beam is parallel after leaving 
+the beam expander.
+Remove the varioSCAN II temporarily from the 
+beam path.
+Adjust the adjustable mirrors preceding the XY 
+scan system such that the laser beam enters the 
+scan system in the center of the entrance aperture 
+and perpendicular to the plane of the entrance 
+aperture.
+• tilt of the laser beam:
+< 5 mrad
+• displacement:
+< 0.3 mm
+• tilt:
+< 5 mrad
+• displacement:
+< 0.3 mm
+Danger!
+• When installing or operating the varioSCAN II, 
+never stare directly into the laser beam or its 
+deflected radiation. Keep all parts of the body 
+away from the laser beam and the deflected 
+radiation.
+(Also refer to the chapter "Laser Safety" on 
+page 11.)
+• Adjust the output beam path by means of a 
+laser with a laser class not higher than 2.
+!
+
+[p.63]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+63
+innovators for industry
+Place the varioSCAN II into the beam path again 
+and make sure that the beam leaving the 
+varioSCAN II 
+enters the scan system in the center of the beam 
+entrance aperture and perpendicular to the plane 
+of the entrance aperture. This should be achieved 
+– if possible – by moving only the varioSCAN II to 
+the correct position and orientation. If additional 
+corrections are necessary, the positions of the 
+adjustable mirrors between the beam expander 
+and the varioSCAN II can also be readjusted.
+7.5.3Adjusting the Distance to the 
+Scan System
+The distance B is defined as the distance between the 
+varioSCAN II’s exit (focusing ring in the neutral posi-
+tion, i.e. scale points to null position) and the XY scan 
+system’s beam entrance (see figure 30 on page 60).
+The correct distance B was calculated by SCANLAB 
+based on the optical properties of the 3-axis scan 
+system and on the used correction file. The distance B 
+is listed in the data sheet “Characteristics of the 
+3-Axis Configuration”. This data sheet is always 
+created only for a specific 3-axis configuration and a 
+specific correction file.
+Adjust the distance B to the value provided in the 
+data sheet.
+7.5.4Adjusting the Working Distance
+To ensure that the scan system delivers good results, 
+the following three important parameters must 
+match:
+• The working distance between the XY scan 
+system and the z=0 working plane (see 
+distance A in figure 30 on page 60).
+(The working distance is defined as the distance 
+between the entering beam’s optical axis and the 
+nominal working plane.
+If the XY scan system is used with an F-Theta 
+objective, the working distance at z=0 corre-
+sponds to the nominal working plane of the 
+objective)
+• The focus position or back focal length
+• The assigned correction table’s coefficient A, 
+used for control via an RTC board
+If there are large deviations from the specified values, 
+the size of the image field will change and the correc-
+tion file will not correctly compensate field distor-
+tions. Thus, the working distance of the scan system 
+must be accurately adjusted before the scan system 
+can be placed into operation. (The two remaining 
+parameters do not need to be adjusted in this proce-
+dure.)
+The exact procedure for adjusting the working 
+distance depends on the components used. If you’re 
+using a SCANLAB RTC board for control, then proceed 
+as follows:
+SCANLAB provides you with a correction table 
+matched to your scan system and your requirements. 
+The working distance is a key input variable for calcu-
+lating this correction table. You can find the value 
+used for the working distance in both the correction 
+table’s ReadMe.txt file and the “Characteristics of the 3-
+Axis Configuration” data sheet.
+Adjust the working distance and focus position as 
+follows:
+First adjust the working distance (see A in 
+figure 30 on page 60) between the XY scan 
+system and the z=0 working plane in accordance 
+with the specified value.
+Turn on the controlling PC containing the RTC 
+control board and start up the control software.
+Turn on the power supply for the varioSCAN II 
+and the XY scan system.
+Move the laser focus to the reference point 
+specified in both the Readme.txt file and the 
+“Characteristics of the 3-Axis Configuration” data 
+sheet.
+If using an RTC board, issue the command 
+goto_xyz(X, Y, Z).
+Turn on the laser.
+Scan a test pattern onto the working plane as 
+near as possible to the reference point. Here, 
+suitably set dynamics-related parameters so that 
+the test points’ target positions will be reliably 
+reached.
+Based on the marking results, adjust the 
+varioSCAN II’s objective for an optimal focus 
+position by manually turning the focusing ring.
+
+[p.64]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+7 Commissioning
+64
+innovators for industry
+7.5.5Checking the Z-Axis Calibration
+When the laser focus is moved to a desired point 
+within the image field, the RTC board adjusts the 
+focal length of the varioSCAN II accordingly. Here, 
+the RTC board uses a correction table included in the 
+3D correction file supplied with the RTC software (for 
+details, refer to the RTC manual or the "RTC 3D Soft-
+ware" manual).
+The exact output values for the varioSCAN II depend 
+on various parameters such as beam divergence and 
+the tolerances of the optical components. Therefore, 
+in some cases the pre-calculated correction table 
+might not fit optimally to the individual scan system.
+To check if this is the case, SCANLAB recommends the 
+following procedure:
+Run a laser marking test that covers the entire 
+image field and, if necessary, the maximum focus 
+shift in the Z direction. Check if the laser focus 
+meets your application’s requirements.
+If you find significant levels of incorrect spot 
+positioning, it might be necessary to re-calibrate 
+the Z-axis correction table.
+7.6
+Monitoring Operating 
+Temperature and Current 
+Draw
+The varioSCAN II can be optionally equipped with a 
+water-cooled beam entrance aperture at the beam 
+entrance to dissipate heat generated by absorbed 
+laser power.
+In a test, determine whether operation with a water-
+cooled entrance aperture is required for your 
+varioSCAN II in the given application (see chapter 4.2 
+on page 25). 
+If excessive laser power or laser power density is 
+applied at the varioSCAN II’s entrance, then the 
+varioSCAN II’s optical components or motor can be 
+destroyed. Therefore, follow the specifications for 
+maximum laser power and the specifications for 
+operating conditions (see Part 2 of this manual).
+Operating the varioSCAN II with excessive current 
+draw will heat up the electronics. Therefore, the 
+current consumption of the DSCB servo control board 
+should not exceed the value of 0.85 A RMS (26 W). If 
+current draw passes a certain threshold, the 
+varioSCAN II’s output stage will very quickly switch 
+off. Such exceedances are particularly caused by 
+incorrect delays or excessive dynamic loads. However, 
+the error is actually indicated as temperature critical 
+(see RTC5 or RTC6 manual, control_command, Stop 
+Event Code = 00030H).
+In this case, do not wait for the varioSCAN II to cool 
+down. Instead shut down the system and then restart 
+it. For further processing, you’ll have to reduce 
+current draw (e.g. by checking delays and reducing 
+speeds).
+Here, also observe the warning on current draw and 
+temperature in chapter 4.2 on page 25)
+Note:
+• How to calibrate the varioSCAN II and the entire 
+3-axis system is described in detail in the 
+provided Application Note “Calibrating a 3-Axis 
+Laser Scan System“.
+
+[p.65]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+8 Maintenance and Customer Service
+65
+innovators for industry
+8
+Maintenance and Customer Service
+8.1
+Periodic Inspection and 
+Cleaning of the Objective
+A dirty objective can increase absorption of laser 
+power or residual reflectivity of the coating. The dirt 
+can burn into the surface and destroy the objective or 
+generate intense back reflections on optical or 
+mechanical components that result in damage. 
+Consequential damage can also occur. The warranty 
+does not cover any damage due to improper use, 
+cleaning or handling.
+Regularly check the varioSCAN II’s objective. Any 
+additional optical components in your overall system 
+should also be inspected and, if necessary, cleaned. 
+Consult the manuals of these components for appro-
+priate inspection and cleaning procedures.  
+If you find dirt, dust or other contaminants on the 
+varioSCAN II’s objective, then clean the optical 
+surfaces as described below:
+Using a squeeze bulb or compressed clean air, 
+blow air on the surface to remove dust and dirt 
+particles. If it’s still not clean, then use solvent 
+and lens cleaning tissues as described below:
+(1) Fold a clean lens tissue.
+(2) Dampen the folded lens tissue at one end with 
+solvent. Don’t use too much solvent, because 
+otherwise drying marks might appear.
+(3) Grip only the part of the lens tissue that won’t 
+come into contact with the protective window’s 
+surface.
+(4) Place the dampened end of the tissue onto the 
+center of the protective window and use a 
+circular motion to wipe slowly but steadily from 
+the center to the outer edges. Don’t rub back and 
+forth.
+Danger!
+Personal injury due to cuts caused by sharp 
+edges!
+Sharp edges caused by lens breakage can cause 
+cuts.
+• Do not open damaged 
+• Have maintenance and repair performed exclu-
+sively by SCANLAB
+(The exception is the cleaning of the lenses).
+Danger!
+When performing maintenance and cleaning on 
+the varioSCAN II, never stare directly into the 
+laser beam or its deflected radiation. Keep all 
+parts of the body away from the laser beam and 
+the deflected radiation. Switch off the laser or 
+use a shutter to securely block it from entering 
+the scan system.
+!
+!
+Cleaning Guidelines
+• Use only clean lint-free tissues specially manu-
+factured for cleaning optics (e.g. lens cleaning 
+paper).
+• Never clean the surface with dry lens cleaning 
+tissue, because that can cause scratches.
+• Use a solvent such as acetone or isopropanol 
+of electronics or spectrographic purity (evapo-
+ration residue < 0.001%). Read and follow the 
+relevant safety advice.
+• Avoid skin contact with the optics.
+• Use clean gloves impermeable to solvents.
+• Only apply the lens tissue with light pressure.
+
+[p.66]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+8 Maintenance and Customer Service
+66
+innovators for industry
+Repeat the procedure until the optical surface is 
+completely clean. For each pass, use a new lens 
+cleaning tissue. 
+Caution!
+The diverging optic inside the varioSCAN II’s 
+motor block is a highly sensitive component that 
+can be damaged if not handled properly. 
+If there is any uncertainty about cleaning, 
+contact SCANLAB for further procedure.
+
+[p.67]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+8 Maintenance and Customer Service
+67
+innovators for industry
+8.2
+Customer Service
+8.2.1Servicing and Repairs
+Except for the objective’s external optical surfaces, 
+the varioSCAN II does not contain user-serviceable 
+parts. All servicing and repairs should be performed 
+only by SCANLAB. Only SCANLAB has the proper test 
+facilities and procedures to service and clean the 
+varioSCAN II. 
+8.2.2Warranty
+The warranty is valid for 12 months after delivery. 
+Repairs covered under the warranty will be 
+performed at SCANLAB. The scope of the warranty is 
+limited to repair or replacement of the SCANLAB 
+product.
+SCANLAB is responsible for the return delivery of 
+products repaired under warranty; the customer is 
+responsible for delivery to SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged through 
+misuse or improper operation
+• for damage due to improper laser power (e.g. 
+focused beam on optical surfaces) or improper 
+alignment
+• for damage to optical components (objective etc.) 
+caused by improper handling or cleaning
+• for consequential damages
+• if the varioSCAN II or its DSCB servo control board 
+(or optional electronic box or varioSCAN FLEX-
+housing) have been altered
+• if the warranty seal on the scan system (or 
+optional electronic box or varioSCAN FLEX 
+housing) has been broken
+If a returned varioSCAN II must first be brought into 
+a serviceable state by SCANLAB before servicing can 
+begin (e.g. by removing added parts or cleaning the 
+varioSCAN II), then the customer shall bear the addi-
+tional cost.
+8.2.3Contacting SCANLAB
+For service, repairs, advice or information, simply 
+contact SCANLAB using one of the contact possibili-
+ties listed below:
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+8.2.4Product Disposal
+The varioSCAN II and its DSCB servo control board 
+(and optional electronic box or varioSCAN FLEX-
+housing) can be returned to SCANLAB for a fee to be 
+properly disposed of.
+Note:
+The varioSCAN II and its DSCB servo control 
+board must always be sent together to 
+SCANLAB – the varioSCAN II and the servo 
+control board are one functional unit.
+If the servo control board is installed in the 
+electronic box, then this must be sent together 
+with the varioSCAN II.
+Notes:
+SCANLAB guarantees the product to be free of 
+defects in manufacturing and material.
+The varioSCAN II is maintenance-free. Routine 
+inspection is only required for dust accumu-
+lation on the external optical surfaces. 
+If the varioSCAN II is used in high-dynamics and 
+high-precision applications, then SCANLAB 
+strongly recommends periodically performing a 
+functional test.
+
+[p.68]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+9 Troubleshooting
+68
+innovators for industry
+9
+Troubleshooting
+If the problem persists, then contact SCANLAB (see page 67).
+Problem
+Possible Cause
+varioSCAN II no longer 
+responds
+• Is the varioSCAN II properly connected to the DSCB servo control board (or 
+optional electronic box)?
+• Is the DSCB servo control board correctly connected to the separate interface 
+board?
+• Is the DSCB servo control board correctly supplied with power?
+See "Electrical Connections" on page 37.
+XY scan system no 
+longer responds
+• Is the XY scan system properly connected to the RTC via the data cable?
+• Is a suitable data cable used?
+• Is the XY scan system correctly powered?
+Refer to the manual of the XY scan system.
+Distortion of the image 
+field
+• Is the appropriate correction file loaded and assigned?
+Refer to the Readme.txt file associated with the correction file.
+Low laser power
+• Is there dirt or dust on the varioSCAN II’s objective or in the XY scan system?
+• Are the XY scan system’s mirrors dirty or damaged?
+• See operating manual of your SCANLAB XY scan system.
+• Is the system correctly aligned (see "Alignment" on page 62)?
+Changed laser spot
+• Was Z-axis calibration properly performed and the correction file properly calcu-
+lated and loaded?
+• Is the laser beam correctly aligned?
+To troubleshoot, proceed in the following order:
+(1) Check the setup of the beam expander: Is the expansion factor appropriate? Is 
+the laser beam parallel when leaving the beam expander?
+(2) Is the system correctly set with respect to the working distance A (between the 
+beam entering the varioSCAN II and the working plane) and with respect to the 
+distance B (between the varioSCAN II and the XY scan system)? (Also see "Align-
+ment" on page 62.)
+(3) Check that the laser beam coincides with the beam expander’s optical axis.
+(4) Make sure the laser beam enters both the varioSCAN II and XY scan system at 
+the centers of their entrance apertures and perpendicular to the planes of those 
+entrance apertures.
+If the laser spot change persists, then realign your system as described in 
+"Alignment" on page 62.
+Positioning error after 
+a jump
+• Are the values defined for the RTC jump speed set too high (consider the 
+varioSCAN II’s dynamics), or are the values defined for the jump delays set too 
+short?
+
+[p.69]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+9 Troubleshooting
+69
+innovators for industry
+9.1
+Fault Diagnosis and 
+Functional Test
+The varioSCAN II’s versatile status return functions 
+can also be used for system diagnostics. Information 
+such as the following can be queried:
+• the current operating state
+• the operating state at the moment of the most 
+recently occurred operation interruption
+• an event code indicating which particular event 
+caused the change to an error state
+(Also see "Safety During Installation and Operation" 
+on page 9).
+In general, all status information can even be read 
+after the varioSCAN II has entered an error state due 
+to an internal protective mechanism (provided that 
+the varioSCAN II is still sufficiently powered).
+Data transfer between the RTC board and the 
+varioSCAN II can be tested by transmitting an 8-bit 
+value to the varioSCAN II via the command 
+control_command. Subsequently, a 16-bit value will 
+be returned on the corresponding status channel: If 
+data transfer is error-free, then the upper 8 bits of the 
+returned 16-bit value will be identical with the origi-
+nally sent 8-bit value, and the lower 8 bits will be 
+identical with the complement of the sent 8-bit value. 
+These 16-bit values will be returned until the 
+control_command is used to select another return 
+data type.
+The command control_command allows the 
+currently used retransmission data type to be tempo-
+rarily stored for later retrieval. This lets you restore 
+whatever original return behavior was in effect 
+before you conducted the data transfer test.
+
+[p.70]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+10 General Technical Specifications
+70
+innovators for industry
+10 General Technical Specifications
+The technical specifications listed here apply for all 
+types of the varioSCANde II 20i.
+Your varioSCAN II’s specific characteristics are listed 
+in Part 2 - Specific Description.    
+Electrical Connections
+Power supply
+30 V DC (29–33 V), 
+maximum 1.5 A
+or alternatively
+48 V DC (±2 V) or
+±(15+1.5) V DC,
+max. 1.5 A at each of 
+the two poles
+Motor Specifications
+Travel range
+±2 mm
+Tracking error
+< 0.55 ms
+Typical
+running speed
+280 mm/s
+Maximum
+running speed
+400 mm/s
+Repeatability
+< 0.5 µm
+Nonlinearity
+< 3 µm
+Long-term drift
+(over 8 hrs, with constant 
+environmental conditions)
+< 3 µm
+Operating and Storage Conditions
+Working temperature
+Maximum temperature of 
+Electronic box or
+at the angle plate of the elec-
+tronic boards
+25 °C ± 10 °C
+50 °C
+Maximum current draw of 
+an DSCB board
+30V
+48V
+0.85 A RMS
+0.54 A RMS
+(26 W)
+Storage temperature(1)
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive
+(1)
+Before storing or transporting, make sure to remove all coolant 
+from the device’s water-cooled parts.
+Dimensions
+varioSCAN II
+–  Motor diameter
+–  Clamping surface diam.
+–  Objective diameter
+(see figure 7 on page 22)
+Ø43 mm
+Ø44h6 mm
+Ø43.8 mm
+Water-cooled entrance 
+aperture (optional)
+–  Length
+19 mm
+DSCB servo control board
+(see figure 11 on page 31)
+118 mm x 80 mm x 
+30 mm
+Electronic box
+(see figure 14 on page 35)
+125 mm x 90 mm x 
+90 mm
+Weight
+varioSCAN II
+(type-dependent)
+400 g to 700 g
+Water-cooled entrance 
+aperture (optional)
+70 g
+DSCB servo control board
+310 g
+Electronic box
+- empty weight
+- incl. electronic 
+approx. 1.2 kg
+approx. 2.2 kg
+
+[p.71]
+varioSCANde II 20i; Part1 – General Description
+Doc. Rev. 1.1.8 e
+10 General Technical Specifications
+71
+innovators for industry
+Cooling Water Specifications (optional)
+Intake temperature of 
+coolant
+20...25° C, constant at 
+±0.5 K(1)
+Required flow rate(2)
+3 l/min
+Coolant volume in 
+entrance aperture
+max. 3.3 ml
+Pressure loss in entrance 
+aperture in (3) 
+– at 3 l/min
+max. 0.2 bar
+Maximum inlet pressure
+4 bar
+Coolant-wetted 
+materials:
+– Heatsink
+– O-rings
+Stainless steel (1.4305) or
+Aluminum alloy
+(EN-AW 6082)(4)
+Nitrile rubber (NBR)
+Recommended coolant
+Demineralized water 
+with corrosion inhibitor 
+and biocidal additive
+Connection bore holes 
+in heatsink
+G1/8 threaded, 8 mm 
+depth
+(1)
+Elevated ambient temperatures and air humidities might 
+require higher temperatures (above the operational site’s dew 
+point) to prevent condensation.
+(2)
+To dissipate 100 watts of heat and warm the coolant by 0.5 K.
+(3)
+Not including pressure loss in the supply lines.
+(4)
+Which material the cooling screen of your varioSCAN II is made 
+of can be found in the manual Part 2 - Specific Description
+Note:
+Separate data sheets are issued for the charac-
+teristics of a 3-axis configuration, since the 
+varioSCAN II can be combined with a variety of 
+XY scan systems, objectives and different 
+correction files.

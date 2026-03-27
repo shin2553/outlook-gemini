@@ -1,0 +1,2270 @@
+# Manual_153577 153578_Single-Axis-Module_Doc.2.2_en
+
+[p.1]
+Installation and 
+Operation
+Single Axis Module dynAXIS L, 30 mm
+digital,  1080 nm
+– Prototype –
+April 17, 2023
+Rev. 2.2 e
+innovators for industry
+
+[p.2]
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB GmbH 2023
+(Doc. Rev. 2.2 e - June 29, 2006)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB.
+dynAXIS is a registered trademark of SCANLAB GmbH.
+Other mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+Single Axis Module
+Rev. 2.2 e
+Table of Contents
+3
+innovators for industry
+Table of Contents
+1
+Delivered Product ................................................................................................................................4
+1.1
+Product Overview.............................................................................................................................. 4
+1.2
+Unpacking Instructions and Package Contents.................................................................................. 4
+1.3
+Article Number and Labeling ............................................................................................................ 4
+1.4
+About This Operating Manual........................................................................................................... 4
+2
+Single Axis Module – Principle of Operation .......................................................................................5
+2.1
+Galvanometer Scanner Behavior and Dynamic Positioning of Laser Beams ....................................... 5
+2.2
+Controlling the Scan Module ............................................................................................................ 6
+2.2.1
+Data Transmission .................................................................................................................. 6
+2.2.2
+Returned Data Signals............................................................................................................ 6
+2.2.3
+Range of Controllable Deflection Angles................................................................................ 9
+2.3
+Adjustment and Usable Angle Range.............................................................................................. 10
+3
+Safety During Installation and Operation .........................................................................................11
+3.1
+Operational Guidelines and Standards............................................................................................ 11
+3.2
+Electromagnetic Compatibility (EMC).............................................................................................. 11
+3.3
+Laser Safety..................................................................................................................................... 12
+3.4
+Electrical Safety............................................................................................................................... 14
+4
+Installation .........................................................................................................................................15
+4.1
+Checking the Specifications ............................................................................................................ 15
+4.2
+Dimensions ..................................................................................................................................... 16
+4.3
+Mounting the Galvanometer Scanner ............................................................................................. 17
+4.4
+Mounting the Electronics Boards .................................................................................................... 18
+4.4.1
+DSCB Digital Control Board.................................................................................................. 19
+4.4.2
+DSIB-Interface Board............................................................................................................ 20
+4.5
+Electrical Connection....................................................................................................................... 22
+4.5.1
+Scanner Connection............................................................................................................. 22
+4.5.2
+Internal Cabling .................................................................................................................. 22
+4.5.3
+Power Supply ....................................................................................................................... 23
+4.5.4
+Data Transfer........................................................................................................................ 24
+4.5.5
+Data Cable Guidelines.......................................................................................................... 25
+4.6
+Operating and Storage Conditions.................................................................................................. 26
+5
+Start-up and Operation......................................................................................................................27
+5.1
+Checking the Installation................................................................................................................. 27
+5.2
+Checking the Laser Parameters........................................................................................................ 27
+5.3
+Adjusting the Laser Beam................................................................................................................ 28
+5.4
+Checking the Parameters of Application Software .......................................................................... 28
+5.5
+Safe Start-up and Shutdown Sequences ......................................................................................... 29
+5.6
+Assuring Safe Operating Temperatures ........................................................................................... 29
+5.7
+Monitoring the Scan Range  .......................................................................................................... 30
+5.8
+Monitoring Functions...................................................................................................................... 30
+6
+Routine Maintenance and Customer Service.....................................................................................31
+6.1
+Routine Maintenance of the Mirror................................................................................................. 31
+6.2
+Customer Service ............................................................................................................................ 32
+7
+Troubleshooting.................................................................................................................................33
+8
+Technical Specifications Single Axis Module......................................................................................34
+
+[p.4]
+Single Axis Module
+Rev. 2.2 e
+1
+Delivered Product
+4
+innovators for industry
+1
+Delivered Product
+1.1
+Product Overview
+The Single Axis Module is designed for a laser with a 
+wavelength of  1080 nm and a maximum beam 
+diameter (aperture) of 30 mm. The Single Axis 
+Module is designed for digital data transfer via the 
+digital servo electronics.
+1.2
+Unpacking Instructions and 
+Package Contents
+Carefully remove the scan module from the 
+package.
+Protect the scan module from dust and other 
+contaminants.
+Keep the packaging, so that in case of repair the 
+scan module can be properly repackaged and 
+returned to SCANLAB.
+Check that all parts have been delivered and all 
+parts are in good order and condition. If there are 
+any questions, please contact SCANLAB (see 
+page 32).
+The package includes:    
+1.3
+Article Number and Labeling
+The scan module has the following article number:
+The serial number label is found on the scanner.
+Please make sure to connect each scanner to its 
+appropriate control board (see page 22).
+1.4
+About This Operating Manual
+This operating manual is a part of the product. Please 
+read these instructions carefully before you proceed 
+with installing and operating the scan module. If 
+there are any questions regarding the contents of this 
+manual, please contact SCANLAB (see page 32).
+Keep the manual available for servicing, repairs and 
+product disposal. This manual should accompany the 
+product if ownership changes hands.
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification.
+– a dynAXIS L galvanometer scanner with mirror 
+and mounting assembly
+– a DSCB digital control board
+– a DSIB interface board
+– this operating manual
+153577 (Scanner dynAXIS L with mirror 30/1)
+153578 (Scanner dynAXIS L with mirror 30/2)
+
+[p.5]
+Single Axis Module
+Rev. 2.2 e
+2
+Single Axis Module – Principle of Operation
+5
+innovators for industry
+2
+Single Axis Module – Principle of Operation
+The scan module is designed for diverse areas of 
+application in which, generally, a laser beam is 
+deflected via a deflection mirror. The scan module is 
+an OEM version which is intended for integration into 
+a system with a proper housing. 
+For proper operation, the scan module must be 
+correctly adjusted and controlled.
+The remainder of this chapter provides answers to the 
+following basic questions concerning operation of 
+the scan module:
+• Which galvanometer scanner characteristics need 
+to be taken into account when creating or using 
+applications that dynamically position laser 
+beams?
+• What kinds of signals are used to control the posi-
+tions of the galvanometer scanner and how large 
+is the range of controllable deflection angles?
+• How should the scan module be adjusted with 
+respect to the laser beam and how large is the 
+range of usable deflection angles?
+2.1
+Galvanometer Scanner 
+Behavior and Dynamic 
+Positioning of Laser Beams
+SCANLAB’s galvanometer scanners and control 
+boards allow precise dynamic control of the two 
+deflection mirrors. This enables exact positioning of 
+the laser beam with high speed – a characteristic 
+required by a wide range of modern applications. For 
+ensuring optimum operation, the following proper-
+ties of galvanometer scanners must be considered:
+• Most laser applications require the laser focus to 
+trace contours within the working plane at a 
+constant processing speed. To achieve this, the 
+control (PC) subdivides the contours into micro-
+steps. Microstep length is determined by the 
+output period and desired speed. Galvanometer 
+dynamics are usually optimized for such 
+microvector control. It is therefore advisable to 
+also use vectors when positioning with the laser 
+switched off. Compared to hard jumps, a defined 
+positioning speed will prevent excessive oscilla-
+tion and usually produce shorter positioning 
+times. Positioning speeds can generally be signifi-
+cantly higher than processing speeds. In chapter  
+"Technical Specifications Single Axis Module", on 
+page 34 a typical positioning speed is specified 
+for this particular scan module. The processing 
+speed must be adjusted according to the partic-
+ular application.
+• Galvanometer scanner movements do not occur 
+instantaneously with respect to vector control, 
+but rather after a certain time lag. Time lag char-
+acterizes the reaction properties of the galvanom-
+eter scanner. The vector control output period 
+must be significantly shorter than the time lag. 
+Otherwise, instead of moving the galvanometer 
+scanner with constant speed, the servo would 
+attempt to follow the individual microsteps. This, 
+in turn, would increase power consumption and 
+thermally stress the scanner. SCANLAB therefore 
+recommends as short an output period as 
+possible, no more than 20% of the time lag (see 
+page 34). Oscillation behavior and time lag must 
+be taken into account by the application soft-
+ware, which synchronizes the scan module and 
+the laser control. If the scan module is controlled 
+via a SCANLAB RTC PC interface board or via an 
+RTC SCANalone standalone board, then synchro-
+nization is easily realized by appropriately setting 
+the scanner and laser delay parameters (refer to 
+the RTC manual for details).
+• Environmental fluctuations, especially tempera-
+ture changes, can cause scanner drift, i.e. a shift 
+(offset drift) and an increase or decrease in size 
+(gain drift) of the working image field. Therefore, 
+high-precision applications should only be started 
+up when the scanners have reached their oper-
+ating temperature. In addition, the magnitudes of 
+environmental fluctuations, e.g. operating 
+temperature changes, to which the scan module 
+is exposed should be kept as small as possible.
+
+[p.6]
+Single Axis Module
+Rev. 2.2 e
+2
+Single Axis Module – Principle of Operation
+6
+innovators for industry
+2.2
+Controlling the Scan Module
+2.2.1Data Transmission
+The positions of the galvanometer scanners are 
+controlled via the transmission of digital input 
+signals. The controller and the scan module are inter-
+connected via a serial interface. Data transmission 
+follows the  XY2-100 Enhanced protocol. In the 
+process, essentially the following signals are trans-
+ferred:
+• The controller delivers set values for the scanner 
+positions.
+• The scan module generates data signals to be 
+returned to the controller.
+• Two additional channels transmit
+the data transport synchronization signal
+and a clock signal.
+Figure 1 shows the timing of the clock signal 
+(CLOCK), the synchronization signal (SYNC) and the 
+three data channels (CHAN1/CHAN2/CHAN3).
+Every 10 µs, three 20-bit words (3 control bits, 16 
+data bits, 1 parity bit) are transmitted serially as 
+differential signals.
+2.2.2Returned Data Signals
+The scan module’s digital servo architecture allows a 
+wide variety of data signals to be returned to the 
+control board. Every 10 µs data signals are trans-
+mitted via the status channel. This opens up possibil-
+ities such as monitoring the galvanometer scanner’s 
+actual values during execution of an application or 
+carrying out comprehensive troubleshooting in case 
+of operational malfunction.
+When the scan module is operated via an RTC4 or 
+RTC5 PC Interface Board, the command control_com-
+mand (see the RTC4 Manual) can be used for selecting 
+which data the scan module should return to the 
+control board. The selected data sources will be trans-
+mitted until another source is selected. Data received 
+by the RTC can be read asynchronously at any time via 
+additional commands (see the RTC Manual). 
+To facilitate scan module operation via other RTC 
+boards, a status word compliant with the XY2-100 
+protocol is transmitted after every reboot or reset (on 
+all receive channels).
+XY2-100 Compliant Status word
+Five seconds after every reboot or reset, a status word 
+compliant with the XY2-100 protocol is transmitted 
+(on all receive channels). The status word contains 
+three status values that can be queried via the RTC 
+command GET_HEAD_STATUS:
+• PWROK (i.e. "Power OK")
+PWROK = 0 signifies a problem in the power 
+supply. In normal operation, the PWROK signal is 
+1. If the signal switches from 1 to 0 during oper-
+ation, then the laser must be turned off imme-
+diately. Under some circumstances the system 
+could deflect the laser beam in an unintended 
+1
+Timing diagram of the serial interface signals
+Legend
+1
+CLOCK
+2
+SYNC
+3
+CHAN1/CHAN2/CHAN3
+	
+
+
+
+
+
+1
+2
+3
+
+[p.7]
+Single Axis Module
+Rev. 2.2 e
+2
+Single Axis Module – Principle of Operation
+7
+innovators for industry
+direction, which may cause health hazards and 
+severe equipment damage. The system should be 
+checked immediately to determine the cause (also 
+see section "Power Supply" on page 23).
+• TempOK (i.e. "Temperature OK")
+• PosAck (i.e. "Position Acknowledge") 
+PosAck = 1 signifies that the difference between 
+the set value and the real position is less than 
+0.5% of the image field size. The PosAck signal 
+normally switches to 1 within a few seconds after 
+power-up.
+Additional Data Types
+When the scan module is operated via an RTC4 or 
+RTC5 PC Interface Board, the command control_com-
+mand (see the RTC Manual) can be used for selecting 
+which data the scan module should return to the 
+control board. Unless the configuration is changed 
+after reset, the XY2-100 status word will be trans-
+ferred (see the previous section). The selected data is 
+transmitted at 10 µs intervals until a different data 
+type is requested.
+The following is a description of the data types that 
+may be selected.
+Status (XY2-100)
+This data type corresponds to the status word speci-
+fied by the XY2-100 protocol (see the previous 
+section).
+Actual Position
+Actual angular position
+Set Position
+Set angular position
+Position Error
+Set angular position - Actual angular position
+(difference between the current actual angular posi-
+tion and the current set angular position)
+Actual Current
+Actual galvo output stage current of the corre-
+sponding axis
+Relative Galvo Control
+Galvo control voltage (in per mille of the maximum 
+value)
+Actual Velocity
+Actual angular velocity
+Operational Status
+The scan module provides various blocks of extended 
+status informations.
+The TEMPOK signal always switches from 0 to 1 
+when the operating temperature has been 
+reached (which might take a few minutes). If, 
+during operation, the galvo temperature drops 
+below its minimum operating temperature or 
+exceeds a maximum allowable temperature, the 
+TEMPOK signal will switch to 0. In this case, 
+system operation does not need to be stopped 
+immediately, but large drift or other side-effects 
+may occur.
+If system operation is not stopped and the 
+scanner temperatures then reach a still higher 
+critical value, then the built-in temperature 
+control mechanism will switch off the galvanom-
+eter scanner drive stages to avoid heat-induced 
+damage to the scanners or the scan module (see 
+page 29). If the scanner temperature drops again 
+below the power-down threshold, the scanner 
+drive stages are automatically restarted.
+
+[p.8]
+Single Axis Module
+Rev. 2.2 e
+2
+Single Axis Module – Principle of Operation
+8
+innovators for industry
+If the first block is selected to be returned to the 
+control board, then the scan module provides the 
+following information about the current operating 
+state:
+• Status of galvo output stage (on/off)
+• Status of internal voltages (all voltages o.k. or at 
+least one internal voltage not o.k.)
+• Status of external voltage (o.k. or power supply 
+interruption)
+• Status of AD converter (successfully initialized or 
+not initialized)
+• Status of booting process (complete or not yet 
+completed)
+• Status of control parameters (valid or invalid).
+• Boot signal: The control is activated, as soon as all 
+necessary flags are set
+• Status of positioning (positioning error within the 
+allowed range (< 0.5%) or not in the allowed 
+range)
+• Status of positioning (positioning within the 
+allowed range or critical position reached)
+• Error Status (no critical error or system presently 
+in critical error state). Critical errors are for 
+instance:
+– improper internal voltages
+– external power supply interruption
+– reaching a critical edge position
+If a critical error occurs, the scan module auto-
+matically enters a permanent error state, in which 
+the output stages of the affected axis remain 
+deactivated – even if the critical error was only 
+temporarily present. Normal operation is not 
+resumed.
+Note:
+During both temporary and permanent error states, the 
+scan module will continue to transmit data to the control 
+board. Even in these states, switching or selection of data 
+signals for diagnostic purposes is still possible.
+The second information block can be selected to be 
+returned to the control board if more detailed infor-
+mation about the current operation state is desired. 
+This block for instance separately indicates potential 
+error states of the various internal voltages.
+Alternatively, two further information blocks can be 
+selected to be returned to the control board: They 
+indicate the operation states listed above at the 
+moment of the most recently occurred operation 
+interruption. After every successful restart – and, as 
+long as no error has occurred – all status informations 
+of these two blocks are irrelevant. Only, as soon as an 
+error causes a switch into a temporary or permanent 
+error state, the current status values will be saved into 
+these blocks. Simultaneously, also an event code is 
+set, indicating which particular event caused the 
+error state. This event code can be read out sepa-
+rately.
+Temperature
+Internal Voltages
+The following internal voltages can be returned to the 
+control board:
+• AGC (automatic gain control) voltage:
+supply voltage of the position detector
+• DSP core supply voltage (1.8 V)
+• DSP IO voltage (3.3 V)
+• Analog section voltage (9 V)
+• AD converter supply voltage (5 V)
+Exact values for the internal voltages can vary for 
+different versions of the scan module.
+• Status of galvo heater output stage (on/off)
+• Temperature Status (operating temperatures of 
+galvanometer scanner and servo board reached 
+or not yet reached)
+• Temperature Status (temperature of galvanom-
+eter scanner and servo board below a critical 
+value or at least one of the two temperatures 
+above the critical value): If one of the two 
+temperatures exceeds the critical value, then the 
+scan module automatically enters a temporary 
+temperature error state: the scanner’s output 
+stage is (temporarily) deactivated. The scan 
+module resumes normal operation, as soon as the 
+temperature drops below the maximum allowed 
+value.
+The following temperatures can be returned to the 
+control board:
+• Temperature of the galvanometer scanner
+• Temperature of the servo board
+
+[p.9]
+Single Axis Module
+Rev. 2.2 e
+2
+Single Axis Module – Principle of Operation
+9
+innovators for industry
+Internal Current
+The AGC current (automatic gain control) of the posi-
+tion detector can be returned to the control board.
+General Scan Module Information
+Alternatively, the following data types may be 
+selected:
+• Serial number
+• Article number
+• Firmware version number
+• Calibration
+• Aperture
+• Wavelength
+• Running time
+2.2.3Range of Controllable Deflec-
+tion Angles
+The mirror can be dynamically positioned within a 
+particular angle range (see "range of mechanical 
+deflection angles" in figure 2) based on the calibra-
+tion and maximum control values of the scan module 
+specified in chapter  "Technical Specifications Single 
+Axis Module", on page 34. The neutral position (0° 
+angle) represents the angle position while powered, 
+but without a control signal. Mirror stoppers prevent 
+the allowable angle range from being exceeded. The 
+range of allowable angles [° mech.] provided by the 
+mirror stoppers is specified in chapter  "Technical 
+Specifications Single Axis Module", on page 34. Here 
+it must be noted that mirror stoppers are only "emer-
+gency brakes". The controller and the user’s applica-
+tion software should ensure that "emergency 
+braking" never occurs – i.e. the mirrors should never 
+be deflected so far as to contact the mirror stoppers. 
+If, for any reason, such an event does occur, the 
+scanner and mirror should be inspected for possible 
+damage.
+The optical range of deflection angles is twice the 
+mechanical angle range (see figure 2). The specified 
+calibration and dynamic and optical angle parame-
+ters are in [rad optical]. The actual usable angle range 
+is dependent on a number of factors (see following 
+section).
+Heating Output of the Galvo Heaters
+Relative heating output (0 to 1000 per mille) of the 
+galvanometer scanner’s heater.
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+2
+Beam deflection and range of angles
+
+[p.10]
+Single Axis Module
+Rev. 2.2 e
+2
+Single Axis Module – Principle of Operation
+10
+innovators for industry
+2.3
+Adjustment and Usable Angle 
+Range
+The laser beam should arrive at the mirror’s reflective 
+surface perpendicular to the scanner’s rotation axis. 
+It should be thereby considered that the rotation axis 
+is typically located not on the plane of the mirror’s 
+surface, but rather in the middle of the mirror. The 
+offset of the mirror’s reflective front surface to the 
+rotation axis is depicted in the technical diagram 
+figure 3 on page 16. The laser beam should be 
+centered at the midpoint of the usable mirror surface 
+rather than at the rotation axis. 
+The laser beam must never arrive perpendicular to the 
+mirror surface. The deflection mirror’s material and 
+coating are designed for oblique incidence of the 
+laser beam – with angles of incidence of typically 45° 
+(see figure 2 on page 9). A perpendicular angle of 
+incidence can result in destruction of the mirror. The 
+usable angle of incidence range is dependent on the 
+mirror’s coating and dimensions as well as the 
+arriving laser beam’s diameter and the scan system’s 
+overall geometry:
+(1) Mirror coating:
+The mirror coating is optimized for a specified 
+wavelength and a defined angle of incidence 
+range. The corresponding data are listed in 
+chapter  "Technical Specifications Single Axis 
+Module", on page 34. During adjusting the scan 
+module, bear in mind that for technical reasons 
+there is an uncoated border at the mirror edges 
+with a width of typically 0.5 mm.
+(2) Beam diameter and mirror dimensions:
+The recommended diameter of the arriving laser 
+beam is specified in chapter  "Technical Specifica-
+tions Single Axis Module", on page 34. Excessive 
+beam diameters or deflection mirror positions 
+can produce vignetting at the mirror’s edges, 
+with resulting health-endangering laser reflec-
+tions or scan system damage. The relevant deflec-
+tion mirror dimensions are provided in figure 3 
+on page 16. The used angle range and the beam 
+diameter should be selected in such a way as to 
+avoid unacceptable vignetting. Also note that the 
+mirror’s usable surface is somewhat reduced by 
+its uncoated border edges and its mirror mount.
+(3) Scan system geometry:
+The scan module will be typically integrated in a 
+housing. The housing’s apertures and the scan 
+system’s overall geometry can further reduce the 
+usable angle of incidence range.
+Bearing in mind the above-listed points, the laser 
+beam should be adjusted so that the scan module is 
+operated in the middle of its usable angle range.
+Caution!
+• To avoid damage to the deflection mirror, don’t 
+allow the laser beam to arrive perpendicular to 
+the mirror’s surface. Observe the allowable 
+angle of incidence range.
+• Excessive deflection angles or beam diameters 
+can produce vignetting at the mirror, resulting in 
+possible health risks and damage to the mirror 
+and equipment. If your application requires 
+larger scan angles, then please contact 
+SCANLAB.
+
+[p.11]
+Single Axis Module
+Rev. 2.2 e
+3
+Safety During Installation and Operation
+11
+innovators for industry
+3
+Safety During Installation and Operation
+To reduce the risk of injury, please observe the 
+following guidelines.
+The safety and warning notices in this manual are 
+indicated by a symbol set against a gray 
+background:
+3.1
+Operational Guidelines and 
+Standards
+When operating the scan module, the following 
+guidelines and standards should be followed:
+• EC Guideline 73/23/EEC
+Low Voltage Directive
+(including amendment 93/68/EEC)
+• EC Guideline 89/336/EEC
+Electromagnetic Compatibility 
+(including amendments 91/263/EEC, 92/31/EEC, 
+93/68/EEC and 2004/108/EU)
+• EC Guideline 98/37/EU
+Machinery Directive
+• EN 60204-1 (November 1998)
+Safety of Machinery – Electrical Equipments of 
+Machines, Part1: General Requirements
+(also see similar general machinery safety stan-
+dards such as VDE 0113-1, IEC60204-1 or ANSI 
+B11.19 Machine Tools – Safeguarding When 
+Referenced by Other B11 Machine Tool Safety 
+Standards-Performance Criteria for the Design, 
+Construction, Care and Operation)
+• EN 60825-1 (October 2003)
+Safety of Laser Products, Part 1: Equipment Clas-
+sification, Requirements and User’s Guide
+(also see similar general laser safety standards 
+such as VDE 0837-1, IEC 60825-1, Safety of Laser 
+Products - Part 1: Equipment Classification, 
+Requirements, and User's Guide, 21 CFR 1040, 
+Laser Product Performance Standard or ANSI 
+Z136.1 Standard for the Safe Use of Lasers)
+• EN 12626
+Safety of Machinery - Laser Processing Machines - 
+Safety Requirements
+(also see similar laser materials processing system 
+safety standards such as ISO 11553, Safety of 
+Machinery - Laser Processing Machines - Safety 
+Requirements, IEC 60825-4, Safety of Laser Prod-
+ucts - Part 4: Safety of Laser Products or ANSI 
+B11.21-1997, Machine Tools Using Lasers for 
+Processing Materials - Safety Requirements for 
+Design, Construction, Care, and Use)
+Additional application-dependent guidelines and 
+standards may apply.
+Complying with the Relevant Standards for 
+the CE Label
+The scan module is delivered as an OEM component 
+conceived of for integration into a laser scan system.
+The system manufacturer bears the responsibility for 
+complying with the standards and guidelines 
+required for equipment usage and for the CE label.
+3.2
+Electromagnetic Compati-
+bility (EMC)
+The scan module is not shielded against electromag-
+netic fields. The customer is responsible for the obser-
+vance of the electromagnetic compatibility, for 
+example by assembling the scan module in an appro-
+priate housing.
+Instructions that may affect a per-
+son’s health are marked with a 
+warning triangle next to the word 
+"Danger".
+Instructions that recommend appro-
+priate use of this device or warn of 
+damage that may occur to it are iden-
+tified by a circle with an "X" in it, next 
+to the word "Caution".
+!
+
+[p.12]
+Single Axis Module
+Rev. 2.2 e
+3
+Safety During Installation and Operation
+12
+innovators for industry
+3.3
+Laser Safety
+The scan module is designed to be operated in 
+conjunction with a laser. Therefore, all applicable 
+rules and regulations for safe operation of lasers 
+must be known and applied when installing the scan 
+module and operating the system in which it is used. 
+Since SCANLAB has no influence over the employed 
+laser or the overall system, the customer is solely 
+responsible for the laser safety of the entire system.
+Shutter
+The scan module has no shutter and there is no device 
+to decrease the laser output power. It is the responsi-
+bility of the customer to include such a device in the 
+system in a way as to comply with all regulations. The 
+observance of laser safety must be ensured for the 
+entire system.
+Maintenance
+During maintenance of the laser equipment, the class 
+of the laser can increase. Therefore, the customer 
+must take suitable protective measures.
+Warning Symbols
+The area where the emerging beam is harmful must 
+be marked with a warning symbol indicating the class 
+of the employed laser – in accordance with IEC 
+60825-1 laser safety requirements. In addition, a 
+warning symbol must be placed at the emitting aper-
+ture of the laser system. The table on page 13 shows 
+the appropriate warning symbols for the various laser 
+classes specified by IEC 60825-1 (or EN 60825-1 / VDE 
+0837 T1).
+Danger!
+• Safety regulations may differ from country to 
+country. The customer bears sole responsibility 
+for compliance with all applicable safety regula-
+tions of their respective regulatory jurisdiction.
+!
+Danger!
+• During assembly or operation of the scan 
+module, never stare directly into the laser beam 
+or its deflected radiation. Keep all parts of the 
+body away from the laser beam and its path. 
+Routine maintenance should be performed as 
+described in "Routine Maintenance of the 
+Mirror" on page 31 and all safety instructions 
+should be observed!
+• Adjust the output beam path of the scan 
+module by means of a Class 2 laser. If this is not 
+possible, the laser should be operated at the 
+lowest power. Avoid dangerous deflected radia-
+tion!
+• The risk of hazardous deflected radiation can 
+increase when optical instruments are used in 
+combination with the scan module.
+• Before checking the scan module, make abso-
+lutely certain that the laser and scan module are 
+turned off! 
+• Cover the path of the laser beam via an appro-
+priate protecting case to block laser radiation!
+• Do not obstruct the movement of the scanner’s 
+mirror in any way. When the scan module is 
+turned on, the mirrors must not be touched at 
+all!
+• Closely follow all IEC 60825-1 laser safety 
+requirements and other applicable accident 
+prevention regulations of your respective regu-
+latory jurisdiction.
+• Wear appropriate eye protection at all times.
+• Always turn on the PC controller and the scan 
+module’s power supply first before turning on 
+the laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+!
+
+[p.13]
+Single Axis Module
+Rev. 2.2 e
+3
+Safety During Installation and Operation
+13
+innovators for industry
+Laser Classes Specified by IEC 60825-1 (or EN 60825-1 / VDE 0837 T1) 
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER CLASS 1
+LASER CLASS 1
+Class 1:
+This laser radiation is not harmful; is 
+eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 1 M
+INVISIBLE LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 1 M
+Class 1 M:
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+this laser radiation is not harmful; is 
+eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM
+LASER CLASS 2
+Class 2:
+This laser radiation is in the visible 
+spectrum of 400 to 700 nm. 
+Exposure to this radiation for less 
+than 0.25 s is not harmful to the 
+eyes. It is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 2 M
+Class 2 M:
+This laser radiation is in the visible 
+spectrum of 400 to 700 nm. 
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+exposure to this radiation for less 
+than 0.25 s is not harmful to the eyes 
+and is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+AVOID EXPOSURE OF THE EYES
+LASER CLASS 3 R
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 R
+Class 3 R: 
+This laser radiation is harmful to the 
+eyes. Eye exposure exceeds the 
+maximum allowable value.
+
+[p.14]
+Single Axis Module
+Rev. 2.2 e
+3
+Safety During Installation and Operation
+14
+innovators for industry
+3.4
+Electrical Safety
+Power is furnished to the scan module by a user-
+supplied low voltage power supply. The power supply 
+must meet the following mains insulation require-
+ments:
+• If the connectors are covered and cannot be 
+reached without tools from the outside, single 
+insulation between the mains and the low voltage 
+circuit is sufficient. The mains insulation must be 
+able to withstand a test voltage of 2 kV AC 
+applied between the mains and the low voltage 
+circuit.
+• If the connectors can be reached from the 
+outside, double or reinforced insulation between 
+the mains and the low voltage circuit is necessary. 
+The mains insulation must be able to withstand a 
+test voltage of 4 kV AC applied between the 
+mains and the low voltage circuit.
+Additional application-dependent guidelines and 
+standards may apply.
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+Class 3 B: 
+This laser radiation is harmful to the
+eyes and in some cases to the skin.
+LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+INVISIBLE LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+Class 4: 
+This laser radiation is very harmful to 
+the eyes and skin. Stray radiation can 
+also be dangerous. This radiation can 
+cause fire or explosion and the 
+generation of toxic gases or vapors.
+Caution!
+• The electronics boards must be securely 
+fastened and protected from moisture, dust, 
+corrosive vapors and external influences.
+
+[p.15]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+15
+innovators for industry
+4
+Installation
+Installation consists of mounting the galvanometer 
+scanner, installing the electronics boards and 
+connecting the power supply and control lines.
+Execute the individual mounting and cabling steps in 
+the specified order.
+4.1
+Checking the Specifications
+Make sure the specifications of the scan module meet 
+the requirements of your application (see "Technical 
+Specifications" on page 34). If your application 
+requires other specifications, then please contact 
+SCANLAB.
+Danger!
+• Make sure all components of the system (laser, 
+controller, power supply, computer) are 
+switched off before installation.
+• During installation of the scan module, never 
+stare directly into the laser beam or at any of its 
+deflected radiation.
+• Never place parts of the body into the direct 
+path of the laser or its deflected radiation.
+• After the scan module has been mounted, there 
+is a cone-shaped hazardous laser output area. 
+Do not stare into the laser or its deflected radia-
+tion. Keep all parts of the body away from the 
+laser beam.
+• Always turn on the PC controller and the scan 
+module’s power supply first before turning on 
+the laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+Caution!
+• Carefully take the scan module out of the pack-
+aging.
+• Protect the scan module from humidity, dust 
+and corrosive vapors to prevent damage to the 
+electronics boards and mirror.
+• To avoid damage to the electronics boards by 
+electrostatic charges, observe all applicable 
+ESD guidelines.
+• Avoid electromagnetic fields and static 
+charges, which can damage the electronics 
+boards. To do so, shield the scan module from 
+external electromagnetic fields via an appro-
+priate housing.
+!
+• Never touch the optical surface of the deflec-
+tion mirror without appropriate cleaning 
+material. Follow the procedures in chapter 6.1 
+for periodically checking and cleaning the 
+mirror.
+• Make sure all operating and storage conditions 
+are met (see chapter 4.6, page 26).
+Caution!
+
+[p.16]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+16
+innovators for industry
+4.2
+Dimensions
+Figure 3 shows the dimensions of the galvanometer 
+scanner (left side) and the dimensions with mirror 
+mount and mirror (right side).
+3
+Dimensions (all dimensions in mm)
+
+
+
+ 
+!
+		
+
+"
+ 
+
+
+
+!
+		
+
+"
+#
+$%
+
+ 
+#!!&""
+#"&""
+
+
+$%
+'"
+Mirror 30/2
+Scanner dynAXIS L
+Mirror 30/1
+
+[p.17]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+17
+innovators for industry
+4.3
+Mounting the Galvanometer 
+Scanner
+The layout and dimensions relevant to mounting are 
+shown in figure 3 on page 16 . Mount the galvanom-
+eter scanner in the following manner.
+Mirror
+The mirror is usually bonded to a mirror mount and 
+the mirror mount attached to the scanner’s rotor. 
+Mirror stops are already integrated in the scanner.
+If the mirror is not mounted on the scanner yet, 
+attach the mirror mount with the mirror to the 
+scanner’s rotor. The distance between scanner and 
+mirror mount must be adjusted to 0.5 mm (e.g. via 
+temporarily inserting a 0.5 mm thin metal plate 
+between scanner and mirror mount). Tighten the 
+screws at the mirror mount carefully but firmly. 
+Tighten the screws alternately. SCANLAB recom-
+mends a tightening torque of 80 Ncm. Make sure to 
+tighten the screw with this torque only once. Other-
+wise, there is the risk to tear off the screw head. 
+When installing the mirror mount a second time to 
+the scanner’s rotor, replace the used screws with new 
+ones M2,5×8 Torx screws (ISO 14580 A2). Use a 
+TX8 screwdriver.
+Mount the mirror and galvanometer scanner such 
+that the mirror will not touch any other parts of the 
+scan system during operation and that the mirror is 
+adjusted with respect to the laser beam such that the 
+scan module is operated in the middle of its usable 
+angle range.
+Scanner
+The scanner housing must be electrically insulated 
+from the machine structure. For this purpose, an 
+insulating foil is generally provided.
+Apply the insulating foil around the scanner’s 
+mounting area. Then put the scanner together with 
+the foil in the corresponding bore hole of the 
+mounting plate.
+Fasten the scanner via a screw. Accordingly, the 
+mounting plate must provide an appropriate 
+threaded bore hole.
+Caution!
+• The galvanometer scanner must be securely 
+fastened and protected from moisture, dust, 
+corrosive vapors and external influences.
+• Never open the galvanometer scanner.
+• Avoid any conductive path between the 
+scanner housing and the mounting plate.
+• The galvanometer must never be operated 
+without its specified mirror.
+
+[p.18]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+18
+innovators for industry
+4.4
+Mounting the Electronics 
+Boards
+Dimensions and mounting of the electronics boards 
+are described on the following pages.
+Install the boards so that they are securely fastened 
+and sufficiently protected during operation from 
+moisture, dust, corrosive vapors, electromagnetic 
+fields and other external influences.
+Observe the following instructions.
+Caution!
+• The electronics boards must be securely 
+fastened and protected from moisture, dust, 
+corrosive vapors and external influences.
+• Avoid electromagnetic fields and static 
+charges, which can damage the electronics 
+boards. To do so, shield the scan module from 
+external electromagnetic fields via an appro-
+priate housing.
+• To avoid damage to the electronics boards by 
+static charges, observe all applicable ESD 
+guidelines.
+• Handle the electronics boards carefully (partic-
+ularly when inserting or removing cables) so 
+that no electronic components incur mechan-
+ical damage.
+• Do not change the tuning of the electronic 
+boards.
+• Avoid subjecting the electronics boards to any 
+form of mechanical stress.
+• When installing the electronics boards, ensure 
+that the connection cables are not strained.
+• Use only the original cables.
+• When mounting the electronics boards, use 
+only the bore holes indicated in this chapter. 
+Other holes can not be used for fastening the 
+boards or for any other purposes.
+• When mounting the electronics boards with 
+screws, ensure that a conductive path between 
+the screws and the boards’ electronic compo-
+nents is not created.
+• To avoid damage or destruction caused by 
+excessive heating of the electronics boards, it 
+is important to attach the board’s angle plate 
+to a heat sink or an appropriate-sized part of a 
+housing.
+Caution!
+
+[p.19]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+19
+innovators for industry
+4.4.1DSCB Digital Control Board
+Figure 4 shows the dimensions of the DSCB digital 
+control board with its connectors. The board is 
+mounted on an angle plate.
+For fastening the control board, the angle plate’s side 
+surface provides four bore holes. Two of the four 
+holes are M3-threaded. All holes require M3-
+threaded screws. Ensure that no electrical contact 
+exists between the screws and the board’s electronic 
+components.
+To prevent damage or destruction of the board from 
+excessive heat, it is important to attach the board’s 
+angle plate to a heat sink or an appropriate-sized part 
+of a housing. The material and dimension of the heat 
+sink must be chosen such that the temperature of the 
+angle plate does not exceed 50 °C.
+  
+4
+Dimensions of the DSCB digital control board (all dimensions in mm)
+
+
+"
+
+
+#
+(
+
+"
+"
+
+
+
+
+
+Legend
+1
+Angle plate
+2
+POWER IN connector for power supply
+3
+DIGITAL & POWER IN connector for power 
+supply and data transfer
+4+5Scanner connectors
+
+[p.20]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+20
+innovators for industry
+4.4.2DSIB-Interface Board
+Figure 5 shows the dimensions of the DSIB-board 
+with its connectors. The board is mounted on an 
+angle plate.
+For fastening the board, the angle plate’s side surface 
+provides four bore holes (see figure 5). Two of the 
+four holes are M3-threaded. All holes require M3-
+threaded screws. Ensure that no electrical contact 
+exists between the screws and the board’s electronic 
+components.
+The DSIB board must be mounted so that the 
+included flat ribbon cables can be connected to the 
+DSIB board and the DSCB digital servo board– see 
+section "Internal Cabling" on page 22. 
+5
+Dimensions of the DSIB interface board (all dimensions in mm)
+Legend
+1 Angle plate
+2 POWER IN connector for power supply (also see 
+figure 7 on page 23)
+3 DIGITAL IN connector for connecting to a PC 
+controller (also see figure 9 on page 24)
+4 POWER OUT connector for supplying power to 
+the DSCB via its POWER IN connector
+5 DIGITAL & POWER OUT connector for supplying 
+power and data transfer to the DSCB via its 
+DIGITAL & POWER IN connector
+6 POWER OUT for a second DSCB
+7 DIGITAL & POWER OUT for a second DSCB
+8 Optional: POWER OUT for a third DSCB
+9 Optional: DIGITAL & POWER OUT for a third 
+DSCB
+ 
+"
+(
+#
+
+
+ 
+
+!
+"
+
+
+
+
+
+
+ 
+
+!
+
+[p.21]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+21
+innovators for industry
+DA20 Adapter Board. 
+6
+Dimensions of the DA20 adapter board (all dimensions in mm)
+
+[p.22]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+22
+innovators for industry
+4.5
+Electrical Connection
+4.5.1Scanner Connection
+The digital control board forms a closed servo loop in 
+conjunction with the galvanometer scanner. Each 
+digital control board is individually tuned by 
+SCANLAB for its assigned scanner-mirror configura-
+tion. Do not interchange the control boards. 
+Optimum scan quality cannot be guaranteed if 
+control boards are interchanged. Therefore, if you 
+received more than one control board, make sure the 
+various electronic components are properly 
+combined. To help achieve this, the angle plate of 
+each control board is marked with the serial number 
+of its assigned galvanometer scanner.. 
+Attach the scanner’s connectors to the corre-
+sponding connectors of the control board (see 
+figure 4 on page 19).
+4.5.2Internal Cabling 
+Caution!
+• Before starting to establish connections, 
+ensure that the power supply and controller 
+are switched off and that none of the 
+connecting cables is powered. Electrically 
+active cables can destroy the board’s elec-
+tronics upon connection.
+• Always switch off the power source prior to 
+removing a connected cable.
+• Follow all power supply electrical specifica-
+tions exactly.
+• Before operating the unit, verify the polarities 
+of the power supply connections.
+The scanner is equipped with a connection cable 
+265 mm (±20 mm) in length, including the 
+connector.
+Connect the DSIB board’s POWER OUT and 
+DIGITAL & POWER OUT connectors via the 
+included flat ribbon cable (ca. 0.3 m long) to the 
+corresponding connectors of the DSCB (see 
+figure 5 on page 20 and figure 4 on page 19).
+If a DA20 adapter board is included, connect the 
+2-pin connector of the DA20 board’s wired-in 
+2-pin cable to the DSIB board's POWER IN 
+connector and the 16-pin connector of the DA20 
+board’s wired-in 16-pin cable to the DSIB board's 
+DIGITAL IN connector.
+
+[p.23]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+23
+innovators for industry
+4.5.3Power Supply
+Connection
+Power input to the scan module is via the 2-pin 
+POWER IN connector on the DSIB interface board 
+(also see figure 4 on page 19). Figure 7 shows the 
+pinout of this connector.
+The 2-pin POWER IN connector must be mated to a 
+connector housing (JST VHR-2N) and crimp contacts 
+(e.g. JST SVH-41T-P1.1). Use a cable diameter of 
+AWG20-16.
+The DSCB receives its power from the DSIB – also see 
+the section "Internal Cabling" on page 22.
+A DA20 adapter board with a 9-pin D-SUB power 
+supply connector is optionally available. 
+The adapter cable should be connected as described 
+in section "Internal Cabling" on page 22. Then the 
+scan module receives its power from the 9-pin male 
+D-SUB connector. Figure 8 shows the pinout of this 
+connector.
+Specifications
+The scan module requires a power supply of 
+(+30+3) V DC and a maximum current of 6 A. The 
+residual ripple of the power source should not exceed 
+100 mVpp.
+The power supply is galvanically isolated from the 
+XY2-100 interface. In addition the scan module 
+provides reverse-polarity protection and start-up 
+current limiting.
+Moreover, the scan module’s electronics monitors the 
+supply voltages. If, during operation, the supply 
+voltage falls below a minimum of approx. 25 V (e.g. 
+due to excessively long or thin cables, a weak power 
+supply or high loads), then the electronics discon-
+nects the scan module from the power supply. If the 
+supply voltage has returned (within a short time) to 
+permissible levels, the scan module is restarted.
+If the external supply voltage fails to return to permis-
+sible levels, the scan module will then remain discon-
+nected from the power supply. The supply voltage 
+problem must be resolved and the scan module 
+switched off and then restarted.
+7
++30V (2)
+PWRGND (1)
+POWER IN
+Pinout of the DSIB board’s POWER IN connector
+8
+POWER IN
+(1)
+GND
+(2)
+GND
+(3)
+Do not connect
+(4)
++30 V
+(5)
++30 V
+GND
+(6)
+Do not connect
+(7)
+Do not connect
+(8)
++30 V
+(9)
+Pinout of the DA20 board’s POWER IN D-SUB connector
+
+[p.24]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+24
+innovators for industry
+Appropriate matching connectors for attaching the 
+power supply are generally included. When 
+connecting, observe the following tips:
+Make sure each power connection has the correct 
+polarity.
+To avoid overloading the individual cables, all 
+identically designated connections should be 
+attached to the power source’s corresponding 
+polarity output.
+The cable connecting the power supply and the 
+scan module must be shielded and should have a 
+cross-sectional area of at least 1.5 mm2 per pole 
+and a length not exceeding 5 meters. RFI must be 
+minimized by connecting the cable’s shielding at 
+one end (utilizing a large surface area) to the 
+power supply’s metal shielding and at the scan-
+module-end to the housing of the corresponding 
+connector.
+4.5.4Data Transfer
+Specifications
+Digital data transfer is in accordance with the 
+XY2-100 Enhanced protocol. A detailed description is 
+provided in the section "Controlling the Scan Module" 
+on page 6.
+Connection
+The digital signal lines should be attached to the 
+corresponding pins of the DSIB’s 16-pin DIGITAL IN 
+connector (see figure 5 on page 20). Figure 9 shows 
+the pinout of this connector.
+ 
+An optional DA20 adapter Board with a 25-pin D-SUB 
+socket for data transfer is supplied. 
+The adapter cable should be attached as described in 
+the section "Internal Cabling" on page 22. Data 
+transfer is then via the 25-pin female D-SUB 
+connector. Figure 10 shows the pinout of this 
+connector.
+9
+(2)
+CLOCK+
+(4)
+SYNC+
+(6)
+CHAN1+
+(8)
+CHAN2+
+(10) DO NOT CONN.
+(12) STATUS1+
+(14) STATUS2+
+(16) DO NOT CONN.
+CLOCK – (1)
+SYNC – (3)
+CHAN1 – (5)
+CHAN2 – (7)
+DO NOT CONN. (9)
+STATUS1 – (11)
+STATUS2 – (13)
+DO NOT CONN.(15)
+DIGITAL IN
+Pinout of the DSIB board’s DIGITAL IN connector
+
+[p.25]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+25
+innovators for industry
+Attach the control lines and power supply lines to 
+the corresponding pins.
+4.5.5Data Cable Guidelines
+The SCANLAB data cable has identical 25-pin 
+D-SUB connectors on both ends. The data cable is 
+made up of eight twisted cable pairs and 
+connects the scan module to the controller via the 
+channels SYNC±, CLOCK±, CHAN1±, CHAN2±, 
+CHAN3±, STATUS1±, STATUS2± and STATUS3±. 
+CHAN3 and STATUS3 are provided for optional 
+control of the Z-axis.
+A description of these signals can be found in 
+"Controlling the Scan Module" on page 6.
+The data cable must have coaxial copper braided 
+shielding. 
+The cable should not be longer than 10 m. If a 
+longer data cable is needed, the signal timing of 
+the RTC should be adjusted to ensure correct 
+communication between the RTC and the scan 
+module. For details, see the RTC command "set_p-
+iso_control" in the RTC manual. The cable length 
+must not exceed 20 m.
+The D-SUB connectors must have fully shielded 
+metal housings.
+The data cable’s controller end must be fitted 
+with a ferrit ring (e.g. Würth WE 742 711 32).
+The electrical connection of the cable’s braided 
+shielding to the D-SUB housing should not be 
+implemented as a wire. Instead, the cable’s 
+braided shielding should be coaxially connected 
+to the D-SUB housing via shielded clamps.
+Figure 11 shows the data cable layout and pin assign-
+ments.
+Connect the scan module via the data cable to the 
+customer-specific controller.
+If an RTC board is used as the controller, then 
+follow the installation instructions in the RTC 
+manual.
+10
+(13) DO NOT CONNECT
+(12) DO NOT CONNECT
+(11) DO NOT CONNECT
+(10) DO NOT CONNECT
+(9)
+DO NOT CONNECT
+(8)
+STATUS1 –
+(7)
+DO NOT CONNECT
+(6)
+STATUS2 –
+(5)
+DO NOT CONNECT
+(4)
+CHAN2–
+(3)
+CHAN1–
+(2)
+SYNC –
+(1)
+CLOCK–
+DO NOT CONNECT (25)
+DO NOT CONNECT (24)
+DO NOT CONNECT (23)
+DO NOT CONNECT (22)
+STATUS1+
+21)
+DO NOT CONNECT (20)
+STATUS2+ (19)
+DO NOT CONNECT (18)
+CHAN2+ (17)
+CHAN1+ (16)
+SYNC+ (15)
+CLOCK+ (14)
+DIGITAL IN
+Pinout of the DA20 board’s DIGITAL IN connector
+The digital signals are transferred from the controller 
+to the scan module via a data cable. Scan modules 
+from SCANLAB are generally delivered without a data 
+cable. If the data cable is not included in your 
+package, SCANLAB recommends the following cable 
+configuration. If both the power supply voltages and 
+the data signals have to be connected to the same 
+connector, SCANLAB recommends implementing a 
+cabling solution that allows the use of separate 
+cables for data and power. The data section of such 
+a cabling solution should be designed as described 
+below.
+
+[p.26]
+Single Axis Module
+Rev. 2.2 e
+4
+Installation
+26
+innovators for industry
+4.6
+Operating and Storage Condi-
+tions
+For storage, operation and servicing, make sure the 
+following environmental conditions are met:
+• The storage temperature for the scan module 
+should be between – 35 °C and +60 °C.
+• The operating temperature is 25 °C 10 °C.
+• Protect the scan module from humidity, dust and 
+corrosive vapors to avoid damage to the mirrors, 
+optics and electronics.
+• Avoid strong electromagnetic fields and static 
+electricity. These can damage the electronics 
+boards.
+11
+Data cable layout and pin assignments
+1
+14
+2
+15
+3
+16
+4
+17
+5
+18
+6
+19
+7
+20
+8
+21
+9
+22
+10
+23
+11
+24
+12
+25
+13
+1
+14
+2
+15
+3
+16
+4
+17
+5
+18
+6
+19
+7
+20
+8
+21
+9
+22
+10
+23
+11
+24
+12
+25
+13
+CLOCK–
+CLOCK+
+SYNC–
+SYNC+
+CHAN1–
+CHAN1+
+CHAN2–
+CHAN2+
+CHAN3–
+CHAN3+
+STATUS–
+STATUS+
+CLOCK–
+CLOCK+
+SYNC–
+SYNC+
+CHAN1–
+CHAN1+
+CHAN2–
+CHAN2+
+CHAN3–
+CHAN3+
+STATUS–
+STATUS+
+D-SUB
+25 pin male
+D-SUB
+25 pin male
+Shielding
+
+[p.27]
+Single Axis Module
+Rev. 2.2 e
+5
+Start-up and Operation
+27
+innovators for industry
+5
+Start-up and Operation
+5.1
+Checking the Installation
+Before operating the scan module, carefully check the 
+following:
+Were the mechanical installation and electrical 
+wiring fully and correctly carried out as described 
+in chapter 4, "Installation"?
+Is the scan module equipped with an appropriate 
+mirror? Compare the technical specifications in 
+chapter 8 with the requirements of your appli-
+cation.
+Is the mirror clean and free of dust? If necessary, 
+clean the mirror as described in "Routine Mainte-
+nance of the Mirror" on page 31.
+5.2
+Checking the Laser Param-
+eters
+The scan module’s deflection mirror is designed for a 
+laser beam with defined parameters.
+Compare the technical specifications on page 34 
+with the requirements of your application. For 
+information on tolerances and deviations, please 
+contact SCANLAB.
+The coatings of the deflection mirror is designed 
+for a defined wavelength or wavelength range. If 
+the wavelength of the employed laser deviates 
+from the specified value, the mirror will not work 
+properly and can be destroyed.
+A maximum laser power density is defined for the 
+mirror coating. If the power density applied to 
+the mirrors exceeds its specified maximum power 
+density, destruction of the coating might result.
+The coating is only intended for a specific angle of 
+incidence range. The laser beam will be more 
+weakly or not at all reflected outside the specified 
+angle range.
+The deflection mirror is designed for a specific 
+beam diameter and scan angle range. Excessive 
+beam diameters or deflection angles can result in 
+vignetting of the beam. The beam is then no 
+longer fully deflected by the mirror. The conse-
+quence is a loss of laser power. Moreover, there is 
+a risk of damage to the scan mirror or equipment 
+(also see "Adjustment and Usable Angle Range" 
+on page 10). The amount of possible power loss 
+depends, among other things, on the beam 
+profile of the employed laser.
+
+[p.28]
+Single Axis Module
+Rev. 2.2 e
+5
+Start-up and Operation
+28
+innovators for industry
+The user has to ensure that the parameters of the 
+entering laser beam (wavelength, power density, 
+diameter and angle of incidence) match the specifi-
+cations of the scan module. 
+5.3
+Adjusting the Laser Beam
+Follow the adjustment guidance given in chapter  
+"Adjustment and Usable Angle Range", on page 10.
+5.4
+Checking the Parameters of 
+Application Software
+Before you start a laser application, you must care-
+fully check your application software with regard to 
+the maximum allowed scan angle range (see section 
+"Range of Controllable Deflection Angles" on page 9 
+and chapter  "Adjustment and Usable Angle Range", 
+on page 10).
+If the maximum allowable range of angles is 
+exceeded, some vignetting at the scan mirror can 
+occur and damage to the scan module might result
+If your application requires larger scan angles, then 
+contact SCANLAB for guidance.
+Caution!
+• Make sure the aperture and the coating of the 
+deflection mirror meet the requirements of your 
+application (see chapter  "Technical Specifica-
+tions Single Axis Module", on page 34). For 
+information on tolerances and deviations, 
+please contact SCANLAB.
+• Check if the wavelength of the input beam and 
+the maximum ratings for beam diameter and 
+laser power match the specifications of the scan 
+module (see page 34).
+• Excessive deflection angles or beam diameters 
+can produce vignetting at the mirror. This can 
+result in health risks and damage to the mirror 
+and equipment. If your application requires 
+larger scan angles, then please contact 
+SCANLAB.
+Danger!
+• Do not stare directly into the laser beam or at 
+any of its deflected radiation. Keep all parts of 
+the body away from direct contact with the 
+laser beam or any of its deflected radiation.
+• Adjust the output beam path of the scan 
+module by means of a laser with a laser class 
+not higher than 2. If this is not possible, the 
+laser should be operated at the lowest power. 
+Avoid dangerous deflected radiation!
+!
+
+[p.29]
+Single Axis Module
+Rev. 2.2 e
+5
+Start-up and Operation
+29
+innovators for industry
+5.5
+Safe Start-up and Shutdown 
+Sequences
+To assure safety during start-up, proceed exactly as 
+follows:
+(1) Turn on the controlling PC and start up the 
+control software.
+(2) Turn on the power supply for the scan module.
+(3) Turn on the laser.
+When shutting down the system, turn off the compo-
+nents exactly in reverse order. 
+  
+Caution!
+• Before first-time operation, check the polarities 
+of the power supply connections for the scan 
+module.
+Danger!
+• Always turn on the control (PC) and the power 
+supply for the scan module prior to turning on 
+the laser. Otherwise the laser beam might be 
+deflected in an arbitrary direction.
+• Power for the scan module must be applied only 
+when the control (PC) is active.
+5.6
+Assuring Safe Operating 
+Temperatures
+If the scanner is driven for long periods of time at 
+high positioning speeds or if the application includes 
+a high rate of vector changes, the correspondingly 
+high current consumption of the galvanometer 
+scanner can lead to excessive temperatures – espe-
+cially in the case of insufficient cooling, for instance 
+due to a weak thermal link to the machine.
+To prevent damage to the scanner, the scan module 
+provides a two-stage temperature control mecha-
+nism.
+!
+Caution!
+The user must ensure that the application 
+program evaluates the temperature control 
+signals correctly, as described below.
+Stage 1: Temperature Status Warning
+The temperature status signal TempOK indicates that 
+the scanner is operating at a safe temperature level. 
+During normal operation, the signal is 1. 
+If the scanner temperature rises above a certain value 
+or drops below a minimum value, then the TempOK 
+signal switches to 0. If the TEMPOK signal switches to 
+0 during operation, system operation should be 
+stopped and the system should be checked to deter-
+mine the cause. If system operation is not stopped, 
+large drift or other side-effects may occur.
+Stage 2: Critical Temperature Shutdown
+In addition to the temperature status warning, the 
+following scanner protective function is imple-
+mented:
+If the scanner’s temperature rises above the critical 
+value for temperature status warning and reaches a 
+second, still higher critical value, then the scanner’s 
+output stage is turned off to prevent damage to the 
+scanner. In this situation, the scanner’s position is 
+stationary and no longer under programmatic 
+control.
+If the scanner’s temperature drops again below the 
+power-down threshold, the scanner’s drive stage is 
+automatically restarted and the scan module will 
+resume normal operation.
+
+[p.30]
+Single Axis Module
+Rev. 2.2 e
+5
+Start-up and Operation
+30
+innovators for industry
+5.7
+Monitoring the Scan Range  
+5.8
+Monitoring Functions
+When the scan module is operated via an RTC4 or 
+RTC5 PC Interface Board, then a number of different 
+data signals can be evaluated for monitoring or test 
+purposes.
+For applications with critical accuracy requirements, 
+the actual galvo scanner value can be monitored 
+during the entire runtime of an application.
+Alternatively, other data signals (e.g. scanner 
+temperature) can be analyzed during normal opera-
+tion or even when testing user applications.
+Malfunctions can be quickly detected if you regularly 
+query (and store) the scan module’s operational 
+states before, after or during operations. Further-
+more, determination of a malfunction’s cause is 
+simplified considerably.
+The scan module has a built-in monitoring function 
+to prevent damage to its galvanometer scanner or 
+electronics when a problem occurs.
+If the galvanometer scanner’s scan angle exceeds the 
+allowed range due to an operational disturbance, its 
+output stage will be shut down. In such situations, 
+the galvanometer scanner can no longer be 
+controlled.
+Danger!
+If an output stage is shut down due to a scan 
+range overrun, laser power must be 
+switched off immediately. Otherwise, health 
+hazards and severe equipment damage can 
+occur due to uncontrolled laser radiation.
+!
+
+[p.31]
+Single Axis Module
+Rev. 2.2 e
+6
+Routine Maintenance and Customer Service
+31
+innovators for industry
+6
+Routine Maintenance and Customer Service
+6.1
+Routine Maintenance of the 
+Mirror
+A dirty mirror increases the absorption of laser power 
+by its optical surface. Dirt, dust and other contami-
+nants can distort the laser beam, burn into the 
+surface and damage the mirror. The warranty does 
+not cover any damage due to improper use, cleaning 
+or handling. Regularly inspect the scan module’s 
+mirror for dirt, dust and other contaminants in accor-
+dance with the procedures described below.
+Deflection mirrors are especially sensitive compo-
+nents and should not be touched or removed from 
+the galvanometer scanner. The mirror must be 
+inspected and cleaned in-place. Make sure the mirror 
+is at room temperature before manually rotating or 
+cleaning them.
+With the laser and power supply switched off, you 
+can manually rotate each mirror to a position conve-
+nient for inspection and cleaning. To manually rotate 
+a mirror, carefully hold the mirror by its edges with 
+clean disposable gloves or finger cots and turn it to 
+the desired position.
+If dust or dirt particles are found on the mirror’s 
+surface, remove the particles by blowing with a 
+rubber squeeze bulb or a source of clean compressed 
+air.
+If the mirror is still not clean, then use solvent and 
+lens cleaning tissues and employ one of the two 
+following cleaning methods:
+Method A
+(1) Place a clean piece of unfolded lens cleaning 
+tissue over the mirror. Do not touch any part of 
+the tissue that will touch the mirror.
+(2) Drop some solvent onto part of the tissue from 
+above. Don’t use too much solvent, because 
+otherwise drying marks might appear.
+(3) Slowly and gently drag the dampened part of the 
+tissue across the mirror’s optical surface. Do not 
+rub back and forth!
+Method B
+(1) Create a lens-tissue brush by folding a clean lens 
+tissue so that the fold is about as wide as the 
+mirror.
+(2) Dampen the lens-tissue brush with solvent. Don’t 
+use too much solvent, because otherwise drying 
+marks might appear.
+(3) Carefully grip one end of the dampened lens-
+tissue brush without touching any part of the 
+tissue that will touch the mirror. Place the lens-
+tissue brush at one edge of the mirror, then wipe 
+gently across the optical surface. Do not press 
+hard or rub back and forth!
+ Danger!
+• Switch off the laser and switch off the power 
+supply prior to performing routine optics 
+maintenance.
+!
+Cleaning Notes
+• Avoid skin contact with the optical surface.
+• Use only clean lint-free tissues specially manu-
+factured for cleaning optics (e.g. "Kodak lens 
+cleaning paper"). Always use lens tissues with 
+a solvent, because dry tissue can scratch 
+optical surfaces.
+• Use a solvent such as acetone or isopropanol 
+of high purity (evaporation residue < 0.001%). 
+Read and follow the safety advice and warn-
+ings for the solvents you will be using.
+• Use clean powder-free gloves or finger cots 
+that are impermeable to the organic cleaning 
+solvents you will be using.
+• Always wipe slowly but steadily and with slight 
+pressure! Do not rub back and forth.
+
+[p.32]
+Single Axis Module
+Rev. 2.2 e
+6
+Routine Maintenance and Customer Service
+32
+innovators for industry
+Repeat method A or method B until the mirror’s 
+optical surface is completely clean. For every cleaning 
+swipe, use a new lens cleaning tissue. 
+If the dirt cannot be removed in this manner, then 
+contact SCANLAB for guidance. In extreme cases, the 
+complete scan module must be returned to SCANLAB 
+for inspection and cleaning of the mirrors. However, 
+in some situations SCANLAB might be able to recom-
+mend a user-performed special cleaning procedure.
+6.2
+Customer Service
+Servicing and Repairs
+Except for routine maintenance of the mirror surface, 
+the scan module does not contain user-serviceable 
+parts. All servicing and repairs should be performed 
+only at SCANLAB. Only SCANLAB has the proper test 
+facilities and procedures to service, repair and cali-
+brate the system optimally.
+If repairs are needed, always ship the complete scan 
+module (galvanometer scanner, mirror and elec-
+tronics boards), so that SCANLAB can recalibrate the 
+components.
+Product Warranty
+SCANLAB guarantees this product to be free of 
+defects in manufacturing and material. The warranty 
+is valid for 12 months after delivery. Repairs covered 
+under the warranty will be performed at SCANLAB.
+The scope of the warranty is limited to repair or 
+replacement of the SCANLAB product.
+SCANLAB is responsible for the return delivery of 
+products repaired under warranty; the customer is 
+responsible for delivery to SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged through 
+misuse or improper operation
+• for damage due to improper laser power (e.g. 
+focused beam on optical surfaces) or improper 
+adjustment
+• for damage to the mirror caused by improper 
+handling or cleaning 
+• for consequential damages
+• if the galvanometer scanner, the mirror or the 
+electronics boards have been altered
+If a returned scan module must first be brought into 
+a serviceable state by SCANLAB (e.g. by cleaning the 
+scan module) before servicing can begin, then the 
+customer must bear the additional cost.
+Contacting SCANLAB
+For service, repairs, advice or information, simply 
+contact SCANLAB using one of the contact possibili-
+ties listed below:
+SCANLAB GmbH
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+Product Disposal
+The scan module can be returned to SCANLAB for a 
+fee to be properly disposed of in compliance with 
+environmental regulations.
+
+[p.33]
+Single Axis Module
+Rev. 2.2 e
+7
+Troubleshooting
+33
+innovators for industry
+7
+Troubleshooting
+If problems occur while operating this device, verify 
+that all operating instructions have been adhered to 
+and then carry out the following troubleshooting 
+procedures:
+If the problems persist, please send the scan module 
+to customer service.
+Problem
+Possible Cause
+Remedy
+Low laser power
+Altered controller software 
+parameters
+Check input parameters
+Dirty or damaged mirror
+Check mirrors. If necessary, clean 
+as described in section 6.1. If the 
+mirror is damaged return scan 
+module for repair.
+Changed laser spot
+Dirty or damaged mirror
+Check mirrors. If necessary, clean 
+as described in section 6.1. If the 
+mirror is damaged return scan 
+module for repair.
+Laser out of adjustment
+Adjust laser
+No laser beam
+Problem with the laser
+Check laser and electrical 
+connections
+Problem with the laser controller
+If the RTC board is used, check all 
+electrical connections and the 
+power supply
+Laser beam path blocked or shutter 
+closed
+Check laser beam path
+The scan module does not steer 
+the laser beam
+Problem with the controller
+Check power and data cables. 
+Check software commands. Switch 
+off scan module, and then restart.
+The scan module stopped 
+responding
+The scan module’s electronics have 
+disconnected the scan module 
+from the power supply due to 
+impermissible supply voltages (see 
+page 23)
+Ensure correct supply voltages, 
+switch off scan module, and then 
+restart
+
+[p.34]
+Single Axis Module
+Rev. 2.2 e
+8
+Technical Specifications Single Axis Module
+34
+innovators for industry
+8
+Technical Specifications Single Axis Module
+(all angle specifications optical if not explicitly speci-
+fied else)  
+ 
+Aperture
+Recommended
+beam diameter
+30 mm
+Control
+Input and output signals
+XY2-100 Enhanced
+Maximum range for control 
+values (input signals)
+0 to 65535 (1)
+Calibration
+±0.408 rad with 
+(32768 ±31457) Bit
+(Tolerance: ±5 mrad)
+Power supply
+Requirements
+(30+3) V DC, 
+max. 6 A each pole
+Optical Performance
+Nonlinearity
+< 3.5 mrad / 44°
+Repeatability (RMS)
+< 2 µrad
+Long-term drift over 8 hours
+(after warm-up)
+< 0.6 mrad
+Dynamic Performance
+Typical positioning speed
+45 rad/s
+Tracking error
+< 0.60 ms
+1% Step response time 
+(7.5 mrad step, settling to 
+0.75 mrad)
+< 1.30 ms
+(1) The usable control value range may be restricted, see
+section "Adjustment and Usable Angle Range" on page 10.
+Mirror
+mechanical mirror stop
+at ±20(±1)° mech.
+Coating
+dielectrical high 
+performance coating
+Working wavelength
+ 1080 nm
+Reflectivity
+– Angle of incidence range
+Mirror 1
+Mirror 2
+30° - 55° mech.
+25° - 52° mech.
+– at  1080 nm
+more than 99.5%
+– at 633 nm
+more than 50%
+Maximum laser power
+2000 W
+Maximum laser power density 
+continuous wave
+1000 W/cm2
+Damage threshold for pulsed 
+operation (with specified 
+working wavelength, pulse 
+length 10 ns, 200 on 1)
+5 J/cm2
+Weight
+Galvanometer scanner
+approx. 430 g
+DSCB digital control board
+DSIB interface board
+approx. 300 g
+approx. 160 g
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive

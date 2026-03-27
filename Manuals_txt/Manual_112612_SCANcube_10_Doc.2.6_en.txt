@@ -1,0 +1,2462 @@
+# Manual_112612_SCANcube_10_Doc.2.6_en
+
+[p.1]
+Installation and 
+Operation
+SCANcube® 10 (ID# 112612)
+analog, 450 nm - 2500 nm
+January 11, 2011
+Rev. 2.6 e
+innovators for industry
+
+[p.2]
+SCANLAB AG
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+© SCANLAB AG 2011
+(Doc. Rev. 2.6 e - June 29, 2009)
+SCANLAB reserves the right to change the information in this document without notice.
+No part of this manual may be processed, reproduced or distributed in any form (photocopy, print, microfilm or by any other 
+means), electronic or mechanical, for any purpose without the written permission of SCANLAB.
+SCANcube® is a registered trademark of SCANLAB AG.
+Other mentioned trademarks are hereby acknowledged as properties of their respective owners.
+
+[p.3]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+Table of Contents
+3
+innovators for industry
+Table of Contents
+1
+Introduction ....................................................................................................................................... 5
+1.1
+Product Overview ......................................................................................................................  5
+1.2
+Unpacking Instructions and Typical Package Contents ...............................................................  5
+1.3
+I.D. Plate ....................................................................................................................................  5
+2
+The SCANcube® 10 – Principle of Operation ..................................................................................... 6
+2.1
+Dynamic Positioning Laser Beams ..............................................................................................  6
+Customized Optical Configuration ....................................................................................  6
+2.2
+Scan Head Control .....................................................................................................................  7
+Data Transmission between the Controller and the Scan Head ..........................................  7
+Position Signals, Image Field and X-Y Reference System ....................................................  7
+Status Signals  ...................................................................................................................  9
+2.3
+Internal Protective Functions ...................................................................................................  10
+Monitoring the Scan Range   ...........................................................................................  10
+Assuring Safe Operating Temperatures ............................................................................  10
+3
+Safety During Installation and Operation ....................................................................................... 11
+3.1
+Operational Guidelines and Standards ....................................................................................  11
+3.2
+Laser Safety .............................................................................................................................  12
+3.3
+Electrical Safety .......................................................................................................................  14
+4
+Installation ....................................................................................................................................... 15
+4.1
+Checking the Specifications .....................................................................................................  15
+4.2
+Mounting the Objective ...........................................................................................................  15
+Objective Holder ..............................................................................................................  15
+Objective .........................................................................................................................  16
+4.3
+Layout and Dimensions ...........................................................................................................  17
+4.4
+Mounting the Scan Head .........................................................................................................  21
+4.5
+Electrical Connections ..............................................................................................................  22
+Power Supply ..................................................................................................................  22
+Input and Output Signals ................................................................................................  23
+4.6
+Operating and Storage Conditions ..........................................................................................  23
+5
+Start-up and Operation .................................................................................................................... 24
+5.1
+Checking the Installation .........................................................................................................  24
+5.2
+Checking the Laser Parameters ................................................................................................  24
+5.3
+Adjustment and Alignment .....................................................................................................  25
+5.4
+Checking the Parameters of Application Software ...................................................................  26
+5.5
+Safe Start-up and Shutdown Sequences ..................................................................................  26
+6
+Optimizing the Application ............................................................................................................. 27
+6.1
+Dynamic Positioning with Galvanometer Scanners ..................................................................  27
+6.2
+Optimum Environmental Conditions and Automatic Self-Calibration ......................................  28
+6.3
+Process Monitoring ..................................................................................................................  28
+Software Monitoring .......................................................................................................  28
+Optical Process Monitoring .............................................................................................  28
+
+[p.4]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+Table of Contents
+4
+innovators for industry
+7
+Routine Maintenance and Customer Service ................................................................................... 29
+7.1
+Routine Maintenance of the Optical Surfaces ..........................................................................  29
+Routine Maintenance of the Mirrors ...............................................................................  29
+Routine Maintenance of the Objective’s Optical Surface .................................................  29
+7.2
+Customer Service .....................................................................................................................  30
+8
+Troubleshooting ............................................................................................................................... 32
+9
+SCANcube® 10 Preliminary Technical Specifications ....................................................................... 33
+9.1
+Electromagnetic Compatibility .................................................................................................  34
+
+[p.5]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+1 Introduction
+5
+innovators for industry
+1
+Introduction
+This operating manual describes the SCANcube® 10 
+scan head with ID number 112612.
+The manual is a part of the product. Please read these 
+instructions carefully before you proceed with 
+installing and operating the scan head. In particular 
+observe all safety guidelines in this manual. If there 
+are any questions regarding the contents of this 
+manual, please contact SCANLAB (see page 31).
+Keep the manual available for servicing, repairs and 
+product disposal. This manual should accompany the 
+product if ownership changes hands.
+SCANLAB reserves the right to update this operating 
+manual at any time and without notification.
+1.1
+Product Overview
+The SCANcube® 10 scan head with ID number 
+112612 is designed for positioning laser beams with 
+a wavelength of 450 nm - 2500 nm and is equipped 
+with a 10 mm aperture. 
+The scan head is designed for analog signal transfer.
+The technical specifications of the product are 
+summarized on page 33.
+1.2
+Unpacking Instructions and 
+Typical Package Contents
+ Carefully remove the scan head from the 
+package.
+ Protect the scan head from dust and other 
+contaminants.
+ Keep the packaging, so that in case of repair the 
+scan head can be properly repackaged and 
+returned to SCANLAB.
+ Also remove all other articles from the package. 
+Check that all parts have been delivered. Please 
+refer to the corresponding packaging list.
+A scan head package typically includes a product 
+test protocol with test data. For mounting an 
+objective an objective mounting set may be 
+included in the package or already mounted to 
+the scan head. For controlling the scan head, an 
+RTC® control board may be included in the 
+package.
+1.3
+I.D. Plate
+The scan head’s I.D. plate (see figure 1) with the scan 
+head’s serial number is found on the housing.
+1
+I.D. plate with serial number (SN)
+	
+
+
+
+
+
+
+	
+
+
+
+SCANcube® 10
+450 - 2500 nm
+
+[p.6]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+2 The SCANcube® 10 – Principle of Operation
+6
+innovators for industry
+2
+The SCANcube® 10 – Principle of Operation
+2.1
+Dynamic Positioning Laser 
+Beams
+The primary tasks of an X-Y scan head are to deflect 
+a laser beam in the X-Y directions and to focus the 
+beam onto the working plane.
+The beam deflection task is realized with the help of 
+two tiltable deflection mirrors (see figure 2). The 
+beam enters the scan head through the input aper-
+ture and is first deflected in the Y direction by 
+mirror 1 attached to galvanometer scanner 1. The 
+beam then goes on to be deflected in the X direction 
+by mirror 2 attached to galvanometer scanner 2. The 
+resulting deflection angles can be precisely and high-
+dynamically adjusted by controlling the positions of 
+the galvanometer scanners.
+Focusing the beam onto the working plane can be 
+achieved with the help of a scan lens fitted to the 
+scan head’s beam exit hole. If an F-Theta objective is 
+used, the position of the focal point on the image 
+field will be directly proportional to the angle of inci-
+dence of the beam.
+Alternatively, focusing of the beam can be realized 
+with the help of a dynamic focusing system (for 
+instance, SCANLAB’s varioSCAN 20) positioned in 
+front of the scan head’s entrance aperture.
+Customized Optical Configuration
+To obtain optimum optical performance for a partic-
+ular laser application, the scan head’s optical config-
+uration must meet the requirements of the 
+application and the used laser system. To achieve 
+optimum reflectivity at the mirrors, SCANLAB there-
+fore selects mirror coatings appropriate for the wave-
+length and power of the user’s laser. The size of the 
+mirrors or the scan head’s aperture is selected in 
+accordance with the desired spot size and scan 
+speed.
+The user, on the other hand, has to ensure that the 
+parameters of the entering laser beam (wavelength, 
+power density and diameter) match the specifica-
+tions of the scan head. 
+First the coatings of the deflection mirrors are 
+designed for a defined wavelength or wavelength 
+range. If the wavelength of the employed laser devi-
+ates from the specified value, the mirrors will not 
+work properly and can be destroyed.
+Second for the mirror coatings also the allowed laser 
+rating is defined. If the specified values are exceeded, 
+destruction of the coatings might result (also see 
+section "Checking the Laser Parameters" on page 24).
+In addition the deflection mirrors are intended for a 
+specific beam diameter and a maximum allowed scan 
+angle. If the beam diameter or the scan angle exceeds 
+the specified maximum values, vignetting of the 
+beam can occur. The beam is then no longer fully 
+deflected by the mirrors. A portion of the beam is 
+then absorbed by the scan head, resulting in a loss of 
+power. Furthermore, the interior of the scan head 
+might be damaged due to the absorption of laser 
+radiation.
+2
+Basis of Operation: beam deflection via two galvanometer scanners
+
+	
+
+
+
+
+
+
+
+
+
+
+[p.7]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+2 The SCANcube® 10 – Principle of Operation
+7
+innovators for industry
+The amount of possible power loss depends, among 
+other things, on the beam profile of the employed 
+laser. For a Gaussian beam profile, beam vignetting is 
+insignificant when the scan angle of each mirror does 
+not exceed the maximum allowed scan angle defined 
+on page 33 and when the diameter of the beam 
+doesn’t exceed the specified aperture.
+The reflectivity of the mirror’s coating depends on the 
+angle of incidence and the wavelength and polariza-
+tion of the entering beam. Figure 3 shows the 
+minimum reflectivity (for all polarizations and all 
+possible angles of incidence in the scan head) of the 
+mirror’s coating as a factor of the wavelength.
+2.2
+Scan Head Control
+Data Transmission between the 
+Controller and the Scan Head
+The controller and the scan head are interconnected 
+via an analog interface.
+Position Signals, Image Field and X-Y 
+Reference System
+The input signals (position signals) are differential 
+(SIG±IN). The voltage difference between the SIG+IN 
+and SIG – IN signal inputs is interpreted as the set 
+value for the scanner position. The scan head is 
+designed for a maximum set value of ±5 V. The 
+Caution!
+• Make sure the aperture and the coatings of the 
+deflection mirrors meet the requirements of 
+your application (see "Technical Specifications" 
+on page 33). For information on tolerances and 
+deviations, please contact SCANLAB.
+• Check if the wavelength of the input beam and 
+the maximum ratings for beam diameter and 
+laser power match the specifications of the scan 
+head (see page 33).
+• When using scan angles larger than the 
+maximum allowed scan angle indicated on 
+page 33, some vignetting inside the scan head 
+can occur and damage to the interior of the scan 
+head might result. If your application requires 
+larger scan angles, then please contact 
+SCANLAB.
+• The maximum allowed scan angle is derived 
+from the geometric and optical data of the 
+employed components (see the section 
+"Customized Optical Configuration" on page 6). 
+In some cases, particularly with sufficiently small 
+calibration angles, the maximum allowed scan 
+angle can be larger than the maximum adjust-
+able angle. In such cases, the specified 
+maximum allowed scan angle has no practical 
+relevance.
+3
+Reflectivity of the mirror’s coating (dielectrically enhanced silver 
+coating)
+For transferring position signals (i.e. set values for the 
+x and y axis galvanometer scanners) from the 
+controller to the scan head, the scan head’s interface 
+provides a differential analog signal input for each 
+axis. Status signals, generated by the scan head, are 
+provided via two open collector outputs at the scan 
+head’s interface.
+0.25
+1
+5
+10
+wavelength [m]
+92
+94
+96
+98
+100
+reflectivity [%]
+90
+0.5
+0.75
+7.5
+2.5
+
+[p.8]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+2 The SCANcube® 10 – Principle of Operation
+8
+innovators for industry
+internal resistance is at least 10 kΩ. The maximum 
+voltage applied to the SIG±IN inputs must not exceed 
+20 V referenced to GND. For ground-referenced 
+control voltages, the controller’s ground should be 
+connected to SIG – IN.
+Figure 4 shows the definition of the X-Y reference 
+system which is used for the position signals trans-
+mitted to the scan head. The orientation of the axes 
+corresponds to the orientation used by the RTC® 
+boards from SCANLAB: The Y axis points in the oppo-
+site direction of the entry beam (and the Z axis in the 
+opposite direction of the exit beam). Consequently: 
+Scanner 1 deflects the beam in the Y direction, 
+Scanner 2 in the X direction.
+The scan head is calibrated in such a way that for a 
+scan angle of 0.408 rad optically with excursion in 
+the negative axis direction the value " – 4.8 V" has to 
+be transmitted, for the neutral position (null point) 
+the value "0 V, and for a scan angle of 0.408 rad opti-
+cally with excursion in the positive axis direction the 
+value "+4.8 V".
+The maximum adjustable scan angle is (1 / 0.96) 
+larger than the calibration angle. The input signal 
+values for the maximum adjustable image field points 
+(see figure 4) are listed in the following table. Make 
+sure the control signal values do not exceed the listed 
+maximum values. 
+Vignetting can occur at a particular scan angle 
+dependent on the specific scan head and objective. 
+The laser beam is then partially blocked within the 
+scan head or objective, which results in transmission 
+losses. The higher the power loss, the greater is the 
+risk of damage to the scan system. In view of this, the 
+technical specifications page 33 include not only the 
+calibration angle, but also the maximum allowed 
+scan angle. This is not the same as the maximum 
+adjustable scan angle. To avoid scan system damage, 
+make sure the maximum allowed scan angle is never 
+exceeded.
+The maximum allowed scan angle is derived from the 
+geometric and optical data of the employed compo-
+nents (see the section "Customized Optical Configu-
+ration" on page 6). In some cases, particularly with 
+sufficiently small calibration angles, the maximum 
+allowed scan angle can be larger than the maximum 
+adjustable angle. In such cases, the specified 
+maximum allowed scan angle has no practical rele-
+vance.
+Caution!
+• Make sure the permissible range of ±5 V for the 
+input signals is not exceeded. Otherwise severe 
+equipment damage can result.
+Position
+X Value
+(SIG+IN_2
+- SIG–IN_2)
+Y Value
+(SIG+IN_1
+- SIG–IN_1)
+0
+0 V
+0 V
+1
++5 V
+0 V
+2
++5 V
++5 V
+3
+0 V
++5 V
+4
+– 5 V
++5 V
+5
+– 5 V
+0 V
+6
+– 5 V
+– 5 V
+7
+0 V
+– 5 V
+8
++5 V
+– 5 V
+4
+Positions in the image field
+
+
+
+
+
+
+[p.9]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+2 The SCANcube® 10 – Principle of Operation
+9
+innovators for industry
+Figure 4 also depicts the pillow-barrel-shaped distor-
+tion of the square image field and shows the orienta-
+tion of this distortion with reference to the axes. The 
+field distortion is caused by the beam path within the 
+scan head and by the characteristics of the objective. 
+It must be compensated by the controller. 
+If you use a SCANLAB RTC® control board for control-
+ling the scan head, the field distortion is compen-
+sated automatically. Before data values are 
+transferred to the scan head, the values are trans-
+formed by the RTC® boards with the help of a correc-
+tion table. A correction table specific for your system 
+is included in the RTC® software package or can be 
+ordered from SCANLAB (also refer to the RTC® 
+manual). You can use positive and negative coordi-
+nate bit-values ( – 32768 to +32767) of an ideal 
+image field, based on the reference system shown in 
+figure 4, with the origin (zero point) in the center of 
+the image field. The RTC® board calculates the corre-
+sponding input values and transfers them to the scan 
+head.
+The image field size, as well as the working distance A 
+between the input laser beam and the nominal 
+working plane, depend on various factors – among 
+them the focal length of the objective and the aper-
+ture of the scan head. The divergence of the input 
+beam also has an influence on the working 
+distance A.
+Status Signals 
+The scan head provides an open collector PWRFAIL 
+status signal (i.e. "Power Fail") each axis.
+A HIGH level signifies a problem in the power supply 
+or a protective action by the electronics. Upon power-
+up, the PWRFAIL signals are initially HIGH. After less 
+than one second (when the electronic components 
+have reached a stable operating state) the PWRFAIL 
+signals then switch to LOW. If, upon powering up, the 
+PWRFAIL signals do not switch to LOW within a 
+second or if one of the signals switches from LOW to 
+HIGH during operation, then the laser must be 
+turned off immediately. Under some circumstances 
+the system could deflect the laser beam in an unin-
+tended direction, which may cause health hazards 
+and severe equipment damage. The system should be 
+checked immediately to determine the cause. 
+Switching of a PWRFAIL status signal from LOW to 
+HIGH during operation can be caused, for example, 
+by a defective power supply (also see section "Power 
+Supply" on page 22).
+A switch from LOW to HIGH can also occur if a galva-
+nometer scanner’s scan angle exceeds the allowed 
+range (see page 10) or if its temperature exceeds a 
+critical value due to an excessive load or excessive 
+environmental temperature (see page 10).
+The scan head’s power supply ground (GND) serves as 
+the reference point for the open collector signals.
+
+[p.10]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+2 The SCANcube® 10 – Principle of Operation
+10
+innovators for industry
+2.3
+Internal Protective Functions
+Monitoring the Scan Range  
+Assuring Safe Operating Tempera-
+tures 
+The SCANcube® 10 has a built-in monitoring func-
+tion to prevent damage to its galvanometer scanners 
+or electronics when a problem occurs or improper 
+control signals are received.
+If a galvanometer scanner’s scan angle exceeds the 
+allowed range due to an operational disturbance or 
+an improper set value, its output stage will be shut 
+down and the PWRFAIL signal will switch from LOW 
+to HIGH. In such situations, the galvanometer 
+scanner can no longer be controlled. When the cause 
+of the problem is eliminated and the scan angle 
+returns to the allowable range, the output stage will 
+switch back on and the scan head will resume normal 
+operation.
+Danger!
+ If the PWRFAIL signal switches to HIGH, laser 
+power must be switched off immediately. 
+Otherwise, health hazards and severe 
+equipment damage can occur due to uncon-
+trolled laser radiation.
+!
+If the scanners are driven for long periods of time at 
+high positioning speeds or if the application includes 
+a high rate of vector changes, the correspondingly 
+high current consumption of the galvanometer scan-
+ners can lead to excessive temperatures – especially in 
+the case of insufficient cooling, for instance due to a 
+weak thermal link to the machine.
+To prevent damage to the scanners from overheating, 
+the SCANcube® 10 provides a scanner protective 
+function. If the temperature of a galvanometer 
+scanner rises above a value of approximately 55°C, 
+then
+• the PWRFAIL status signal switches from LOW to 
+HIGH,
+• the scanner’s output stage is turned off. In this 
+situation, the scanner’s position is stationary and 
+no longer under programmatic control. 
+If the scanner’s temperature drops again below the 
+power-down threshold, the scanner’s drive stage is 
+automatically restarted and the scan head will 
+resume normal operation.
+Caution!
+ If the PWRFAIL signal switches to HIGH, laser 
+power must be switched off immediately. 
+Otherwise, health hazards and severe 
+equipment damage can occur due to uncon-
+trolled laser radiation.
+
+[p.11]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+11
+innovators for industry
+3
+Safety During Installation and Operation
+To reduce the risk of injury, please observe the 
+following guidelines.
+The safety and warning notices in this manual are 
+indicated by a symbol set against a gray 
+background:
+3.1
+Operational Guidelines and 
+Standards
+When operating the scan head, the following guide-
+lines and standards should be followed:
+• EC Guideline 73/23/EEC
+Low Voltage Directive
+(including amendment 93/68/EEC)
+• EC Guideline 89/336/EEC
+Electromagnetic Compatibility 
+(including amendments 91/263/EEC, 92/31/EEC, 
+93/68/EEC and 2004/108/EU)
+• EC Guideline 98/37/EU
+Machinery Directive
+• EN 60204-1 (November 1998)
+Safety of Machinery – Electrical Equipments of 
+Machines, Part1: General Requirements
+(also see similar general machinery safety stan-
+dards such as VDE 0113-1, IEC60204-1 or ANSI 
+B11.19 Machine Tools – Safeguarding When 
+Referenced by Other B11 Machine Tool Safety 
+Standards-Performance Criteria for the Design, 
+Construction, Care and Operation)
+• EN 60825-1 (October 2003)
+Safety of Laser Products, Part 1: Equipment Clas-
+sification, Requirements and User’s Guide
+(also see similar general laser safety standards 
+such as VDE 0837-1, IEC 60825-1, Safety of Laser 
+Products - Part 1: Equipment Classification, 
+Requirements, and User's Guide, 21 CFR 1040, 
+Laser Product Performance Standard or ANSI 
+Z136.1 Standard for the Safe Use of Lasers)
+• EN 12626
+Safety of Machinery - Laser Processing Machines - 
+Safety Requirements
+(also see similar laser materials processing system 
+safety standards such as ISO 11553, Safety of 
+Machinery - Laser Processing Machines - Safety 
+Requirements, IEC 60825-4, Safety of Laser Prod-
+ucts - Part 4: Safety of Laser Products or ANSI 
+B11.21-1997, Machine Tools Using Lasers for 
+Processing Materials - Safety Requirements for 
+Design, Construction, Care, and Use)
+Additional application-dependent guidelines and 
+standards may apply.
+Complying with the Relevant Standards for 
+the CE Label
+The SCANcube® 10 is delivered as an OEM compo-
+nent conceived of for integration into a laser scan 
+system.
+The system manufacturer bears the responsibility for 
+complying with the standards and guidelines 
+required for equipment usage and for the CE label.
+Scan Head Conformity to EC Guidelines for 
+Electromagnetic Compatibility (EMC)
+The scan head is in conformance with EC guidelines 
+89/336/EEC (electromagnetic compatibility).
+Electromagnetic fields that exceed these standards 
+can affect the operation and operating safety of the 
+scan head and therefore require special shielding.
+For more information, see the section "Electromag-
+netic Compatibility" on page 34.
+Instructions that may affect a per-
+son’s health are marked with a 
+warning triangle next to the word 
+"Danger".
+Instructions that recommend appro-
+priate use of this device or warn of 
+damage that may occur to it are iden-
+tified by a circle with an "X" in it, next 
+to the word "Caution".
+!
+
+[p.12]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+12
+innovators for industry
+3.2
+Laser Safety
+This scan head is designed to be operated in conjunc-
+tion with a laser. Therefore, all applicable rules and 
+regulations for safe operation of lasers must be 
+known and applied when installing the scan head 
+and operating the system in which it is used. Since 
+SCANLAB has no influence over the employed laser or 
+the overall system, the customer is solely responsible 
+for the laser safety of the entire system.
+Shutter
+The scan head has no shutter and there is no device 
+to decrease the laser output power. It is the responsi-
+bility of the customer to include such a device in the 
+system in a way as to comply with all regulations. The 
+observance of laser safety must be ensured for the 
+entire system.
+Maintenance
+During maintenance of the laser equipment, the class 
+of the laser can increase. Therefore, the customer 
+must take suitable protective measures.
+Warning Symbols
+The area where the emerging beam is harmful must 
+be marked with a warning symbol indicating the class 
+of the employed laser – in accordance with IEC 
+60825-1 laser safety requirements. In addition, a 
+warning symbol must be placed at the emitting aper-
+ture of the laser system. The table on page 13 shows 
+the appropriate warning symbols for the various laser 
+classes specified by IEC 60825-1 (or EN 60825-1 / VDE 
+0837 T1).
+Danger!
+• Safety regulations may differ from country to 
+country. The customer bears sole responsibility 
+for compliance with all applicable safety regula-
+tions of their respective regulatory jurisdiction.
+!
+Danger!
+• During assembly or operation of the scan head, 
+never stare directly into the laser beam or its 
+deflected radiation. Keep all parts of the body 
+away from the laser beam and its path. Routine 
+maintenance should be performed as described 
+in "Routine Maintenance of the Optical Surfaces" 
+on page 29 and all safety instructions should be 
+observed!
+• Adjust the output beam path of the scan head 
+by means of a Class 2 laser. If this is not possible, 
+the laser should be operated at the lowest 
+power. Avoid dangerous deflected radiation!
+• The risk of hazardous deflected radiation can 
+increase when optical instruments are used in 
+combination with the scan head.
+• Before checking the scan head, make absolutely 
+certain that the laser and scan head are turned 
+off! 
+• Cover the path of the laser beam via an appro-
+priate protecting case to block laser radiation!
+• Do not obstruct the movement of the scan 
+head’s mirrors in any way. When the scan head 
+is turned on, the mirrors must not be touched at 
+all!
+• Closely follow all IEC 60825-1 laser safety 
+requirements and other applicable accident 
+prevention regulations of your respective regu-
+latory jurisdiction.
+• Wear appropriate eye protection at all times.
+• Always turn on the PC controller and the scan 
+head’s power supply first before turning on the 
+laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+!
+
+[p.13]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+13
+innovators for industry
+Laser Classes Specified by IEC 60825-1 (or EN 60825-1 / VDE 0837 T1) 
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER CLASS 1
+LASER CLASS 1
+Class 1:
+This laser radiation is not harmful; is 
+eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 1 M
+INVISIBLE LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 1 M
+Class 1 M:
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+this laser radiation is not harmful; is 
+eye-safe.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM
+LASER CLASS 2
+Class 2:
+This laser radiation is in the visible 
+spectrum of 400 to 700 nm. 
+Exposure to this radiation for less 
+than 0.25 s is not harmful to the 
+eyes. It is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+DO NOT STARE DIRECTLY INTO 
+THE BEAM WITH OR WITHOUT 
+OPTICAL INSTRUMENTS
+LASER CLASS 2 M
+Class 2 M:
+This laser radiation is in the visible 
+spectrum of 400 to 700 nm. 
+Exposure to this radiation is harmful 
+to the eyes if optical instruments are 
+used to reduce the cross section of 
+the laser beam. If this is not the case, 
+exposure to this radiation for less 
+than 0.25 s is not harmful to the eyes 
+and is eye-safe due to the eye’s 
+natural aversion response and blink 
+reflex.
+LASER RADIATION
+AVOID EXPOSURE OF THE EYES
+LASER CLASS 3 R
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 R
+Class 3 R: 
+This laser radiation is harmful to the 
+eyes. Eye exposure exceeds the 
+maximum allowable value.
+
+[p.14]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+3 Safety During Installation and Operation
+14
+innovators for industry
+ 
+3.3
+Electrical Safety
+Power is furnished to the scan head by a user-
+supplied low voltage power supply. The power supply 
+must meet the following mains insulation require-
+ments:
+• If the connectors are covered and cannot be 
+reached without tools from the outside, single 
+insulation between the mains and the low voltage 
+circuit is sufficient. The mains insulation must be 
+able to withstand a test voltage of 2 kV AC 
+applied between the mains and the low voltage 
+circuit.
+• If the connectors can be reached from the 
+outside, double or reinforced insulation between 
+the mains and the low voltage circuit is necessary. 
+The mains insulation must be able to withstand a 
+test voltage of 4 kV AC applied between the 
+mains and the low voltage circuit.
+Additional application-dependent guidelines and 
+standards may apply.
+Visible Laser Radiation
+Invisible Laser Radiation
+Potential Hazards
+LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+INVISIBLE LASER RADIATION
+AVOID EXPOSURE TO THE
+LASER BEAM
+LASER CLASS 3 B
+Class 3 B: 
+This laser radiation is harmful to the
+eyes and in some cases to the skin.
+LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+INVISIBLE LASER RADIATION
+AVOID ANY EXPOSURE OF THE 
+EYES OR THE SKIN TO DIRECT OR 
+SCATTERED RADIATION
+LASER CLASS 4
+Class 4: 
+This laser radiation is very harmful to 
+the eyes and skin. Stray radiation can 
+also be dangerous. This radiation can 
+cause fire or explosion and the 
+generation of toxic gases or vapors.
+
+[p.15]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+15
+innovators for industry
+4
+Installation
+Follow each step for preparation, mounting and elec-
+trical connection in the correct order as described in 
+this chapter.
+4.1
+Checking the Specifications
+Make sure the specifications of the scan head meet 
+the requirements of your application (see "Technical 
+Specifications" on page 33). If your application 
+requires other specifications, then please contact 
+SCANLAB.
+4.2
+Mounting the Objective
+If the scan head is to be operated with an objective 
+which is not factory-installed (or if an already-
+mounted objective is to be exchanged), then proceed 
+as described in the following sections.
+Objectives are mounted either directly or via an objec-
+tive holder onto the housing’s beam exit side. Many 
+objectives require a mounting set, which (in addition 
+to an objective holder) can include components for 
+securing the objective and objective holder, as well as 
+seal rings and space rings to ensure a safe distance 
+between the objective and the deflection mirrors. 
+Different objectives might require different mounting 
+sets. Appropriate objective mounting sets are 
+attached on the scan head, included with the objec-
+tive, or obtainable from SCANLAB.
+Objective Holder
+If the objective mounting set includes an objective 
+holder, install it as follows.
+Danger!
+• Make sure all components of the system (laser, 
+controller, power supply, computer) are 
+switched off before installation.
+• During installation of the scan head, never stare 
+directly into the laser beam or at any of its 
+deflected radiation.
+• Never place parts of the body into the direct 
+path of the laser or its deflected radiation.
+• After the scan head has been mounted, there is 
+a cone-shaped hazardous laser output area. Do 
+not stare into the laser or its deflected radiation. 
+Keep all parts of the body away from the laser 
+beam.
+• Always turn on the PC controller and the scan 
+head’s power supply first before turning on the 
+laser. Otherwise the laser beam might be 
+reflected in an arbitrary direction.
+Caution!
+• Carefully take the scan head out of the pack-
+aging.
+• Protect the scan head from dust and other 
+contaminants.
+• Never touch the optical surfaces of the 
+deflection mirrors. Always use gloves and/or 
+special lens cleaning tissues when handling the 
+optical components. 
+• Follow the procedures in chapter 7.1 for period-
+ically checking and cleaning the optics.
+!
+ Carefully remove (e.g. with a small screw driver) 
+any protective covers from the scan head’s 
+objective opening.
+ Lightly lubricate the objective holder’s threads 
+(e.g. with vacuum grease) to prevent cold 
+welding of the objective holder to the housing.
+ Screw the objective holder into the threads of the 
+housing’s beam exit side.
+
+[p.16]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+16
+innovators for industry
+Objective
+Before mounting, inspect the objective for scratches, 
+lens defects and dirt. If necessary, clean as described 
+in "Routine Maintenance of the Optical Surfaces" on 
+page 29.
+Mount the objective as follows:
+ Carefully remove (e.g. with a small screw driver) 
+any protective covers from the objective holder or 
+the scan head’s objective opening.
+ Remove the protective cover from the objective’s 
+beam entrance side.
+ Some setups require installation of one or more 
+seal rings between the scan head or objective 
+holder and the objective. Seal rings should be 
+lightly lubricated (with vacuum grease). 
+Otherwise, threading of the objective might be 
+very difficult. Additionally, some setups require 
+installation of one or more space rings between 
+the scan head or objective holder and the 
+objective to ensure a safe distance between the 
+objective and the deflection mirrors. Check for 
+corresponding accessories in the objective 
+mounting set.
+ Some objectives are secured to their holders via 
+screws (and washers). However, most objectives 
+are directly screwed into the scan head or into the 
+objective holder. Before screwing in the objective, 
+lightly lubricate its threads (e.g. with vacuum 
+grease) to prevent cold welding between the 
+objective and its holder.
+Caution!
+• Before installing the objective, verify its compat-
+ibility with the mounted objective holder or 
+beam exit threads. Otherwise, damage to the 
+objective and scan head mirrors may result. In 
+the event of questions, contact SCANLAB.
+Caution!
+• When installing the objective, ensure that all 
+components of the corresponding objective 
+mounting set are used. Failure to install included 
+seal or space rings can lead to a mirror crash 
+(resulting from inadequate distance between 
+the deflection mirrors and the objective). 
+Furthermore, the beam exit might not be opti-
+mally sealed.
+
+[p.17]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+17
+innovators for industry
+4.3
+Layout and Dimensions
+Figure 5 shows the layout of the scan head with the 
+electrical connectors.
+Figure 6 on page 18 shows the scan head with the 
+parts which are important for mounting. The scan 
+head installation is described in chapter  "Mounting 
+the Scan Head", on page 21.
+Figure 7 on page 19 and figure 8 on page 20 show 
+the dimensions necessary for mounting the scan 
+head and adjusting the scan head with respect to the 
+working area. Figure 7 depicts the scan head’s 
+mounting surface with its mounting bore holes and 
+a bottom view of the scan head (beam exit side) 
+which shows the displacement of the entry beam axis 
+from the beam exit axis (The deflecting mirrors are in 
+their neutral positions).
+Figure 8 shows the following distances:
+ the working distance A
+ the distance B between the axis of the input beam 
+and the lower edge of the housing
+ the distance C between the axis of the input 
+beam and the lowest edge of the objective or its 
+enclosure.
+ the diameter D which is the larger of the 
+diameters of the objective and its enclosure.
+ the distance E between the front edge of the 
+beam entrance side and the axis of the beam 
+exiting the scan head.
+  
+ 
+5
+Scan head overview with connector position
+
+
+
+
+Legend
+1
+Entering beam
+2
+Beam entrance
+3
+Emerging beam
+4
+Electrical connection
+
+[p.18]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+18
+innovators for industry
+6
+ Scan head with mounting assembly 
+
+
+
+
+
+Legend
+1
+Mounting screws *
+2
+Laser system flange *
+3
+Alignment pins *
+4
+Beam entrance side with mounting bore holes
+5
+Electrical connection
+(* not included)
+
+[p.19]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+19
+innovators for industry
+7
+ 
+
+!
+	
+	
+
+
+	
+!	
+
+"!
+#
+
+$
+
+
+%
+	
+#
+&
+$
+
+%
+#
+"
+$
+
+%
+	
+'!	
+
+(
+ (
+)
+	
+	
+Side view, frontal view and bottom view (with beam displacement 12.54 mm) of the scan head (all dimensions in mm)
+
+[p.20]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+20
+innovators for industry
+8
+Working Distance A, distances B-E (see chapter 4.4) and dimensions (SCANcube® 10)
+ 
+
+
+
+
+'*
++
+
+,
+(
+-
+Legend
+1
+Beam entrance
+2
+Scan head
+3
+Objective (not shown true-to-
+scale)
+4
+Emerging beam
+5
+Image field
+Note: drawing not true-to-scale
+Dimensions
+B
+=
+22.41 mm
+E
+=
+42.52 mm
+
+[p.21]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+21
+innovators for industry
+4.4
+Mounting the Scan Head
+The illustrations for this section are found in the 
+previous section, starting on page 17.
+Mount the scan head in the following manner:
+ 
+For mounting the scan head, the beam entrance side 
+provides bore holes designed for attachment to a 
+standardized flange on the laser system – see figure 6 
+on page 18. The laser system flange, alignment pins 
+and mounting screws are not included in the 
+package.
+The dimensions of the beam entrance side and its 
+bore holes are shown in figure 7 on page 19. The 
+beam entry position is defined by two 4H7 alignment 
+holes on the mounting bracket. The laser beam axis 
+must be identical with the laser input axis of the scan 
+head. To ensure this alignment, the laser system 
+flange must have appropriate holes to accommodate 
+two 4h6 alignment pins and four M5-threaded 
+mounting screws.
+On designing the attachment flange, also consider 
+the position of the scan head’s electrical connections 
+(see figure 5 on page 17).
+ Carefully remove the protective covering of the 
+laser input hole (e.g. with a small screwdriver).
+ Place two 4h6 alignment pins in the corre-
+sponding 4H7 alignment holes on the flange or 
+beam entrance side.
+ Place the scan head on the flange so that the 
+alignment pins line up with the alignment holes 
+on the flange and the beam entrance side. This 
+way the scan head is aligned with respect to the 
+laser.
+ Fasten the scan head to the flange by installing 
+four mounting screws with M5 threads into the 
+corresponding threaded mounting holes.
+ On mounting the scan head consider a correct 
+alignment in respect to the entering laser beam 
+(also see chapter  "Adjustment and Alignment", 
+on page 25) and in respect to the working field 
+(also see figure 8 on page 20).
+Caution!
+• To align and fasten the scan head, only use the 
+alignment and mounting holes depicted in 
+figure 6 on page 18. Other holes cannot be used 
+for aligning and fastening the scan head or for 
+any other purposes.
+
+[p.22]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+22
+innovators for industry
+4.5
+Electrical Connections
+Figure 5 on page 17 shows the location of the elec-
+trical connectors on the scan head.
+ 
+Power Supply
+The scan head provides a 25-pin ANALOG POWER IN 
+female D-SUB connector for data transfer and power 
+supply. Figure 9 shows the pin assignments of the 
+connector.
+ 
+9
+Pin out of electrical connectors
+(13)
+– 15 V
+(12)
+– 15 V
+(11) GND
+(10) +15 V
+(9)
++15 V
+(8)
+DO NOT CONNECT
+(7)
+PWRFAIL 1
+(6)
+PWRFAIL 2
+(5)
+DO NOT CONNECT
+(4)
+SIG – IN 1
+(3)
+SIG – IN 2
+(2)
+DO NOT CONNECT
+(1)
+DO NOT CONNECT
+– 15 V (25)
+GND (24)
+GND (23)
++15 V (22)
+DO NOT CONNECT (21)
+DO NOT CONNECT (20)
+DO NOT CONNECT (19)
+DO NOT CONNECT (18)
+SIG+IN 1 (17)
+SIG+IN 2 (16)
+DO NOT CONNECT (15)
+DO NOT CONNECT (14)
+ANALOG POWER_IN
+Requirements
+For power, the scan head requires a balanced source 
+of ±(15+1.5) V with a maximum current of 3 A per 
+pole. The residual ripple of the power source should 
+not exceed 10 mVpp (power sources with larger 
+residual ripple may be applicable – after reconsulting 
+SCANLAB – for applications which only require 
+reduced quality).
+Only use a power supply with soft start.
+The scan head is usually powered via two ±15 V 
+power supplies (see figure 10). In general, power 
+supplies are not included in the package, but suitable 
+power supplies are available from SCANLAB. 
+SCANLAB recommends to connect the 0 V connec-
+tion of the power supply’s output side (or the scan 
+head’s GND connection) to the mains's grounding 
+wire (PE).
+10
+ 
+!
+"
+#
+$%& '&
+(
+") *%&
+'& *%&
+$%&
++%&
+,
+-../
++%&
+,
+-../
+Connect the power supply’s 0 V connection (or the scan head’s 
+GND connection) to the mains’s grounding wire (PE).
+
+[p.23]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+4 Installation
+23
+innovators for industry
+Connections 
+ Make sure each power connection has the correct 
+polarity.
+ Connect each pole of the power source via an 
+appropriate cable to all pins of the scan head’s 
+connector. The cable connecting the power 
+supply and the scan head must be shielded and 
+should have a cross-sectional area of at least 
+1.5 mm2 per pole and a length not exceeding 6 
+meters. RFI must be minimized by connecting the 
+cable’s shielding at one end (utilizing a large 
+surface area) to the power supply’s metal 
+shielding and at the scanhead-end to the 
+housing’s D-SUB connector.
+ 
+ 
+4.6
+Operating and Storage Condi-
+tions
+For storage, operation and servicing, make sure the 
+following environmental conditions are met:
+• The storage temperature for the scan head should 
+be between – 35 °C and +60 °C.
+• The operating temperature is 25 °C ± 10 °C.
+• Protect the scan head from humidity, dust and 
+corrosive vapors to avoid damage to the mirrors, 
+optics and electronics.
+• Avoid strong electromagnetic fields and static 
+electricity. These can damage the electronics of 
+the interface and amplifier boards.
+The power signals should be assigned to the corre-
+sponding pins of the scan head’s female 
+ANALOG POWER IN connector 
+(+15 V / GND / – 15 V, see figure 9).
+– connect the power source GND to all three GND 
+pins of the ANALOG POWER IN connector
+– connect the – 15 V power source to all three 
+– 15 V pins of the ANALOG POWER IN 
+connector
+– connect the +15 V power source to all three 
++15 V pins of the ANALOG POWER IN 
+connector
+Caution!
+• Before proceeding with wiring the scan head, 
+make sure none of the wires carry any voltages. 
+The control electronics and the computer must 
+be turned off.
+• Turn off the power supply before disconnecting 
+the power or the data cable.
+• Follow all power supply electrical specifications 
+exactly.
+Input and Output Signals
+The analog input signal lines (SIG±IN) and the status 
+signal lines should be connected to the appropriate 
+pins of the female ANALOG POWER IN connector – 
+see figure 9 on page 22.
+For a description of the input and output signals, see 
+chapter 2.2, "Scan Head Control", on page 7.
+Caution!
+• The scan head is designed for a maximum 
+control signal value (i.e. difference between the 
+SIG+IN and SIG-IN signal inputs) of ±5 V. Make 
+sure the permissible range for input signals is 
+not exceeded. Otherwise destruction of the scan 
+head can result.
+
+[p.24]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+5 Start-up and Operation
+24
+innovators for industry
+5
+Start-up and Operation
+5.1
+Checking the Installation
+Before operating the scan head, carefully check the 
+following:
+ Were the mechanical installation and electrical 
+wiring fully and correctly carried out as described 
+in "Installation" on page 15?
+ Are all optical components clean and free of 
+dust? If necessary, clean the optical components 
+as described in "Routine Maintenance of the 
+Optical Surfaces" on page 29.
+5.2
+Checking the Laser Param-
+eters
+The scan head’s deflection mirrors are designed for a 
+laser beam with defined parameters.
+ Compare the technical specifications on page 33 
+with the requirements of your application. For 
+information on tolerances and deviations, please 
+contact SCANLAB.
+ Verify that the input beam wavelength, the input 
+beam diameter and the maximum laser power are 
+compatible with the specifications of the scan 
+head.  
+The values specified for the maximum laser power 
+rating and the laser damage threshold only apply to 
+the scan mirrors. They do not apply to the scan objec-
+tive or other components. Typically, however, the 
+damage thresholds of scan objectives are similar to 
+that of scan mirrors.
+Also be aware that additional optical components in 
+the optical beam path can focus a part of the laser 
+beam onto the mirror and thereby dramatically lower 
+the effective damage threshold. For instance, the 
+lenses or protective window of a scan objective – 
+though coated with an antireflex coating – always 
+reflect a certain fraction of the laser light. If the lenses 
+are shaped such that the reflected laser light is 
+focused onto the scan mirrors, the power density 
+within this focus may be more than 1000 times larger 
+than in the original beam and the effective damage 
+threshold will be correspondingly reduced. In partic-
+Caution!
+• The mirror coatings are designed for a laser 
+wavelength of 450 nm - 2500 nm (see figure 3).
+• The maximum allowed average laser power is 
+12 W. The laser power density applied to the 
+mirrors must not exceed the value of 30 W/cm2 
+continuous wave. The damage threshold value 
+for pulsed operation is 0.25 J/cm2 (for a pulse 
+length of 10 ns and 200 pulses)
+• The beam diameter at the entrance of the scan 
+head must not exceed 10 mm.
+
+[p.25]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+5 Start-up and Operation
+25
+innovators for industry
+ular, the mirrors can be damaged by lasers with high 
+pulse energies, short pulse lengths and good beam 
+quality. Contamination on or damage to the optical 
+surfaces of the objective or protective window can 
+further increase residual reflectivity, which further 
+increases the danger of mirror damage from back 
+reflections.
+Furthermore, the specified values only apply to clean 
+and new mirrors. Mirror contamination (dust, finger-
+prints, cleaning residue, deposits from laser 
+processing etc.) as well as mechanical damage 
+(scratches, fractures, burn-in, damage by an 
+improper cleaning procedure) can considerably 
+reduce the damage threshold.
+The specified damage threshold for pulsed operation 
+is the maximum energy density for which no mirror-
+surface damage is expected for the specified wave-
+length and for two hundred 10 ns pulses onto the 
+same mirror spot (see note below).
+In general, the damage threshold considerably 
+decreases with an increasing number of laser pulses. 
+In continuous operation, SCANLAB therefore recom-
+mends only applying suitably reduced energy densi-
+ties (depending on the repetition rate and the laser 
+parameters, typically five times smaller than the spec-
+ified pulse damage threshold, if necessary even 
+smaller).
+The damage threshold for pulsed operation also 
+decreases with decreasing pulse length. In particular, 
+this effect must be considered for pico- or femto-
+second lasers.
+Note: The specified damage threshold energy density corre-
+sponds to 0% damage probability (see ISO 11254). Here, 
+damage means a permanent, laser induced surface modifi-
+cation. Test parameters: angle of incidence: 45°; pulse 
+length (FWHM): 10 ns; beam profile: TEM00; 200 pulses per 
+test site; inspection method: Nomarski dark field micro-
+scope (150x).
+5.3
+Adjustment and Alignment 
+To ensure optimum performance of the scanning 
+system, it is crucial that the laser beam and the scan 
+head are precisely aligned with respect to each other. 
+Incorrect alignment might lead to the following 
+effects:
+• vignetting of the laser beam
+• a large, irregular spot
+• arbitrary translation of the image field
+In most cases, vignetting will be the predominant 
+effect. Vignetting occurs if the laser beam is not able 
+to fully pass through or be reflected by the optical 
+components. Part of the beam’s diameter will be cut 
+off, resulting in power loss and possible system 
+damage due to excessive absorption of laser power.
+To avoid significant vignetting, the system must be 
+aligned as precisely as possible, particularly in terms 
+of the beam position relative to the scan head’s 
+optical axis. If the laser beam profile is Gaussian, the 
+maximum tolerances appropriate for most applica-
+tions are:
+If you use a laser with "flat top" beam profile, it can 
+be necessary to align the system with even higher 
+precision. Avoid vignetting especially for a high 
+power laser. Align carefully and – if necessary – 
+reduce the beam diameter to an appropriate value.
+ 
+• tilt of the laser beam:
+< 5 mrad
+• displacement:
+< 0.3 mm
+Danger!
+• Do not stare directly into the laser beam or at 
+any of its deflected radiation. Keep all parts of 
+the body away from direct contact with the laser 
+beam or any of its deflected radiation.
+• Adjust the output beam path of the scan head 
+by means of a laser with a laser class not higher 
+than 2. If this is not possible, the laser should be 
+operated at the lowest power. Avoid dangerous 
+deflected radiation!
+!
+
+[p.26]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+5 Start-up and Operation
+26
+innovators for industry
+In order to achieve optimal processing quality, it may 
+be necessary to fine-tune the working distance A. The 
+working distance A is defined as the distance 
+between the axis of the laser beam entering the scan 
+head and the nominal working plane – see figure 8.
+The working distance A can be directly adjusted in 
+small steps. Alternatively, the working distance A can 
+also be adjusted indirectly via the beam divergence – 
+this can be achieved with the help of a beam 
+expander or a variable focusing system (for example, 
+SCANLAB’s varioSCAN 20) placed in front of the scan 
+head’s entrance aperture.
+5.4
+Checking the Parameters of 
+Application Software
+Before you start a laser application, you must care-
+fully check your application software with regard to 
+the maximum allowed scan angle and working area.
+If scan angles larger than the maximum allowed scan 
+angle indicated on page 33 are used, some 
+vignetting inside the scan head can occur and 
+damage to the interior of the scan head might result. 
+If your application requires larger scan angles and a 
+larger image field, then contact SCANLAB for guid-
+ance. 
+Also make sure, the limits for the input signals are 
+adhered to (see the section "Position Signals, Image 
+Field and X-Y Reference System" on page 7).
+5.5
+Safe Start-up and Shutdown 
+Sequences
+To assure safety during start-up, proceed exactly as 
+follows:
+(1) Turn on the controller containing the RTC® 
+control board and start up the control soft-
+ware.
+(2) Turn on the power supply for the scan head.
+(3) Turn on the laser.
+When shutting down the system, turn off the compo-
+nents exactly in reverse order.
+Caution!
+• Remove the protective covers from the scan 
+head’s beam entrance and beam exit or objec-
+tive prior to first-time operation.
+Caution!
+• Before first-time operation, check the polari-
+ties of the power supply connections for the 
+scan head.
+• Always turn on the scan head control 
+(controller with RTC® control board and 
+control software) and the power supply for the 
+scan head prior to turning on the laser. Other-
+wise there is the risk that the laser beam might 
+be deflected in an arbitrary direction.
+• Power for the scan head must be applied only 
+when scan head control is active.
+
+[p.27]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+6 Optimizing the Application
+27
+innovators for industry
+6
+Optimizing the Application
+6.1
+Dynamic Positioning with 
+Galvanometer Scanners
+SCANLAB’s galvanometer scanners and amplifier 
+boards allow precise dynamic control of the two 
+deflection mirrors. This enables exact positioning of 
+the laser beam with high speed.
+Most laser applications require the laser focus to 
+trace contours within the working plane at a constant 
+processing speed. To achieve this, the control subdi-
+vides the contours into microsteps. Microstep length 
+is determined by the output period and desired 
+speed. Galvo dynamics are usually optimized for such 
+microvector control. For ensuring optimum opera-
+tion, the following properties of galvanometer scan-
+ners must be considered:
+Positioning Speed
+As galvo dynamics are usually optimized for 
+microvector control, it is advisable to also use vectors 
+when positioning with the laser switched off. 
+Compared to hard jumps, a defined positioning 
+speed will prevent excessive oscillation and usually 
+produce shorter positioning times. Positioning 
+speeds can generally be significantly higher than 
+processing speeds.
+A typical and a maximum positioning speed (in 
+[rad/s]) each is listed in "Technical Specifications" on 
+page 33. There, the typical positioning speed is also 
+specified (for a selected F-Theta objective) as posi-
+tioning speed within the image field (in [m/s]).
+With the SCANLAB RTC® control board, the posi-
+tioning speed (jump speed) can be set via the 
+set_jump_speed software command. The RTC® 
+jump speed (in [bit/s]) is derived by multiplying the 
+positioning speed (in [mm/s]) by the correction file’s 
+calibration factor (in [bit/mm]). With vector tuning, 
+the jumps themselves should be executed via the 
+commands jump_abs or jump_rel.
+Processing Speed
+The processing speed must be adjusted according to 
+the particular application. As an example, a typical 
+marking speed for marking small characters (marking 
+speed in the image field in [m/s] for a selected F-Theta 
+objective) is specified in "Technical Specifications" on 
+page 33. For other applications or optical configura-
+tions, the appropriate processing speed can differ 
+considerably from the specified value.
+An appropriate initial value for optimizing the posi-
+tioning speed is the marking speed listed in "Technical 
+Specifications" on page 33. The process speed (RTC® 
+mark speed) that can be set via an RTC® board is 
+specified by multiplying by the correction file’s cali-
+bration factor (in [bit/mm]).
+Tracking Error (Time Lag)
+Galvanometer scanner movements do not occur 
+instantaneously with respect to vector control, but 
+rather after a certain time lag, the tracking error. The 
+tracking error characterizes the reaction properties of 
+the galvanometer scanners and is specified as 
+another key dynamic parameter (see "Technical Spec-
+ifications" on page 33). The vector control output 
+period must be significantly shorter than the tracking 
+error. Otherwise, instead of moving the galvos with 
+constant speed, the servos would attempt to follow 
+the individual microsteps. This, in turn, would 
+increase power consumption and thermally stress the 
+galvos. SCANLAB therefore recommends as short an 
+output period as possible, no more than 20% of the 
+tracking error. SCANLAB’s RTC® boards consistently 
+achieve very good results with an output period of 
+10 µs.
+Oscillation behavior and tracking error must be taken 
+into account by the application software, which 
+synchronizes the scan head and the laser control. If 
+the scan head is controlled via a SCANLAB RTC® 
+control board, then synchronization is easily realized 
+by appropriately setting the scanner and laser delay 
+parameters. SCANLAB recommends the following as 
+initial values for delays:
+• Laser-On Delay: 60% of the tracking error
+• Laser-Off Delay: 120% of the tracking error
+• Jump Delay: 200% of the tracking error
+• Mark Delay: 100% of the tracking error
+• Polygon Delay: 50% of the tracking error
+The RTC® user manual describes how delays can be 
+optimized for an application’s quality requirements.
+
+[p.28]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+6 Optimizing the Application
+28
+innovators for industry
+6.2
+Optimum Environmental 
+Conditions and Automatic 
+Self-Calibration
+Long-term repeatability is very important in many 
+scan head applications, e.g. for rapid prototyping in 
+which the processing operation can span several 
+hours. For such laser applications, the long-term drift 
+and temperature drift of the scan head’s galvano-
+meter scanners, which manifest as a shift (offset drift) 
+and increase or decrease in the size (gain drift) of the 
+working image field, can exceed the allowable 
+tolerances.
+In such applications, it’s helpful to start up the appli-
+cation only after the scanners have reached their 
+operating temperature. In addition, the magnitudes 
+of environmental fluctuations (e.g. operating 
+temperature changes to which the scan head is 
+exposed) should be kept as small as possible and the 
+scan head preferably operated with a constant load.
+For higher long-term repeatability requirements, 
+SCANLAB scan heads can be (optionally for apertures 
+≥ 10 mm) equipped with an additional internal 
+sensor system for automatic self-calibration. This 
+reference system provides the RTC® software with 
+the ability to automatically calibrate the galvano-
+meter scanner position detectors at any desired time.
+During calibration, the scan head automatically seeks 
+several reference positions within the scannable area 
+that are defined by the internal sensor system. The 
+seek values are determined and compared with fixed 
+reference values. From the resulting deviations, offset 
+and gain compensation factors are calculated. 
+These compensation factors are immediately made 
+available for use in all future positioning tasks.
+The calibration routine can be initiated via a simple 
+RTC® command (please refer to the RTC® manual for 
+details). The laser should be switched off during the 
+calibration procedure and no other commands are 
+transferred to the scan head until the calibration is 
+completed. The entire calibration procedure takes 
+place in about 5 seconds.
+Thus, the effects of gain and offset drift can be reli-
+ably compensated and positioning accuracy is main-
+tainable over long periods of time. Remaining long-
+term drift effects are the same order of magnitude as 
+short-term repeatability.
+6.3
+Process Monitoring
+The scan head provides internal protective mecha-
+nisms for monitoring
+• the scan range
+(also see chapter 2.3, "Internal Protective Functions", 
+on page 10).
+In addition, the user has various possibilities for 
+monitoring the scan process as described in the 
+following.
+Software Monitoring
+For monitoring via software the scan head provides a 
+status signal with informations about the current 
+scan head operational state.
+Optical Process Monitoring
+For camera-based observation of the scan head’s 
+working field SCANLAB offers a camera adapter. The 
+camera adapter can be mounted between the scan 
+head’s beam entrance and the laser flange. Then the 
+camera adapter’s dichroitic beam splitter decouples 
+light reflected from the illuminated workpiece and 
+arriving the scan head’s beam entrance via the scan 
+objective and the scan mirrors. The light is decoupled 
+from the beam path and then directed to the camera. 
+Please contact SCANLAB for further information (see 
+page 31).
+
+[p.29]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+7 Routine Maintenance and Customer Service
+29
+innovators for industry
+7
+Routine Maintenance and Customer Service
+7.1
+Routine Maintenance of the 
+Optical Surfaces
+Dirty objectives and mirrors increase the absorption 
+of laser power by their respective optical surfaces. 
+Dirt, dust and other contaminants can distort the 
+laser beam, burn into the surface and damage the 
+optical elements. The warranty does not cover any 
+damage due to improper use, cleaning or handling.
+Routine Maintenance of the Mirrors
+The deflection mirrors are especially sensitive compo-
+nents and should not be touched or removed from 
+the scan head. Nevertheless, you must regularly 
+inspect the mirrors for dirt, dust and other contami-
+nants. The mirrors must also be inspected after a long 
+storage time.
+If inspection reveals dust particles, then remove them 
+by blowing air on the mirror’s surface with the help 
+of a rubber squeeze bulb or a source of compressed 
+clean air.
+If the dust cannot be removed in this manner, or if 
+inspection reveals more serious contamination, then 
+contact SCANLAB for guidance. In extreme cases, the 
+complete scan head must be returned to SCANLAB 
+for inspection and cleaning of the mirrors. However, 
+in some situations SCANLAB might be able to recom-
+mend a user-performed special cleaning procedure. 
+Routine Maintenance of the Objec-
+tive’s Optical Surface
+The outermost optical surface of the scan head’s 
+objective is cleanable by the user. Regularly check the 
+scan head’s objective.
+If dirt, dust or other contaminants are found, clean 
+the objective’s optical surface as follows: Using a 
+rubber squeeze bulb or compressed clean air, blow air 
+on the objective’s surface to remove dust and dirt 
+particles. If the objective is still not clean, then use 
+solvent and lens cleaning tissues as described below:
+(1) Create a lens-tissue brush by folding a clean lens 
+tissue so that the fold is about half as wide as the 
+objective’s lens surface.
+ Danger!
+• Never stare at the laser beam or its deflected 
+radiation when performing routine mainte-
+nance of the scan head. Keep all parts of the 
+body away from direct laser beams or 
+deflected radiation. When the laser beam is 
+not required, turn it off or reliably block it via 
+a shutter to prevent its entry into the scan 
+head.
+!
+Caution!
+• Improper cleaning procedures – for instance 
+cleaning cleaning metal-coated mirrors with 
+acetone – can cause irreparable damages to 
+the mirror coatings. Therefore, if the above-
+mentioned cleaning procedure (with air) is 
+insufficient, always contact SCANLAB for guid-
+ance before you start to perform any further 
+cleaning procedures yourself.
+
+[p.30]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+7 Routine Maintenance and Customer Service
+30
+innovators for industry
+(2) Dampen the lens-tissue brush with solvent. Don’t 
+use too much solvent, because otherwise drying 
+marks might appear.
+(3) Carefully grip one end of the dampened lens-
+tissue brush without touching any part of the 
+tissue that will touch the lens surface.
+(4) Place the dampened lens-tissue brush in the 
+center of the objective’s lens surface. Then use a 
+circular motion to wipe slowly but steadily from 
+the center of the optic around to the outer edges.
+Repeat the above procedure until the objective’s 
+optical surface is completely clean. For each cleaning 
+swipe, create a new lens-tissue brush.
+7.2
+Customer Service
+Servicing and Repairs
+Except for routine maintenance of the optical 
+surfaces, the scan head does not contain user-service-
+able internal parts. All servicing and repairs should be 
+performed only at SCANLAB. Only SCANLAB has the 
+proper test facilities and procedures to service, repair 
+and calibrate the system optimally.
+Product Warranty
+SCANLAB guarantees this product to be free of 
+defects in manufacturing and material. The warranty 
+is valid for 12 months after delivery. Repairs covered 
+under the warranty will be performed at SCANLAB.
+The scope of the warranty is limited to repair or 
+replacement of the SCANLAB product.
+SCANLAB is responsible for the return delivery of 
+products repaired under warranty; the customer is 
+responsible for delivery to SCANLAB.
+SCANLAB will not be held responsible:
+• when the product has been damaged through 
+misuse or improper operation
+• for damage due to improper laser power (e.g. 
+focused beam on optical surfaces) or improper 
+adjustment
+• for damage to optical components (mirrors, 
+objective, etc.) caused by improper handling or 
+cleaning 
+• for consequential damages
+• if the scan head has been altered
+• if the warranty seal on the scan head’s housing 
+has been broken
+If a returned scan head must first be brought into a 
+serviceable state by SCANLAB (e.g. by removing align-
+ment pins and other customer-added parts or 
+cleaning the scan head) before servicing can begin, 
+then the customer must bear the additional cost.
+Cleaning Notes
+• Avoid skin contact with the optic.
+• Use only clean lint-free tissues specially manu-
+factured for cleaning optics (e.g. "Kodak lens 
+cleaning paper"). Always use lens tissues with 
+a solvent, because dry tissue can scratch 
+optical surfaces.
+• Use a solvent such as acetone or isopropanol 
+of high purity (evaporation residue < 0.001%). 
+Read and follow the safety advice and warn-
+ings for the solvents you will be using.
+• Use clean gloves or finger cots that are imper-
+meable to the organic cleaning solvents you 
+will be using.
+• Always wipe slowly but steadily, using a 
+circular motion from the center of the optic 
+around to the outer edges. Do not rub back 
+and forth!
+• Only wipe with slight pressure!
+
+[p.31]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+7 Routine Maintenance and Customer Service
+31
+innovators for industry
+Contacting SCANLAB
+For service, repairs, advice or information, simply 
+contact SCANLAB using one of the contact possibili-
+ties listed below:
+SCANLAB AG
+Siemensstr. 2a
+82178 Puchheim
+Germany
+Tel. +49 (89) 800 746-0
+Fax: +49 (89) 800 746-199
+info@scanlab.de
+www.scanlab.de
+Product Disposal
+The SCANcube® 10 can be returned to SCANLAB for 
+a fee to be properly disposed of in compliance with 
+environmental regulations.
+
+[p.32]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+8 Troubleshooting
+32
+innovators for industry
+8
+Troubleshooting
+If problems occur while operating this device, verify 
+that all operating instructions have been adhered to 
+and then carry out the following troubleshooting 
+procedures:
+If the problems persist, please send the scan head to 
+customer service.
+Problem
+Possible Cause
+Remedy
+Low laser power
+Dirty objective
+Clean as described in "Routine 
+Maintenance of the Optical 
+Surfaces" on page 29
+Altered controller software 
+parameters
+Check input parameters
+Dirty or damaged mirror
+Check mirrors. If they are 
+contaminated, call SCANLAB for 
+guidance. Return damaged scan 
+head mirrors for repair.
+Changed laser spot
+Dirty or damaged objective
+Clean as described in "Routine 
+Maintenance of the Optical 
+Surfaces" on page 29
+Dirty or damaged mirror
+Check mirrors. If they are 
+contaminated, call SCANLAB for 
+guidance. Return damaged scan 
+head mirrors for repair.
+Laser out of adjustment
+Adjust laser
+No laser beam
+Problem with the laser
+Check laser and electrical 
+connections
+Problem with the laser controller
+If the RTC® board is used, check all 
+electrical connections and the 
+power supply
+Laser beam path blocked or shutter 
+closed
+Check laser beam path
+Scan head does not steer laser 
+beam in one or both directions
+Problem with the scan head 
+controller
+Check power and data cables. 
+Check software commands.
+
+[p.33]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+9 SCANcube® 10 Preliminary Technical Specifications
+33
+innovators for industry
+9
+SCANcube® 10 Preliminary Technical Specifications
+(all angle specifications optical)
+   
+SCANLAB ID number
+of scan head
+112612
+Aperture
+maximum diameter of the laser 
+beam inside the scan head
+10 mm
+Control
+Input signals
+– 4.8 V to +4.8 V
+Output signals
+1 digital status- 
+signal per axis
+(open collector)
+Maximum range for control 
+values (1) 
+– 5 V to +5 V
+Calibration
+±0.408 rad with 
+±4.8 V
+Maximum allowed scan angle
+(vignetting insignificant) (2)
+- without objective
+±0.36 rad
+Power supply
+Requirements
+±(15+1.5) V DC, 
+max. 3 A each pole
+Optical Performance
+Gain error
+< 5 mrad
+Zero offset
+< 5 mrad
+Skew
+< 1.5 mrad
+Nonlinearity
+< 3.5 mrad
+Repeatability
+< 22 µrad
+Long-term drift over 8 hours
+(at constant environmental condi-
+tions)
+< 0.3 mrad
+Offset drift
+< 30 µrad/K
+Gain drift
+< 80 ppm/K
+(1)
+This maximum range for input values should be regarded as a 
+theoretical range. Due to the danger of vignetting by the 
+mirrors (also see page 6), the specified maximum scan angle 
+must never be exceeded.
+(2)
+Theoretical value (see page 6 and page 7)
+(3)
+See page 27.
+Tuning Specifications (Dynamic Performance) (3)
+Tracking error
+< 0.18 ms
+Typical positioning speed
+(* with 160 mm objective)
+45 rad/s
+(*7 m/s)
+Maximum positioning speed
+100 rad/s
+Typical marking speed (for 
+marking small characters, with 
+160 mm objective)
+2 m/s
+Step response
+(settling to 1/1000 full scale)
+• 1% of full scale
+0.40 ms
+• 10% of full scale
+1.2 ms
+Mirror
+Coating
+dielectrically 
+enhanced silver 
+coating
+Working wavelength
+450 nm - 2500 nm
+Reflectivity (see also figure 3 on 
+page 7)
+– at 450 nm to 2500 nm
+more than 96% per 
+mirror, over the full 
+range of angles
+Maximum allowed average 
+laser power
+12 W
+Maximum allowed laser power 
+density continuous wave
+30 W/cm2
+Damage threshold for pulsed 
+operation (with wavelength 
+1064 nm, pulse length 10 ns, 
+200 on 1, also see page 25)
+0.25 J/cm2
+Weight
+without objective
+1.9 kg
+Operating and Storage Conditions
+Operating temperature
+25 °C ± 10 °C
+Storage temperature
+– 35 °C to +60 °C
+Environmental conditions
+non-condensing, 
+non-corrosive
+
+[p.34]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+9 SCANcube® 10 Preliminary Technical Specifications
+34
+innovators for industry
+9.1
+Electromagnetic Compati-
+bility
+Compliance with EC Guidelines for 
+Electromagnetic Compatibility (EMC)
+The SCANcube® and HS7® series of scan heads have 
+been determined to be in compliance with 
+EC-Guidelines 89/336/EEC (electromagnetic compat-
+ibility).
+For that purpose, a scan head from one of the above-
+mentioned series was tested in the following config-
+uration:
+– SCANcube® 7, digital
+– RTC®4 PC interface board
+Test Specifications
+Evidence of fulfillment of the protection goals of 
+the July 1993 version of EC 
+Guidelines 89/336/EEC (CE Conformity for EMC) 
+based on
+– EN 61000-6-2: 2001
+– EN 61000-6-4: 2001
+Result
+The device under test fulfills the specifications.
+
+[p.35]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+Index
+35
+innovators for industry
+Index
+A
+adjustment and alignment of scan head ............ 25
+alignment holes .................................................. 21
+alignment pins .............................................. 18, 21
+analog input signals ........................................... 23
+ANALOG POWER IN connector ............................ 22
+aperture .................................................... 6, 24, 33
+application
+optimizing ................................................... 27
+application software
+checking parameters of ............................... 26
+article number ............................................ 1, 5, 33
+assembling the scan head .............................. 15–21
+automatic self-calibration ................................... 28
+B
+beam diameter ............................................... 6, 24
+beam displacement ............................................ 17
+beam entrance .................................................... 17
+beam entrance / exit
+protective cover ........................................... 26
+beam vignetting ................................................... 6
+C
+calibration
+automatic .................................................... 28
+specifications of scan head .......................... 33
+camera adapter .................................................. 28
+CE label ............................................................... 11
+checking
+application software parameters ................. 26
+installation ................................................... 24
+laser parameters .......................................... 24
+specifications of scan head and application . 15
+cleaning notes .................................................... 30
+cleaning optical surfaces ..................................... 29
+coatings, optical ............................................. 6, 33
+configuration, optical ........................................... 6
+connections
+analog input signals .................................... 23
+power supply ............................................... 23
+status signals ............................................... 23
+connector
+ANALOG POWER IN ...................................... 22
+pin outs ....................................................... 22
+position on scan head .................................. 17
+contacting SCANLAB ........................................... 31
+contents of package ............................................. 5
+control .................................................................. 7
+input values ................................................. 33
+signals ........................................................... 7
+correction table .................................................... 9
+customer service ................................................. 30
+D
+damage threshold ..................................... 6, 24, 33
+data transmission ................................................. 7
+deflection mirrors ................... 6, 12, 27, 29, 32, 33
+dimensions of scan head .................................... 17
+displacement, of laser beam ............................... 25
+disposal of scan head ......................................... 31
+distances
+various defined ...................................... 17, 20
+working A .............................................. 17, 20
+drift
+gain ....................................................... 28, 33
+long-term ..................................................... 33
+offset ..................................................... 28, 33
+dynamic performance ......................................... 33
+E
+electrical connections ................................... 22, 33
+electrical safety ................................................... 14
+electromagnetic compatibility ...................... 11, 34
+environmental conditions ............................. 23, 33
+optimum ...................................................... 28
+F
+field distortion ...................................................... 9
+flange, laser system ...................................... 18, 21
+G
+gain drift ....................................................... 28, 33
+gain error ............................................................ 33
+galvanometer scanners
+behavior of .................................................. 27
+lag time ....................................................... 27
+guarantee ........................................................... 30
+guidelines
+electromagnetic compatibility ..................... 11
+I
+ID number ................................................... 1, 5, 33
+ID plate ................................................................. 5
+image field ............................................................ 7
+distance to beam entrance .......................... 20
+distortion ....................................................... 9
+input signals ............................................. 7, 23, 33
+installation ..................................................... 15–23
+checking ...................................................... 24
+of objective .................................................. 15
+interface ............................................................... 7
+specifications ............................................... 33
+
+[p.36]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+Index
+36
+innovators for industry
+interference immunity .................................. 11, 34
+internal protective functions ............................... 10
+L
+lag time of scanners ........................................... 27
+laser beam
+diameter ...................................................... 33
+displacement of ........................................... 25
+tilt of ............................................................ 25
+vignetting ...................................................... 6
+wavelength ............................................ 24, 33
+laser parameters, checking ................................. 24
+laser power density, maximum ..................... 24, 33
+laser power, maximum .................................. 24, 33
+laser radiation
+classes of ..................................................... 13
+warning symbols .................................... 12–14
+laser rating ............................................... 6, 24, 33
+laser safety ..................................................... 12–14
+laser system flange ....................................... 18, 21
+layout of scan head ............................................ 17
+long-term drift .................................................... 33
+M
+maintaining optical surfaces ............................... 29
+manual, about this ............................................... 5
+manufacturer, contact ........................................ 31
+marking speed .................................................... 33
+maximum scan angle ............................................ 7
+mirrors .......................................... 6, 12, 27, 32, 33
+coatings ............................................... 6, 7, 33
+inspection of ................................................ 29
+wavelength .............................................. 6, 33
+monitoring
+the operating temperature .......................... 10
+the scan range ............................................. 10
+via camera ................................................... 28
+via software ................................................. 28
+mounting
+parts for scan head mounting ..................... 18
+screws .......................................................... 21
+the objective ................................................ 15
+the scan head .............................................. 21
+mounting bore holes .......................................... 18
+N
+nonlinearity ........................................................ 33
+O
+objective ............................................................... 6
+holder .......................................................... 15
+inspecting and cleaning ......................... 16, 29
+installing ...................................................... 15
+mounting set ............................................... 15
+protective cover ........................................... 26
+offset drift .................................................... 28, 33
+operating and storage conditions ....................... 23
+operating manual, about this ............................... 5
+operating safety .................................................. 11
+operating temperature ....................................... 33
+operation and start-up ........................................ 24
+optical configuration ............................................ 6
+optical performance ........................................... 33
+optics
+inspecting and cleaning ............................... 29
+specifications ............................................... 33
+optimizing the application .................................. 27
+optimum environmental conditions .................... 28
+output signals ............................................... 23, 33
+overview ............................................................. 17
+overview of product .............................................. 5
+P
+package contents .................................................. 5
+performance specifications
+optical .......................................................... 33
+pillow-barrel distortion ......................................... 9
+pin outs of connectors ........................................ 22
+position signals ..................................................... 7
+positioning laser beams ........................................ 6
+positioning speed ................................... 10, 27, 33
+power in connector ............................................ 22
+power supply
+connections ................................................. 23
+maximum cable length ................................ 23
+requirements ......................................... 22, 33
+principle of operation ........................................... 6
+process monitoring ............................................. 28
+processing field ..................................................... 7
+processing speed ................................................ 27
+product disposal ................................................. 31
+product overview .................................................. 5
+protective covers ................................................. 26
+protective functions ............................................ 10
+PWRFAIL signal ..................................................... 9
+R
+reference system ................................................... 7
+reflectivity of the mirror’s coating ......................... 7
+repairs ................................................................. 30
+repeatability .................................................. 28, 33
+routine maintenance ........................................... 29
+S
+safe operating temperatures ............................... 10
+
+[p.37]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+Index
+37
+innovators for industry
+safety
+during installation and operation ................ 11
+EC guidelines ............................................... 11
+electrical safety ............................................ 14
+electromagnetic compatibility ............... 11, 34
+laser radiation warning symbols ............. 12–14
+laser safety .............................................. 12–14
+operating safety ........................................... 11
+safety and warning symbols in manual ........ 11
+standards and guidelines ............................. 11
+scan angle, maximum ..................................... 7, 33
+scan head
+adjustment and alignment of ...................... 25
+control ........................................................... 7
+control values .............................................. 33
+mounting onto laser system ........................ 21
+optics, checking and cleaning ...................... 29
+repairs .......................................................... 30
+servicing ...................................................... 30
+technical specifications ................................ 33
+scan range
+monitoring .................................................. 10
+SCANLAB, contacting .......................................... 31
+scanners
+characteristic behavior ................................. 27
+lag time ....................................................... 27
+screws, mounting ............................................... 18
+self-calibration .................................................... 28
+serial number ........................................................ 5
+servicing ............................................................. 30
+shutdown sequence ............................................ 26
+shutter ................................................................ 12
+signal transmission ............................................... 7
+signals ................................................................ 33
+input ........................................................ 7, 23
+output ......................................................... 23
+PWRFAIL ......................................................... 9
+status ............................................................. 9
+skew, error .......................................................... 33
+specifications, technical ...................................... 33
+start-up .......................................................... 24–26
+and operation .............................................. 24
+and shutdown sequences ............................ 26
+status signals .................................................. 9, 23
+step response ...................................................... 33
+storage and operating conditions ....................... 23
+storage temperature ........................................... 33
+supression of radio interference ................... 11, 34
+T
+technical specifications ....................................... 33
+temperature
+safe operating ............................................. 10
+tilt, of laser beam ............................................... 25
+time lag of scanners ........................................... 27
+tracking error ................................................ 27, 33
+troubleshooting .................................................. 32
+tuning
+specifications ............................................... 33
+typical positioning speed .................................... 33
+U
+unpacking instructions ......................................... 5
+V
+varioSCAN ............................................................. 6
+vector rate .......................................................... 10
+vignetting, beam ............................................ 6, 25
+W
+warranty ............................................................. 30
+wavelength ............................................... 6, 24, 33
+weight ................................................................ 33
+working distance A ................................. 17, 20, 26
+working field ........................................................ 7
+X
+X-Y reference system ............................................. 7
+Z
+zero offset .......................................................... 33
+
+[p.38]
+SCANcube® 10, analog, 450 nm - 2500 nm
+Rev. 2.6 e
+Notes
+38
+innovators for industry
+Notes

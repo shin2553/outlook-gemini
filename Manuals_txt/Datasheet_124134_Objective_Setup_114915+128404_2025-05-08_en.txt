@@ -1,0 +1,94 @@
+# Datasheet_124134_Objective_Setup_114915+128404_2025-05-08_en
+
+[p.1]
+Nominal focal length [mm]
+160
+Wavelength specified by manufacturer [nm] 
+340-370
+Protective window
+yes (123554)
+Max. beam diameter specified by manufacturer [mm]
+10
+Optical elements entirely made of fused silica
+yes
+Objective
+Technical Specifications
+Attachments
+124134 – Type f=160-355-6
+Dimensions and installation instruction for Objective mounting kit-136 114915
+Technical specifications for 2D scan system setup 124134, 114915, 128404
+DocType: 150818 – order specific objective datasheet – Rev.1.0 en
+subject to change without notice
+© SCANLAB GmbH
+COC#: 2136289
+2025-05-08
+
+[p.2]
+Objective
+124134 – Objective f=160-355-6
+Objective mounting kit
+114915 – Objective mounting kit-136
+Scan System
+128404 – intelliSCAN 14; 355nm-IP
+Working wavelength,
+for which the following quantities are specified [nm]
+355
+Typical image field size [mm²] (1)
+75 x 75
+Max. allowed scan angle of the objective in this setup
+[± rad optical] (1),(2)
+0.23
+Max. adjustable scan angle of the scan system
+[± rad optical]
+0.389
+A [mm]
+350
+C [mm]
+129
+D [mm]
+127
+Legend
+A  Working distance between beam entrance center and
+     image field
+B  Distance between beam entrance center and lower edge
+    of the scan head (see scan head manual)
+C  Distance between beam entrance center and lower edge
+    of the objective
+D  Maximum diameter of objective and objective mounting kit
+E  Distance between beam entrance side and beam exit center
+    (see scan head manual)
+ 
+1  Entering laser beam
+2  Scan head
+3  Objective
+4  Emerging laser beam (with mirrors in neutral position)
+5  Image field
+The schematic drawing is neither true to scale, 
+nor does it show all the equipment features of the components.
+(1) For vignetting of less than 1% (with full aperture illumination)
+2D Scan System Setup
+124134, 114915, 128404
+Setup
+Technical Specifications
+(2) Only relevant, if smaller than the max. adjustable scan angle of the scan system
+DocType: 150820 – order specific 2D setup datasheet – Rev.1.0 en
+subject to change without notice
+© SCANLAB GmbH
+COC#: 2136289
+2025-05-08
+
+[p.3]
+Objective mounting kit - Objektivmontagesatz
+114915
+all dimensions in mm - Abmessungen in mm
+© SCANLAB GmbH 2022
+subject to change without notice - Änderungen vorbehalten
+1 x 114914
+4 x 105694
+1 x 100370
+objective mounting side - Objektivanbauseite
+14,5
+25,1
+O 99
+M85 x 1
+O 92
